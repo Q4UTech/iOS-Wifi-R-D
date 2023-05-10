@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C0582B3A-9DAB-4A10-8B4B-4F45B0B7ABE3"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE23F82B-32C8-4746-8B16-981D3690DA85"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LANScanner/Pod/Classes/LANScanner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "startScan()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EE23F82B-32C8-4746-8B16-981D3690DA85 - 51c84e44c6953e1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "2100">
+               </Location>
+               <Location
+                  uuid = "EE23F82B-32C8-4746-8B16-981D3690DA85 - 51c84e44c6953e1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "2112">
+               </Location>
+               <Location
+                  uuid = "EE23F82B-32C8-4746-8B16-981D3690DA85 - 51c84e44c6953e1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "2124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4B30231-1769-4D66-AD2D-55CAED602803"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LANScanner/Pod/Classes/LANScanner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "pingAddress()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0EA7499-CFFA-4EB3-BF3A-9C27A614C582"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LANScanner/Pod/Classes/LANScanner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "startScan()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E0EA7499-CFFA-4EB3-BF3A-9C27A614C582 - 51c84e44c6953c25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "608">
+               </Location>
+               <Location
+                  uuid = "E0EA7499-CFFA-4EB3-BF3A-9C27A614C582 - 51c84e44c6953c25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "620">
+               </Location>
+               <Location
+                  uuid = "E0EA7499-CFFA-4EB3-BF3A-9C27A614C582 - 51c84e44c6953c25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LANScanner.LANScanner.startScan() -&gt; ()"
+                  moduleName = "LANScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/poornima/Documents/LanScanner/Pods/LANScanner/Pod/Classes/LANScanner.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

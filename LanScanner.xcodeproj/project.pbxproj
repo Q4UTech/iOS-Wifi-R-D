@@ -1,0 +1,715 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD47208A29CD552F002C601D /* LANScanner-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD47208429CD552F002C601D /* LANScanner-Info.plist */; };
+		BD47208B29CD552F002C601D /* LANScanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD47208529CD552F002C601D /* LANScanner-dummy.m */; };
+		BD47208C29CD552F002C601D /* LANScanner.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BD47208629CD552F002C601D /* LANScanner.debug.xcconfig */; };
+		BD47208D29CD552F002C601D /* LANScanner.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BD47208729CD552F002C601D /* LANScanner.release.xcconfig */; };
+		BDF21E6A29CC619B0075310A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21E6929CC619B0075310A /* AppDelegate.swift */; };
+		BDF21E6C29CC619B0075310A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21E6B29CC619B0075310A /* SceneDelegate.swift */; };
+		BDF21E6E29CC619B0075310A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21E6D29CC619B0075310A /* ViewController.swift */; };
+		BDF21E7129CC619B0075310A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF21E6F29CC619B0075310A /* Main.storyboard */; };
+		BDF21E7329CC619B0075310A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF21E7229CC619B0075310A /* Assets.xcassets */; };
+		BDF21E7629CC619B0075310A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF21E7429CC619B0075310A /* LaunchScreen.storyboard */; };
+		BDF21EA629CC7EE70075310A /* LANHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21EA029CC7EE70075310A /* LANHost.swift */; };
+		BDF21EA729CC7EE70075310A /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF21EA129CC7EE70075310A /* SimplePing.m */; };
+		BDF21EA829CC7EE70075310A /* SimplePingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21EA229CC7EE70075310A /* SimplePingHelper.swift */; };
+		BDF21EA929CC7EE70075310A /* LANScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21EA429CC7EE70075310A /* LANScanner.swift */; };
+		BDF21EAA29CC7EE70075310A /* LANDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF21EA529CC7EE70075310A /* LANDevice.swift */; };
+		C24F5ABBE4C78816AC813BCF /* Pods_LanScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB08A1FB06FEB8BE300D4BA /* Pods_LanScanner.framework */; };
+		C74AB1F82A0A2EFD009743D3 /* MainListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74AB1F72A0A2EFD009743D3 /* MainListHelper.swift */; };
+		C79831B92A0BB92700266979 /* WifiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79831B82A0BB92700266979 /* WifiData.swift */; };
+		C7A56C652A08FEDA000943E6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A56C642A08FEDA000943E6 /* Helper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDF21E7D29CC619C0075310A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF21E5E29CC619B0075310A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF21E6529CC619B0075310A;
+			remoteInfo = LanScanner;
+		};
+		BDF21E8729CC619C0075310A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF21E5E29CC619B0075310A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF21E6529CC619B0075310A;
+			remoteInfo = LanScanner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EB08A1FB06FEB8BE300D4BA /* Pods_LanScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LanScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970BD0BD58870F5209850663 /* Pods-LanScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanScanner.release.xcconfig"; path = "Target Support Files/Pods-LanScanner/Pods-LanScanner.release.xcconfig"; sourceTree = "<group>"; };
+		BD47208429CD552F002C601D /* LANScanner-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LANScanner-Info.plist"; sourceTree = "<group>"; };
+		BD47208529CD552F002C601D /* LANScanner-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LANScanner-dummy.m"; sourceTree = "<group>"; };
+		BD47208629CD552F002C601D /* LANScanner.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = LANScanner.debug.xcconfig; sourceTree = "<group>"; };
+		BD47208729CD552F002C601D /* LANScanner.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = LANScanner.release.xcconfig; sourceTree = "<group>"; };
+		BD47208829CD552F002C601D /* LANScanner-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LANScanner-prefix.pch"; sourceTree = "<group>"; };
+		BD47208929CD552F002C601D /* LANScanner.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = LANScanner.modulemap; sourceTree = "<group>"; };
+		BDF21E6629CC619B0075310A /* LanScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF21E6929CC619B0075310A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDF21E6B29CC619B0075310A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BDF21E6D29CC619B0075310A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDF21E7029CC619B0075310A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDF21E7229CC619B0075310A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDF21E7529CC619B0075310A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDF21E7729CC619B0075310A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF21E7C29CC619C0075310A /* LanScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF21E8629CC619C0075310A /* LanScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanScannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF21E9929CC74CD0075310A /* LanScanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanScanner.entitlements; sourceTree = "<group>"; };
+		BDF21E9F29CC7EE60075310A /* LanScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanScanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		BDF21EA029CC7EE70075310A /* LANHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LANHost.swift; sourceTree = "<group>"; };
+		BDF21EA129CC7EE70075310A /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		BDF21EA229CC7EE70075310A /* SimplePingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePingHelper.swift; sourceTree = "<group>"; };
+		BDF21EA329CC7EE70075310A /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		BDF21EA429CC7EE70075310A /* LANScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LANScanner.swift; sourceTree = "<group>"; };
+		BDF21EA529CC7EE70075310A /* LANDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LANDevice.swift; sourceTree = "<group>"; };
+		BE12C77D6E0E723E7736865F /* Pods-LanScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanScanner.debug.xcconfig"; path = "Target Support Files/Pods-LanScanner/Pods-LanScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		C74AB1F72A0A2EFD009743D3 /* MainListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListHelper.swift; sourceTree = "<group>"; };
+		C79831B82A0BB92700266979 /* WifiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiData.swift; sourceTree = "<group>"; };
+		C7A56C642A08FEDA000943E6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDF21E6329CC619B0075310A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24F5ABBE4C78816AC813BCF /* Pods_LanScanner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E7929CC619C0075310A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E8329CC619C0075310A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B04AFAF407ACCCB5F5FC7D77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EB08A1FB06FEB8BE300D4BA /* Pods_LanScanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD47208329CD5506002C601D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD47208529CD552F002C601D /* LANScanner-dummy.m */,
+				BD47208429CD552F002C601D /* LANScanner-Info.plist */,
+				BD47208829CD552F002C601D /* LANScanner-prefix.pch */,
+				BD47208629CD552F002C601D /* LANScanner.debug.xcconfig */,
+				BD47208929CD552F002C601D /* LANScanner.modulemap */,
+				BD47208729CD552F002C601D /* LANScanner.release.xcconfig */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		BDF21E5D29CC619B0075310A = {
+			isa = PBXGroup;
+			children = (
+				BDF21E6829CC619B0075310A /* LanScanner */,
+				BDF21E6729CC619B0075310A /* Products */,
+				F231927932291EEA65EBD7FF /* Pods */,
+				B04AFAF407ACCCB5F5FC7D77 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDF21E6729CC619B0075310A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDF21E6629CC619B0075310A /* LanScanner.app */,
+				BDF21E7C29CC619C0075310A /* LanScannerTests.xctest */,
+				BDF21E8629CC619C0075310A /* LanScannerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDF21E6829CC619B0075310A /* LanScanner */ = {
+			isa = PBXGroup;
+			children = (
+				BDF21E9A29CC7E960075310A /* LanScanner */,
+				BDF21E9929CC74CD0075310A /* LanScanner.entitlements */,
+				BDF21E6929CC619B0075310A /* AppDelegate.swift */,
+				BDF21E6B29CC619B0075310A /* SceneDelegate.swift */,
+				BDF21E6D29CC619B0075310A /* ViewController.swift */,
+				BDF21E6F29CC619B0075310A /* Main.storyboard */,
+				BDF21E7229CC619B0075310A /* Assets.xcassets */,
+				BDF21E7429CC619B0075310A /* LaunchScreen.storyboard */,
+				BDF21E7729CC619B0075310A /* Info.plist */,
+				C7A56C642A08FEDA000943E6 /* Helper.swift */,
+				C74AB1F72A0A2EFD009743D3 /* MainListHelper.swift */,
+				C79831B82A0BB92700266979 /* WifiData.swift */,
+			);
+			path = LanScanner;
+			sourceTree = "<group>";
+		};
+		BDF21E9A29CC7E960075310A /* LanScanner */ = {
+			isa = PBXGroup;
+			children = (
+				BD47208329CD5506002C601D /* Support Files */,
+				BDF21EA529CC7EE70075310A /* LANDevice.swift */,
+				BDF21EA029CC7EE70075310A /* LANHost.swift */,
+				BDF21EA429CC7EE70075310A /* LANScanner.swift */,
+				BDF21EA329CC7EE70075310A /* SimplePing.h */,
+				BDF21EA129CC7EE70075310A /* SimplePing.m */,
+				BDF21EA229CC7EE70075310A /* SimplePingHelper.swift */,
+				BDF21E9F29CC7EE60075310A /* LanScanner-Bridging-Header.h */,
+			);
+			path = LanScanner;
+			sourceTree = "<group>";
+		};
+		F231927932291EEA65EBD7FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE12C77D6E0E723E7736865F /* Pods-LanScanner.debug.xcconfig */,
+				970BD0BD58870F5209850663 /* Pods-LanScanner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDF21E6529CC619B0075310A /* LanScanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF21E9029CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScanner" */;
+			buildPhases = (
+				8549C70E7D8E0795A6357AD5 /* [CP] Check Pods Manifest.lock */,
+				BDF21E6229CC619B0075310A /* Sources */,
+				BDF21E6329CC619B0075310A /* Frameworks */,
+				BDF21E6429CC619B0075310A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LanScanner;
+			productName = LanScanner;
+			productReference = BDF21E6629CC619B0075310A /* LanScanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDF21E7B29CC619C0075310A /* LanScannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF21E9329CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScannerTests" */;
+			buildPhases = (
+				BDF21E7829CC619C0075310A /* Sources */,
+				BDF21E7929CC619C0075310A /* Frameworks */,
+				BDF21E7A29CC619C0075310A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF21E7E29CC619C0075310A /* PBXTargetDependency */,
+			);
+			name = LanScannerTests;
+			productName = LanScannerTests;
+			productReference = BDF21E7C29CC619C0075310A /* LanScannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDF21E8529CC619C0075310A /* LanScannerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF21E9629CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScannerUITests" */;
+			buildPhases = (
+				BDF21E8229CC619C0075310A /* Sources */,
+				BDF21E8329CC619C0075310A /* Frameworks */,
+				BDF21E8429CC619C0075310A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF21E8829CC619C0075310A /* PBXTargetDependency */,
+			);
+			name = LanScannerUITests;
+			productName = LanScannerUITests;
+			productReference = BDF21E8629CC619C0075310A /* LanScannerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDF21E5E29CC619B0075310A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					BDF21E6529CC619B0075310A = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
+					BDF21E7B29CC619C0075310A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BDF21E6529CC619B0075310A;
+					};
+					BDF21E8529CC619C0075310A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BDF21E6529CC619B0075310A;
+					};
+				};
+			};
+			buildConfigurationList = BDF21E6129CC619B0075310A /* Build configuration list for PBXProject "LanScanner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDF21E5D29CC619B0075310A;
+			productRefGroup = BDF21E6729CC619B0075310A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDF21E6529CC619B0075310A /* LanScanner */,
+				BDF21E7B29CC619C0075310A /* LanScannerTests */,
+				BDF21E8529CC619C0075310A /* LanScannerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDF21E6429CC619B0075310A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF21E7629CC619B0075310A /* LaunchScreen.storyboard in Resources */,
+				BD47208A29CD552F002C601D /* LANScanner-Info.plist in Resources */,
+				BDF21E7329CC619B0075310A /* Assets.xcassets in Resources */,
+				BD47208C29CD552F002C601D /* LANScanner.debug.xcconfig in Resources */,
+				BD47208D29CD552F002C601D /* LANScanner.release.xcconfig in Resources */,
+				BDF21E7129CC619B0075310A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E7A29CC619C0075310A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E8429CC619C0075310A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8549C70E7D8E0795A6357AD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LanScanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDF21E6229CC619B0075310A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF21E6E29CC619B0075310A /* ViewController.swift in Sources */,
+				BD47208B29CD552F002C601D /* LANScanner-dummy.m in Sources */,
+				BDF21EA929CC7EE70075310A /* LANScanner.swift in Sources */,
+				BDF21EA829CC7EE70075310A /* SimplePingHelper.swift in Sources */,
+				BDF21EA629CC7EE70075310A /* LANHost.swift in Sources */,
+				BDF21E6A29CC619B0075310A /* AppDelegate.swift in Sources */,
+				BDF21EAA29CC7EE70075310A /* LANDevice.swift in Sources */,
+				C7A56C652A08FEDA000943E6 /* Helper.swift in Sources */,
+				BDF21EA729CC7EE70075310A /* SimplePing.m in Sources */,
+				BDF21E6C29CC619B0075310A /* SceneDelegate.swift in Sources */,
+				C79831B92A0BB92700266979 /* WifiData.swift in Sources */,
+				C74AB1F82A0A2EFD009743D3 /* MainListHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E7829CC619C0075310A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF21E8229CC619C0075310A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDF21E7E29CC619C0075310A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF21E6529CC619B0075310A /* LanScanner */;
+			targetProxy = BDF21E7D29CC619C0075310A /* PBXContainerItemProxy */;
+		};
+		BDF21E8829CC619C0075310A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF21E6529CC619B0075310A /* LanScanner */;
+			targetProxy = BDF21E8729CC619C0075310A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDF21E6F29CC619B0075310A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF21E7029CC619B0075310A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDF21E7429CC619B0075310A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF21E7529CC619B0075310A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDF21E8E29CC619C0075310A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/poornima/Documents/LanScanner/LanScanner/LanScanner/LanScanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDF21E8F29CC619C0075310A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/poornima/Documents/LanScanner/LanScanner/LanScanner/LanScanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDF21E9129CC619C0075310A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE12C77D6E0E723E7736865F /* Pods-LanScanner.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LanScanner/LanScanner.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LanScanner/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LanScanner/LanScanner/LanScanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDF21E9229CC619C0075310A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 970BD0BD58870F5209850663 /* Pods-LanScanner.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LanScanner/LanScanner.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LanScanner/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScanner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LanScanner/LanScanner/LanScanner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDF21E9429CC619C0075310A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanScanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LanScanner";
+			};
+			name = Debug;
+		};
+		BDF21E9529CC619C0075310A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanScanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LanScanner";
+			};
+			name = Release;
+		};
+		BDF21E9729CC619C0075310A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScannerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanScanner;
+			};
+			name = Debug;
+		};
+		BDF21E9829CC619C0075310A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.LanScannerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanScanner;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDF21E6129CC619B0075310A /* Build configuration list for PBXProject "LanScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF21E8E29CC619C0075310A /* Debug */,
+				BDF21E8F29CC619C0075310A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF21E9029CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF21E9129CC619C0075310A /* Debug */,
+				BDF21E9229CC619C0075310A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF21E9329CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF21E9429CC619C0075310A /* Debug */,
+				BDF21E9529CC619C0075310A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF21E9629CC619C0075310A /* Build configuration list for PBXNativeTarget "LanScannerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF21E9729CC619C0075310A /* Debug */,
+				BDF21E9829CC619C0075310A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDF21E5E29CC619B0075310A /* Project object */;
+}
