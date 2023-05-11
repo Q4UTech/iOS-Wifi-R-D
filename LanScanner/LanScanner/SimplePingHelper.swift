@@ -35,9 +35,9 @@ class SimplePingHelper: NSObject, SimplePingDelegate {
     }
     
     func start() {
-        DispatchQueue.main.async {
+      
             self.simplePing?.start()
-        }
+       
             self.perform(#selector(SimplePingHelper.endTime), with: nil, afterDelay: 1)
        
         
