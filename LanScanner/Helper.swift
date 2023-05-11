@@ -18,7 +18,7 @@ class WifiHelper:LANScannerDelegate{
     
     func startWifiScan(){
         
-        DispatchQueue.global(qos: .background).async {
+       DispatchQueue.global(qos: .background).async {
             let scanner = LANScanner(delegate: self, continuous: false)
             scanner.startScan(limit:self.limit)
         }

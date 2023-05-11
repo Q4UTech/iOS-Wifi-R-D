@@ -54,7 +54,7 @@ open class LANScanner: NSObject {
     
     
     var localAddress: String?
-    var baseAddress: String?
+    static var baseAddress: String?
     var currentHostAddress: Int = 0
     var timer: Timer?
 //    var netMask: String?
@@ -69,7 +69,7 @@ open class LANScanner: NSObject {
    
     let startSignal = DispatchSemaphore(value: 0)
     let doneSignal = DispatchGroup()
-    let wifiData = WifiData()
+  
    
 
     public override init() {
@@ -88,45 +88,33 @@ open class LANScanner: NSObject {
     // MARK: - Actions
     open func startScan(limit:Int) {
         self.limit = limit
-      noOfThreads =  limit / setOfIpsInThread
+        let wifiData = WifiData(delegate:delegate! )
+        wifiData.noOfThreads =  limit / wifiData.setOfIpsInThread
             
               if let localAddress = LANScanner.getLocalAddress() {
                 self.localAddress = localAddress.ip
-//                self.netMask = localAddress.netmask
-//                let netMaskComponents = addressParts(self.netMask!)
                 let ipComponents = addressParts(self.localAddress!)
                   
                 if  ipComponents.count == 4 {
                 
-                    self.baseAddress = "\(ipComponents[0]).\(ipComponents[1]).\(ipComponents[2])."
+                    LANScanner.baseAddress = "\(ipComponents[0]).\(ipComponents[1]).\(ipComponents[2])."
                    
                     self.currentHostAddress = 0
                     self.timerIterationNumber = 0
                     self.baseAddressEnd = 255
                    
-                    for i in 0...noOfThreads {
+                    for i in 0...wifiData.noOfThreads {
                       
                         
-                        WifiData.instanceHelper.start = i * WifiData.instanceHelper.setOfIpsInThread
-                       // var temp = wifiData.start
-                        print("starttime\(WifiData.instanceHelper.start) \(WifiData.instanceHelper.setOfIpsInThread)")
-                        WifiData.instanceHelper.end = WifiData.instanceHelper.start + WifiData.instanceHelper.setOfIpsInThread
-                        print("starttimeEnd \( WifiData.instanceHelper.end)")
-                        WifiData.instanceHelper.start = max(WifiData.instanceHelper.start, 0)
-                        WifiData.instanceHelper.end = min(WifiData.instanceHelper.end, limit)
+                       wifiData.start = i * wifiData.setOfIpsInThread
+                      
+                        print("starttime\(wifiData.start) \(wifiData.setOfIpsInThread)")
+                       wifiData.end = wifiData.start + wifiData.setOfIpsInThread
+                        print("starttimeEnd \( wifiData.end)")
+                        wifiData.start = max(wifiData.start, 0)
+                       wifiData.end = min(wifiData.end, limit)
                         doneSignal.enter()
-                        pingWifiAddress()
-                        
-//                        starttime = i * setOfIpsInThread
-//                        print("starttime\(starttime)")
-//                        endtime = starttime + setOfIpsInThread
-//                        print("starttimeEnd \(endtime)")
-//                        starttime = max(starttime, 0)
-//                        endtime = min(endtime, limit)
-//                        doneSignal.enter()
-//                        pingWifiAddress()
-                        
-                        
+                        wifiData.pingWifiAddress()
                         
                     }
    
@@ -154,77 +142,8 @@ open class LANScanner: NSObject {
         
         self.timer?.invalidate()
     }
+   
     
-    @objc func pingResult(_ result: [String: Any]) {
-        print("running result")
-        DispatchQueue.global(qos: .background).async { [self] in
-            
-            self.timerIterationNumber += 1
-            let success = result["status"] as! Bool
-            if success {
-                let device = LANDevice()
-                device.ipAddress = result["address"] as! String
-                print("device.ipAddress \(device.ipAddress)")
-                if let hostName = LANScanner.getHostName(device.ipAddress) {
-                    device.hostName = hostName
-                }
-                
-                self.delegate?.LANScannerDiscovery?(device)
-            }
-            
-            if self.timerIterationNumber >= limit {
-                if continuous {
-                    self.timerIterationNumber = 0
-                    self.currentHostAddress = 0
-                    self.delegate?.LANScannerRestarted?()
-                } else {
-                    self.delegate?.LANScannerFinished?()
-                }
-            }
-        }
-    }
-
-
-
-    func pingWifiAddress() {
-      
-        if WifiData.instanceHelper.start <= WifiData.instanceHelper.end {
-          
-//            let queue = DispatchQueue(label: "com.appcoda.myqueue")
-//
-//            queue.async { [self] in
-                    
-                
-            for addindex in WifiData.instanceHelper.start...WifiData.instanceHelper.end {
-                         
-                         self.currentHostAddress = addindex
-                         let address: String = "\(self.baseAddress!)\(currentHostAddress)"
-                         print("addressssValue \(address)")
-                       
-                             SimplePingHelper.start(address, target: self, selector: #selector(LANScanner.pingResult(_:)))
-                       
-                     }
-              //  }
-                
-           // }
-            
-            
-        } else {
-            // handle the case where starttime is greater than endtime
-        }
-       
-        doneSignal.leave()
-        doneSignal.notify(queue: .main) {
-            print("All tasks finished")
-        }
-        
-//        doneSignal.notify(queue: DispatchQueue.global(qos: .background), execute: { [self] in
-//            print("thread is Stop")
-//
-//
-//        })
-    }
-
     // MARK: - Network methods
     public static func getHostName(_ ipaddress: String) -> String? {
         
