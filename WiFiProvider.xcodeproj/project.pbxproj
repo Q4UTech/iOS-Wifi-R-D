@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */; };
+		C713C06929FAA227009308C2 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C713C06829FAA227009308C2 /* splash.json */; };
+		C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3929FB7DA900D89A3E /* MenuVC.swift */; };
+		C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */; };
+		C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */; };
+		C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A542A0CE25500642AF5 /* DashboardVC.swift */; };
+		C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */; };
+		C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */; };
+		C76B0A5B2A0CE33600642AF5 /* PingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5A2A0CE33600642AF5 /* PingVC.swift */; };
+		C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */; };
+		C76B0A5F2A0CF38700642AF5 /* PingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5E2A0CF38700642AF5 /* PingDetailVC.swift */; };
+		C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */; };
+		C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A622A0CF4A400642AF5 /* ConnectedWifiDetail.swift */; };
+		C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A642A0D0C2400642AF5 /* CloseListener.swift */; };
+		C7843B962A0DF3F800C7C2DB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C7843B7C2A0DF3F800C7C2DB /* LICENSE */; };
+		C7843B982A0DF3F800C7C2DB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C7843B7E2A0DF3F800C7C2DB /* README.md */; };
+		C7843B992A0DF3F800C7C2DB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C7843B7F2A0DF3F800C7C2DB /* .gitignore */; };
+		C7843BA42A0DF7CF00C7C2DB /* FingKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7843B7D2A0DF3F800C7C2DB /* FingKit.xcframework */; };
+		C7843BA52A0DF7CF00C7C2DB /* FingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7843B7D2A0DF3F800C7C2DB /* FingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BA72A0DFB9C00C7C2DB /* FGKUtils.swift */; };
+		C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BA92A0DFBF200C7C2DB /* NetworkHelper.swift */; };
+		C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */; };
+		C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */; };
+		C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */; };
+		C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */; };
+		C7843BC22A0E3CA200C7C2DB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBA2A0E3CA200C7C2DB /* Log.swift */; };
+		C7843BC32A0E3CA200C7C2DB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBB2A0E3CA200C7C2DB /* Message.swift */; };
+		C7843BC42A0E3CA200C7C2DB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBC2A0E3CA200C7C2DB /* Config.swift */; };
+		C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBD2A0E3CA200C7C2DB /* Util.swift */; };
+		C7843BC62A0E3CA200C7C2DB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBE2A0E3CA200C7C2DB /* Settings.swift */; };
+		C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */; };
+		C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */; };
+		C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */; };
+		C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */; };
+		C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2501C29FA899700F23FEB /* AppDelegate.swift */; };
+		C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2501E29FA899700F23FEB /* SceneDelegate.swift */; };
+		C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2502029FA899700F23FEB /* SplashVC.swift */; };
+		C7F2502429FA899700F23FEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F2502229FA899700F23FEB /* Main.storyboard */; };
+		C7F2502629FA899800F23FEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F2502529FA899800F23FEB /* Assets.xcassets */; };
+		C7F2502929FA899800F23FEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F2502729FA899800F23FEB /* LaunchScreen.storyboard */; };
+		C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2508C29FA9F1200F23FEB /* WifiVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7843B942A0DF3F800C7C2DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7843B792A0DF3F800C7C2DB /* FingKitTestApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A935C5481D67402200A9364F;
+			remoteInfo = FingKitTestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7843BA52A0DF7CF00C7C2DB /* FingKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.release.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.release.xcconfig"; sourceTree = "<group>"; };
+		4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiFiProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.debug.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.debug.xcconfig"; sourceTree = "<group>"; };
+		C713C06829FAA227009308C2 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		C75F1B3929FB7DA900D89A3E /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingHelper.swift; sourceTree = "<group>"; };
+		C75F1B4029FBE47E00D89A3E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		C76B0A502A0CBF1000642AF5 /* WiFiProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiFiProvider.entitlements; sourceTree = "<group>"; };
+		C76B0A542A0CE25500642AF5 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnVC.swift; sourceTree = "<group>"; };
+		C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestVC.swift; sourceTree = "<group>"; };
+		C76B0A5A2A0CE33600642AF5 /* PingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingVC.swift; sourceTree = "<group>"; };
+		C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
+		C76B0A5E2A0CF38700642AF5 /* PingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingDetailVC.swift; sourceTree = "<group>"; };
+		C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedWifiVC.swift; sourceTree = "<group>"; };
+		C76B0A622A0CF4A400642AF5 /* ConnectedWifiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedWifiDetail.swift; sourceTree = "<group>"; };
+		C76B0A642A0D0C2400642AF5 /* CloseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseListener.swift; sourceTree = "<group>"; };
+		C7843B792A0DF3F800C7C2DB /* FingKitTestApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = FingKitTestApp.xcodeproj; sourceTree = "<group>"; };
+		C7843B7C2A0DF3F800C7C2DB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C7843B7D2A0DF3F800C7C2DB /* FingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FingKit.xcframework; sourceTree = "<group>"; };
+		C7843B7E2A0DF3F800C7C2DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C7843B7F2A0DF3F800C7C2DB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C7843BA72A0DFB9C00C7C2DB /* FGKUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGKUtils.swift; sourceTree = "<group>"; };
+		C7843BA92A0DFBF200C7C2DB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiKey.swift; sourceTree = "<group>"; };
+		C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
+		C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNViewModel.swift; sourceTree = "<group>"; };
+		C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
+		C7843BBA2A0E3CA200C7C2DB /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C7843BBB2A0E3CA200C7C2DB /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C7843BBC2A0E3CA200C7C2DB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C7843BBD2A0E3CA200C7C2DB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C7843BBE2A0E3CA200C7C2DB /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VpnChecker.swift; sourceTree = "<group>"; };
+		C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNConnection.swift; sourceTree = "<group>"; };
+		C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
+		C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSpeed.swift; sourceTree = "<group>"; };
+		C7F2501929FA899700F23FEB /* WiFiProvider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFiProvider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F2501C29FA899700F23FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7F2501E29FA899700F23FEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7F2502029FA899700F23FEB /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		C7F2502329FA899700F23FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7F2502529FA899800F23FEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7F2502829FA899800F23FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7F2502A29FA899800F23FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F2508C29FA9F1200F23FEB /* WifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7F2501629FA899700F23FEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7843BA42A0DF7CF00C7C2DB /* FingKit.xcframework in Frameworks */,
+				041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A79FE8C9EE63DAF8F1454BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFD2D736738334E69D11FFC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */,
+				15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C75F1B3B29FB819000D89A3E /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */,
+				C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */,
+				C76B0A642A0D0C2400642AF5 /* CloseListener.swift */,
+				C7843BA72A0DFB9C00C7C2DB /* FGKUtils.swift */,
+				C7843BA92A0DFBF200C7C2DB /* NetworkHelper.swift */,
+				C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */,
+				C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */,
+			);
+			name = HelperClasses;
+			sourceTree = "<group>";
+		};
+		C76B0A532A0CE1FC00642AF5 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				C76B0A542A0CE25500642AF5 /* DashboardVC.swift */,
+				C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */,
+				C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */,
+				C7F2508C29FA9F1200F23FEB /* WifiVC.swift */,
+				C76B0A5A2A0CE33600642AF5 /* PingVC.swift */,
+				C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */,
+				C76B0A5E2A0CF38700642AF5 /* PingDetailVC.swift */,
+				C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */,
+				C76B0A622A0CF4A400642AF5 /* ConnectedWifiDetail.swift */,
+				C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		C7843B782A0DF3F800C7C2DB /* devrecog-sample-app-ios-master */ = {
+			isa = PBXGroup;
+			children = (
+				C7843B792A0DF3F800C7C2DB /* FingKitTestApp.xcodeproj */,
+				C7843B7C2A0DF3F800C7C2DB /* LICENSE */,
+				C7843B7D2A0DF3F800C7C2DB /* FingKit.xcframework */,
+				C7843B7E2A0DF3F800C7C2DB /* README.md */,
+				C7843B7F2A0DF3F800C7C2DB /* .gitignore */,
+			);
+			path = "devrecog-sample-app-ios-master";
+			sourceTree = "<group>";
+		};
+		C7843B7A2A0DF3F800C7C2DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7843B952A0DF3F800C7C2DB /* FingKitTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7843BB12A0E39C300C7C2DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */,
+				C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C7843BB92A0E3CA200C7C2DB /* ServiceHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C7843BBA2A0E3CA200C7C2DB /* Log.swift */,
+				C7843BBB2A0E3CA200C7C2DB /* Message.swift */,
+				C7843BBC2A0E3CA200C7C2DB /* Config.swift */,
+				C7843BBD2A0E3CA200C7C2DB /* Util.swift */,
+				C7843BBE2A0E3CA200C7C2DB /* Settings.swift */,
+				C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */,
+				C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */,
+				C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */,
+			);
+			path = ServiceHelper;
+			sourceTree = "<group>";
+		};
+		C7F2501029FA899700F23FEB = {
+			isa = PBXGroup;
+			children = (
+				C7F2501B29FA899700F23FEB /* WiFiProvider */,
+				C7F2501A29FA899700F23FEB /* Products */,
+				BFD2D736738334E69D11FFC8 /* Pods */,
+				9A79FE8C9EE63DAF8F1454BC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7F2501A29FA899700F23FEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7F2501929FA899700F23FEB /* WiFiProvider.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C7843BB92A0E3CA200C7C2DB /* ServiceHelper */,
+				C7843BB12A0E39C300C7C2DB /* ViewModels */,
+				C7843B782A0DF3F800C7C2DB /* devrecog-sample-app-ios-master */,
+				C76B0A532A0CE1FC00642AF5 /* viewcontrollers */,
+				C76B0A502A0CBF1000642AF5 /* WiFiProvider.entitlements */,
+				C75F1B3B29FB819000D89A3E /* HelperClasses */,
+				C713C06829FAA227009308C2 /* splash.json */,
+				C7F2501C29FA899700F23FEB /* AppDelegate.swift */,
+				C7F2501E29FA899700F23FEB /* SceneDelegate.swift */,
+				C7F2502029FA899700F23FEB /* SplashVC.swift */,
+				C7F2502229FA899700F23FEB /* Main.storyboard */,
+				C7F2502529FA899800F23FEB /* Assets.xcassets */,
+				C7F2502729FA899800F23FEB /* LaunchScreen.storyboard */,
+				C7F2502A29FA899800F23FEB /* Info.plist */,
+				C75F1B3929FB7DA900D89A3E /* MenuVC.swift */,
+				C75F1B4029FBE47E00D89A3E /* Header.h */,
+			);
+			path = WiFiProvider;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7F2501829FA899700F23FEB /* WiFiProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7F2502D29FA899800F23FEB /* Build configuration list for PBXNativeTarget "WiFiProvider" */;
+			buildPhases = (
+				B8EB38C9AADFC98528CE0699 /* [CP] Check Pods Manifest.lock */,
+				C7F2501529FA899700F23FEB /* Sources */,
+				C7F2501629FA899700F23FEB /* Frameworks */,
+				C7F2501729FA899700F23FEB /* Resources */,
+				D3C1BC7B8E3C2F37334064D3 /* [CP] Embed Pods Frameworks */,
+				C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WiFiProvider;
+			productName = WiFiProvider;
+			productReference = C7F2501929FA899700F23FEB /* WiFiProvider.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7F2501129FA899700F23FEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					C7F2501829FA899700F23FEB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = C7F2501429FA899700F23FEB /* Build configuration list for PBXProject "WiFiProvider" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7F2501029FA899700F23FEB;
+			productRefGroup = C7F2501A29FA899700F23FEB /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C7843B7A2A0DF3F800C7C2DB /* Products */;
+					ProjectRef = C7843B792A0DF3F800C7C2DB /* FingKitTestApp.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C7F2501829FA899700F23FEB /* WiFiProvider */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C7843B952A0DF3F800C7C2DB /* FingKitTestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = FingKitTestApp.app;
+			remoteRef = C7843B942A0DF3F800C7C2DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7F2501729FA899700F23FEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7843B982A0DF3F800C7C2DB /* README.md in Resources */,
+				C7843B992A0DF3F800C7C2DB /* .gitignore in Resources */,
+				C7F2502929FA899800F23FEB /* LaunchScreen.storyboard in Resources */,
+				C7F2502629FA899800F23FEB /* Assets.xcassets in Resources */,
+				C713C06929FAA227009308C2 /* splash.json in Resources */,
+				C7F2502429FA899700F23FEB /* Main.storyboard in Resources */,
+				C7843B962A0DF3F800C7C2DB /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8EB38C9AADFC98528CE0699 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WiFiProvider-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3C1BC7B8E3C2F37334064D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7F2501529FA899700F23FEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */,
+				C76B0A5B2A0CE33600642AF5 /* PingVC.swift in Sources */,
+				C7843BC22A0E3CA200C7C2DB /* Log.swift in Sources */,
+				C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */,
+				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
+				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
+				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
+				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
+				C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */,
+				C76B0A5F2A0CF38700642AF5 /* PingDetailVC.swift in Sources */,
+				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
+				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
+				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
+				C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */,
+				C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */,
+				C7843BC42A0E3CA200C7C2DB /* Config.swift in Sources */,
+				C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */,
+				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
+				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
+				C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */,
+				C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */,
+				C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */,
+				C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */,
+				C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */,
+				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
+				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
+				C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */,
+				C7843BC32A0E3CA200C7C2DB /* Message.swift in Sources */,
+				C7843BC62A0E3CA200C7C2DB /* Settings.swift in Sources */,
+				C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */,
+				C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7F2502229FA899700F23FEB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7F2502329FA899700F23FEB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7F2502729FA899800F23FEB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7F2502829FA899800F23FEB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7F2502B29FA899800F23FEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7F2502C29FA899800F23FEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7F2502E29FA899800F23FEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J292RV4USG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7F2502F29FA899800F23FEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J292RV4USG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7F2501429FA899700F23FEB /* Build configuration list for PBXProject "WiFiProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F2502B29FA899800F23FEB /* Debug */,
+				C7F2502C29FA899800F23FEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7F2502D29FA899800F23FEB /* Build configuration list for PBXNativeTarget "WiFiProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F2502E29FA899800F23FEB /* Debug */,
+				C7F2502F29FA899800F23FEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7F2501129FA899700F23FEB /* Project object */;
+}

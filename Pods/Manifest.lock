@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.9.1)
+  - CryptoSwift (1.6.0)
+  - lottie-ios (4.1.2)
+  - WMGaugeView (0.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - CryptoSwift (~> 1.0)
+  - lottie-ios
+  - WMGaugeView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CryptoSwift
+    - lottie-ios
+    - WMGaugeView
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
+  lottie-ios: b3846a9fa8ca1a1a3bebfa256ebe8b6fd4aaaaad
+  WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
+
+PODFILE CHECKSUM: d9b3e2d7018f913e386c4bb6bd495bb070b42782
+
+COCOAPODS: 1.11.3
