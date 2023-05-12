@@ -33,6 +33,7 @@ class SpeedTestViewModel{
 
                 }
                 
+                
             }else{
 //                target.view.makeToast(MyConstant.constants.kCheckInternet, point: CGPoint(x:target.view.center.x, y: target.view.frame.maxY - 70), title: "", image: nil, completion: nil)
             }
@@ -48,6 +49,10 @@ class SpeedTestViewModel{
                 completion(speed!,status)
                 
             }
+           
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true)
         }
     }
     

@@ -8,7 +8,18 @@
 import UIKit
 import WMGaugeView
 
-class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
+class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
+    func isSpeedCheckComplete(complete: Bool) {
+        hideUnhideView(forRestView:false,forSpeedView:true,forBtn:true)
+    }
+    
+    
+    private func hideUnhideView(forRestView:Bool,forSpeedView:Bool,forBtn:Bool){
+        retestView.isHidden = forRestView
+        speedView.isHidden = forSpeedView
+        startBtn.isHidden = forBtn
+    }
+    
     var documentInteractionController = UIDocumentInteractionController()
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
@@ -20,6 +31,12 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
     @IBOutlet weak var uploadImg: UIImageView!
     @IBOutlet weak var downloadImg: UIImageView!
     @IBOutlet weak var ping: UILabel!
+    @IBOutlet weak var connectionType: UILabel!
+    @IBOutlet weak var ipAddress: UILabel!
+    @IBOutlet weak var provideCompany: UILabel!
+    @IBOutlet weak var retestView: UIView!
+    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
     var speedMeterView: WMGaugeView?
     var speedTestVM = SpeedTestViewModel()
     var countinAPP = 0
@@ -27,7 +44,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
     private var pingSpeed: PingSpeed?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
                 transView.addGestureRecognizer(tapGesture)
         setSpeedMeterUI()
@@ -52,6 +69,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
     
     
     @IBAction func beginTestAction(_ sender: Any) {
+        topView.isHidden = false
         speedMeterView!.value = 0
         getNetworkSpeed()
         getIP()
@@ -59,6 +77,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        topView.isHidden = true
         speedMeterView!.value = 0
         setSpeedTest()
     }
@@ -74,6 +93,10 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate{
     }
     @IBAction func openMenu(_ sender:UIButton){
         hideUnhideMenuView(showTrans: false, showMenu: false)
+    }
+    
+    @IBAction func reapperView(_ sender:UIButton){
+        hideUnhideView(forRestView:true,forSpeedView:false,forBtn:false)
     }
     
     private func hideUnhideMenuView(showTrans:Bool,showMenu:Bool){

@@ -8,6 +8,7 @@
 import UIKit
 import FingKit
 import NetworkExtension
+import SystemConfiguration
  
 
 class WifiVC: UIViewController {
@@ -15,6 +16,7 @@ class WifiVC: UIViewController {
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
     @IBOutlet weak var transView:UIView!
     @IBOutlet weak var bottomSheet:UIView!
+    @IBOutlet weak var noWifi:UIView!
     var decryptvalue = String()
     var dictnry = String()
     override func viewDidLoad() {
@@ -22,9 +24,35 @@ class WifiVC: UIViewController {
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
                 transView.addGestureRecognizer(tapGesture)
-        networkCall()
+      
+       
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        checkWifi()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+       checkWifi()
+    }
+    
+    
+    
+    
+    private func checkWifi(){
+        if isWiFiConnected(){
+            showWifiView(status:true)
+            networkCall()
+           
+        }else{
+            showWifiView(status:false)
+        }
+    }
+    
+    private func  showWifiView(status:Bool){
+        noWifi.isHidden = status
     }
     
     private func networkCall(){
@@ -45,6 +73,18 @@ class WifiVC: UIViewController {
     @IBAction func openMenu(_ sender:UIButton){
         hideUnhideMenuView(showTrans: false, showMenu: false)
        
+    }
+    
+    @IBAction func connectToWifi(_ sender:UIButton){
+        if let url = URL(string:"App-Prefs:root=WIFI") {
+          if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+              UIApplication.shared.openURL(url)
+            }
+          }
+        }
     }
     
     private func hideUnhideMenuView(showTrans:Bool,showMenu:Bool){
@@ -69,6 +109,17 @@ class WifiVC: UIViewController {
                 }
     }
 
+}
+
+func isWiFiConnected() -> Bool {
+    var flags = SCNetworkReachabilityFlags()
+    let reachability = SCNetworkReachabilityCreateWithName(nil, "www.google.com")
+    if SCNetworkReachabilityGetFlags(reachability!, &flags) {
+        if flags.contains(.reachable) && !flags.contains(.isWWAN) {
+            return true
+        }
+    }
+    return false
 }
 //extension String {
 //    

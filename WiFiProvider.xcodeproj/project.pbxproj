@@ -41,6 +41,7 @@
 		C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */; };
 		C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */; };
 		C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */; };
+		C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */; };
 		C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2501C29FA899700F23FEB /* AppDelegate.swift */; };
 		C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2501E29FA899700F23FEB /* SceneDelegate.swift */; };
 		C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F2502029FA899700F23FEB /* SplashVC.swift */; };
@@ -113,6 +114,7 @@
 		C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNConnection.swift; sourceTree = "<group>"; };
 		C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
 		C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSpeed.swift; sourceTree = "<group>"; };
+		C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestCompleteListener.swift; sourceTree = "<group>"; };
 		C7F2501929FA899700F23FEB /* WiFiProvider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFiProvider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F2501C29FA899700F23FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7F2501E29FA899700F23FEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = ServiceHelper;
 			sourceTree = "<group>";
 		};
+		C7843BCD2A0E5C2E00C7C2DB /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */,
+			);
+			path = Listener;
+			sourceTree = "<group>";
+		};
 		C7F2501029FA899700F23FEB = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +260,7 @@
 		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXGroup;
 			children = (
+				C7843BCD2A0E5C2E00C7C2DB /* Listener */,
 				C7843BB92A0E3CA200C7C2DB /* ServiceHelper */,
 				C7843BB12A0E39C300C7C2DB /* ViewModels */,
 				C7843B782A0DF3F800C7C2DB /* devrecog-sample-app-ios-master */,
@@ -416,6 +427,7 @@
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */,
 				C76B0A5F2A0CF38700642AF5 /* PingDetailVC.swift in Sources */,
+				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
 				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
