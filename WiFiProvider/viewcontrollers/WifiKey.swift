@@ -9,9 +9,13 @@ import Foundation
 
 
 class WifiKey:Codable{
-    var wifiKey:String?
+    var status:String?
+    var message:String?
+    var key:String?
     
-    init(wifiKey: String?) {
-        self.wifiKey = wifiKey
+    init(status: String? = nil, message: String? = nil, key: String? = nil) {
+        self.status = status
+        self.message = message
+        self.key = key
     }
 }

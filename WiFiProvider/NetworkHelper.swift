@@ -38,7 +38,7 @@ class NetworkHelper{
     }
     
     
-    func getWifiKey(networkListner:@escaping (_ response: String?,
+    func getWifiKey(networkListner:@escaping (_ response: WifiKey?,
                                                     _ error: String?) -> Void){
         
         var params = [String:Any]()
@@ -78,46 +78,70 @@ class NetworkHelper{
                     
                     Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { [self] response in
                         print("respnse \(response)")
-                       
                         switch response.result {
-                          
+                            
                         case .success(let value):
+                         //   self.hideHud()
                             
-                            do{
-                                let tObject: T? = try JSONDecoder().decode(T.self,from: value)
-
-
-                                if(tObject != nil)  {
-
-                                    print("tObject\(tObject)")
-                                    commonNetworkListner(tObject, nil)
-                                }else{
-                                    commonNetworkListner(nil, "T Object is null")
-                                }
-                                
-//                                let dict = value as! [String:String]
+                            print("response \(value)")
+//                            let dict = value as! [String:String]
+//                              
+//                                 let dictValues = [String](dict.values)
+//                                 let value  = dictValues[0]
+//                                
 //
-//                                     let dictValues = [WifiKey](dict.values)
-//                                     let value  = dictValues[0]
-//
-//
-//                                commonNetworkListner(value as AnyObject? as! T, nil)
-                                
-                                
-                            }catch let error{
-                                print("errorrrr\(error.localizedDescription)")
-                            }
-                            
+//                            commonNetworkListner(value as AnyObject? as! T, nil)
                             break
+
+
                         case .failure(_):
-                            print("filure\(response.error)")
-                            
-                            commonNetworkListner(nil, response.error?.localizedDescription)
+                         //   self.hideHud()
+                            print("Check Almofire Failure")
+                            commonNetworkListner(nil, response.error as NSError? as! String)
                             break
-                            
-                            
+
+
                         }
                     }
+//                        switch response.result {
+//
+//                        case .success(let value):
+//
+//                            do{
+//                                let tObject: T? = try JSONDecoder().decode(T.self,from: value)
+//
+//
+//                                if(tObject != nil)  {
+//
+//                                    print("tObject\(tObject)")
+//                                    commonNetworkListner(tObject, nil)
+//                                }else{
+//                                    commonNetworkListner(nil, "T Object is null")
+//                                }
+//
+////                                let dict = value as! [String:String]
+////
+////                                     let dictValues = [WifiKey](dict.values)
+////                                     let value  = dictValues[0]
+////
+////
+////                                commonNetworkListner(value as AnyObject? as! T, nil)
+//
+//
+//                            }catch let error{
+//                                print("errorrrr\(error.localizedDescription)")
+//                            }
+//
+//                            break
+//                        case .failure(_):
+//                            print("filure\(response.error)")
+//
+//                            commonNetworkListner(nil, response.error?.localizedDescription)
+//                            break
+//
+//
+//                        }
+                    
                 }
             }
     

@@ -2,12 +2,14 @@ PODS:
   - Alamofire (4.9.1)
   - CryptoSwift (1.6.0)
   - lottie-ios (4.1.2)
+  - Toast-Swift (5.0.1)
   - WMGaugeView (0.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - CryptoSwift (~> 1.0)
   - lottie-ios
+  - Toast-Swift
   - WMGaugeView
 
 SPEC REPOS:
@@ -15,14 +17,16 @@ SPEC REPOS:
     - Alamofire
     - CryptoSwift
     - lottie-ios
+    - Toast-Swift
     - WMGaugeView
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
   lottie-ios: b3846a9fa8ca1a1a3bebfa256ebe8b6fd4aaaaad
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: d9b3e2d7018f913e386c4bb6bd495bb070b42782
+PODFILE CHECKSUM: d57c687f48336a592d446b7a0fc82492b06b3b46
 
 COCOAPODS: 1.11.3

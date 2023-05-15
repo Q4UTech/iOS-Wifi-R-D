@@ -9,5 +9,6 @@ target 'WiFiProvider' do
   pod 'lottie-ios'
   pod 'Alamofire', '~> 4.0'
   pod 'CryptoSwift', '~> 1.0'
+  pod 'Toast-Swift'
   pod 'WMGaugeView'
 end

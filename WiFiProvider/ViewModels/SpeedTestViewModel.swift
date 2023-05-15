@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import WMGaugeView
+import Toast_Swift
 
 class SpeedTestViewModel{
     func downloadSpeedTest(target: UIViewController, completion:@escaping (_ speed: Double,_ uploadSpeed:Double,_ status:Bool) -> Void) {
@@ -35,7 +36,7 @@ class SpeedTestViewModel{
                 
                 
             }else{
-//                target.view.makeToast(MyConstant.constants.kCheckInternet, point: CGPoint(x:target.view.center.x, y: target.view.frame.maxY - 70), title: "", image: nil, completion: nil)
+                target.view.makeToast(MyConstant.constants.kCheckInternet, point: CGPoint(x:target.view.center.x, y: target.view.frame.maxY - 70), title: "", image: nil, completion: nil)
             }
            
         }
