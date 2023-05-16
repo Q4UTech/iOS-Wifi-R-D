@@ -33,5 +33,8 @@ class VpnVC: UIViewController {
     @objc func hideView() {
         hideUnhideMenuView(showTrans: true, showMenu: true)
        }
-
+    @IBAction func openSpeedHistory(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

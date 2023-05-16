@@ -11,4 +11,6 @@ target 'WiFiProvider' do
   pod 'CryptoSwift', '~> 1.0'
   pod 'Toast-Swift'
   pod 'WMGaugeView'
+  pod 'MASegmentedControl'
+  pod 'SDWebImage', '~> 4.0'
 end

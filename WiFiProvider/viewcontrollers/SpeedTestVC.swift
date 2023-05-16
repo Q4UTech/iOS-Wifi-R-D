@@ -11,6 +11,7 @@ import WMGaugeView
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
     func isSpeedCheckComplete(complete: Bool) {
         hideUnhideView(forRestView:false,forSpeedView:true,forBtn:true)
+        
     }
     
     
@@ -165,6 +166,11 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             }
         })
         task.resume()
+    }
+    
+    @IBAction func openSpeedHistory(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -8,7 +8,10 @@
 import UIKit
 
 class DeviceDetailVC: UIViewController {
-
+    @IBOutlet weak var adView:UIView!
+    @IBOutlet weak var heightConstraint:NSLayoutConstraint!
+    @IBOutlet weak var premiumView:UIView!
+    @IBOutlet weak var transView:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +19,9 @@ class DeviceDetailVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func blockDevice(_ sender:UIDevice){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
 
 }

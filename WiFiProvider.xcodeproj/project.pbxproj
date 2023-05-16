@@ -15,7 +15,6 @@
 		C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A542A0CE25500642AF5 /* DashboardVC.swift */; };
 		C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */; };
 		C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */; };
-		C76B0A5B2A0CE33600642AF5 /* SpeedTestListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5A2A0CE33600642AF5 /* SpeedTestListVC.swift */; };
 		C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */; };
 		C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A5E2A0CF38700642AF5 /* SpeedTestDetailVC.swift */; };
 		C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */; };
@@ -42,6 +41,32 @@
 		C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */; };
 		C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */; };
 		C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */; };
+		C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */; };
+		C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */; };
+		C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */; };
+		C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D502A135D60006DBA68 /* RouterVC.swift */; };
+		C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D532A1392AB006DBA68 /* CustomSegmentControl.swift */; };
+		C7A95D572A1398FF006DBA68 /* GifImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D562A1398FF006DBA68 /* GifImageClass.swift */; };
+		C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D592A1399FC006DBA68 /* ConnectingState.swift */; };
+		C7A95D662A1399FD006DBA68 /* PremiumCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5A2A1399FC006DBA68 /* PremiumCallback.swift */; };
+		C7A95D672A1399FD006DBA68 /* CountrySelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5B2A1399FC006DBA68 /* CountrySelectionList.swift */; };
+		C7A95D682A1399FD006DBA68 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5C2A1399FC006DBA68 /* ConnectionState.swift */; };
+		C7A95D692A1399FD006DBA68 /* PurchaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5D2A1399FC006DBA68 /* PurchaseInfo.swift */; };
+		C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5E2A1399FC006DBA68 /* FreeTrafficRemaining.swift */; };
+		C7A95D6B2A1399FD006DBA68 /* MenuActionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D5F2A1399FC006DBA68 /* MenuActionStatus.swift */; };
+		C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D602A1399FC006DBA68 /* MoveToBuyPremium.swift */; };
+		C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D612A1399FC006DBA68 /* ConnectionStatus.swift */; };
+		C7A95D6E2A1399FD006DBA68 /* ConnectedTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D622A1399FC006DBA68 /* ConnectedTimer.swift */; };
+		C7A95D6F2A1399FD006DBA68 /* VPNConnectedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D632A1399FC006DBA68 /* VPNConnectedStatus.swift */; };
+		C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D642A1399FC006DBA68 /* VPNPurchasedStatus.swift */; };
+		C7A95D722A13A62A006DBA68 /* CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D712A13A62A006DBA68 /* CountryVC.swift */; };
+		C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D732A13A6BD006DBA68 /* CountryTableViewCell.swift */; };
+		C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D762A13A810006DBA68 /* DataModel.swift */; };
+		C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D772A13A810006DBA68 /* CountryModel.swift */; };
+		C7A95D7C2A13A810006DBA68 /* DataModelR.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D792A13A810006DBA68 /* DataModelR.swift */; };
+		C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */; };
+		C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D812A13A972006DBA68 /* NetworkManagers.swift */; };
+		C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D832A13AB18006DBA68 /* Constants.swift */; };
 		C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */; };
 		C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */; };
 		C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */; };
@@ -91,7 +116,6 @@
 		C76B0A542A0CE25500642AF5 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnVC.swift; sourceTree = "<group>"; };
 		C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestVC.swift; sourceTree = "<group>"; };
-		C76B0A5A2A0CE33600642AF5 /* SpeedTestListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestListVC.swift; sourceTree = "<group>"; };
 		C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
 		C76B0A5E2A0CF38700642AF5 /* SpeedTestDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestDetailVC.swift; sourceTree = "<group>"; };
 		C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedWifiVC.swift; sourceTree = "<group>"; };
@@ -118,6 +142,32 @@
 		C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
 		C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSpeed.swift; sourceTree = "<group>"; };
 		C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestCompleteListener.swift; sourceTree = "<group>"; };
+		C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHistoryVC.swift; sourceTree = "<group>"; };
+		C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHistoryCell.swift; sourceTree = "<group>"; };
+		C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestData.swift; sourceTree = "<group>"; };
+		C7A95D502A135D60006DBA68 /* RouterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterVC.swift; sourceTree = "<group>"; };
+		C7A95D532A1392AB006DBA68 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		C7A95D562A1398FF006DBA68 /* GifImageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageClass.swift; sourceTree = "<group>"; };
+		C7A95D592A1399FC006DBA68 /* ConnectingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectingState.swift; sourceTree = "<group>"; };
+		C7A95D5A2A1399FC006DBA68 /* PremiumCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumCallback.swift; sourceTree = "<group>"; };
+		C7A95D5B2A1399FC006DBA68 /* CountrySelectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelectionList.swift; sourceTree = "<group>"; };
+		C7A95D5C2A1399FC006DBA68 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
+		C7A95D5D2A1399FC006DBA68 /* PurchaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseInfo.swift; sourceTree = "<group>"; };
+		C7A95D5E2A1399FC006DBA68 /* FreeTrafficRemaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeTrafficRemaining.swift; sourceTree = "<group>"; };
+		C7A95D5F2A1399FC006DBA68 /* MenuActionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuActionStatus.swift; sourceTree = "<group>"; };
+		C7A95D602A1399FC006DBA68 /* MoveToBuyPremium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveToBuyPremium.swift; sourceTree = "<group>"; };
+		C7A95D612A1399FC006DBA68 /* ConnectionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
+		C7A95D622A1399FC006DBA68 /* ConnectedTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedTimer.swift; sourceTree = "<group>"; };
+		C7A95D632A1399FC006DBA68 /* VPNConnectedStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNConnectedStatus.swift; sourceTree = "<group>"; };
+		C7A95D642A1399FC006DBA68 /* VPNPurchasedStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNPurchasedStatus.swift; sourceTree = "<group>"; };
+		C7A95D712A13A62A006DBA68 /* CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryVC.swift; sourceTree = "<group>"; };
+		C7A95D732A13A6BD006DBA68 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		C7A95D762A13A810006DBA68 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C7A95D772A13A810006DBA68 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		C7A95D792A13A810006DBA68 /* DataModelR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelR.swift; sourceTree = "<group>"; };
+		C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataVM.swift; sourceTree = "<group>"; };
+		C7A95D812A13A972006DBA68 /* NetworkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagers.swift; sourceTree = "<group>"; };
+		C7A95D832A13AB18006DBA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiAdminVC.swift; sourceTree = "<group>"; };
 		C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedWifiList.swift; sourceTree = "<group>"; };
 		C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailVC.swift; sourceTree = "<group>"; };
@@ -172,6 +222,10 @@
 				C7843BA92A0DFBF200C7C2DB /* NetworkHelper.swift */,
 				C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */,
 				C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */,
+				C7A95D532A1392AB006DBA68 /* CustomSegmentControl.swift */,
+				C7A95D562A1398FF006DBA68 /* GifImageClass.swift */,
+				C7A95D812A13A972006DBA68 /* NetworkManagers.swift */,
+				C7A95D832A13AB18006DBA68 /* Constants.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -183,14 +237,15 @@
 				C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */,
 				C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */,
 				C7F2508C29FA9F1200F23FEB /* WifiVC.swift */,
-				C76B0A5A2A0CE33600642AF5 /* SpeedTestListVC.swift */,
 				C76B0A5C2A0CF19500642AF5 /* PermissionVC.swift */,
 				C76B0A5E2A0CF38700642AF5 /* SpeedTestDetailVC.swift */,
 				C76B0A602A0CF46C00642AF5 /* ConnectedWifiVC.swift */,
 				C76B0A622A0CF4A400642AF5 /* ConnectedWifiDetail.swift */,
-				C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */,
 				C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */,
 				C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */,
+				C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */,
+				C7A95D502A135D60006DBA68 /* RouterVC.swift */,
+				C7A95D712A13A62A006DBA68 /* CountryVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -220,6 +275,7 @@
 			children = (
 				C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */,
 				C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */,
+				C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -247,10 +303,59 @@
 			path = Listener;
 			sourceTree = "<group>";
 		};
+		C7A95D492A134C92006DBA68 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */,
+				C7A95D732A13A6BD006DBA68 /* CountryTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		C7A95D582A1399FC006DBA68 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C7A95D592A1399FC006DBA68 /* ConnectingState.swift */,
+				C7A95D5A2A1399FC006DBA68 /* PremiumCallback.swift */,
+				C7A95D5B2A1399FC006DBA68 /* CountrySelectionList.swift */,
+				C7A95D5C2A1399FC006DBA68 /* ConnectionState.swift */,
+				C7A95D5D2A1399FC006DBA68 /* PurchaseInfo.swift */,
+				C7A95D5E2A1399FC006DBA68 /* FreeTrafficRemaining.swift */,
+				C7A95D5F2A1399FC006DBA68 /* MenuActionStatus.swift */,
+				C7A95D602A1399FC006DBA68 /* MoveToBuyPremium.swift */,
+				C7A95D612A1399FC006DBA68 /* ConnectionStatus.swift */,
+				C7A95D622A1399FC006DBA68 /* ConnectedTimer.swift */,
+				C7A95D632A1399FC006DBA68 /* VPNConnectedStatus.swift */,
+				C7A95D642A1399FC006DBA68 /* VPNPurchasedStatus.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C7A95D752A13A810006DBA68 /* Parameter */ = {
+			isa = PBXGroup;
+			children = (
+				C7A95D762A13A810006DBA68 /* DataModel.swift */,
+				C7A95D772A13A810006DBA68 /* CountryModel.swift */,
+			);
+			path = Parameter;
+			sourceTree = "<group>";
+		};
+		C7A95D782A13A810006DBA68 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C7A95D792A13A810006DBA68 /* DataModelR.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		C7CFFF012A123B5F00898D67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7A95D752A13A810006DBA68 /* Parameter */,
+				C7A95D782A13A810006DBA68 /* Response */,
+				C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */,
 				C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */,
+				C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +381,8 @@
 		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXGroup;
 			children = (
+				C7A95D582A1399FC006DBA68 /* Protocols */,
+				C7A95D492A134C92006DBA68 /* TableCell */,
 				C7CFFF012A123B5F00898D67 /* Model */,
 				C7843BCD2A0E5C2E00C7C2DB /* Listener */,
 				C7843BB92A0E3CA200C7C2DB /* ServiceHelper */,
@@ -434,41 +541,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A95D662A1399FD006DBA68 /* PremiumCallback.swift in Sources */,
 				C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */,
-				C76B0A5B2A0CE33600642AF5 /* SpeedTestListVC.swift in Sources */,
 				C7843BC22A0E3CA200C7C2DB /* Log.swift in Sources */,
 				C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */,
 				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
+				C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */,
+				C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */,
 				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
+				C7A95D6E2A1399FD006DBA68 /* ConnectedTimer.swift in Sources */,
+				C7A95D572A1398FF006DBA68 /* GifImageClass.swift in Sources */,
+				C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */,
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
+				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
+				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
+				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
+				C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */,
+				C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */,
+				C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */,
 				C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */,
 				C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */,
+				C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */,
 				C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */,
 				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
 				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
+				C7A95D7C2A13A810006DBA68 /* DataModelR.swift in Sources */,
 				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
 				C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */,
 				C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */,
 				C7843BC42A0E3CA200C7C2DB /* Config.swift in Sources */,
+				C7A95D722A13A62A006DBA68 /* CountryVC.swift in Sources */,
 				C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */,
+				C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */,
 				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
 				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
+				C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */,
 				C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */,
 				C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */,
 				C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */,
+				C7A95D6F2A1399FD006DBA68 /* VPNConnectedStatus.swift in Sources */,
+				C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */,
 				C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */,
 				C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */,
+				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
+				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
+				C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */,
 				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
 				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
+				C7A95D682A1399FD006DBA68 /* ConnectionState.swift in Sources */,
 				C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */,
 				C7843BC32A0E3CA200C7C2DB /* Message.swift in Sources */,
+				C7A95D6B2A1399FD006DBA68 /* MenuActionStatus.swift in Sources */,
 				C7843BC62A0E3CA200C7C2DB /* Settings.swift in Sources */,
+				C7A95D672A1399FD006DBA68 /* CountrySelectionList.swift in Sources */,
 				C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */,
 				C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */,
+				C7A95D692A1399FD006DBA68 /* PurchaseInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

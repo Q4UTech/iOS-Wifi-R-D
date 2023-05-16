@@ -38,14 +38,14 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         locationManager.delegate = nil
-        checkWifi()
+       // checkWifi()
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
-        checkWifi()
-        if isWiFiConnected(){
-            networkCall()
-        }
+//        checkWifi()
+//        if isWiFiConnected(){
+//            networkCall()
+//        }
     }
     
     
@@ -254,5 +254,18 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
 //            let bottom = NSMakeRange(self.textView.text.count - 1, 1)
 //            self.textView.scrollRangeToVisible(bottom)
 //        }
+    }
+    
+    @IBAction func openSpeedHistory(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func openDeviceDetail(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func openRouter(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
