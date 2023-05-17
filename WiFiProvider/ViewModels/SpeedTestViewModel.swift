@@ -12,25 +12,31 @@ import WMGaugeView
 import Toast_Swift
 
 class SpeedTestViewModel{
+    var downLoadArray = [Double]()
+    var uploadArray = [Double]()
     func downloadSpeedTest(target: UIViewController, completion:@escaping (_ speed: Double,_ uploadSpeed:Double,_ status:Bool) -> Void) {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 
             
             if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-                NetworkSpeedTest.shared.testDownloadSpeedWithTimout(timeout: 5.0) {  (speed,status, error) in
+                NetworkSpeedTest.shared.testDownloadSpeedWithTimout(timeout: 5.0) { [self]  (speed,status, error) in
                    
                     if speed! > 0 && !status {
+                        print("speedData \(speed)")
+                        downLoadArray.append(speed!)
+                        SpeedTestCompleteListener.instanceHelper.showChartData(show: status,data: downLoadArray)
                         completion(speed!, 0,false)
                     }else{
                         SpeedTestViewModel.init().uploadSpeedTest(completion: {
                             speed ,status in
                             if speed > 0 {
-                           
+                              
                                 completion(0,speed,status)
                             }
                         })
                     }
+                    print("speedData1 \(speed) \(status)")
 
                 }
                 

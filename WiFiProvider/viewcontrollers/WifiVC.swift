@@ -42,7 +42,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
-//        checkWifi()
+      // checkWifi()
 //        if isWiFiConnected(){
 //            networkCall()
 //        }
@@ -109,6 +109,9 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     private func getConnectedDevicesList(){
         FingScanner.sharedInstance().validateLicenseKey("F20yNC1hcHBzLWRldnJlY29nLXRyaWFsCE0yNCBBcHBzGVRyaWFsIGZyb20gcmVjb2cuZmluZy5jb20AAAGH66z5yZFhozM=", withToken: nil) { result, error in
             let header = "--- validateLicenseKey ---"
+          //  var json = dataToJSON(data: result)
+            
+           
             let formatted = FGKUtils.formatResult(result, orError: error)
             let content = "\(header)\n\(formatted)"
             print("---VERIFY LICENSE KEY---\n\(formatted)")
@@ -121,6 +124,14 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         
         
         scanDevice()
+    }
+    func dataToJSON(data: Data) -> Any? {
+       do {
+           return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+       } catch let myJSONError {
+           print(myJSONError)
+       }
+       return nil
     }
     func requestPermissionsToShowSsidAndBssid() {
         let status = CLLocationManager.authorizationStatus()

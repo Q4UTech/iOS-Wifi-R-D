@@ -17,8 +17,25 @@ class SpeedHistoryVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+      
+        
+        fetchFavouriteList()
+       
     }
     
+    func fetchFavouriteList(){
+        var speedTestList  = [String:[SpeedTestData]]()
+        if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+            do {
+              
+                speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                print("speedList \(speedTestList)")
+            }catch{
+                
+            }
+        }
+                
+    }
 
     @IBAction func back(_ sender:UIButton){
         navigationController?.popViewController(animated: true)

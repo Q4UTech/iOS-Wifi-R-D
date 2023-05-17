@@ -9,6 +9,7 @@ import Foundation
 
 protocol SpeedCheckProtocol{
     func isSpeedCheckComplete(complete:Bool)
+    func showChartData(show:Bool,data:[Double])
 }
 
 class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
@@ -23,6 +24,9 @@ class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
     
     func isSpeedCheckComplete(complete: Bool) {
         speedCheckDelegate?.isSpeedCheckComplete(complete: complete)
+    }
+    func showChartData(show:Bool,data:[Double]){
+        speedCheckDelegate?.showChartData(show:show,data:data)
     }
     
     

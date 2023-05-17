@@ -8,6 +8,7 @@
 import Foundation
 
 class MyConstant {
+     static let SPEED_LIST = "SPEED_LIST"
     struct data {
         let USER_TYPE = "USER_TYPE"
         let USER_DATA = "USER_DATA"

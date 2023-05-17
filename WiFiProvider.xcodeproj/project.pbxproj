@@ -31,11 +31,6 @@
 		C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */; };
 		C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */; };
 		C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */; };
-		C7843BC22A0E3CA200C7C2DB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBA2A0E3CA200C7C2DB /* Log.swift */; };
-		C7843BC32A0E3CA200C7C2DB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBB2A0E3CA200C7C2DB /* Message.swift */; };
-		C7843BC42A0E3CA200C7C2DB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBC2A0E3CA200C7C2DB /* Config.swift */; };
-		C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBD2A0E3CA200C7C2DB /* Util.swift */; };
-		C7843BC62A0E3CA200C7C2DB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBE2A0E3CA200C7C2DB /* Settings.swift */; };
 		C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */; };
 		C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */; };
 		C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */; };
@@ -67,6 +62,20 @@
 		C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */; };
 		C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D812A13A972006DBA68 /* NetworkManagers.swift */; };
 		C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D832A13AB18006DBA68 /* Constants.swift */; };
+		C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */; };
+		C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */; };
+		C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */; };
+		C7B5A9EB2A14CB42002B7393 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */; };
+		C7B5A9EC2A14CB42002B7393 /* Profle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E22A14CB42002B7393 /* Profle.swift */; };
+		C7B5A9ED2A14CB42002B7393 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E42A14CB42002B7393 /* Bridge.swift */; };
+		C7B5A9EE2A14CB42002B7393 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E52A14CB42002B7393 /* Log.swift */; };
+		C7B5A9EF2A14CB42002B7393 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E62A14CB42002B7393 /* Message.swift */; };
+		C7B5A9F02A14CB42002B7393 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E72A14CB42002B7393 /* Config.swift */; };
+		C7B5A9F12A14CB42002B7393 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E82A14CB42002B7393 /* Util.swift */; };
+		C7B5A9F22A14CB42002B7393 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E92A14CB42002B7393 /* Settings.swift */; };
+		C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */; };
+		C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */; };
+		C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5AA092A14F272002B7393 /* SpeedData.swift */; };
 		C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */; };
 		C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */; };
 		C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */; };
@@ -132,11 +141,6 @@
 		C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
 		C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNViewModel.swift; sourceTree = "<group>"; };
 		C7843BB72A0E3AEE00C7C2DB /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
-		C7843BBA2A0E3CA200C7C2DB /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C7843BBB2A0E3CA200C7C2DB /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C7843BBC2A0E3CA200C7C2DB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C7843BBD2A0E3CA200C7C2DB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		C7843BBE2A0E3CA200C7C2DB /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VpnChecker.swift; sourceTree = "<group>"; };
 		C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNConnection.swift; sourceTree = "<group>"; };
 		C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
@@ -168,6 +172,32 @@
 		C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataVM.swift; sourceTree = "<group>"; };
 		C7A95D812A13A972006DBA68 /* NetworkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagers.swift; sourceTree = "<group>"; };
 		C7A95D832A13AB18006DBA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
+		C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShadowImageView.swift; sourceTree = "<group>"; };
+		C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		C7B5A9DF2A14CB42002B7393 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
+		C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		C7B5A9E22A14CB42002B7393 /* Profle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
+		C7B5A9E42A14CB42002B7393 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		C7B5A9E52A14CB42002B7393 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C7B5A9E62A14CB42002B7393 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C7B5A9E72A14CB42002B7393 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C7B5A9E82A14CB42002B7393 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C7B5A9E92A14CB42002B7393 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorizationProcessor.swift; sourceTree = "<group>"; };
+		C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorizationActions.swift; sourceTree = "<group>"; };
+		C7B5A9F72A14CBF4002B7393 /* neprovider.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = neprovider.entitlements; sourceTree = "<group>"; };
+		C7B5A9FD2A14CC13002B7393 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
+		C7B5A9FE2A14CC13002B7393 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		C7B5AA002A14CC13002B7393 /* Profle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
+		C7B5AA022A14CC13002B7393 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		C7B5AA032A14CC13002B7393 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C7B5AA042A14CC13002B7393 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C7B5AA052A14CC13002B7393 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C7B5AA062A14CC13002B7393 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C7B5AA072A14CC13002B7393 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C7B5AA082A14CC13002B7393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B5AA092A14F272002B7393 /* SpeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedData.swift; sourceTree = "<group>"; };
 		C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiAdminVC.swift; sourceTree = "<group>"; };
 		C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedWifiList.swift; sourceTree = "<group>"; };
 		C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailVC.swift; sourceTree = "<group>"; };
@@ -198,6 +228,7 @@
 		9A79FE8C9EE63DAF8F1454BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7B5A9FC2A14CC13002B7393 /* TunnelProvider */,
 				4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */,
 			);
 			name = Frameworks;
@@ -226,6 +257,8 @@
 				C7A95D562A1398FF006DBA68 /* GifImageClass.swift */,
 				C7A95D812A13A972006DBA68 /* NetworkManagers.swift */,
 				C7A95D832A13AB18006DBA68 /* Constants.swift */,
+				C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */,
+				C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -276,6 +309,7 @@
 				C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */,
 				C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */,
 				C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */,
+				C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -283,11 +317,6 @@
 		C7843BB92A0E3CA200C7C2DB /* ServiceHelper */ = {
 			isa = PBXGroup;
 			children = (
-				C7843BBA2A0E3CA200C7C2DB /* Log.swift */,
-				C7843BBB2A0E3CA200C7C2DB /* Message.swift */,
-				C7843BBC2A0E3CA200C7C2DB /* Config.swift */,
-				C7843BBD2A0E3CA200C7C2DB /* Util.swift */,
-				C7843BBE2A0E3CA200C7C2DB /* Settings.swift */,
 				C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */,
 				C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */,
 				C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */,
@@ -348,6 +377,82 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		C7B5A9DE2A14CB42002B7393 /* TunnelProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5A9DF2A14CB42002B7393 /* TunnelProvider.entitlements */,
+				C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */,
+				C7B5A9E12A14CB42002B7393 /* Model */,
+				C7B5A9E32A14CB42002B7393 /* Helpers */,
+			);
+			path = TunnelProvider;
+			sourceTree = "<group>";
+		};
+		C7B5A9E12A14CB42002B7393 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5A9E22A14CB42002B7393 /* Profle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7B5A9E32A14CB42002B7393 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5A9E42A14CB42002B7393 /* Bridge.swift */,
+				C7B5A9E52A14CB42002B7393 /* Log.swift */,
+				C7B5A9E62A14CB42002B7393 /* Message.swift */,
+				C7B5A9E72A14CB42002B7393 /* Config.swift */,
+				C7B5A9E82A14CB42002B7393 /* Util.swift */,
+				C7B5A9E92A14CB42002B7393 /* Settings.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C7B5A9F42A14CBF4002B7393 /* neprovider */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */,
+				C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */,
+				C7B5A9F72A14CBF4002B7393 /* neprovider.entitlements */,
+			);
+			path = neprovider;
+			sourceTree = "<group>";
+		};
+		C7B5A9FC2A14CC13002B7393 /* TunnelProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5A9FD2A14CC13002B7393 /* TunnelProvider.entitlements */,
+				C7B5A9FE2A14CC13002B7393 /* PacketTunnelProvider.swift */,
+				C7B5A9FF2A14CC13002B7393 /* Model */,
+				C7B5AA012A14CC13002B7393 /* Helpers */,
+				C7B5AA082A14CC13002B7393 /* Info.plist */,
+			);
+			name = TunnelProvider;
+			path = WiFiProvider/TunnelProvider;
+			sourceTree = "<group>";
+		};
+		C7B5A9FF2A14CC13002B7393 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5AA002A14CC13002B7393 /* Profle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7B5AA012A14CC13002B7393 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C7B5AA022A14CC13002B7393 /* Bridge.swift */,
+				C7B5AA032A14CC13002B7393 /* Log.swift */,
+				C7B5AA042A14CC13002B7393 /* Message.swift */,
+				C7B5AA052A14CC13002B7393 /* Config.swift */,
+				C7B5AA062A14CC13002B7393 /* Util.swift */,
+				C7B5AA072A14CC13002B7393 /* Settings.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C7CFFF012A123B5F00898D67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +461,7 @@
 				C7843BAC2A0E0A5B00C7C2DB /* WifiKey.swift */,
 				C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */,
 				C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */,
+				C7B5AA092A14F272002B7393 /* SpeedData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +487,8 @@
 		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXGroup;
 			children = (
+				C7B5A9F42A14CBF4002B7393 /* neprovider */,
+				C7B5A9DE2A14CB42002B7393 /* TunnelProvider */,
 				C7A95D582A1399FC006DBA68 /* Protocols */,
 				C7A95D492A134C92006DBA68 /* TableCell */,
 				C7CFFF012A123B5F00898D67 /* Model */,
@@ -543,7 +651,6 @@
 			files = (
 				C7A95D662A1399FD006DBA68 /* PremiumCallback.swift in Sources */,
 				C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */,
-				C7843BC22A0E3CA200C7C2DB /* Log.swift in Sources */,
 				C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */,
 				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
 				C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */,
@@ -555,31 +662,36 @@
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
 				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
+				C7B5A9EB2A14CB42002B7393 /* PacketTunnelProvider.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
 				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
 				C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */,
 				C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */,
 				C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */,
-				C7843BC52A0E3CA200C7C2DB /* Util.swift in Sources */,
 				C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */,
+				C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */,
 				C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */,
 				C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */,
 				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
+				C7B5A9F22A14CB42002B7393 /* Settings.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
+				C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */,
 				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
 				C7A95D7C2A13A810006DBA68 /* DataModelR.swift in Sources */,
 				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
 				C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */,
 				C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */,
-				C7843BC42A0E3CA200C7C2DB /* Config.swift in Sources */,
 				C7A95D722A13A62A006DBA68 /* CountryVC.swift in Sources */,
 				C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */,
+				C7B5A9EF2A14CB42002B7393 /* Message.swift in Sources */,
 				C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */,
 				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
 				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
+				C7B5A9F02A14CB42002B7393 /* Config.swift in Sources */,
 				C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */,
+				C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */,
 				C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */,
 				C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */,
 				C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */,
@@ -587,18 +699,23 @@
 				C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */,
 				C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */,
 				C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */,
+				C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */,
+				C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */,
 				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
 				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
+				C7B5A9EC2A14CB42002B7393 /* Profle.swift in Sources */,
 				C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */,
 				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
 				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
+				C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */,
+				C7B5A9ED2A14CB42002B7393 /* Bridge.swift in Sources */,
 				C7A95D682A1399FD006DBA68 /* ConnectionState.swift in Sources */,
 				C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */,
-				C7843BC32A0E3CA200C7C2DB /* Message.swift in Sources */,
+				C7B5A9EE2A14CB42002B7393 /* Log.swift in Sources */,
 				C7A95D6B2A1399FD006DBA68 /* MenuActionStatus.swift in Sources */,
-				C7843BC62A0E3CA200C7C2DB /* Settings.swift in Sources */,
 				C7A95D672A1399FD006DBA68 /* CountrySelectionList.swift in Sources */,
 				C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */,
+				C7B5A9F12A14CB42002B7393 /* Util.swift in Sources */,
 				C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */,
 				C7A95D692A1399FD006DBA68 /* PurchaseInfo.swift in Sources */,
 			);

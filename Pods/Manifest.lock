@@ -1,16 +1,22 @@
 PODS:
   - Alamofire (4.9.1)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - CryptoSwift (1.6.0)
   - lottie-ios (4.1.2)
   - MASegmentedControl (0.0.5)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
+  - SwiftAlgorithms (1.0.0)
   - Toast-Swift (5.0.1)
   - WMGaugeView (0.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Charts
   - CryptoSwift (~> 1.0)
   - lottie-ios
   - MASegmentedControl
@@ -21,22 +27,26 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - CryptoSwift
     - lottie-ios
     - MASegmentedControl
     - SDWebImage
+    - SwiftAlgorithms
     - Toast-Swift
     - WMGaugeView
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
   lottie-ios: b3846a9fa8ca1a1a3bebfa256ebe8b6fd4aaaaad
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: b87fa210e5a44ec8612de913678531a50f2529d9
+PODFILE CHECKSUM: f9a382f19e8eb9188592921e1b1d3a42835c0cb2
 
 COCOAPODS: 1.11.3

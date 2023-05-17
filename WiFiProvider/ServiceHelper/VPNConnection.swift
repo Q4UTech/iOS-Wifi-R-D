@@ -6,7 +6,6 @@
 ////  Copyright © 2021 Anchorfree Inc. All rights reserved.
 ////
 //import NetworkExtension
-//import OpenVPNAdapter
 //
 ///// Manage VPN connection
 //@available(iOS 13.0, *)
@@ -14,7 +13,7 @@
 //    private var providerManager: NETunnelProviderManager! = nil
 //    private var isConfigSaved = false
 //    private var appGroupDefaults: UserDefaults
-//    private var profile: Profile
+//  private var profile: Profile
 //    
 //    @Published var connectionStatus = NEVPNStatus.disconnected
 //    @Published var output = [Log]()
