@@ -10,14 +10,19 @@ import WMGaugeView
 import Charts
 
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
+    func isSpeedCheckComplete(complete: Bool, upload: Double, download: Double) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+        vc.ping = pingData
+        vc.upload = upload
+        vc.download = download
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func showChartData(show: Bool,data:[Double]) {
     // setChart(dataPoints: data, values:data)
     }
     
-    func isSpeedCheckComplete(complete: Bool) {
-        hideUnhideView(forRestView:false,forSpeedView:true,forBtn:true)
-        
-    }
+ 
     
     
     private func hideUnhideView(forRestView:Bool,forSpeedView:Bool,forBtn:Bool){
@@ -34,6 +39,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBOutlet weak var speedView: UIView!
     @IBOutlet weak var downloadSpeedLabel: UILabel!
     @IBOutlet weak var uploadSpeedLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var uploadImg: UIImageView!
     @IBOutlet weak var downloadImg: UIImageView!
     @IBOutlet weak var ping: UILabel!
@@ -44,6 +50,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var topView: UIView!
     var speedTestList  = [String:[SpeedTestData]]()
+    var speedDataList  = [SpeedTestData]()
     @IBOutlet weak var speedChartView: LineChartView!
     var speedArray = [Double]()
     var uploadArray = [Double]()
@@ -51,6 +58,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     var speedTestVM = SpeedTestViewModel()
     var countinAPP = 0
     var countHydra = 0
+    var pingData:String?
     var timer:Timer?
     let  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
     private var pingSpeed: PingSpeed?
@@ -82,6 +90,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
     
     @IBAction func beginTestAction(_ sender: Any) {
+        startBtn.isHidden = true
         speedChartView.isHidden = false
         topView.isHidden = false
         speedMeterView!.value = 0
@@ -95,6 +104,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         startBtn.isHidden = false
         speedView.isHidden = false
+        speedLabel.isHidden = true
         setSpeedTest()
     }
     
@@ -131,7 +141,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
                 if speed > 0{
                     
                     changeImgBgColor(imageView: downloadImg,position: 1)
-                    speedTestVM.downloadSpeed(downloadSpeed: speed, speedLabel: downloadSpeedLabel,speedMeterView:speedMeterView!,status: false)
+                    speedTestVM.downloadSpeed(downloadSpeed: speed, speedLabel: downloadSpeedLabel,currentSpeedLabel: speedLabel ,speedMeterView:speedMeterView!,status: false)
                     speedArray.append(speed)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
                       
@@ -143,21 +153,48 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
                 }
                 if uploadSpeed > 0{
                     changeImgBgColor(imageView: uploadImg,position: 2)
-                    speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,speedMeterView:speedMeterView!,status:status)
+                    speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,currentSpeedLabel: speedLabel,speedMeterView:speedMeterView!,status:status)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
                         uploadArray.append(uploadSpeed)
                         print("yourArray\(speedArray.count)")
-                        self.setChart(dataPoints: self.months, values: uploadArray)
-                        if #available(iOS 15, *) {
-                            let today = Date.now
-                            let formatter1 = DateFormatter()
-                            formatter1.dateStyle = .short
-                            print(formatter1.string(from: today))
-                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: speedArray.last, uploadSpeed: uploadArray.last)]
-                            UserDefaults.standard.set(speedTestList, forKey:MyConstant.SPEED_LIST)
-                        } else {
-                            // Fallback on earlier versions
-                        }
+                      //  self.setChart(dataPoints: self.months, values: uploadArray)
+//                        if #available(iOS 15, *) {
+//                            let today = Date.now
+//                            let formatter1 = DateFormatter()
+//                            formatter1.dateStyle = .short
+//                            print(formatter1.string(from: today))
+//                            
+//                           
+//                            
+//                            print("speedList1 \(speedTestList.count)")
+//                            if speedTestList[formatter1.string(from: today)] == nil{
+//                                speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: speedArray.last!, uploadSpeed: uploadArray.last!)]
+//                                speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: speedArray.last!, uploadSpeed: uploadArray.last!))
+//                            }else {
+//                                if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+//                                    do {
+//                                      
+//                                        speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+//                                        
+//                                        for (key ,data) in speedTestList{
+//                                            for i in data{
+//                                                speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
+//                                            }
+//                                           
+//                                        }
+//                                        speedTestList[formatter1.string(from: today)] = speedDataList
+//                                        print("working11 \(speedDataList.count)")
+//                                    }catch{
+//                                        
+//                                    }
+//                                }
+//                            }
+//                            if let encode = try?  JSONEncoder().encode(speedTestList) {
+//                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+//                            }
+//                        } else {
+//                            // Fallback on earlier versions
+//                        }
                         
 //                        MainSongList.instanceHelper.categoryDataList[category_id] = finalList
 //                        if let encoded = try? JSONEncoder().encode(MainSongList.instanceHelper.categoryDataList) {
@@ -195,7 +232,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
     func getIP(){
         if pingSpeed?.city != nil {
-            ping.text = "IP : \(String(pingSpeed!.query))"
+            ping.text = String(pingSpeed!.query)
+            pingData = String(pingSpeed!.query)
             //ipadressLocation.text =  "Location :" + " " + films!.city
         }
     }

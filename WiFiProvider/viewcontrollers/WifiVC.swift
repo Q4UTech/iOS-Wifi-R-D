@@ -21,12 +21,15 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     @IBOutlet weak var noWifi:UIView!
     @IBOutlet weak var mapView:UIView!
     @IBOutlet weak var listView:UIView!
+    @IBOutlet weak var wifiTableView:UITableView!
     var locationManager: CLLocationManager!
     var decryptvalue = String()
     var dictnry = String()
-    var fingData = [ScannedWifiList]()
+    var fingData = [FingNodes]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        wifiTableView.delegate = self
+        wifiTableView.dataSource = self
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
@@ -42,10 +45,10 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
-      // checkWifi()
-//        if isWiFiConnected(){
-//            networkCall()
-//        }
+       checkWifi()
+        if isWiFiConnected(){
+            networkCall()
+        }
     }
     
     
@@ -219,21 +222,45 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
             }
         } else {
             //  printToUI("--- networkScan ---")
-            scanner.networkScan(options) { result, error in
+            
+            scanner.networkScan(options) { [self] result, error in
                 let completed = FGKUtils.extractFromJSON(result, forKey: "completed")
                 let formatted = FGKUtils.formatResult(result, orError: error)
                 print("---NETWORK SCAN22---\n\(formatted)")
-                DispatchQueue.main.async {
-                    self.printToUI(formatted as! String )
+               // DispatchQueue.main.async {
+                //    self.printToUI(formatted as! String )
                     if completed == nil || completed as! String == "true" {
                         //fingData = formatted as! [ScannedWifiList]
                         // self.activityIndicator.stopAnimating()
                         print("scan done11")
+                        if result != nil{
+                            if let jsonData = result!.data(using: .utf8) {
+                                print("jsonData11 \(result)")
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
+                                    if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
+                                        print("parseScanData: fingNodes \(fingNodes.count)")
+                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
+                                        fingData = fingNodes
+                                        DispatchQueue.main.async { [self] in
+                                            wifiTableView.reloadData()
+                                        }
+                                    }
+                                    
+                                    print("scan done11")
+                                }catch{
+                                    print("sfsdf\(error)")
+                                }
+                                
+                            }
+                        }
                     }
-                }
+               // }
             }
         }
     }
+    
     
     func createMockInput(count: Int) -> FingScanInput {
         var table = [FingScanDeviceEntry]()
@@ -280,3 +307,20 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension WifiVC: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("fingData\(fingData.count)")
+         return fingData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WifiDataCell", for: indexPath) as! WifiDataCell
+        return cell
+        
+    }
+    
+    
+}
+
+

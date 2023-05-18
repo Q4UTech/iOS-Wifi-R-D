@@ -37,18 +37,21 @@ class FGKUtils {
             return nil
         }
         // Parse the given JSON string.
+       print("progress \(json)")
         guard let data = json.data(using: .utf8) else {
+            
             return nil
         }
+       
         do {
             let object = try JSONSerialization.jsonObject(with: data, options: [])
             // The originating poster wants to deal with dictionaries;
             // Assuming you do too then something like this is the first validation step:
             
-            if let dict = object as? [String: ScannedWifiList] {
+            if let dict = object as? [String: Any] {
                 print("datas\(dict[key])")
         
-                return dict["nodes"]
+                return dict[key]
             }
           
         } catch {

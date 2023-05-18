@@ -12,6 +12,8 @@ class SpeedHistoryVC: UIViewController {
     @IBOutlet weak var averagePing:UILabel!
     @IBOutlet weak var averageDownloadSpeed:UILabel!
     @IBOutlet weak var averageUploadSpeed:UILabel!
+    var speedDataList = [String:[SpeedTestData]]()
+    var speedDetailData = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -19,8 +21,11 @@ class SpeedHistoryVC: UIViewController {
         // Do any additional setup after loading the view.
       
         
-        fetchFavouriteList()
        
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchFavouriteList()
     }
     
     func fetchFavouriteList(){
@@ -30,9 +35,15 @@ class SpeedHistoryVC: UIViewController {
               
                 speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
                 print("speedList \(speedTestList)")
+                speedDataList = speedTestList
+                for (key,data) in speedTestList{
+                    print("speedListData= \(key) \(data)")
+                    speedDetailData.append(key)
+                }
             }catch{
                 
             }
+            tableView.reloadData()
         }
                 
     }
@@ -44,12 +55,24 @@ class SpeedHistoryVC: UIViewController {
 }
 
 extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("speedDetailData22\(speedDetailData.count)")
+        return speedDetailData.count
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 14
+        print("speedDetailData33\(speedDataList[speedDetailData[section]]!.count)")
+        return speedDataList[speedDetailData[section]]!.count
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return speedDetailData[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
+        cell.ping.text = String(data!.ping).maxLength(length: 4)
+        cell.upload.text = String(data!.uploadSpeed).maxLength(length: 4)
+        cell.download.text = String(data!.downloadSpeed).maxLength(length: 4)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -58,3 +81,5 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     
     
 }
+
+

@@ -23,7 +23,7 @@ class SplashVC: UIViewController  {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        // getConnectedWifiList()
-        playAnimation()
+       // playAnimation()
        
           
        

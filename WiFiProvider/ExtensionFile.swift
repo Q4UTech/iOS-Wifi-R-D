@@ -398,7 +398,20 @@ let HISTORY_FILTER_SELECTION  = "HISTORY_FILTER_SELECTION"
 func statusBarColor(self:UIViewController){
     self.navigationController?.navigationBar.barStyle = .default
 }
-
+extension String {
+   func maxLength(length: Int) -> String {
+       var str = self
+       let nsString = str as NSString
+       if nsString.length >= length {
+           str = nsString.substring(with:
+               NSRange(
+                location: 0,
+                length: nsString.length > length ? length : nsString.length)
+           )
+       }
+       return  str
+   }
+}
 
 func humanReadableByteCount(bytes: Int) -> String {
     if (bytes < 1000) { return "\(bytes) B" }

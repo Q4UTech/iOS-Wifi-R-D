@@ -7,9 +7,12 @@
 
 import UIKit
 
-class PingDetailVC: UIViewController {
+class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
+    var ping:String?
+    var upload:Double?
+    var download:Double?
     override func viewDidLoad() {
         super.viewDidLoad()
 
