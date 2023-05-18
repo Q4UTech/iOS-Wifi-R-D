@@ -239,6 +239,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                                 do {
                                     let decoder = JSONDecoder()
                                     let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
+                                    if let isp = scanResponse.fingIsp {
+                                       // print("parseScanData: fingNodes \(fingNodes.count)")
+                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
+                                        
+                                        print("isp\(isp.organization)")
+                                    }
+                                    
                                     if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                         print("parseScanData: fingNodes \(fingNodes.count)")
                                         // FingNodesHandler.shared.setFingNodes(fingNodes)
@@ -315,9 +322,43 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = fingData[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "WifiDataCell", for: indexPath) as! WifiDataCell
+        cell.bestName.text = data.bestName
+        switch(data.bestType){
+        case "ROUTER":
+            cell.bestTypes.image = UIImage(named: "router")
+            break
+        case "LAPTOP":
+            cell.bestTypes.image = UIImage(named: "router")
+            break
+        case "MOBILE":
+            cell.bestTypes.image = UIImage(named: "iphone")
+            break
+        case "COMPUTER":
+            cell.bestTypes.image = UIImage(named: "desktop")
+            break
+        case "PRINTER":
+            cell.bestTypes.image = UIImage(named: "printer")
+            break
+        default :
+            print("none")
+        }
+        
+        cell.ipAddress.text = data.ipAddresses?.first
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
+        vc.data  = fingData[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

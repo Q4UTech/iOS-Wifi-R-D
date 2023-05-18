@@ -8,7 +8,9 @@
 import UIKit
 
 class WifiDataCell: UITableViewCell {
-
+    @IBOutlet weak var bestName:UILabel!
+    @IBOutlet weak var bestTypes:UIImageView!
+    @IBOutlet weak var ipAddress:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
