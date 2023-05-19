@@ -22,6 +22,7 @@ class DeviceDetailVC: UIViewController {
     @IBOutlet weak var deviceBestName:UILabel!
     @IBOutlet weak var deviceBestMake:UILabel!
     @IBOutlet weak var deviceBestModel:UILabel!
+    @IBOutlet weak var onlineDurationLabel:UILabel!
   
   
     
@@ -66,33 +67,60 @@ class DeviceDetailVC: UIViewController {
                 bestModelView.isHidden = true
                 bestMakeHeight.constant = 0
             }
-//            if let firstSeenTimestamp = data.firstSeenTimestamp {
-//                let diffDay: Int
-//                let diffHour: Int
-//                let diffMint: Int
-//                if let value = AppUtils.convertDateToLong(firstSeenTimestamp) {
-//                    let currentTime = Int(Date().timeIntervalSince1970 * 1000)
-//                    diffDay = AppUtils.daysDifferent(currentTime, value)
-//                    diffHour = AppUtils.hoursDifferent(currentTime, value)
-//                    diffMint = AppUtils.mintDifferent(currentTime, value)
-//                    if diffDay == 0 {
-//                        if diffHour == 0 {
-//                            deviceDetailsBinding?.tvOnline?.text = "Online since (\(diffMint)m)"
-//                        } else {
-//                            deviceDetailsBinding?.tvOnline?.text = "Online since (\(diffHour)h)"
-//                        }
-//                    } else {
-//                        deviceDetailsBinding?.tvOnline?.text = "Online since (\(diffDay)d)"
-//                    }
-//                }
-//            }
+           if let firstSeenTimestamp = data.firstSeenTimestamp {
+             
+               
+               let timestamp = Date().timeIntervalSince1970
+               let date = Date(timeIntervalSince1970: timestamp)
+               let dateFormatter = DateFormatter()
+               dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
+               let formattedDate = dateFormatter.string(from: date)
+               print("firstSeenTimestamp\(firstSeenTimestamp) \(formattedDate) \(Date().timeIntervalSinceNow)")
+               let formatter = DateFormatter()
+               formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
+
+               let timestamp1String = firstSeenTimestamp
+               let timestamp2String = formattedDate
+
+               if let timestamp1 = formatter.date(from: timestamp1String),
+                  let timestamp2 = formatter.date(from: timestamp2String) {
+
+                   let difference = timestamp2.timeIntervalSince(timestamp1)
+                   print("Time difference: \(difference)")
+                   let minutes = Int(difference / 60)
+                   let hours = minutes / 60
+                   let remainingMinutes = minutes % 60
+
+                   var timeDifferenceString = ""
+                   if hours > 0 {
+                       timeDifferenceString = "\(hours) hour"
+                       if hours > 1 {
+                           timeDifferenceString += "s"
+                           print("Time difference11: \(timeDifferenceString)")
+                           onlineDurationLabel.text = timeDifferenceString
+                       }
+                   } else {
+                       timeDifferenceString = "\(remainingMinutes) minute"
+                       if remainingMinutes > 1 {
+                           timeDifferenceString += "s"
+                           print("Time difference22: \(timeDifferenceString)")
+                           onlineDurationLabel.text = timeDifferenceString
+                       }
+                   }
+
+                   print("Time difference33: \(timeDifferenceString)")
+               }
+
+           }
         }
         
     }
     
 
     @IBAction func blockDevice(_ sender:UIDevice){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
+//        navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func back(_ sender:UIDevice){

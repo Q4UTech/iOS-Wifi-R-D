@@ -11,9 +11,12 @@ import NetworkExtension
 import SystemConfiguration
 import CoreLocation
 import Foundation
+import HGRippleRadarView
  
 
 class WifiVC: UIViewController ,CLLocationManagerDelegate{
+    
+    
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
     @IBOutlet weak var transView:UIView!
@@ -22,6 +25,14 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     @IBOutlet weak var mapView:UIView!
     @IBOutlet weak var listView:UIView!
     @IBOutlet weak var wifiTableView:UITableView!
+    @IBOutlet weak var topViewLabel:UILabel!
+    @IBOutlet weak var topView:UIView!
+    @IBOutlet weak var coonectedView:UIView!
+    @IBOutlet weak var WifiName:UILabel!
+    @IBOutlet weak var connectedDeviceCount:UILabel!
+    @IBOutlet weak var radarView:RadarView!
+    @IBOutlet weak var mapImg:UIImageView!
+    @IBOutlet weak var listImg:UIImageView!
     var locationManager: CLLocationManager!
     var decryptvalue = String()
     var dictnry = String()
@@ -33,6 +44,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
+        let mapViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToMapView))
+        transView.addGestureRecognizer(mapViewGesture)
+        let listViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToListView))
+        transView.addGestureRecognizer(listViewGesture)
+        radarView.delegate = self
+        radarView.dataSource = self
+      
         
         self.requestPermissionsToShowSsidAndBssid()
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
@@ -47,19 +65,41 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         print("viewDidAppear")
        checkWifi()
         if isWiFiConnected(){
+            topViewLabel.text = "Wifi Provider"
             networkCall()
+        }else{
+            topViewLabel.text = "No Wi-Fi Connection"
         }
     }
     
+    @objc func switchToMapView(){
+        
+        switchView(isMap: false, isList: true)
+    }
+    @objc func switchToListView(){
+        switchView(isMap: true, isList: false)
+    }
     
+    private func switchView(isMap:Bool,isList:Bool){
+        wifiTableView.isHidden = isList
+        radarView.isHidden = isMap
+        if isMap{
+            mapImg.image = UIImage(named: "radar_unselected")
+            listImg.image = UIImage(named: "list_selected")
+        }else{
+            mapImg.image = UIImage(named: "radar_selected")
+            listImg.image = UIImage(named: "list_unselected")
+        }
+    }
     
     
     private func checkWifi(){
         if isWiFiConnected(){
             showWifiView(status:true)
-            
+           
            // scanDevice()
         }else{
+           
             showWifiView(status:false)
         }
     }
@@ -69,17 +109,17 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     
     private func networkCall(){
-//        NetworkHelper.sharedInstanceHelper.getWifiKey(networkListner: { [self] wifiKey,error  in
-//            if wifiKey != nil {
-//
-//                let decryptString = decryptvalue.decrypt(hexString:wifiKey as! String)
-//                let dict1 = dictnry.convertToDictionary(text: decryptString!)
-//                let code = dict1!["status"] as! String
-//                print("code111 \(code)")
-//
-//            }
-//        })
-        getConnectedDevicesList()
+        NetworkHelper.sharedInstanceHelper.getWifiKey(networkListner: { [self] wifiKey,error  in
+            if wifiKey != nil {
+
+                let decryptString = decryptvalue.decrypt(hexString:wifiKey as! String)
+                let dict1 = dictnry.convertToDictionary(text: decryptString!)
+                let code = dict1!["status"] as! String
+                print("code111 \(code)")
+
+            }
+        })
+       getConnectedDevicesList()
     }
     
     
@@ -242,15 +282,26 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                                     if let isp = scanResponse.fingIsp {
                                        // print("parseScanData: fingNodes \(fingNodes.count)")
                                         // FingNodesHandler.shared.setFingNodes(fingNodes)
-                                        
-                                        print("isp\(isp.organization)")
+                                        DispatchQueue.main.async { [self] in
+                                            topView.isHidden = true
+                                            coonectedView.isHidden = false
+                                            WifiName.text = isp.organization
+                                        }
+                                     
+                                       
                                     }
                                     
                                     if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
-                                        print("parseScanData: fingNodes \(fingNodes.count)")
+                                       
                                         // FingNodesHandler.shared.setFingNodes(fingNodes)
                                         fingData = fingNodes
                                         DispatchQueue.main.async { [self] in
+                                            let items = fingData.map{Item(uniqueKey: $0.bestName!, value: $0) }
+                                            radarView.add(items: items)
+                                        }
+                                      
+                                        DispatchQueue.main.async { [self] in
+                                            connectedDeviceCount.text = "( \(fingNodes.count) )"
                                             wifiTableView.reloadData()
                                         }
                                     }
@@ -302,17 +353,24 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     
     @IBAction func openSpeedHistory(_ sender:UIButton){
+        hideBottomSheet()
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func openDeviceDetail(_ sender:UIButton){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
+        hideBottomSheet()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "InAppPurchaseVC") as! InAppPurchaseVC
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func openRouter(_ sender:UIButton){
+        hideBottomSheet()
         let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
         navigationController?.pushViewController(vc, animated: true)
     }
+    private func hideBottomSheet(){
+        bottomSheet.isHidden = true
+     }
+     
 }
 
 extension WifiVC: UITableViewDelegate,UITableViewDataSource {
@@ -352,13 +410,79 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
         vc.data  = fingData[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+ 
+    
+}
+
+extension WifiVC:RadarViewDelegate,RadarViewDataSource{
+    func radarView(radarView: HGRippleRadarView.RadarView, didSelect item: HGRippleRadarView.Item) {
+        let view = radarView.view(for: item)
+        guard let animal = item.value as? FingNodes else { return }
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
+        vc.data  = animal
+        navigationController?.pushViewController(vc, animated: true)
+        print("item0000000\(item)")
+    }
+    
+    func radarView(radarView: HGRippleRadarView.RadarView, didDeselect item: HGRippleRadarView.Item) {
+       print("item\(item)")
+    }
+    
+    func radarView(radarView: HGRippleRadarView.RadarView, didDeselectAllItems lastSelectedItem: HGRippleRadarView.Item) {
+        print("allItems \(lastSelectedItem)")
+    }
+    
+    func radarView(radarView: HGRippleRadarView.RadarView, viewFor item: HGRippleRadarView.Item, preferredSize: CGSize) -> UIView {
+        let customView = UIView(frame: CGRect(x:0, y:0, width:50, height:preferredSize.height))
+               customView.backgroundColor = UIColor.clear // Set your desired background color
+               
+               // Customize the appearance of the view as per your requirements
+         let data = item.value as? FingNodes
+        let nibObjects = Bundle.main.loadNibNamed("AnimationView", owner: nil, options: nil)
+        
+        let loadView = nibObjects?.first as? AnimationCell
+        //  loadView.backgroundColor = UIColor.clear
+        
+        loadView?.deviceName.text = data!.bestName
+        loadView?.deviceName.textColor = .white
+        
+       
+            switch(data!.bestType){
+            case "ROUTER":
+                loadView?.animatedImage.image = UIImage(named: "router")
+                break
+            case "LAPTOP":
+                loadView?.animatedImage.image = UIImage(named: "router")
+                break
+            case "MOBILE":
+                loadView?.animatedImage.image = UIImage(named: "iphone")
+                break
+            case "COMPUTER":
+                loadView?.animatedImage.image = UIImage(named: "desktop")
+                break
+            case "PRINTER":
+                loadView?.animatedImage.image = UIImage(named: "printer")
+                break
+            default :
+                loadView?.animatedImage.image = UIImage(named: "default_icon")
+            
+        }
+        loadView?.animationView.frame.size.width = customView.frame.size.width
+        loadView?.animationView.backgroundColor = UIColor.clear
+        loadView?.animationView.frame.size.height = customView.frame.size.height
+        customView.addSubview(loadView!)
+        customView.backgroundColor = UIColor.clear
+        customView.contentMode = .scaleAspectFill
+        return customView
     }
     
     

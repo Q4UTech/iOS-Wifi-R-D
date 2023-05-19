@@ -520,4 +520,93 @@ public extension UIDevice {
         }
     }
 
+    func getDeviceIcon(value: String) -> String {
+        switch value {
+        case DeviceName.Acer.rawValue:
+            return "acer"
+        case DeviceName.Apple.rawValue:
+            return"apple"
+        case DeviceName.Asus.rawValue:
+            return "asus"
+        case DeviceName.AVITA.rawValue:
+            return "avita"
+        case DeviceName.BlackBerry.rawValue:
+            return "blackberry"
+        case DeviceName.Dell.rawValue:
+            return "dell"
+        case DeviceName.Google.rawValue:
+            return "google"
+        case DeviceName.Honor.rawValue:
+            return "honor"
+        case DeviceName.HTC.rawValue:
+            return "htc"
+        case DeviceName.Huawei.rawValue:
+            return "huawei"
+        case DeviceName.Infinix.rawValue:
+            return "infix"
+        case DeviceName.Lenovo.rawValue:
+            return "lenovo"
+        case DeviceName.LG.rawValue:
+            return "lg"
+        case DeviceName.Xiaomi.rawValue:
+            return "xiaomi"
+        case DeviceName.Micromax.rawValue:
+            return "micromax"
+        case DeviceName.Microsoft.rawValue:
+            return "windows"
+        case DeviceName.Motorola.rawValue:
+            return "motorola"
+        case DeviceName.Nokia.rawValue:
+            return "nokia"
+        case DeviceName.OnePlus.rawValue:
+            return "one_plus"
+        case DeviceName.Oppo.rawValue:
+            return "oppo"
+        case DeviceName.Panasonic.rawValue:
+            return "panasonic"
+        case DeviceName.Realme.rawValue:
+            return "realme"
+        case DeviceName.Samsung.rawValue:
+            return "samsung"
+        case DeviceName.Sony.rawValue:
+            return "sony"
+        case DeviceName.Toshiba.rawValue:
+            return "toshiba"
+        case DeviceName.Vaio.rawValue:
+            return "sony"
+        case DeviceName.Vivo.rawValue:
+            return "vivo"
+        default:
+            return "default_icon"
+        }
+    }
+
+    func getOsIcon(value: String) -> String {
+        if value.localizedCaseInsensitiveContains("Android") {
+            return "android"
+        } else if value.localizedCaseInsensitiveContains("Window") {
+            return "windows"
+        } else if value.localizedCaseInsensitiveContains("Chrome") {
+            return "google"
+        } else if value.localizedCaseInsensitiveContains("iOS") {
+            return "apple"
+        } else {
+            return "default_icon"
+        }
+    }
+
+    func getOsName(value: String) -> String {
+        if value.localizedCaseInsensitiveContains("Android") {
+            return "Android"
+        } else if value.localizedCaseInsensitiveContains("Window") {
+            return "Windows"
+        } else if value.localizedCaseInsensitiveContains("Chrome") {
+            return "Chrome"
+        } else if value.localizedCaseInsensitiveContains("iOS") {
+            return "iOS"
+        } else {
+            return "Not Found"
+        }
+    }
+
 }

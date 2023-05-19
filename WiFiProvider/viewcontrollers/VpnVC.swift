@@ -99,4 +99,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
             navigationController?.pushViewController(vc, animated: true)
         }
+    private func hideBottomSheet(){
+        bottomSheet.isHidden = true
+     }
     }

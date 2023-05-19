@@ -22,8 +22,8 @@ class SpeedTestViewModel{
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async { [self] in
                 
-                uploadArray.removeAll()
-                downLoadArray.removeAll()
+//                uploadArray.removeAll()
+//                downLoadArray.removeAll()
             if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
                 NetworkSpeedTest.shared.testDownloadSpeedWithTimout(timeout: 5.0) { [self]  (speed,status, error) in
                    
@@ -50,39 +50,39 @@ class SpeedTestViewModel{
                                         
                                        
                                         
-                                        print("speedList1 \(speedTestList.count)")
-                                        if speedTestList[formatter1.string(from: today)] == nil{
-                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
-                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
-                                            if let encode = try?  JSONEncoder().encode(speedTestList) {
-                                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-                                            }
-                                            print("speedDataList7777\(speedDataList)")
-                                        }else {
-                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
-                                            print("speedDataList77\(speedDataList)")
-                                            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
-                                                do {
-                                                         
-                                                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
-                                                    print("speedDataList777\(speedDataList)")
-                                                    for (_ ,data) in speedTestList{
-                                                        print("dataCount \(data.count)")
-                                                        for i in data{
-                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
-                                                        }
-
-                                                    }
-                                                    speedTestList[formatter1.string(from: today)] = speedDataList
-                                                    if let encode = try?  JSONEncoder().encode(speedTestList) {
-                                                        UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-                                                    }
-                                                    print("working11 \(speedDataList.count)")
-                                                }catch{
-
-                                                }
-                                            }
-                                        }
+//                                        print("speedList1 \(speedTestList.count)")
+//                                        if speedTestList[formatter1.string(from: today)] == nil{
+//                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
+//                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+//                                            if let encode = try?  JSONEncoder().encode(speedTestList) {
+//                                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+//                                            }
+//                                            print("speedDataList7777\(speedDataList)")
+//                                        }else {
+//                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+//                                            print("speedDataList77\(speedDataList)")
+//                                            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+//                                                do {
+//                                                         
+//                                                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+//                                                    print("speedDataList777\(speedDataList)")
+//                                                    for (_ ,data) in speedTestList{
+//                                                        print("dataCount \(data.count)")
+//                                                        for i in data{
+//                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
+//                                                        }
+//
+//                                                    }
+//                                                    speedTestList[formatter1.string(from: today)] = speedDataList
+//                                                    if let encode = try?  JSONEncoder().encode(speedTestList) {
+//                                                        UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+//                                                    }
+//                                                    print("working11 \(speedDataList.count)")
+//                                                }catch{
+//
+//                                                }
+//                                            }
+//                                        }
                                        
                                     } else {
                                         // Fallback on earlier versions
@@ -114,8 +114,8 @@ class SpeedTestViewModel{
             }
            
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in
-            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,upload: uploadArray.last!,download: downLoadArray.last!)
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) { [self] in
+            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,upload: uploadArray.last! ,download: downLoadArray.last!)
         }
     }
     

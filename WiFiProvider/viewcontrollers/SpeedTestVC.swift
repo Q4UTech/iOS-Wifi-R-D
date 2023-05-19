@@ -310,8 +310,13 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     }
     
     @IBAction func openSpeedHistory(_ sender:UIButton){
+        hideBottomSheet()
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func hideBottomSheet(){
+        bottomSheet.isHidden = true
+     }
 }
 

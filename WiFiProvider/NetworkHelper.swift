@@ -84,11 +84,12 @@ class NetworkHelper{
                          //   self.hideHud()
                             
                             print("response \(value)")
-//                            let dict = value as! [String:String]
+//                            let dict = value as! WifiKey
 //                              
-//                                 let dictValues = [String](dict.values)
-//                                 let value  = dictValues[0]
-//                                
+//                            let dictValues = dict
+//                                // let value  = dictValues[0]
+//                            print("response1 \(dictValues)")
+////
 //
 //                            commonNetworkListner(value as AnyObject? as! T, nil)
                             break

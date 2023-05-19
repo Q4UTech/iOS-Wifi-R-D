@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */; };
 		C713C06929FAA227009308C2 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C713C06829FAA227009308C2 /* splash.json */; };
+		C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7461EC62A1689AA0002AEB2 /* DeviceName.swift */; };
 		C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */; };
 		C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECA2A163D0600DF51A9 /* FingNetwork.swift */; };
 		C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECC2A163D4D00DF51A9 /* FingIsp.swift */; };
@@ -81,6 +82,13 @@
 		C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */; };
 		C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */; };
 		C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5AA092A14F272002B7393 /* SpeedData.swift */; };
+		C7C432612A17290300AD0E31 /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432602A17290300AD0E31 /* UnderlineView.swift */; };
+		C7C432642A17308300AD0E31 /* TabySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */; };
+		C7C432662A17374100AD0E31 /* PasswordHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432652A17374100AD0E31 /* PasswordHintVC.swift */; };
+		C7C432682A17375800AD0E31 /* RouterHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432672A17375800AD0E31 /* RouterHintVC.swift */; };
+		C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C4326A2A178FC000AD0E31 /* AnimationCell.swift */; };
+		C7C4326E2A178FC000AD0E31 /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4326C2A178FC000AD0E31 /* AnimationView.xib */; };
+		C7C432702A179F2F00AD0E31 /* InAppPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C4326F2A179F2F00AD0E31 /* InAppPurchaseVC.swift */; };
 		C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */; };
 		C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */; };
 		C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */; };
@@ -122,6 +130,7 @@
 		4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiFiProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.debug.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.debug.xcconfig"; sourceTree = "<group>"; };
 		C713C06829FAA227009308C2 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		C7461EC62A1689AA0002AEB2 /* DeviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingScanResponse.swift; sourceTree = "<group>"; };
 		C748CECA2A163D0600DF51A9 /* FingNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingNetwork.swift; sourceTree = "<group>"; };
 		C748CECC2A163D4D00DF51A9 /* FingIsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingIsp.swift; sourceTree = "<group>"; };
@@ -208,6 +217,13 @@
 		C7B5AA072A14CC13002B7393 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C7B5AA082A14CC13002B7393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B5AA092A14F272002B7393 /* SpeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedData.swift; sourceTree = "<group>"; };
+		C7C432602A17290300AD0E31 /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
+		C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabySegmentedControl.swift; sourceTree = "<group>"; };
+		C7C432652A17374100AD0E31 /* PasswordHintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHintVC.swift; sourceTree = "<group>"; };
+		C7C432672A17375800AD0E31 /* RouterHintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterHintVC.swift; sourceTree = "<group>"; };
+		C7C4326A2A178FC000AD0E31 /* AnimationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCell.swift; sourceTree = "<group>"; };
+		C7C4326C2A178FC000AD0E31 /* AnimationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
+		C7C4326F2A179F2F00AD0E31 /* InAppPurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseVC.swift; sourceTree = "<group>"; };
 		C7CFFEFC2A11EA5800898D67 /* WifiAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiAdminVC.swift; sourceTree = "<group>"; };
 		C7CFFF032A123B9500898D67 /* ScannedWifiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedWifiList.swift; sourceTree = "<group>"; };
 		C7CFFF052A12577700898D67 /* DeviceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailVC.swift; sourceTree = "<group>"; };
@@ -269,6 +285,9 @@
 				C7A95D832A13AB18006DBA68 /* Constants.swift */,
 				C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */,
 				C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */,
+				C7461EC62A1689AA0002AEB2 /* DeviceName.swift */,
+				C7C432602A17290300AD0E31 /* UnderlineView.swift */,
+				C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -289,6 +308,9 @@
 				C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */,
 				C7A95D502A135D60006DBA68 /* RouterVC.swift */,
 				C7A95D712A13A62A006DBA68 /* CountryVC.swift */,
+				C7C432652A17374100AD0E31 /* PasswordHintVC.swift */,
+				C7C432672A17375800AD0E31 /* RouterHintVC.swift */,
+				C7C4326F2A179F2F00AD0E31 /* InAppPurchaseVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -345,6 +367,8 @@
 		C7A95D492A134C92006DBA68 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				C7C4326A2A178FC000AD0E31 /* AnimationCell.swift */,
+				C7C4326C2A178FC000AD0E31 /* AnimationView.xib */,
 				C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */,
 				C7A95D732A13A6BD006DBA68 /* CountryTableViewCell.swift */,
 				C748CED02A164FE500DF51A9 /* WifiDataCell.swift */,
@@ -610,6 +634,7 @@
 				C7F2502929FA899800F23FEB /* LaunchScreen.storyboard in Resources */,
 				C7F2502629FA899800F23FEB /* Assets.xcassets in Resources */,
 				C713C06929FAA227009308C2 /* splash.json in Resources */,
+				C7C4326E2A178FC000AD0E31 /* AnimationView.xib in Resources */,
 				C7F2502429FA899700F23FEB /* Main.storyboard in Resources */,
 				C7843B962A0DF3F800C7C2DB /* LICENSE in Resources */,
 			);
@@ -670,6 +695,7 @@
 				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
 				C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */,
 				C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */,
+				C7C432642A17308300AD0E31 /* TabySegmentedControl.swift in Sources */,
 				C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */,
 				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
 				C7A95D6E2A1399FD006DBA68 /* ConnectedTimer.swift in Sources */,
@@ -677,16 +703,19 @@
 				C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */,
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
 				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
+				C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
 				C7B5A9EB2A14CB42002B7393 /* PacketTunnelProvider.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
 				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
+				C7C432612A17290300AD0E31 /* UnderlineView.swift in Sources */,
 				C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */,
 				C748CED12A164FE500DF51A9 /* WifiDataCell.swift in Sources */,
 				C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */,
 				C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */,
+				C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */,
 				C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */,
 				C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */,
 				C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */,
@@ -694,6 +723,7 @@
 				C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */,
 				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
 				C7B5A9F22A14CB42002B7393 /* Settings.swift in Sources */,
+				C7C432682A17375800AD0E31 /* RouterHintVC.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
 				C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */,
@@ -707,6 +737,7 @@
 				C7B5A9EF2A14CB42002B7393 /* Message.swift in Sources */,
 				C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */,
 				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
+				C7C432702A179F2F00AD0E31 /* InAppPurchaseVC.swift in Sources */,
 				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
 				C7B5A9F02A14CB42002B7393 /* Config.swift in Sources */,
 				C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */,
@@ -719,6 +750,7 @@
 				C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */,
 				C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */,
 				C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */,
+				C7C432662A17374100AD0E31 /* PasswordHintVC.swift in Sources */,
 				C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */,
 				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
 				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
