@@ -8,6 +8,7 @@
 import UIKit
 import WMGaugeView
 import Charts
+import PlainPing
 
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
     func isSpeedCheckComplete(complete: Bool, upload: Double, download: Double) {
@@ -99,6 +100,18 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         getNetworkSpeed()
         getIP()
+        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { [self] (timeElapsed:Double?, error:Error?) in
+            if let latency = timeElapsed {
+                pingData = "\(String(latency).prefix(4))"
+                self.ping.text = pingData
+                
+               
+            }
+
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        })
        
     }
     
@@ -235,8 +248,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
     func getIP(){
         if pingSpeed?.city != nil {
-            ping.text = String(pingSpeed!.query)
-            pingData = String(pingSpeed!.query)
+//            ping.text = String(pingSpeed!.query)
+//            pingData = String(pingSpeed!.query)
             
             //ipadressLocation.text =  "Location :" + " " + films!.city
         }

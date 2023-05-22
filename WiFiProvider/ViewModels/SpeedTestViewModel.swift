@@ -158,7 +158,7 @@ class SpeedTestViewModel{
 //        speedMeterView.scaleDivisionsWidth = 0.000
 //        speedMeterView.scaleDivisionsLength = 0.00
         
-        
+        speedMeterView.needleStyle = WMGaugeViewNeedleStyleFlatThin
         speedMeterView.backgroundColor = UIColor.clear
         speedMeterView.showInnerBackground = false
         speedMeterView.minValue = 0

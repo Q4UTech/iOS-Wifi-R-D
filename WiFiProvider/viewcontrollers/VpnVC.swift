@@ -8,6 +8,7 @@
 import UIKit
 import Network
 
+
 class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol
 {
     func connectionState(uploadSpeed: String, downloadSpeed: String) {
@@ -31,12 +32,11 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
     
     func connectionStatus(connectionStatus: String) {
-        if connectionStatus == "disconnected" {
-//            connectButton.setTitle("Connect", for: .normal)
-//            taponButton.setTitle("Your Status: Not Connected", for: .normal)
-        }
-        else {
-           // connectButton.setTitle(connectionStatus, for: .normal)
+        if connectionStatus == "connected" {
+//            connectionStatusLabel.text = "Connected Successfully"
+            print("connected succesfully")
+           // delegate.setStatus(value: true)
+            
         }
         
     }
@@ -66,7 +66,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+            ConnectionStatus.instanceHelper.itemdelegates = self
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
             transView.addGestureRecognizer(tapGesture)
             let monitor = NetworkSpeedMonitor()
@@ -102,4 +102,33 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     private func hideBottomSheet(){
         bottomSheet.isHidden = true
      }
+    @IBAction func connectButtonActions(_ sender: UIButton) {
+       
+        self.buttonSwitched = !self.buttonSwitched
+        if self.buttonSwitched{
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AnimationVC") as! AnimationVC
+//            vc.profileVM = profileVM
+//            vc.delegate = self
+            if #available(iOS 13.0, *) {
+                let profileVM = ProfileViewModel()
+                Settings.saveProfile(profile: profileVM.profile)
+                Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
+               
+                profileVM.mainButtonAction()
+                print("called for data")
+            } else {
+                // Fallback on earlier versions
+            }
+          
+//            self.navigationController?.pushViewController(vc, animated: false)
+           
+        }
+       
+        else {
+           // profileVM.connection.stopVPN()
+            ConnectionStatus.instanceHelper.itemdelegates = self
+            
+        }
+    }
+    
     }

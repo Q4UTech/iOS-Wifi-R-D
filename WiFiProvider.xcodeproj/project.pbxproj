@@ -8,7 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */; };
+		139954FCA5292EB261824236 /* Pods_TunnelProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */; };
 		C713C06929FAA227009308C2 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C713C06829FAA227009308C2 /* splash.json */; };
+		C71F949C2A1B830000A3BFF1 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */; };
+		C71F949F2A1B830000A3BFF1 /* AppProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */; };
+		C71F94A42A1B830000A3BFF1 /* TunnelProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C71F94B52A1B843A00A3BFF1 /* Profle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94AC2A1B843A00A3BFF1 /* Profle.swift */; };
+		C71F94B62A1B843A00A3BFF1 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */; };
+		C71F94B72A1B843A00A3BFF1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B02A1B843A00A3BFF1 /* Log.swift */; };
+		C71F94B82A1B843A00A3BFF1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B12A1B843A00A3BFF1 /* Message.swift */; };
+		C71F94B92A1B843A00A3BFF1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B22A1B843A00A3BFF1 /* Config.swift */; };
+		C71F94BA2A1B843A00A3BFF1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B32A1B843A00A3BFF1 /* Util.swift */; };
+		C71F94BB2A1B843A00A3BFF1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B42A1B843A00A3BFF1 /* Settings.swift */; };
+		C71F94BD2A1B847C00A3BFF1 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */; };
+		C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94BE2A1B87DA00A3BFF1 /* Util.swift */; };
+		C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C42A1B896E00A3BFF1 /* Profile.swift */; };
+		C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C62A1B89FA00A3BFF1 /* Settings.swift */; };
+		C71F94CA2A1B8AED00A3BFF1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C82A1B8AED00A3BFF1 /* Message.swift */; };
+		C71F94CB2A1B8AED00A3BFF1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C92A1B8AED00A3BFF1 /* Log.swift */; };
 		C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7461EC62A1689AA0002AEB2 /* DeviceName.swift */; };
 		C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */; };
 		C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECA2A163D0600DF51A9 /* FingNetwork.swift */; };
@@ -71,14 +88,6 @@
 		C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */; };
 		C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */; };
 		C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */; };
-		C7B5A9EB2A14CB42002B7393 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */; };
-		C7B5A9EC2A14CB42002B7393 /* Profle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E22A14CB42002B7393 /* Profle.swift */; };
-		C7B5A9ED2A14CB42002B7393 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E42A14CB42002B7393 /* Bridge.swift */; };
-		C7B5A9EE2A14CB42002B7393 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E52A14CB42002B7393 /* Log.swift */; };
-		C7B5A9EF2A14CB42002B7393 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E62A14CB42002B7393 /* Message.swift */; };
-		C7B5A9F02A14CB42002B7393 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E72A14CB42002B7393 /* Config.swift */; };
-		C7B5A9F12A14CB42002B7393 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E82A14CB42002B7393 /* Util.swift */; };
-		C7B5A9F22A14CB42002B7393 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9E92A14CB42002B7393 /* Settings.swift */; };
 		C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */; };
 		C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */; };
 		C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5AA092A14F272002B7393 /* SpeedData.swift */; };
@@ -102,6 +111,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C71F94A22A1B830000A3BFF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7F2501129FA899700F23FEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C71F94992A1B830000A3BFF1;
+			remoteInfo = TunnelProvider;
+		};
 		C7843B942A0DF3F800C7C2DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7843B792A0DF3F800C7C2DB /* FingKitTestApp.xcodeproj */;
@@ -112,6 +128,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C71F94A52A1B830000A3BFF1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C71F94A42A1B830000A3BFF1 /* TunnelProvider.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,8 +155,28 @@
 /* Begin PBXFileReference section */
 		15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.release.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.release.xcconfig"; sourceTree = "<group>"; };
 		4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiFiProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.debug.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.debug.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.debug.xcconfig"; sourceTree = "<group>"; };
+		B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.release.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.release.xcconfig"; sourceTree = "<group>"; };
 		C713C06829FAA227009308C2 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TunnelProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyProvider.swift; sourceTree = "<group>"; };
+		C71F94A02A1B830000A3BFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C71F94A12A1B830000A3BFF1 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
+		C71F94AC2A1B843A00A3BFF1 /* Profle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
+		C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		C71F94B02A1B843A00A3BFF1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C71F94B12A1B843A00A3BFF1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C71F94B22A1B843A00A3BFF1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C71F94B32A1B843A00A3BFF1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C71F94B42A1B843A00A3BFF1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		C71F94BE2A1B87DA00A3BFF1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C71F94C42A1B896E00A3BFF1 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C71F94C62A1B89FA00A3BFF1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C71F94C82A1B8AED00A3BFF1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C71F94C92A1B8AED00A3BFF1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C7461EC62A1689AA0002AEB2 /* DeviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingScanResponse.swift; sourceTree = "<group>"; };
 		C748CECA2A163D0600DF51A9 /* FingNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingNetwork.swift; sourceTree = "<group>"; };
@@ -194,28 +241,9 @@
 		C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
 		C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShadowImageView.swift; sourceTree = "<group>"; };
 		C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		C7B5A9DF2A14CB42002B7393 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
-		C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
-		C7B5A9E22A14CB42002B7393 /* Profle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
-		C7B5A9E42A14CB42002B7393 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
-		C7B5A9E52A14CB42002B7393 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C7B5A9E62A14CB42002B7393 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C7B5A9E72A14CB42002B7393 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C7B5A9E82A14CB42002B7393 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		C7B5A9E92A14CB42002B7393 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorizationProcessor.swift; sourceTree = "<group>"; };
 		C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorizationActions.swift; sourceTree = "<group>"; };
 		C7B5A9F72A14CBF4002B7393 /* neprovider.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = neprovider.entitlements; sourceTree = "<group>"; };
-		C7B5A9FD2A14CC13002B7393 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
-		C7B5A9FE2A14CC13002B7393 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
-		C7B5AA002A14CC13002B7393 /* Profle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
-		C7B5AA022A14CC13002B7393 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
-		C7B5AA032A14CC13002B7393 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C7B5AA042A14CC13002B7393 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C7B5AA052A14CC13002B7393 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C7B5AA062A14CC13002B7393 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		C7B5AA072A14CC13002B7393 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		C7B5AA082A14CC13002B7393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B5AA092A14F272002B7393 /* SpeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedData.swift; sourceTree = "<group>"; };
 		C7C432602A17290300AD0E31 /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
 		C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabySegmentedControl.swift; sourceTree = "<group>"; };
@@ -236,9 +264,19 @@
 		C7F2502829FA899800F23FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F2502A29FA899800F23FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7F2508C29FA9F1200F23FEB /* WifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiVC.swift; sourceTree = "<group>"; };
+		DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C71F94972A1B830000A3BFF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71F949C2A1B830000A3BFF1 /* NetworkExtension.framework in Frameworks */,
+				139954FCA5292EB261824236 /* Pods_TunnelProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F2501629FA899700F23FEB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,8 +292,9 @@
 		9A79FE8C9EE63DAF8F1454BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7B5A9FC2A14CC13002B7393 /* TunnelProvider */,
 				4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */,
+				C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */,
+				DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,8 +304,44 @@
 			children = (
 				8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */,
 				15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */,
+				633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */,
+				B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C71F949D2A1B830000A3BFF1 /* TunnelProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */,
+				C71F94AE2A1B843A00A3BFF1 /* Helpers */,
+				C71F94AB2A1B843A00A3BFF1 /* Model */,
+				C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */,
+				C71F94A02A1B830000A3BFF1 /* Info.plist */,
+				C71F94A12A1B830000A3BFF1 /* TunnelProvider.entitlements */,
+			);
+			path = TunnelProvider;
+			sourceTree = "<group>";
+		};
+		C71F94AB2A1B843A00A3BFF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C71F94AC2A1B843A00A3BFF1 /* Profle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C71F94AE2A1B843A00A3BFF1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */,
+				C71F94B02A1B843A00A3BFF1 /* Log.swift */,
+				C71F94B12A1B843A00A3BFF1 /* Message.swift */,
+				C71F94B22A1B843A00A3BFF1 /* Config.swift */,
+				C71F94B32A1B843A00A3BFF1 /* Util.swift */,
+				C71F94B42A1B843A00A3BFF1 /* Settings.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C75F1B3B29FB819000D89A3E /* HelperClasses */ = {
@@ -338,6 +413,7 @@
 		C7843BB12A0E39C300C7C2DB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C71F94C42A1B896E00A3BFF1 /* Profile.swift */,
 				C7843BB22A0E39C300C7C2DB /* SpeedTestViewModel.swift */,
 				C7843BB32A0E39C300C7C2DB /* VPNViewModel.swift */,
 				C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */,
@@ -349,6 +425,10 @@
 		C7843BB92A0E3CA200C7C2DB /* ServiceHelper */ = {
 			isa = PBXGroup;
 			children = (
+				C71F94C92A1B8AED00A3BFF1 /* Log.swift */,
+				C71F94C82A1B8AED00A3BFF1 /* Message.swift */,
+				C71F94C62A1B89FA00A3BFF1 /* Settings.swift */,
+				C71F94BE2A1B87DA00A3BFF1 /* Util.swift */,
 				C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */,
 				C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */,
 				C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */,
@@ -412,38 +492,6 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		C7B5A9DE2A14CB42002B7393 /* TunnelProvider */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5A9DF2A14CB42002B7393 /* TunnelProvider.entitlements */,
-				C7B5A9E02A14CB42002B7393 /* PacketTunnelProvider.swift */,
-				C7B5A9E12A14CB42002B7393 /* Model */,
-				C7B5A9E32A14CB42002B7393 /* Helpers */,
-			);
-			path = TunnelProvider;
-			sourceTree = "<group>";
-		};
-		C7B5A9E12A14CB42002B7393 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5A9E22A14CB42002B7393 /* Profle.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C7B5A9E32A14CB42002B7393 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5A9E42A14CB42002B7393 /* Bridge.swift */,
-				C7B5A9E52A14CB42002B7393 /* Log.swift */,
-				C7B5A9E62A14CB42002B7393 /* Message.swift */,
-				C7B5A9E72A14CB42002B7393 /* Config.swift */,
-				C7B5A9E82A14CB42002B7393 /* Util.swift */,
-				C7B5A9E92A14CB42002B7393 /* Settings.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		C7B5A9F42A14CBF4002B7393 /* neprovider */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,40 +500,6 @@
 				C7B5A9F72A14CBF4002B7393 /* neprovider.entitlements */,
 			);
 			path = neprovider;
-			sourceTree = "<group>";
-		};
-		C7B5A9FC2A14CC13002B7393 /* TunnelProvider */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5A9FD2A14CC13002B7393 /* TunnelProvider.entitlements */,
-				C7B5A9FE2A14CC13002B7393 /* PacketTunnelProvider.swift */,
-				C7B5A9FF2A14CC13002B7393 /* Model */,
-				C7B5AA012A14CC13002B7393 /* Helpers */,
-				C7B5AA082A14CC13002B7393 /* Info.plist */,
-			);
-			name = TunnelProvider;
-			path = WiFiProvider/TunnelProvider;
-			sourceTree = "<group>";
-		};
-		C7B5A9FF2A14CC13002B7393 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5AA002A14CC13002B7393 /* Profle.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C7B5AA012A14CC13002B7393 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C7B5AA022A14CC13002B7393 /* Bridge.swift */,
-				C7B5AA032A14CC13002B7393 /* Log.swift */,
-				C7B5AA042A14CC13002B7393 /* Message.swift */,
-				C7B5AA052A14CC13002B7393 /* Config.swift */,
-				C7B5AA062A14CC13002B7393 /* Util.swift */,
-				C7B5AA072A14CC13002B7393 /* Settings.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C7CFFF012A123B5F00898D67 /* Model */ = {
@@ -509,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F2501B29FA899700F23FEB /* WiFiProvider */,
+				C71F949D2A1B830000A3BFF1 /* TunnelProvider */,
 				C7F2501A29FA899700F23FEB /* Products */,
 				BFD2D736738334E69D11FFC8 /* Pods */,
 				9A79FE8C9EE63DAF8F1454BC /* Frameworks */,
@@ -519,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F2501929FA899700F23FEB /* WiFiProvider.app */,
+				C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -527,7 +543,6 @@
 			isa = PBXGroup;
 			children = (
 				C7B5A9F42A14CBF4002B7393 /* neprovider */,
-				C7B5A9DE2A14CB42002B7393 /* TunnelProvider */,
 				C7A95D582A1399FC006DBA68 /* Protocols */,
 				C7A95D492A134C92006DBA68 /* TableCell */,
 				C7CFFF012A123B5F00898D67 /* Model */,
@@ -555,6 +570,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C71F94992A1B830000A3BFF1 /* TunnelProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C71F94A92A1B830000A3BFF1 /* Build configuration list for PBXNativeTarget "TunnelProvider" */;
+			buildPhases = (
+				38380F44274EA4BE00D3C2E8 /* [CP] Check Pods Manifest.lock */,
+				C71F94962A1B830000A3BFF1 /* Sources */,
+				C71F94972A1B830000A3BFF1 /* Frameworks */,
+				C71F94982A1B830000A3BFF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TunnelProvider;
+			productName = TunnelProvider;
+			productReference = C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C7F2501829FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F2502D29FA899800F23FEB /* Build configuration list for PBXNativeTarget "WiFiProvider" */;
@@ -565,10 +598,12 @@
 				C7F2501729FA899700F23FEB /* Resources */,
 				D3C1BC7B8E3C2F37334064D3 /* [CP] Embed Pods Frameworks */,
 				C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */,
+				C71F94A52A1B830000A3BFF1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C71F94A32A1B830000A3BFF1 /* PBXTargetDependency */,
 			);
 			name = WiFiProvider;
 			productName = WiFiProvider;
@@ -585,6 +620,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					C71F94992A1B830000A3BFF1 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					C7F2501829FA899700F23FEB = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -610,6 +648,7 @@
 			projectRoot = "";
 			targets = (
 				C7F2501829FA899700F23FEB /* WiFiProvider */,
+				C71F94992A1B830000A3BFF1 /* TunnelProvider */,
 			);
 		};
 /* End PBXProject section */
@@ -625,6 +664,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C71F94982A1B830000A3BFF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F2501729FA899700F23FEB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,6 +689,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		38380F44274EA4BE00D3C2E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TunnelProvider-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B8EB38C9AADFC98528CE0699 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -685,16 +753,34 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C71F94962A1B830000A3BFF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71F949F2A1B830000A3BFF1 /* AppProxyProvider.swift in Sources */,
+				C71F94B52A1B843A00A3BFF1 /* Profle.swift in Sources */,
+				C71F94BB2A1B843A00A3BFF1 /* Settings.swift in Sources */,
+				C71F94B82A1B843A00A3BFF1 /* Message.swift in Sources */,
+				C71F94B72A1B843A00A3BFF1 /* Log.swift in Sources */,
+				C71F94BA2A1B843A00A3BFF1 /* Util.swift in Sources */,
+				C71F94B62A1B843A00A3BFF1 /* Bridge.swift in Sources */,
+				C71F94B92A1B843A00A3BFF1 /* Config.swift in Sources */,
+				C71F94BD2A1B847C00A3BFF1 /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F2501529FA899700F23FEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C7A95D662A1399FD006DBA68 /* PremiumCallback.swift in Sources */,
 				C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */,
+				C71F94CB2A1B8AED00A3BFF1 /* Log.swift in Sources */,
 				C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */,
 				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
 				C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */,
 				C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */,
+				C71F94CA2A1B8AED00A3BFF1 /* Message.swift in Sources */,
 				C7C432642A17308300AD0E31 /* TabySegmentedControl.swift in Sources */,
 				C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */,
 				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
@@ -705,8 +791,10 @@
 				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
 				C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
-				C7B5A9EB2A14CB42002B7393 /* PacketTunnelProvider.swift in Sources */,
+				C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
+				C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */,
+				C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */,
 				C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
 				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
@@ -722,7 +810,6 @@
 				C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */,
 				C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */,
 				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
-				C7B5A9F22A14CB42002B7393 /* Settings.swift in Sources */,
 				C7C432682A17375800AD0E31 /* RouterHintVC.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
@@ -734,12 +821,10 @@
 				C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */,
 				C7A95D722A13A62A006DBA68 /* CountryVC.swift in Sources */,
 				C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */,
-				C7B5A9EF2A14CB42002B7393 /* Message.swift in Sources */,
 				C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */,
 				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
 				C7C432702A179F2F00AD0E31 /* InAppPurchaseVC.swift in Sources */,
 				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
-				C7B5A9F02A14CB42002B7393 /* Config.swift in Sources */,
 				C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */,
 				C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */,
 				C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */,
@@ -754,19 +839,15 @@
 				C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */,
 				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
 				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
-				C7B5A9EC2A14CB42002B7393 /* Profle.swift in Sources */,
 				C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */,
 				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
 				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
 				C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */,
-				C7B5A9ED2A14CB42002B7393 /* Bridge.swift in Sources */,
 				C7A95D682A1399FD006DBA68 /* ConnectionState.swift in Sources */,
 				C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */,
-				C7B5A9EE2A14CB42002B7393 /* Log.swift in Sources */,
 				C7A95D6B2A1399FD006DBA68 /* MenuActionStatus.swift in Sources */,
 				C7A95D672A1399FD006DBA68 /* CountrySelectionList.swift in Sources */,
 				C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */,
-				C7B5A9F12A14CB42002B7393 /* Util.swift in Sources */,
 				C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */,
 				C748CECF2A163E4300DF51A9 /* FingNodes.swift in Sources */,
 				C7A95D692A1399FD006DBA68 /* PurchaseInfo.swift in Sources */,
@@ -774,6 +855,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C71F94A32A1B830000A3BFF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C71F94992A1B830000A3BFF1 /* TunnelProvider */;
+			targetProxy = C71F94A22A1B830000A3BFF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7F2502229FA899700F23FEB /* Main.storyboard */ = {
@@ -795,6 +884,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C71F94A62A1B830000A3BFF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J292RV4USG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TunnelProvider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios.TunnelProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C71F94A72A1B830000A3BFF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J292RV4USG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TunnelProvider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios.TunnelProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C7F2502B29FA899800F23FEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -913,6 +1058,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
@@ -943,6 +1090,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
@@ -972,6 +1121,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C71F94A92A1B830000A3BFF1 /* Build configuration list for PBXNativeTarget "TunnelProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71F94A62A1B830000A3BFF1 /* Debug */,
+				C71F94A72A1B830000A3BFF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7F2501429FA899700F23FEB /* Build configuration list for PBXProject "WiFiProvider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

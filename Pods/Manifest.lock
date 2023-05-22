@@ -8,6 +8,20 @@ PODS:
   - HGRippleRadarView (0.1.2)
   - lottie-ios (4.1.2)
   - MASegmentedControl (0.0.5)
+  - OpenVPNAdapter (0.7.0):
+    - OpenVPNAdapter/ASIO (= 0.7.0)
+    - OpenVPNAdapter/LZ4 (= 0.7.0)
+    - OpenVPNAdapter/mbedTLS (= 0.7.0)
+    - OpenVPNAdapter/OpenVPN3 (= 0.7.0)
+    - OpenVPNAdapter/OpenVPNAdapter (= 0.7.0)
+    - OpenVPNAdapter/OpenVPNClient (= 0.7.0)
+  - OpenVPNAdapter/ASIO (0.7.0)
+  - OpenVPNAdapter/LZ4 (0.7.0)
+  - OpenVPNAdapter/mbedTLS (0.7.0)
+  - OpenVPNAdapter/OpenVPN3 (0.7.0)
+  - OpenVPNAdapter/OpenVPNAdapter (0.7.0)
+  - OpenVPNAdapter/OpenVPNClient (0.7.0)
+  - PlainPing (0.5.2)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
@@ -22,6 +36,8 @@ DEPENDENCIES:
   - HGRippleRadarView
   - lottie-ios
   - MASegmentedControl
+  - OpenVPNAdapter (from `https://github.com/deneraraujo/OpenVPNAdapter.git`)
+  - PlainPing
   - SDWebImage (~> 4.0)
   - Toast-Swift
   - WMGaugeView
@@ -34,10 +50,20 @@ SPEC REPOS:
     - HGRippleRadarView
     - lottie-ios
     - MASegmentedControl
+    - PlainPing
     - SDWebImage
     - SwiftAlgorithms
     - Toast-Swift
     - WMGaugeView
+
+EXTERNAL SOURCES:
+  OpenVPNAdapter:
+    :git: https://github.com/deneraraujo/OpenVPNAdapter.git
+
+CHECKOUT OPTIONS:
+  OpenVPNAdapter:
+    :commit: f4db4b0b160de0f2803de06ec95f8e703d9b0db5
+    :git: https://github.com/deneraraujo/OpenVPNAdapter.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -46,11 +72,13 @@ SPEC CHECKSUMS:
   HGRippleRadarView: 5379e27634c09222ebc836671c7425ad7b257cc4
   lottie-ios: b3846a9fa8ca1a1a3bebfa256ebe8b6fd4aaaaad
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
+  OpenVPNAdapter: 173fcc4c11a3a8a83ae8d250c079cdc5b9fb8ff1
+  PlainPing: 41fb93099deb2f5ddbc534a934eb3bf07522d437
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: 040e589fe85e2f37008d6c11c6841d159053b89d
+PODFILE CHECKSUM: b579a638356c56f23b8092fc2a09cc7a80613b59
 
 COCOAPODS: 1.11.3

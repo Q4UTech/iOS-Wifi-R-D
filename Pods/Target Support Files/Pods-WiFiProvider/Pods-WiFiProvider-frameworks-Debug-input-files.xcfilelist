@@ -4,8 +4,10 @@ ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework
 ${BUILT_PRODUCTS_DIR}/HGRippleRadarView/HGRippleRadarView.framework
 ${BUILT_PRODUCTS_DIR}/MASegmentedControl/MASegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework
 ${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework
 ${BUILT_PRODUCTS_DIR}/WMGaugeView/WMGaugeView.framework
 ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
+${BUILT_PRODUCTS_DIR}/OpenVPNAdapter/OpenVPNAdapter.framework

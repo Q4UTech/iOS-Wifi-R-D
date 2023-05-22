@@ -1622,32 +1622,32 @@ to check connected devices</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzi-51-hst">
-                                <rect key="frame" x="0.0" y="513" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="0.0"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_menu_bg" translatesAutoresizingMaskIntoConstraints="NO" id="QUB-cm-5X1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c0C-nI-bOK">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="280"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="400"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-0q-MxE">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-n8-ba4">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="H9X-9n-hUk"/>
                                                             <constraint firstAttribute="height" constant="20" id="qQX-oR-bU7"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16K-dm-wUw">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="49.333333333333343" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="49.333333333333343" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXK-DV-f0o">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal">
                                                             <color key="titleColor" name="menu_text_color"/>
@@ -1670,23 +1670,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2C-mc-nFg">
-                                                <rect key="frame" x="0.0" y="35" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remove_ads" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-TB-GV8">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="r1D-Ol-8T7"/>
                                                             <constraint firstAttribute="height" constant="20" id="vvo-pJ-V0N"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4u-vk-i27">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="85" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="85" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HZ-hu-uqf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1703,23 +1703,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whp-fc-TEW">
-                                                <rect key="frame" x="0.0" y="70" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select_server" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-C6-Ebl">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="lxr-Dj-3pL"/>
                                                             <constraint firstAttribute="height" constant="20" id="vcJ-Cc-fSv"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgs-Kv-KKb">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="92" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="92" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHc-V0-m7Q">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1736,23 +1736,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqx-PS-vlp">
-                                                <rect key="frame" x="0.0" y="105" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="150" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate_app" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-Bt-NyP">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="TQ3-3p-QTv"/>
                                                             <constraint firstAttribute="width" constant="20" id="atf-qY-rGJ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpM-Un-bJE">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="63" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="63" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9i-LC-5gY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1769,23 +1769,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxl-Li-aKe">
-                                                <rect key="frame" x="0.0" y="140" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="200" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_app" translatesAutoresizingMaskIntoConstraints="NO" id="tNW-H8-ZqX">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="DCo-xR-5Hd"/>
                                                             <constraint firstAttribute="height" constant="20" id="xeJ-xM-IUc"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KM9-Jc-vUt">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="71.333333333333314" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="71.333333333333314" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exp-2O-8hV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1802,23 +1802,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2i-Bh-6xa">
-                                                <rect key="frame" x="0.0" y="175" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="250" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_app" translatesAutoresizingMaskIntoConstraints="NO" id="W2j-82-cDO">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="uZn-jj-2R8"/>
                                                             <constraint firstAttribute="height" constant="20" id="uj1-pf-vAj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywr-nh-trw">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="67" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="67" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-jJ-65g">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1835,23 +1835,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVr-Jh-I2C">
-                                                <rect key="frame" x="0.0" y="210" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="300" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedback" translatesAutoresizingMaskIntoConstraints="NO" id="gvb-FL-utA">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="Bgz-2O-Ygg"/>
                                                             <constraint firstAttribute="height" constant="20" id="xMK-jX-MXQ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFy-io-5hm">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="67.333333333333314" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="67.333333333333314" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3X-h6-yLT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1868,23 +1868,23 @@ to check connected devices</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7K-N5-oIf">
-                                                <rect key="frame" x="0.0" y="245" width="414" height="35"/>
+                                                <rect key="frame" x="0.0" y="350" width="414" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_us" translatesAutoresizingMaskIntoConstraints="NO" id="HTY-N7-Uil">
-                                                        <rect key="frame" x="25" y="7.6666666666666288" width="20" height="20"/>
+                                                        <rect key="frame" x="25" y="15" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="OhN-fk-AoZ"/>
                                                             <constraint firstAttribute="width" constant="20" id="vJJ-1S-vtp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7M-y7-BbA">
-                                                        <rect key="frame" x="75" y="8.6666666666666288" width="63.666666666666657" height="18"/>
+                                                        <rect key="frame" x="75" y="16" width="63.666666666666657" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="menu_text_color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liG-YG-E1Y">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -1912,14 +1912,34 @@ to check connected devices</string>
                                     <constraint firstItem="c0C-nI-bOK" firstAttribute="leading" secondItem="Kzi-51-hst" secondAttribute="leading" id="TVR-Np-63k"/>
                                     <constraint firstItem="c0C-nI-bOK" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="top" constant="20" id="YAp-qc-AIB"/>
                                     <constraint firstAttribute="bottom" secondItem="QUB-cm-5X1" secondAttribute="bottom" id="is0-5a-4qM"/>
-                                    <constraint firstAttribute="height" constant="300" id="mSW-ap-CDn"/>
+                                    <constraint firstAttribute="height" id="mSW-ap-CDn"/>
                                     <constraint firstItem="QUB-cm-5X1" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="top" id="wgX-5e-xHf"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPc-mU-XcF">
+                                <rect key="frame" x="69" y="663" width="276" height="45"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.72549019609999998" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="mVJ-nD-2yc"/>
+                                    <constraint firstAttribute="height" constant="45" id="sZu-yY-kcr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Connect"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="connectButtonActions:" destination="6dt-d1-ALS" eventType="touchUpInside" id="1Io-BX-3hi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZSM-7w-hGB"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
                         <constraints>
+                            <constraint firstItem="HPc-mU-XcF" firstAttribute="centerX" secondItem="Cjy-fW-Ku7" secondAttribute="centerX" id="0Ld-0r-KMN"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="huO-xZ-7rE" secondAttribute="bottom" id="1HX-k9-P4F"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="6is-cg-6Ws" secondAttribute="bottom" id="2gU-PV-rwd"/>
                             <constraint firstItem="ZSM-7w-hGB" firstAttribute="bottom" secondItem="c6W-NH-Nv8" secondAttribute="bottom" id="4d0-fK-Rdw"/>
@@ -1937,6 +1957,7 @@ to check connected devices</string>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="trailing" secondItem="ZSM-7w-hGB" secondAttribute="trailing" id="KDi-ED-wyG"/>
                             <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="das-Ae-qEv" secondAttribute="trailing" id="Khj-yC-71v"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="bottom" id="L4C-e7-nt9"/>
+                            <constraint firstItem="Cjy-fW-Ku7" firstAttribute="top" secondItem="HPc-mU-XcF" secondAttribute="bottom" constant="20" id="XEF-ch-3K9"/>
                             <constraint firstItem="Cjy-fW-Ku7" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" constant="15" id="XgE-kw-Ui2"/>
                             <constraint firstItem="Kzi-51-hst" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="Yhz-Dm-uqe"/>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="cgV-wW-68w"/>
