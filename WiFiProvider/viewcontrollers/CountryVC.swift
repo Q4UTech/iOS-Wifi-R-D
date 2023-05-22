@@ -50,7 +50,7 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+        print("categoryData\(categoryData.count)")
         return categoryData.count
         
         
@@ -82,15 +82,18 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegateSelectedCountry.countryChanged(newCountry: true)
         let cell = tableView.dequeueReusableCell(withIdentifier: MyConstant.keyName.kCountryCell) as! CountryTableViewCell
-        
+     
         let countryData = categoryData[indexPath.row]
-        if countryData.purchsedType == "free" {
+        print("countrydata \(countryData.file_location)")
+//        if countryData.purchsedType == "free" {
             CountrySelectionList.instanceHelper.checkConnectionState(countrySelection:categoryData[indexPath.row].vpnname, fileLocation: categoryData[indexPath.row].file_location)
             UserDefaults.standard.set(categoryData[indexPath.row].vpnname, forKey: "VPN_NAME")
             cell.isSelected = true
             UserDefaults.standard.set(categoryData[indexPath.row].file_location, forKey: "VPN_FILE")
             self.navigationController?.popViewController(animated: false)
-        }
+//        }else{
+//            print("hhh")
+//        }
 //        }else{
 ////            let purchased = UserDefaults.standard.bool(forKey: IN_APP_PURCHASED)
 ////            if purchased{

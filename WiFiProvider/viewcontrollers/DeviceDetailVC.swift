@@ -23,8 +23,15 @@ class DeviceDetailVC: UIViewController {
     @IBOutlet weak var deviceBestMake:UILabel!
     @IBOutlet weak var deviceBestModel:UILabel!
     @IBOutlet weak var onlineDurationLabel:UILabel!
+    @IBOutlet weak var osLabel:UILabel!
+    @IBOutlet weak var osVersionLabel:UILabel!
+    @IBOutlet weak var brandLabel:UILabel!
+    @IBOutlet weak var modelLabel:UILabel!
+    @IBOutlet weak var parentLabel:UILabel!
+    @IBOutlet weak var mainLabel:UILabel!
+   
   
-  
+  let info = DeviceInfo()
     
     var data = FingNodes()
     override func viewDidLoad() {
@@ -32,7 +39,7 @@ class DeviceDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         if data != nil {
-            
+            deviceBestName.text = data.bestCategory
                 switch(data.bestType){
                 case "ROUTER":
                     devideTypeImg.image = UIImage(named: "router")
@@ -53,19 +60,34 @@ class DeviceDetailVC: UIViewController {
                     print("none")
                 
             }
+            
             if data.bestMake != nil{
                 deviceBestMake.text = data.bestOS
-               // devideOsImg.image = UIImage(named: data)
+                let img = info.getDeviceIcon(value: data.bestMake!)
+                devideOsImg.image = UIImage(named:img)
+                osLabel.text = data.bestOS
+                osVersionLabel.text = data.bestMake
             }else{
                 bestMakeView.isHidden = true
                 bestMakeHeight.constant = 0
             }
             
             if data.bestModel != nil{
-                deviceBestModel.text = data.bestMake
+                deviceBestModel.text = data.bestName
+                parentLabel.text = data.bestMake
+                let img = info.getOsIcon(value: data.bestOS!)
+                devideModelImg.image = UIImage(named: img)
+                brandLabel.text = data.bestName
+                modelLabel.text = data.bestModel
             }else{
                 bestModelView.isHidden = true
                 bestMakeHeight.constant = 0
+            }
+            
+            if data.bestMake != nil && data.bestModel != nil{
+                mainLabel.text = "\(data.bestName ?? "") / \(data.bestMake ?? "")"
+            }else{
+                mainLabel.isHidden = true
             }
            if let firstSeenTimestamp = data.firstSeenTimestamp {
              

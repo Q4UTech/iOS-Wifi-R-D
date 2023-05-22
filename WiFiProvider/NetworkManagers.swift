@@ -30,11 +30,66 @@ public final class NetworkManagers {
         let launchcount = UserDefaults.standard.integer(forKey: LAUNCH_COUNT)
         let device_token = UserDefaults.standard.string(forKey: DEVICE_TOKEN)
         
-        params = ["app_id": "APP_ID", "country": getCountryNameInfo(), "screen":getScreenHeightResolution(),"launchcount": launchcount, "version": getAppVersionInfo(), "osversion": getOSInfo(), "dversion": getDeviceModel(), "os": "2","identity": device_token ?? ""]
+        params = ["app_id": "v4vpnios",
+                  "country": getCountryNameInfo(),
+                  "screen": "XHDPI",
+                  "launchcount": "1",
+                  "version": getAppVersionInfo(),
+                  "osversion": getOSInfo(),
+                  "dversion": getDeviceModel(),
+                  "os": "2"]
         
         //print("Params\(params)")
-        createPostRequest(params:params,apiName:countryApi, commonNetworkListner:networkListner)
+        
+        createVpnRequest(params:params,apiName:countryApi, commonNetworkListner:networkListner)
     }
+    
+    
+    private func createVpnRequest<T>(
+        params:[String:Any],apiName: String,
+        commonNetworkListner:@escaping (
+            _ response: T?,
+            _ error: String?) -> Void) where T: Decodable {
+                
+//                if isConnectedToNetwork() {
+                    let url = FITNESS_BASE_URL + apiName
+                
+                    print("CheckURL\(url)  \(params)")
+                
+                    Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { response in
+                      
+                        switch response.result {
+                           
+                        case .success(let value):
+                            do{
+                                let tObject: T? = try JSONDecoder().decode(T.self,from: value)
+                               
+
+                                if(tObject != nil)  {
+                                    print("tObject\(tObject)")
+                                    commonNetworkListner(tObject, nil)
+                                }else{
+                                    commonNetworkListner(nil, "T Object is null")
+                                }
+                                
+                                
+                              
+                                
+                            }catch let error{
+                                print("errorrrr\(error.localizedDescription)")
+                            }
+                            
+                            break
+                        case .failure(_):
+                            print("filure\(response.error)")
+                            commonNetworkListner(nil, response.error?.localizedDescription)
+                            break
+                            
+                            
+                        }
+                    }
+                
+            }
     
     
     private func createPostRequest<T>(

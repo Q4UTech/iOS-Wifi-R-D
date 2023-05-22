@@ -7,12 +7,25 @@
 		<key>TunnelProvider.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>14</integer>
 		</dict>
 		<key>WiFiProvider.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>15</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C71F94992A1B830000A3BFF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7F2501829FA899700F23FEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

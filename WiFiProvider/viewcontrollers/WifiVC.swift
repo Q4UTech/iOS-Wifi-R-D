@@ -55,7 +55,15 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         radarView.dataSource = self
       
         optionBtn.isHidden = false
-        self.requestPermissionsToShowSsidAndBssid()
+        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
+            if isWiFiConnected(){
+                topViewLabel.text = "Wifi Provider"
+                networkCall()
+            }
+        }else{
+            self.requestPermissionsToShowSsidAndBssid()
+        }
+       
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
     }
@@ -142,7 +150,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                 let dict1 = dictnry.convertToDictionary(text: decryptString!)
                 let code = dict1!["key"] as! String
                 
-               // getConnectedDevicesList(key:code)
+                getConnectedDevicesList(key:code)
             }
             else{
                
@@ -261,8 +269,10 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         let controller = UIAlertController(title: "Location permissions required", message: "\nStarting from iOS 13, in order to request Wi-Fi network SSID and BSSID apps must:\n\n• Request location permissions\n• Declare \"Access WiFi information in \"Signing & Capabilities\"", preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        if status == .notDetermined {
+        if status == .authorizedAlways{
+            UserDefaults.standard.set(true, forKey: MyConstant.PERMISSION_GRANTED)
+        }
+        else if status == .notDetermined {
             controller.addAction(UIAlertAction(title: "Request permissions", style: .default, handler: { _ in
                 self.locationManager.delegate = self
                 self.locationManager.requestWhenInUseAuthorization()

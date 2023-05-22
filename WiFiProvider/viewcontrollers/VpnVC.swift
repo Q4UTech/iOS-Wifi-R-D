@@ -7,27 +7,30 @@
 
 import UIKit
 import Network
+import Toast_Swift
 
-
+@available(iOS 13.0, *)
 class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol
 {
     func connectionState(uploadSpeed: String, downloadSpeed: String) {
-        print("")
+        print("speed \(uploadSpeed) \(downloadSpeed)")
     }
     
     func countrySelection(countrySelection: String, fileLocation: String) {
-        print("")
+        countrylabel.text = countrySelection
+        profileVM.connection.setCustomConfigFile(url: fileLocation)
     }
     
     func vpnConnectedStatus(status: Bool) {
-        print("")
+        print("status \(status)")
     }
     
     func countryChanged(newCountry: Bool) {
         
 //        connectButton.setTitle("Connect", for: .normal)
 //        taponButton.setTitle("Your Status: Not Connected", for: .normal)
-    //    profileVM.connection.stopVPN()
+        profileVM.connection.stopVPN()
+       
         buttonSwitched = false
     }
     
@@ -35,7 +38,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         if connectionStatus == "connected" {
 //            connectionStatusLabel.text = "Connected Successfully"
             print("connected succesfully")
-           // delegate.setStatus(value: true)
+          // delegate.setStatus(value: true)
             
         }
         
@@ -56,6 +59,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         @IBOutlet weak var heightConstraint:NSLayoutConstraint!
         @IBOutlet weak var transView:UIView!
         @IBOutlet weak var bottomSheet:UIView!
+        @IBOutlet weak var countryView:UIView!
+        @IBOutlet weak var countrylabel:UILabel!
         @IBOutlet weak var innerImg:UIImageView!
         var internetStatus = Bool()
         var countryStatus = Bool()
@@ -63,7 +68,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         var countryData = [DataModel]()
         var buttonSwitched : Bool = false
         var speedTestVM = SpeedTestViewModel()
-        
+        let profileVM = ProfileViewModel()
         override func viewDidLoad() {
             super.viewDidLoad()
             ConnectionStatus.instanceHelper.itemdelegates = self
@@ -78,10 +83,14 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             innerImg.layer.shadowRadius = 1.0
             innerImg.layer.masksToBounds = true
             innerImg.layer.cornerRadius = 1.0
+            callCatApi()
             // Stop monitoring after a certain duration or when needed
             // monitor.stopMonitoring()
         }
         
+    override func viewWillAppear(_ animated: Bool) {
+        ConnectionStatus.instanceHelper.itemdelegates = self
+    }
         
         @IBAction func openMenu(_ sender:UIButton){
             hideUnhideMenuView(showTrans: false, showMenu: false)
@@ -110,7 +119,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
 //            vc.profileVM = profileVM
 //            vc.delegate = self
             if #available(iOS 13.0, *) {
-                let profileVM = ProfileViewModel()
+             
                 Settings.saveProfile(profile: profileVM.profile)
                 Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
                
@@ -125,10 +134,71 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         }
        
         else {
-           // profileVM.connection.stopVPN()
+            profileVM.connection.stopVPN()
             ConnectionStatus.instanceHelper.itemdelegates = self
             
         }
     }
+    @IBAction func locationListButtonAction(_ sender: Any) {
+        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
+            
+            goToCountryVC()
+        }else{
+            self.view.makeToast(MyConstant.constants.kCheckInternet, point: CGPoint(x:view.center.x, y: view.frame.maxY - 70), title: "", image: nil, completion: nil)
+        }
+    }
+    
+    
+    func goToCountryVC(){
+        
+        if #available(iOS 13.0, *) {
+            let vc = UIStoryboard.init(name: MyConstant.constants.kMain, bundle: Bundle.main).instantiateViewController(withIdentifier:  MyConstant.keyName.kCountryVC) as? CountryVC
+            
+            if(countryData != nil){
+                vc?.categoryData = countryData
+                vc!.delegateSelectedCountry = self
+                self.navigationController!.pushViewController(vc!, animated: true)
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+//        showFullAds(viewController: self, isForce: false)
+    }
+    func setConnectionTimeVisibility(status:Bool){
+      //  connectionTime.isHidden = status
+    }
+   
+    
+    func callCatApi(){
+       // KRProgressHUD.show()
+        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
+            CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
+
+                if error == "No Internet Connection"{
+
+                }else{
+                    if categoryList.count == 0{
+                       // KRProgressHUD.dismiss()
+                      
+                    }else{
+                     //   KRProgressHUD.dismiss()
+                        self.countryData=categoryList
+                        print("co\(self.countryData[0].vpnname)")
+                        if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
+                        self.countrylabel.text = self.countryData[0].vpnname
+                        self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                            
+                        }
+                    }
+                }
+            })
+        }else{
+           // fetchCategoryInDirectory(cell:cell)
+          //  KRProgressHUD.dismiss()
+        }
+
+    }
+  
+   
     
     }

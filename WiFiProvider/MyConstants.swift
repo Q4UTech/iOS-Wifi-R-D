@@ -8,7 +8,8 @@
 import Foundation
 
 class MyConstant {
-     static let SPEED_LIST = "SPEED_LIST"
+    static let SPEED_LIST = "SPEED_LIST"
+    static let PERMISSION_GRANTED = "PERMISSION_GRANTED"
     struct data {
         let USER_TYPE = "USER_TYPE"
         let USER_DATA = "USER_DATA"
@@ -27,6 +28,7 @@ class MyConstant {
         let NATIVE_LOAD_POSITION = "NATIVE_LOAD_POSITION"
         let NATIVE_MEDIUM_LOAD_POSITION = "NATIVE_MEDIUM_LOAD_POSITION"
         let OPEN_ADS_COUNT = "OPEN_ADS_COUNT"
+       
         
         
         // Test Device ID
@@ -97,6 +99,7 @@ class MyConstant {
 
 
     struct constants {
+      
         static let kLangauage = "Change Language"
         static let kMain = "Main"
         static let kImageURL = "https://quantum4you.com/speedtest/assets/speedtest/test.gif"

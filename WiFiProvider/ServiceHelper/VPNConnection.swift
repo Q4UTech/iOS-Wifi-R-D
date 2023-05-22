@@ -284,8 +284,9 @@ public class Connection: NSObject, ObservableObject {
     
     /// Interrupt the connection
     public func stopVPN() {
-        self.providerManager.connection.stopVPNTunnel()
-    }
+        if providerManager  != nil {
+            self.providerManager.connection.stopVPNTunnel()
+        }    }
     
     /// Dipose observers
     deinit {
