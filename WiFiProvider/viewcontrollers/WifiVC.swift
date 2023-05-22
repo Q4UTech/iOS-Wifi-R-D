@@ -33,9 +33,12 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     @IBOutlet weak var radarView:RadarView!
     @IBOutlet weak var mapImg:UIImageView!
     @IBOutlet weak var listImg:UIImageView!
+    @IBOutlet weak var optionBtn:UIButton!
     var locationManager: CLLocationManager!
     var decryptvalue = String()
     var dictnry = String()
+    var hexadecimal = String()
+  
     var fingData = [FingNodes]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +48,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
         let mapViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToMapView))
-        transView.addGestureRecognizer(mapViewGesture)
+        mapView.addGestureRecognizer(mapViewGesture)
         let listViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToListView))
-        transView.addGestureRecognizer(listViewGesture)
+        listView.addGestureRecognizer(listViewGesture)
         radarView.delegate = self
         radarView.dataSource = self
       
-        
+        optionBtn.isHidden = false
         self.requestPermissionsToShowSsidAndBssid()
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
@@ -75,6 +78,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     @objc func switchToMapView(){
         
         switchView(isMap: false, isList: true)
+        
     }
     @objc func switchToListView(){
         switchView(isMap: true, isList: false)
@@ -83,6 +87,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     private func switchView(isMap:Bool,isList:Bool){
         wifiTableView.isHidden = isList
         radarView.isHidden = isMap
+        optionBtn.isHidden = false
         if isMap{
             mapImg.image = UIImage(named: "radar_unselected")
             listImg.image = UIImage(named: "list_selected")
@@ -109,18 +114,88 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     
     private func networkCall(){
-        NetworkHelper.sharedInstanceHelper.getWifiKey(networkListner: { [self] wifiKey,error  in
-            if wifiKey != nil {
-
-                let decryptString = decryptvalue.decrypt(hexString:wifiKey as! String)
+        
+        var params = [String:Any]()
+        
+        
+        
+      //  params = ["app_id": "m24screenrecios"]
+        params = ["app_id": "v5wifitrackernew",
+                  "country": getCountryNameInfo(),
+                  "screen": "XHDPI",
+                  "launchcount": "1",
+                  "version": getAppVersionInfo(),
+                  "osversion": getOSInfo(),
+                  "dversion": getDeviceModel(),
+                  "os": "2"]
+        print(params)
+        let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        let jsonString1 = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+        let encodedString = hexadecimal.encrypt(text:jsonString1)
+        var parametr = [String:String]()
+        parametr = ["data":encodedString!]
+        NetworkHelper.sharedInstanceHelper.createPostRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/authkey") { [self] (result, error) in
+            
+            if result != nil{
+                UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
+                let decryptString = decryptvalue.decrypt(hexString:result! as! String)
                 let dict1 = dictnry.convertToDictionary(text: decryptString!)
-                let code = dict1!["status"] as! String
-                print("code111 \(code)")
-
+                let code = dict1!["key"] as! String
+                
+               // getConnectedDevicesList(key:code)
             }
-        })
-       getConnectedDevicesList()
+            else{
+               
+            }
+            
+        }
+       
     }
+    func getOSInfo()->String {
+           let os = ProcessInfo().operatingSystemVersion
+           return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
+       }
+
+    func getAppVersionInfo()->String {
+           let dictionary = Bundle.main.infoDictionary!
+           let version = dictionary["CFBundleShortVersionString"] as! String
+        _ = dictionary["CFBundleVersion"] as! String
+           return version
+       }
+
+    func  getCountryNameInfo()->String{
+         let locale = Locale.current
+         return String(locale.regionCode!)
+    }
+
+    func getDeviceName()->String{
+        let devicename = UIDevice.current.name
+        return devicename
+    }
+
+    func getDeviceModel()->String{
+     
+        let model  = UIDevice.current.userDevicemodelName
+         
+        return model
+    }
+
+    func getSystemVersion()->String{
+        let systemVersion = UIDevice.current.systemVersion
+          return systemVersion
+    }
+    func getScreenHeightResolution()->CGFloat{
+       let screenSize: CGRect = UIScreen.main.bounds
+        return screenSize.height
+    }
+    
+    func getScreenWidthResolution()->CGFloat{
+          let screenSize: CGRect = UIScreen.main.bounds
+        return screenSize.width
+            }
+
+
+
     
     
     @IBAction func openMenu(_ sender:UIButton){
@@ -149,8 +224,8 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     
     
-    private func getConnectedDevicesList(){
-        FingScanner.sharedInstance().validateLicenseKey("F20yNC1hcHBzLWRldnJlY29nLXRyaWFsCE0yNCBBcHBzGVRyaWFsIGZyb20gcmVjb2cuZmluZy5jb20AAAGH66z5yZFhozM=", withToken: nil) { result, error in
+    private func getConnectedDevicesList(key:String){
+        FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { result, error in
             let header = "--- validateLicenseKey ---"
           //  var json = dataToJSON(data: result)
             
@@ -369,6 +444,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     private func hideBottomSheet(){
         bottomSheet.isHidden = true
+        transView.isHidden = true
      }
      
 }

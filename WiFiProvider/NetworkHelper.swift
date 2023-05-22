@@ -38,7 +38,7 @@ class NetworkHelper{
     }
     
     
-    func getWifiKey(networkListner:@escaping (_ response: WifiKey?,
+    func getWifiKey(networkListner:@escaping (_ response: String?,
                                                     _ error: String?) -> Void){
         
         var params = [String:Any]()
@@ -58,80 +58,47 @@ class NetworkHelper{
         let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         let jsonString1 = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
         let encodedString = hexadecimal.encrypt(text:jsonString1)
+        var parametr = [String:String]()
+        parametr = ["data":encodedString!]
       //  var parametr = [String:String]()
         //print("Params\(params)")
         print("param \(params)")
-        createPostRequest(params:params, apiName:api, commonNetworkListner:networkListner)
+        
+       // createPostRequest(params:parametr, apiName:api, commonNetworkListner:networkListner)
     }
     
     
-    private func createPostRequest<T>(
-        params:[String:Any],apiName: String,
-        commonNetworkListner:@escaping (
-            _ response: T?,
-            _ error: String?) -> Void) where T: Decodable {
-                
-                if isConnectedToNetwork() {
-                    let url = HOST_URL + apiName
-                    
-                    print("CheckURL\(url)  \(params)")
-                    
-                    Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { [self] response in
-                        print("respnse \(response)")
-                        switch response.result {
-                            
-                        case .success(let value):
-                         //   self.hideHud()
-                            
-                            print("response \(value)")
-//                            let dict = value as! WifiKey
-//                              
-//                            let dictValues = dict
-//                                // let value  = dictValues[0]
-//                            print("response1 \(dictValues)")
-////
+//    private func createPostRequest<T>(
+//        params:[String:String],apiName: String,
+//        commonNetworkListner:@escaping (
+//            _ response: T?,
+//            _ error: String?) -> Void) where T: Decodable {
 //
-//                            commonNetworkListner(value as AnyObject? as! T, nil)
-                            break
-
-
-                        case .failure(_):
-                         //   self.hideHud()
-                            print("Check Almofire Failure")
-                            commonNetworkListner(nil, response.error as NSError? as! String)
-                            break
-
-
-                        }
-                    }
+//                if isConnectedToNetwork() {
+//                    let url = HOST_URL + apiName
+//
+//                    print("CheckURL\(url)  \(params)")
+//
+//                    Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { [self] response  in
+//                        print("respnse \(String(describing: response.data))")
+//
 //                        switch response.result {
 //
 //                        case .success(let value):
+//                            print("Value000 \(value)")
 //
-//                            do{
-//                                let tObject: T? = try JSONDecoder().decode(T.self,from: value)
-//
-//
-//                                if(tObject != nil)  {
-//
-//                                    print("tObject\(tObject)")
-//                                    commonNetworkListner(tObject, nil)
-//                                }else{
-//                                    commonNetworkListner(nil, "T Object is null")
-//                                }
-//
-////                                let dict = value as! [String:String]
 ////
-////                                     let dictValues = [WifiKey](dict.values)
-////                                     let value  = dictValues[0]
-////
-////
-////                                commonNetworkListner(value as AnyObject? as! T, nil)
+//
+//                                let dict = value as! [String:String]
+//
+//                                let dictValues = [String](dict.values)
+//                                let value  = dictValues[0]
+//
+//                                print("value222 \(value)")
+//                                commonNetworkListner(value as AnyObject? as! T, nil)
 //
 //
-//                            }catch let error{
-//                                print("errorrrr\(error.localizedDescription)")
-//                            }
+//
 //
 //                            break
 //                        case .failure(_):
@@ -142,10 +109,10 @@ class NetworkHelper{
 //
 //
 //                        }
-                    
-                }
-            }
-    
+//                    }
+//                }
+//            }
+//
     
     func getMucicSubCategory(cat_id:String,networkListner:@escaping (_ response: WifiKey?,
                                                                      _ error: String?) -> Void){
@@ -160,6 +127,56 @@ class NetworkHelper{
         createSubCategoryPostRequest(params:params, apiName: HOST_URL,commonNetworkListner:networkListner)
     }
     
+    public func createPostRequest(method: HTTPMethod,showHud :Bool, params: [String: String]!, apiName: String, completionHandler:@escaping (_ response: AnyObject?, _ error: NSError?) -> Void) {
+        
+            if isConnectedToNetwork() {
+              
+                if showHud {
+                   // self.showHud()
+                }
+             var url = String()
+             
+             
+                            url = HOST_URL + apiName
+                      
+                print("Internet Connected111 \(NetworkReachabilityManager.init()?.isReachable)")
+              Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseJSON { response in
+                  
+                  print("Internet Connected")
+                         switch response.result {
+                             
+                         case .success(let value):
+                          //   self.hideHud()
+                             let dict = value as! [String:String]
+                               
+                                  let dictValues = [String](dict.values)
+                                  let value  = dictValues[0]
+                                 
+
+                             completionHandler(value as AnyObject?, nil)
+                             break
+
+
+                         case .failure(_):
+                          //   self.hideHud()
+                             print("Check Almofire Failure \(response.error)")
+                             completionHandler(nil, response.error as NSError?)
+                             break
+
+
+                         }
+                     }
+                
+            } else {
+                
+                completionHandler(nil,NSError.init())
+                
+
+            }
+            
+            
+        }
+     
     
     private func createSubCategoryPostRequest<T>(
         params:[String:Any],apiName: String,
@@ -178,6 +195,7 @@ class NetworkHelper{
                         switch response.result {
                             
                         case .success(let value):
+                            
                             do{
                                 let tObject: T? = try JSONDecoder().decode(T.self,from: value)
                                 

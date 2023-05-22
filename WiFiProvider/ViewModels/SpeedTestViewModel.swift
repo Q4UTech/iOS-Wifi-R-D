@@ -51,38 +51,39 @@ class SpeedTestViewModel{
                                        
                                         
 //                                        print("speedList1 \(speedTestList.count)")
-//                                        if speedTestList[formatter1.string(from: today)] == nil{
-//                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
-//                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
-//                                            if let encode = try?  JSONEncoder().encode(speedTestList) {
-//                                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-//                                            }
-//                                            print("speedDataList7777\(speedDataList)")
-//                                        }else {
-//                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
-//                                            print("speedDataList77\(speedDataList)")
-//                                            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
-//                                                do {
-//                                                         
-//                                                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
-//                                                    print("speedDataList777\(speedDataList)")
-//                                                    for (_ ,data) in speedTestList{
-//                                                        print("dataCount \(data.count)")
-//                                                        for i in data{
-//                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
-//                                                        }
-//
-//                                                    }
-//                                                    speedTestList[formatter1.string(from: today)] = speedDataList
-//                                                    if let encode = try?  JSONEncoder().encode(speedTestList) {
-//                                                        UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-//                                                    }
-//                                                    print("working11 \(speedDataList.count)")
-//                                                }catch{
-//
-//                                                }
-//                                            }
-//                                        }
+                                        if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
+                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
+                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            if let encode = try?  JSONEncoder().encode(speedTestList) {
+                                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+                                            }
+                                            print("speedDataList7777\(speedDataList)")
+                                           
+                                        }else {
+                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            print("speedDataList77\(speedDataList)")
+                                            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+                                                do {
+                                                         
+                                                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                                                    print("speedDataList777\(speedDataList)")
+                                                    for (_ ,data) in speedTestList{
+                                                        print("dataCount \(data.count)")
+                                                        for i in data{
+                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
+                                                        }
+
+                                                    }
+                                                    speedTestList[formatter1.string(from: today)] = speedDataList
+                                                    if let encode = try?  JSONEncoder().encode(speedTestList) {
+                                                        UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+                                                    }
+                                                    print("working11 \(speedDataList.count)")
+                                                }catch{
+
+                                                }
+                                            }
+                                        }
                                        
                                     } else {
                                         // Fallback on earlier versions
@@ -115,7 +116,7 @@ class SpeedTestViewModel{
            
         }
         DispatchQueue.main.asyncAfter(deadline: .now()+5) { [self] in
-            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,upload: uploadArray.last! ,download: downLoadArray.last!)
+            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,upload: uploadArray.last ?? 1.09  ,download: downLoadArray.last ?? 2.03)
         }
     }
     
@@ -136,23 +137,73 @@ class SpeedTestViewModel{
     
     
     func setSpeedMeterValue(speedMeterView:WMGaugeView){
+//        speedMeterView.needleStyle = WMGaugeViewNeedleStyleFlatThin
+//
+//        speedMeterView.backgroundColor = UIColor.clear
+//        speedMeterView.showInnerBackground = true
+//        speedMeterView.innerRimBorderWidth = 8
+//        speedMeterView.tintColor = UIColor.green
+//        speedMeterView.minValue = 0
+//        speedMeterView.maxValue = 100.0
+//        speedMeterView.scaleDivisions = 5
+//        speedMeterView.scaleSubdivisions = 5
+//        speedMeterView.scaleStartAngle = 45
+//        speedMeterView.scaleEndAngle = 315
+//        speedMeterView.showScaleShadow = false
+//        speedMeterView.scaleDivisionColor = UIColor.white
+//        speedMeterView.unitOfMeasurementColor = UIColor.green
+//        speedMeterView.scalesubdivisionsaligment = WMGaugeViewSubdivisionsAlignmentCenter
+//        speedMeterView.scaleSubdivisionsWidth = 0.000
+//        speedMeterView.scaleSubdivisionsLength = 0.00
+//        speedMeterView.scaleDivisionsWidth = 0.000
+//        speedMeterView.scaleDivisionsLength = 0.00
+        
+        
         speedMeterView.backgroundColor = UIColor.clear
         speedMeterView.showInnerBackground = false
-        speedMeterView.innerRimBorderWidth = 8
         speedMeterView.minValue = 0
         speedMeterView.maxValue = 100.0
-        speedMeterView.scaleDivisions = 5
-        speedMeterView.scaleSubdivisions = 5
+        speedMeterView.scaleDivisions = 10
+        speedMeterView.scaleSubdivisions = 10
         speedMeterView.scaleStartAngle = 45
         speedMeterView.scaleEndAngle = 315
         speedMeterView.showScaleShadow = false
         speedMeterView.scaleDivisionColor = UIColor.white
-        speedMeterView.unitOfMeasurementColor = UIColor.green
+        speedMeterView.unitOfMeasurementColor = UIColor.white
         speedMeterView.scalesubdivisionsaligment = WMGaugeViewSubdivisionsAlignmentCenter
-        speedMeterView.scaleSubdivisionsWidth = 0.000
-        speedMeterView.scaleSubdivisionsLength = 0.00
-        speedMeterView.scaleDivisionsWidth = 0.000
-        speedMeterView.scaleDivisionsLength = 0.00
+        speedMeterView.scaleSubdivisionsWidth = 0.002
+        speedMeterView.scaleSubdivisionsLength = 0.04
+        speedMeterView.scaleDivisionsWidth = 0.007
+        speedMeterView.scaleDivisionsLength = 0.07
+        
+       
+//        speedMeterView.maxValue = 240.0
+//        speedMeterView.showRangeLabels = true
+//        speedMeterView.rangeValues = [50, 90, 130, 240.0]
+//
+//        speedMeterView.rangeLabels = ["VERY LOW", "LOW", "OK", "OVER FILL"]
+//        speedMeterView.unitOfMeasurement = "psi"
+//        speedMeterView.showUnitOfMeasurement = true
+//        speedMeterView.scaleDivisionsWidth = 0.008
+//        speedMeterView.scaleSubdivisionsWidth = 0.006
+//        speedMeterView.rangeLabelsFontColor = UIColor.black
+//        speedMeterView.rangeLabelsWidth = 0.04
+//        speedMeterView.rangeLabelsFont = UIFont(name: "Helvetica", size: 0.04)
+//
+//       // speedMeterView.style = WMGaugeViewStyleFlatThin()
+//        speedMeterView.maxValue = 100.0
+//        speedMeterView.scaleDivisions = 10
+//        speedMeterView.scaleSubdivisions = 5
+//        speedMeterView.scaleStartAngle = 30
+//        speedMeterView.scaleEndAngle = 280
+//        speedMeterView.showScaleShadow = false
+//      //  speedMeterView.scaleFont = UIFont(name: "AvenirNext-UltraLight", size: 0.065)
+////speedMeterView.scalesubdivisionsAligment = WMGaugeViewSubdivisionsAlignmentCenter
+//        speedMeterView.scaleSubdivisionsWidth = 0.002
+//        speedMeterView.scaleSubdivisionsLength = 0.04
+//        speedMeterView.scaleDivisionsWidth = 0.007
+//        speedMeterView.scaleDivisionsLength = 0.07
+
         
 
     }

@@ -78,6 +78,44 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//       
+//        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self]  _, _, complete in
+//                 let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
+//                     data.remove(at: indexPath.row)
+//                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//                    complete(true)
+//                }
+//                
+//                deleteAction.backgroundColor = UIColor.red
+//                
+//                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+//                configuration.performsFirstActionWithFullSwipe = true
+//                return configuration
+//    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [self] _, _ in
+            //let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
+            self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
+                   self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                UserDefaults.standard.removeObject(forKey:MyConstant.SPEED_LIST)
+               }
+       
+        
+        deleteAction.backgroundColor = UIColor.red
+               return [deleteAction]
+    }
     
     
 }

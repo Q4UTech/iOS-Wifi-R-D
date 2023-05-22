@@ -12,9 +12,9 @@ import Charts
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
     func isSpeedCheckComplete(complete: Bool, upload: Double, download: Double) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-        vc.ping = pingData
-        vc.upload = upload
-        vc.download = download
+        vc.ping = pingData ?? "0.00"
+        vc.uploadSpeed = upload
+        vc.downloadSpeed = download
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -49,6 +49,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBOutlet weak var retestView: UIView!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var parentView: UIView!
     var speedTestList  = [String:[SpeedTestData]]()
     var speedDataList  = [SpeedTestData]()
     @IBOutlet weak var speedChartView: LineChartView!
@@ -85,6 +86,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     }
     override func viewDidAppear(_ animated: Bool) {
         speedChartView.isHidden = true
+        parentView.isHidden = true
     }
     
     
@@ -92,6 +94,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBAction func beginTestAction(_ sender: Any) {
         startBtn.isHidden = true
         speedChartView.isHidden = false
+        parentView.isHidden = false
         topView.isHidden = false
         speedMeterView!.value = 0
         getNetworkSpeed()
@@ -104,7 +107,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         startBtn.isHidden = false
         speedView.isHidden = false
-        speedLabel.isHidden = true
+       // speedLabel.isHidden = true
         setSpeedTest()
     }
     
@@ -234,6 +237,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         if pingSpeed?.city != nil {
             ping.text = String(pingSpeed!.query)
             pingData = String(pingSpeed!.query)
+            
             //ipadressLocation.text =  "Location :" + " " + films!.city
         }
     }
