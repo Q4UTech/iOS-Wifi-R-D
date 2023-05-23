@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SpeedCheckProtocol{
-    func isSpeedCheckComplete(complete: Bool,upload:Double,download:Double)
+    func isSpeedCheckComplete(complete: Bool,ping:String,upload:Double,download:Double)
     func showChartData(show:Bool,data:[Double])
 }
 
@@ -22,8 +22,8 @@ class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
         return Static.instance
     }
     
-    func isSpeedCheckComplete(complete: Bool,upload:Double,download:Double){
-        speedCheckDelegate?.isSpeedCheckComplete(complete: complete,upload:upload,download:download)
+    func isSpeedCheckComplete(complete: Bool,ping:String,upload:Double,download:Double){
+        speedCheckDelegate?.isSpeedCheckComplete(complete: complete, ping: ping,upload:upload,download:download)
     }
     func showChartData(show:Bool,data:[Double]){
         speedCheckDelegate?.showChartData(show:show,data:data)

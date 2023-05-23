@@ -11,16 +11,27 @@ import Charts
 import PlainPing
 
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
-    func isSpeedCheckComplete(complete: Bool, upload: Double, download: Double) {
+    func isSpeedCheckComplete(complete: Bool, ping: String, upload: Double, download: Double) {
+        print("ping11\(ping)")
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-        vc.ping = pingData ?? "0.00"
+        vc.ping = ping
         vc.uploadSpeed = upload
         vc.downloadSpeed = download
         navigationController?.pushViewController(vc, animated: true)
     }
     
+
+    
     func showChartData(show: Bool,data:[Double]) {
-    // setChart(dataPoints: data, values:data)
+        for _ in data{
+            upCounter += 1
+            months.append(String(upCounter))
+        }
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [self] timer in
+           showGraph(baseArray:months,data:data)
+            
+        }
     }
     
  
@@ -62,7 +73,11 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     var countHydra = 0
     var pingData:String?
     var timer:Timer?
-    let  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
+   // var  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
+    var  months = [String]()
+    var downCounter = 0
+    var upCounter = 0
+    var isDownload:Bool = false
     private var pingSpeed: PingSpeed?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,22 +115,13 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         getNetworkSpeed()
         getIP()
-        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { [self] (timeElapsed:Double?, error:Error?) in
-            if let latency = timeElapsed {
-                pingData = "\(String(latency).prefix(4))"
-                self.ping.text = pingData
-                
-               
-            }
-
-            if let error = error {
-                print("error: \(error.localizedDescription)")
-            }
-        })
+        speedTestVM.setPingData(pingLabel: ping)
+        
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         topView.isHidden = true
         speedMeterView!.value = 0
         startBtn.isHidden = false
@@ -149,75 +155,44 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         hideUnhideMenuView(showTrans: true, showMenu: true)
        }
     func checkDownloadSpeed(){
-        var counter = 0
-        var counterArray = [Int]()
+       
         SpeedTestViewModel.init().downloadSpeedTest(target: self, completion: { [self] speed ,uploadSpeed,status  in
             print("status\(status)")
             
                 if speed > 0{
-                    
+                    isDownload = true
                     changeImgBgColor(imageView: downloadImg,position: 1)
                     speedTestVM.downloadSpeed(downloadSpeed: speed, speedLabel: downloadSpeedLabel,currentSpeedLabel: speedLabel ,speedMeterView:speedMeterView!,status: false)
                     speedArray.append(speed)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                      
-                        print("yourArray\(speedArray.count)")
-                        self.setChart(dataPoints: self.months, values: speedArray)
+                   
+                    for _ in speedArray{
+                        downCounter += 1
+                        months.append(String(downCounter))
                     }
+//                    timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(showGraph), userInfo: nil, repeats: true)
                   
+                 
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
 //
+//                        print("yourArray\(speedArray.count)")
+//                        self.setChart(dataPoints: self.months, values: speedArray)
+//                    }
+                  
+
                 }
                 if uploadSpeed > 0{
                     changeImgBgColor(imageView: uploadImg,position: 2)
                     speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,currentSpeedLabel: speedLabel,speedMeterView:speedMeterView!,status:status)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        uploadArray.append(uploadSpeed)
-                        print("yourArray\(speedArray.count)")
-                      //  self.setChart(dataPoints: self.months, values: uploadArray)
-//                        if #available(iOS 15, *) {
-//                            let today = Date.now
-//                            let formatter1 = DateFormatter()
-//                            formatter1.dateStyle = .short
-//                            print(formatter1.string(from: today))
-//                            
-//                           
-//                            
-//                            print("speedList1 \(speedTestList.count)")
-//                            if speedTestList[formatter1.string(from: today)] == nil{
-//                                speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: speedArray.last!, uploadSpeed: uploadArray.last!)]
-//                                speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: speedArray.last!, uploadSpeed: uploadArray.last!))
-//                            }else {
-//                                if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
-//                                    do {
-//                                      
-//                                        speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
-//                                        
-//                                        for (key ,data) in speedTestList{
-//                                            for i in data{
-//                                                speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
-//                                            }
-//                                           
-//                                        }
-//                                        speedTestList[formatter1.string(from: today)] = speedDataList
-//                                        print("working11 \(speedDataList.count)")
-//                                    }catch{
-//                                        
-//                                    }
-//                                }
-//                            }
-//                            if let encode = try?  JSONEncoder().encode(speedTestList) {
-//                                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-//                            }
-//                        } else {
-//                            // Fallback on earlier versions
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+//                        uploadArray.append(uploadSpeed)
+//                        for _ in uploadArray{
+//                            upCounter += 1
+//                            months.append(String(upCounter))
 //                        }
-                        
-//                        MainSongList.instanceHelper.categoryDataList[category_id] = finalList
-//                        if let encoded = try? JSONEncoder().encode(MainSongList.instanceHelper.categoryDataList) {
+//                        print("yourArray\(speedArray.count)")
+//                       self.setChart(dataPoints: self.months, values: uploadArray)
 //
-//                            userDefault.set(encoded, forKey:MyConstant.DOWNLOADED_LIST)
-//                        }
-                    }
+//                    }
             }
             
         })
@@ -230,6 +205,19 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
 //            }
 //        }
     }
+    
+    @objc func showGraph(baseArray:[String],data:[Double]){
+        print("timer function called")
+//        if isDownload{
+            self.setChart(dataPoints: baseArray, values: data)
+           
+//        }else{
+//            
+//        }
+        
+    }
+    
+    
     
     private func changeImgBgColor(imageView:UIImageView,position:Int){
         DispatchQueue.main.async {
@@ -292,12 +280,21 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         chartDataSet.circleRadius = 0
         chartDataSet.circleHoleRadius = 0
         chartDataSet.drawValuesEnabled = false
-        chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
+     if isDownload{
+         chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
+     }else{
+         chartDataSet.setColor(hexStringColor(hex: "#FFA620"))
+     }
      chartDataSet.mode = .cubicBezier
      chartDataSet.cubicIntensity = 0.2
-     let gradientColors = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray // Colors of the gradient
+     var gradientColors:CFArray? = nil
+     if isDownload{
+        gradientColors  = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
+     }else{
+         gradientColors  = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
+     }// Colors of the gradient
      let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
-     let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) // Gradient Obj
+     let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors!, locations: colorLocations) // Gradient Obj
          chartDataSet.fill = LinearGradientFill(gradient: gradient!)
      chartDataSet.drawFilledEnabled = true
     

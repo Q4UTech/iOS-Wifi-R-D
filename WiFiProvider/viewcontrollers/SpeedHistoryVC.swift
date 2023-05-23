@@ -55,6 +55,18 @@ class SpeedHistoryVC: UIViewController {
 }
 
 extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+
+        // This changes the header background
+        view.tintColor = UIColor.clear
+        view.backgroundColor = UIColor.clear
+
+        // Gets the header view as a UITableViewHeaderFooterView and changes the text colour
+        var headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel!.textColor = UIColor.white
+
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         print("speedDetailData22\(speedDetailData.count)")
         return speedDetailData.count
@@ -70,7 +82,8 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
-        cell.ping.text = String(data!.ping).maxLength(length: 4)
+        cell.timeLabel.text = data?.time
+        cell.ping.text = data?.ping
         cell.upload.text = String(data!.uploadSpeed).maxLength(length: 4)
         cell.download.text = String(data!.downloadSpeed).maxLength(length: 4)
         return cell

@@ -150,7 +150,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                 let dict1 = dictnry.convertToDictionary(text: decryptString!)
                 let code = dict1!["key"] as! String
                 
-                getConnectedDevicesList(key:code)
+                //getConnectedDevicesList(key:code)
             }
             else{
                

@@ -13,6 +13,7 @@ import CryptoSwift
 let HOST_URL = "https://quantum4you.com/engine"
 let api = "/wifiauthservice/authkey"
 
+let PASSWORD_URL = "https://quantum4you.com/engine/wifiauthservice"
 
 
 class NetworkHelper{
@@ -38,95 +39,74 @@ class NetworkHelper{
     }
     
     
-    func getWifiKey(networkListner:@escaping (_ response: String?,
-                                                    _ error: String?) -> Void){
-        
-        var params = [String:Any]()
-        
-        
-        
-      //  params = ["app_id": "m24screenrecios"]
-        params = ["app_id": "v5wifitrackernew",
-                  "country": getCountryNameInfo(),
-                  "screen": "XHDPI",
-                  "launchcount": "1",
-                  "version": getAppVersionInfo(),
-                  "osversion": getOSInfo(),
-                  "dversion": getDeviceModel(),
-                  "os": "2"]
-        print(params)
-        let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        let jsonString1 = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-        let encodedString = hexadecimal.encrypt(text:jsonString1)
-        var parametr = [String:String]()
-        parametr = ["data":encodedString!]
-      //  var parametr = [String:String]()
-        //print("Params\(params)")
-        print("param \(params)")
-        
-       // createPostRequest(params:parametr, apiName:api, commonNetworkListner:networkListner)
+    func getPasswordApiData(networkListner:@escaping(_ response: PasswordData?,
+                                                    _ error: String?) -> Void)
+    {
+        let url = PASSWORD_URL + "/routerlist/v5wifitrackernew"
+        callPasswordApi( apiName: url, commonNetworkListner:networkListner)
     }
     
-    
-//    private func createPostRequest<T>(
-//        params:[String:String],apiName: String,
-//        commonNetworkListner:@escaping (
-//            _ response: T?,
-//            _ error: String?) -> Void) where T: Decodable {
-//
-//                if isConnectedToNetwork() {
-//                    let url = HOST_URL + apiName
-//
-//                    print("CheckURL\(url)  \(params)")
-//
-//                    Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { [self] response  in
-//                        print("respnse \(String(describing: response.data))")
-//
-//                        switch response.result {
-//
-//                        case .success(let value):
-//                            print("Value000 \(value)")
-//
-////
-//
-//                                let dict = value as! [String:String]
-//
-//                                let dictValues = [String](dict.values)
-//                                let value  = dictValues[0]
-//
-//                                print("value222 \(value)")
-//                                commonNetworkListner(value as AnyObject? as! T, nil)
-//
-//
-//
-//
-//                            break
-//                        case .failure(_):
-//                            print("filure\(response.error)")
-//
-//                            commonNetworkListner(nil, response.error?.localizedDescription)
-//                            break
-//
-//
-//                        }
-//                    }
-//                }
-//            }
-//
-    
-    func getMucicSubCategory(cat_id:String,networkListner:@escaping (_ response: WifiKey?,
-                                                                     _ error: String?) -> Void){
-        
-        var params = [String:Any]()
-        
-        // print("cat_id1\(cat_id)")
-        
-        params = ["app_id": "v5iosmeditationm24","cat_id":cat_id]
-        
-        //print("Params\(params)")
-        createSubCategoryPostRequest(params:params, apiName: HOST_URL,commonNetworkListner:networkListner)
-    }
-    
+     func callPasswordApi<T>(
+       apiName: String,
+        commonNetworkListner:@escaping (
+            _ response: T?,
+            _ error: String?) -> Void) where T: Decodable {
+                
+             
+                if isConnectedToNetwork() {
+                
+                    let url = apiName
+                    
+                 print("url00 \(url)")
+                    
+                    Alamofire.request(url, method: .get ,encoding: JSONEncoding.default).responseData { response in
+                        print("respnse \(response)")
+                        switch response.result {
+                          
+                        case .success(let value):
+                            print("respnse1 \(value)")
+                            
+                            do {
+                                let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
+                                let status = jObject!["status"] as? String
+                                let array = jObject!["routerlist"] as? NSArray
+                                //print("status \(String(describing: status)) \(array?["type"])")
+                              
+                                let data:Dictionary? = array![0] as? Dictionary<String, Any>
+                                let type = data!["brand"] as? String
+                                print("type \(type)")
+                               
+                            }catch{
+                                
+                            }
+
+                            do{
+                                let tObject = try JSONDecoder().decode(PasswordData.self,from: value)
+
+
+                                if(tObject != nil)  {
+                                    print("tObject\(String(describing: tObject))")
+                                    //commonNetworkListner(tObject, nil)
+                                }else{
+                                    commonNetworkListner(nil, "T Object is null")
+                                }
+                                
+                            }catch let error{
+                                print("errorrrr1199\(error.localizedDescription)")
+                            }
+                            
+                            break
+                        case .failure(_):
+                            print("filure11\(response.error)")
+                            commonNetworkListner(nil, response.error?.localizedDescription)
+                            break
+                            
+                            
+                        }
+                    }
+                }
+            }
+   
     public func createPostRequest(method: HTTPMethod,showHud :Bool, params: [String: String]!, apiName: String, completionHandler:@escaping (_ response: AnyObject?, _ error: NSError?) -> Void) {
         
             if isConnectedToNetwork() {
@@ -226,18 +206,7 @@ class NetworkHelper{
                     }
                 }
             }
-    //func getAllData(networkListner:@escaping (_ response: MusicList?,
-    //                                           _ error: String?) -> Void){
-    //
-    //    var params = [String:Any]()
-    //
-    //
-    //
-    //    params = ["app_id": "v5iosmeditationm24","cat_id":"all"]
-    //
-    //    //print("Params\(params)")
-    //    createSubCategoryPostRequest(params:params, apiName: subCategoryApi,commonNetworkListner:networkListner)
-    //}
+   
     
     
     

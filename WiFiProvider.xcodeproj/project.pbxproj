@@ -32,6 +32,9 @@
 		C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECC2A163D4D00DF51A9 /* FingIsp.swift */; };
 		C748CECF2A163E4300DF51A9 /* FingNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECE2A163E4300DF51A9 /* FingNodes.swift */; };
 		C748CED12A164FE500DF51A9 /* WifiDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CED02A164FE500DF51A9 /* WifiDataCell.swift */; };
+		C74C37CB2A1CB5B30066769E /* PasswordHintCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CA2A1CB5B30066769E /* PasswordHintCell.swift */; };
+		C74C37CE2A1CB6880066769E /* PasswordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CD2A1CB6880066769E /* PasswordData.swift */; };
+		C74C37D02A1CB6A00066769E /* PasswordDataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CF2A1CB6A00066769E /* PasswordDataDetail.swift */; };
 		C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3929FB7DA900D89A3E /* MenuVC.swift */; };
 		C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */; };
 		C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */; };
@@ -183,6 +186,9 @@
 		C748CECC2A163D4D00DF51A9 /* FingIsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingIsp.swift; sourceTree = "<group>"; };
 		C748CECE2A163E4300DF51A9 /* FingNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingNodes.swift; sourceTree = "<group>"; };
 		C748CED02A164FE500DF51A9 /* WifiDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDataCell.swift; sourceTree = "<group>"; };
+		C74C37CA2A1CB5B30066769E /* PasswordHintCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHintCell.swift; sourceTree = "<group>"; };
+		C74C37CD2A1CB6880066769E /* PasswordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordData.swift; sourceTree = "<group>"; };
+		C74C37CF2A1CB6A00066769E /* PasswordDataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDataDetail.swift; sourceTree = "<group>"; };
 		C75F1B3929FB7DA900D89A3E /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingHelper.swift; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */,
 				C7A95D732A13A6BD006DBA68 /* CountryTableViewCell.swift */,
 				C748CED02A164FE500DF51A9 /* WifiDataCell.swift */,
+				C74C37CA2A1CB5B30066769E /* PasswordHintCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -515,6 +522,8 @@
 				C748CECA2A163D0600DF51A9 /* FingNetwork.swift */,
 				C748CECC2A163D4D00DF51A9 /* FingIsp.swift */,
 				C748CECE2A163E4300DF51A9 /* FingNodes.swift */,
+				C74C37CD2A1CB6880066769E /* PasswordData.swift */,
+				C74C37CF2A1CB6A00066769E /* PasswordDataDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -799,6 +808,7 @@
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
 				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
 				C7C432612A17290300AD0E31 /* UnderlineView.swift in Sources */,
+				C74C37CE2A1CB6880066769E /* PasswordData.swift in Sources */,
 				C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */,
 				C748CED12A164FE500DF51A9 /* WifiDataCell.swift in Sources */,
 				C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */,
@@ -815,6 +825,7 @@
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
 				C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */,
 				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
+				C74C37D02A1CB6A00066769E /* PasswordDataDetail.swift in Sources */,
 				C7A95D7C2A13A810006DBA68 /* DataModelR.swift in Sources */,
 				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
 				C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */,
@@ -840,6 +851,7 @@
 				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
 				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
 				C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */,
+				C74C37CB2A1CB5B30066769E /* PasswordHintCell.swift in Sources */,
 				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
 				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
 				C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */,

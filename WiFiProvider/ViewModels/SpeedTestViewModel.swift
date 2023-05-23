@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import WMGaugeView
 import Toast_Swift
+import PlainPing
 
 class SpeedTestViewModel{
     var speedTestList  = [String:[SpeedTestData]]()
@@ -18,6 +19,8 @@ class SpeedTestViewModel{
     var uploadArray = [Double]()
     var downloadSpeed:Double = 0.0
     var uploadSpeed:Double = 0.0
+    var pingData = String()
+    var currentTime:String? = ""
     func downloadSpeedTest(target: UIViewController, completion:@escaping (_ speed: Double,_ uploadSpeed:Double,_ status:Bool) -> Void) {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async { [self] in
@@ -49,18 +52,19 @@ class SpeedTestViewModel{
                                         print(formatter1.string(from: today))
                                         
                                        
-                                        
-//                                        print("speedList1 \(speedTestList.count)")
+                                      currentTime = getCurrentTime()
+                                      pingData = UserDefaults.standard.string(forKey: "pingData")!
+                                      print("speedList1 \(pingData)")
                                         if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
-                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
-                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
                                             if let encode = try?  JSONEncoder().encode(speedTestList) {
                                                 UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
                                             }
                                             print("speedDataList7777\(speedDataList)")
                                            
                                         }else {
-                                            speedDataList.append(SpeedTestData(time: "2:09", ping: 0.00, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
                                             print("speedDataList77\(speedDataList)")
                                             if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
                                                 do {
@@ -116,7 +120,8 @@ class SpeedTestViewModel{
            
         }
         DispatchQueue.main.asyncAfter(deadline: .now()+5) { [self] in
-            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,upload: uploadArray.last ?? 1.09  ,download: downLoadArray.last ?? 2.03)
+            pingData = UserDefaults.standard.string(forKey: "pingData")!
+            SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,ping:pingData,upload: uploadArray.last ?? 1.09  ,download: downLoadArray.last ?? 2.03)
         }
     }
     
@@ -206,5 +211,33 @@ class SpeedTestViewModel{
 
         
 
+    }
+    
+    func setPingData(pingLabel:UILabel){
+        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { [self] (timeElapsed:Double?, error:Error?) in
+            if let latency = timeElapsed {
+                pingData = "\(String(latency).prefix(4))"
+                print("pingData\(pingData)")
+                UserDefaults.standard.set(pingData, forKey: "pingData")
+                pingLabel.text = pingData
+                
+               
+            }
+
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        })
+    }
+    
+    private func getCurrentTime()->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"  // Set the desired format
+        
+        let currentTime = Date()
+        let currentTimeString = formatter.string(from: currentTime)
+        
+        print("currentTimeString \(currentTimeString)")
+        return currentTimeString
     }
 }

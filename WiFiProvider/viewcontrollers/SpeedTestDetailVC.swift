@@ -19,6 +19,8 @@ class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var connectedType:UILabel!
     @IBOutlet weak var ipAddress:UILabel!
     @IBOutlet weak var providerLabel:UILabel!
+    @IBOutlet weak var deleteView:UIView!
+    @IBOutlet weak var transView:UIView!
     
     var ping = String()
     var uploadSpeed = Double()
@@ -38,6 +40,20 @@ class SpeedTestDetailVC: UIViewController {
     
     @IBAction func back(_ sender:UIButton){
         navigationController?.popViewController(animated: true)
+    }
+    @IBAction func deleteData(_ sender:UIButton){
+        hideUnhideView(true, true)
+    }
+    @IBAction func cancel(_ sender:UIButton){
+        hideUnhideView(true, true)
+    }
+    @IBAction func openDeleteDialog(_ sender:UIButton){
+      hideUnhideView(false, false)
+    }
+    
+    private func hideUnhideView(_ forDelete:Bool,_ forTrans:Bool){
+        deleteView.isHidden = forDelete
+        transView.isHidden = forTrans
     }
     
     func getConnectionType() -> String {
