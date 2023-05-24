@@ -10,6 +10,8 @@ import Foundation
 protocol SpeedCheckProtocol{
     func isSpeedCheckComplete(complete: Bool,ping:String,upload:Double,download:Double)
     func showChartData(show:Bool,data:[Double])
+    func uploadFinished(isFinsihed:Bool,data:[Double])
+    func downloadFinsihedFinished(isFinsihed:Bool,data:[Double])
 }
 
 class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
@@ -27,6 +29,14 @@ class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
     }
     func showChartData(show:Bool,data:[Double]){
         speedCheckDelegate?.showChartData(show:show,data:data)
+    }
+    
+    func uploadFinished(isFinsihed:Bool,data:[Double]){
+    speedCheckDelegate?.uploadFinished(isFinsihed: isFinsihed,data:data)
+    }
+    
+    func downloadFinsihedFinished(isFinsihed: Bool,data:[Double]){
+        speedCheckDelegate?.downloadFinsihedFinished(isFinsihed: isFinsihed,data:data)
     }
     
     

@@ -66,21 +66,26 @@ class NetworkHelper{
                         case .success(let value):
                             print("respnse1 \(value)")
                             
-                            do {
+                             do {
                                 let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
                                 let status = jObject!["status"] as? String
                                 let array = jObject!["routerlist"] as? NSArray
-                                //print("status \(String(describing: status)) \(array?["type"])")
-                              
+                                print("status \(String(describing: status)) \(jObject)")
+
                                 let data:Dictionary? = array![0] as? Dictionary<String, Any>
-                                let type = data!["brand"] as? String
+                                let brand = data!["brand"] as? String
+                                let type = data!["type"] as? String
+                                let username = data!["username"] as? String
+                                let password = data!["passwrod"] as? String
                                 print("type \(type)")
-                               
+
                             }catch{
-                                
+
                             }
 
                             do{
+                             
+                                               
                                 let tObject = try JSONDecoder().decode(PasswordData.self,from: value)
 
 

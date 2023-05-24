@@ -12,10 +12,15 @@ import SystemConfiguration
 import CoreLocation
 import Foundation
 import HGRippleRadarView
- 
+import Network
 
 class WifiVC: UIViewController ,CLLocationManagerDelegate{
-    
+    var locationManager = CLLocationManager()
+//     var currentNetworkInfos: Array<NetworkInfo>? {
+//         get {
+//             return SSID.fetchNetworkInfo()
+//         }
+//     }
     
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
@@ -34,7 +39,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     @IBOutlet weak var mapImg:UIImageView!
     @IBOutlet weak var listImg:UIImageView!
     @IBOutlet weak var optionBtn:UIButton!
-    var locationManager: CLLocationManager!
+   
     var decryptvalue = String()
     var dictnry = String()
     var hexadecimal = String()
@@ -65,6 +70,30 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         }
        
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
+        
+        if #available(iOS 13.0, *) {
+                 let status = CLLocationManager.authorizationStatus()
+                 if status == .authorizedWhenInUse {
+                     updateWiFi()
+                 } else {
+                     locationManager.delegate = self
+                     locationManager.requestWhenInUseAuthorization()
+                 }
+             } else {
+                 updateWiFi()
+             }
+        
+    }
+    func updateWiFi() {
+//        print("SSID: \(currentNetworkInfos?.first?.ssid ?? "")")
+//
+//        if let ssid = currentNetworkInfos?.first?.ssid {
+//            ssidLabel.text = "SSID: \(ssid)"
+//        }
+//
+//        if let bssid = currentNetworkInfos?.first?.bssid {
+//            bssidLabel.text = "BSSID: \(bssid)"
+//        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -444,7 +473,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     @IBAction func openDeviceDetail(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "InAppPurchaseVC") as! InAppPurchaseVC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func openRouter(_ sender:UIButton){

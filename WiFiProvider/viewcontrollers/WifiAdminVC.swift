@@ -9,24 +9,32 @@ import UIKit
 import WebKit
 
 class WifiAdminVC: UIViewController, WKUIDelegate {
-    var webView: WKWebView!
-    
-    
-    
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-       webView = WKWebView(frame: .zero, configuration: webConfiguration)
-       webView.uiDelegate = self
-       view = webView
-    }
+    var wkWebview: WKWebView!
+    @IBOutlet weak var customWebView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
+               wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+               self.customWebView.addSubview(wkWebview)
 
-        let myURL = URL(string:"https://www.apple.com")
-          let myRequest = URLRequest(url: myURL!)
-          webView.load(myRequest)
+               let url = URL(string: "https://www.google.com")
+               wkWebview.load(URLRequest(url: url!))
+
     }
+    
+    @IBAction func openRouterSetting(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func closePage(_ sender:UIButton){
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+   
+    
     
 
    

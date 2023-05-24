@@ -88,6 +88,8 @@
 		C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */; };
 		C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D812A13A972006DBA68 /* NetworkManagers.swift */; };
 		C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D832A13AB18006DBA68 /* Constants.swift */; };
+		C7B3DE282A1DD67E00EC4A41 /* ConnectionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */; };
+		C7B3DE2B2A1DDFB500EC4A41 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DE2A2A1DDFB500EC4A41 /* SearchController.swift */; };
 		C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */; };
 		C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */; };
 		C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */; };
@@ -244,6 +246,8 @@
 		C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataVM.swift; sourceTree = "<group>"; };
 		C7A95D812A13A972006DBA68 /* NetworkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagers.swift; sourceTree = "<group>"; };
 		C7A95D832A13AB18006DBA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTimer.swift; sourceTree = "<group>"; };
+		C7B3DE2A2A1DDFB500EC4A41 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
 		C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShadowImageView.swift; sourceTree = "<group>"; };
 		C7B5A9BA2A14AF77002B7393 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 				C71F94B22A1B843A00A3BFF1 /* Config.swift */,
 				C71F94B32A1B843A00A3BFF1 /* Util.swift */,
 				C71F94B42A1B843A00A3BFF1 /* Settings.swift */,
+				C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				C7A95D622A1399FC006DBA68 /* ConnectedTimer.swift */,
 				C7A95D632A1399FC006DBA68 /* VPNConnectedStatus.swift */,
 				C7A95D642A1399FC006DBA68 /* VPNPurchasedStatus.swift */,
+				C7B3DE2A2A1DDFB500EC4A41 /* SearchController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -775,6 +781,7 @@
 				C71F94B62A1B843A00A3BFF1 /* Bridge.swift in Sources */,
 				C71F94B92A1B843A00A3BFF1 /* Config.swift in Sources */,
 				C71F94BD2A1B847C00A3BFF1 /* PacketTunnelProvider.swift in Sources */,
+				C7B3DE282A1DD67E00EC4A41 /* ConnectionTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +808,7 @@
 				C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
 				C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */,
+				C7B3DE2B2A1DDFB500EC4A41 /* SearchController.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */,
 				C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */,

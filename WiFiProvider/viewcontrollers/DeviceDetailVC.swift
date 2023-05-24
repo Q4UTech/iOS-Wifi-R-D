@@ -140,10 +140,10 @@ class DeviceDetailVC: UIViewController {
     
 
     @IBAction func blockDevice(_ sender:UIDevice){
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
-//        navigationController?.pushViewController(vc, animated: true)
-        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
         navigationController?.pushViewController(vc, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+//        navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func back(_ sender:UIDevice){
         

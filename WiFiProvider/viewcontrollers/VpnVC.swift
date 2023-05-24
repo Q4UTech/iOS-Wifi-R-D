@@ -10,8 +10,12 @@ import Network
 import Toast_Swift
 
 @available(iOS 13.0, *)
-class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol
+class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol,ConnectedTimerDelegate
 {
+    func connectedTimer(connectedTimer: String) {
+       print("connectedTimer\(connectedTimer)")
+    }
+    
     func connectionState(uploadSpeed: String, downloadSpeed: String) {
         print("speed \(uploadSpeed) \(downloadSpeed)")
     }
@@ -72,6 +76,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         override func viewDidLoad() {
             super.viewDidLoad()
             ConnectionStatus.instanceHelper.itemdelegates = self
+            ConnectedTimer.instanceHelper.itemdelegates = self
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
             transView.addGestureRecognizer(tapGesture)
             let monitor = NetworkSpeedMonitor()

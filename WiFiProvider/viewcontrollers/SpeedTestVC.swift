@@ -11,27 +11,40 @@ import Charts
 import PlainPing
 
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol{
+    func uploadFinished(isFinsihed: Bool,data:[Double]) {
+//        let array =  Array(self.data.suffix(10))
+//        setChart(dataPoints: months, values: array)
+    }
+    
+    func downloadFinsihedFinished(isFinsihed: Bool,data:[Double]) {
+//        let array =  Array(self.data.suffix(10))
+       // setChart(dataPoints: months, values: array)
+    }
+    
     func isSpeedCheckComplete(complete: Bool, ping: String, upload: Double, download: Double) {
         print("ping11\(ping)")
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-        vc.ping = ping
-        vc.uploadSpeed = upload
-        vc.downloadSpeed = download
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+//        vc.ping = ping
+//        vc.uploadSpeed = upload
+//        vc.downloadSpeed = download
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
 
     
     func showChartData(show: Bool,data:[Double]) {
+        self.data = data
         for _ in data{
             upCounter += 1
             months.append(String(upCounter))
         }
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [self] timer in
-           showGraph(baseArray:months,data:data)
-            
-        }
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:#selector(showSpeedGraph),userInfo: true,repeats:true)
+        showSpeedGraph()
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [self] timer in
+//           showGraph(baseArray:months,data:data)
+//
+//        }
     }
     
  
@@ -67,14 +80,15 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBOutlet weak var speedChartView: LineChartView!
     var speedArray = [Double]()
     var uploadArray = [Double]()
+    var data = [Double]()
     var speedMeterView: WMGaugeView?
     var speedTestVM = SpeedTestViewModel()
     var countinAPP = 0
     var countHydra = 0
     var pingData:String?
     var timer:Timer?
-   // var  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
-    var  months = [String]()
+    var  months = ["1.0", "2.0", "3.0", "4.0", "5.0","6.0", "7.0", "8.0", "9.0", "10.0"]
+  //  var  months = [String]()
     var downCounter = 0
     var upCounter = 0
     var isDownload:Bool = false
@@ -108,6 +122,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
     
     @IBAction func beginTestAction(_ sender: Any) {
+        uploadArray.removeAll()
+        speedArray.removeAll()
         startBtn.isHidden = true
         speedChartView.isHidden = false
         parentView.isHidden = false
@@ -167,36 +183,45 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
                    
                     for _ in speedArray{
                         downCounter += 1
-                        months.append(String(downCounter))
+                       // months.append(String(downCounter))
                     }
 //                    timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(showGraph), userInfo: nil, repeats: true)
                   
                  
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-//
-//                        print("yourArray\(speedArray.count)")
-//                        self.setChart(dataPoints: self.months, values: speedArray)
-//                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+                        let array =  Array(self.speedArray.suffix(10))
+                        //        setChart(dataPoints: months, values: array)
+                        print("yourArray\(speedArray.count)")
+                        setChart(dataPoints: self.months, values: speedArray)
+                    }
                   
 
                 }
                 if uploadSpeed > 0{
                     changeImgBgColor(imageView: uploadImg,position: 2)
                     speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,currentSpeedLabel: speedLabel,speedMeterView:speedMeterView!,status:status)
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-//                        uploadArray.append(uploadSpeed)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+                        uploadArray.append(uploadSpeed)
 //                        for _ in uploadArray{
 //                            upCounter += 1
 //                            months.append(String(upCounter))
 //                        }
-//                        print("yourArray\(speedArray.count)")
-//                       self.setChart(dataPoints: self.months, values: uploadArray)
-//
-//                    }
+                        print("yourArray\(uploadArray.count)")
+                      //  let array =  Array(self.uploadArray.suffix(10))
+                     //  self.setChart(dataPoints: self.months, values: uploadArray)
+                        
+                    }
             }
             
         })
-       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) { [self] in
+            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+                   vc.ping =  "10.0"
+            vc.uploadSpeed = uploadArray.last!
+            vc.downloadSpeed = speedArray.last!
+           
+                   navigationController?.pushViewController(vc, animated: true)
+        }
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
 //            let uploadDataArray =  Array(self.uploadArray.suffix(5))
 //            print("yourArray\(uploadDataArray)")
@@ -209,12 +234,19 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @objc func showGraph(baseArray:[String],data:[Double]){
         print("timer function called")
 //        if isDownload{
-            self.setChart(dataPoints: baseArray, values: data)
+           // self.setChart(dataPoints: baseArray, values: data)
            
 //        }else{
 //            
 //        }
         
+    }
+     func showSpeedGraph(){
+        print("timer function called")
+
+           // self.setChart(dataPoints: months, values: data)
+           
+
     }
     
     
@@ -266,6 +298,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     }
     
  func setChart(dataPoints: [String], values: [Double]) {
+     print("length99= \(dataPoints.count) \(values.count)")
         var dataEntries: [ChartDataEntry] = []
         if dataPoints != nil{
             print("counts \(dataPoints.count)")

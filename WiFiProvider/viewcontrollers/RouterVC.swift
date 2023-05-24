@@ -8,22 +8,11 @@
 import UIKit
 import MASegmentedControl
 
-class RouterVC: UIViewController {
-//    func change(to index: Int) {
-//       print("index \(index)")
-//    }
-//
-//    //    @IBOutlet weak var adView:UIView!
-//    //    @IBOutlet weak var heightConstraint:NSLayoutConstraint!
-//    //    @IBOutlet weak var transView:UIView!
-//    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
-//        didSet{
-//            interfaceSegmented.setButtonTitles(buttonTitles: ["Password","Guide"])
-//            interfaceSegmented.selectorViewColor = .orange
-//            interfaceSegmented.selectorTextColor = .orange
-//        }
-//
-//    }
+class RouterVC: UIViewController, UITextFieldDelegate{
+    @IBOutlet weak var searchData:UITextField!
+    @IBOutlet weak var searchButton:UIButton!
+    @IBOutlet weak var closeButton:UIButton!
+    @IBOutlet weak var searchView:UIView!
      
     enum TabIndex : Int {
            case firstChildTab = 0
@@ -48,9 +37,18 @@ class RouterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchData.delegate = self
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
+       
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let searchText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+               // searchNotes(textData: searchText)
+        SearchController.instanceHelper.searchData(searchDarta: searchText)
+        return true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -93,4 +91,26 @@ class RouterVC: UIViewController {
        
            return vc
        }
+    
+    @IBAction func back(_ sender:UIButton){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func openSearch(_ sender:UIButton){
+        searchData.becomeFirstResponder()
+        hideUnhideView(isSearch: false, isSearchBtn: true, isCloseBtn: false)
+    }
+    
+    @IBAction func closeSearch(_ sender:UIButton){
+        searchData.resignFirstResponder()
+        searchData.text = ""
+        hideUnhideView(isSearch: true, isSearchBtn: false, isCloseBtn: true)
+       
+    }
+    
+    func hideUnhideView(isSearch:Bool,isSearchBtn:Bool,isCloseBtn:Bool){
+        searchView.isHidden = isSearch
+        searchButton.isHidden = isSearchBtn
+        closeButton.isHidden = isCloseBtn
+    }
 }

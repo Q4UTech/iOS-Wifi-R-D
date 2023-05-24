@@ -9,6 +9,8 @@ import UIKit
 import Network
 import SystemConfiguration
 import CoreTelephony
+import SystemConfiguration.CaptiveNetwork
+import CoreLocation
 
 class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var adView:UIView!
@@ -21,22 +23,89 @@ class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var providerLabel:UILabel!
     @IBOutlet weak var deleteView:UIView!
     @IBOutlet weak var transView:UIView!
-    
+    private var locationManager = CLLocationManager()
     var ping = String()
     var uploadSpeed = Double()
     var downloadSpeed = Double()
     var provider = String()
     var ipAddressData = String()
-  
+    var isFrom = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        pingLabel.text = ping
-        uploadLabel.text = String(uploadSpeed)
-        downloadLabel.text = String(downloadSpeed)
-        ipAddress.text = ipAddressData
-        connectedType.text = getConnectionType()
+        askEnableLocationService()
+        if isFrom == "SpeedHistory"{
+            pingLabel.text = ping
+            uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
+            downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
+            ipAddress.text = ipAddressData
+            connectedType.text = getConnectionType()
+            ipAddress.text = getIFAddresses()
+            providerLabel.text = getWiFiSsid()
+        }else{
+            pingLabel.text = ping
+            uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
+            downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
+            ipAddress.text = ipAddressData
+            connectedType.text = getConnectionType()
+            ipAddress.text = getIFAddresses()
+            
+            providerLabel.text = getWiFiSsid()
+        }
+        print("add: \(getIFAddresses())")
     }
+    func askEnableLocationService() {
+        var showAlertSetting = false
+        var showInitLocation = false
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .denied:
+                showAlertSetting = true
+                print("HH: kCLAuthorizationStatusDenied")
+            case .restricted:
+                showAlertSetting = true
+                print("HH: kCLAuthorizationStatusRestricted")
+            case .authorizedAlways:
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusAuthorizedAlways")
+            case .authorizedWhenInUse:
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
+            case .notDetermined:
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusNotDetermined")
+            default:
+                break
+            }
+        } else {
+            showAlertSetting = true
+            print("HH: locationServicesDisabled")
+        }
+        
+        if showAlertSetting {
+            let alertView = UIAlertController(title: nil, message: "Please enable location service for this app in ALLOW LOCATION ACCESS: Always, Go to Setting?", preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alertView.addAction(UIAlertAction(title: "Open Setting", style: .default) { _ in
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            })
+           
+            present(alertView, animated: true, completion: nil)
+        }
+        
+        if showInitLocation {
+            initLocationManager()
+        }
+    }
+
+    func initLocationManager() {
+        self.locationManager = CLLocationManager()
+        if self.locationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
+            self.locationManager.requestAlwaysAuthorization()
+        }
+    }
+
     
     @IBAction func back(_ sender:UIButton){
         navigationController?.popViewController(animated: true)
@@ -92,5 +161,33 @@ class SpeedTestDetailVC: UIViewController {
             }
         }
    
-
+    func getIFAddresses()->String {
+        let url = URL(string: "https://api.ipify.org")
+        var myIp=""
+        do {
+            if let url = url {
+                let ipAddress = try String(contentsOf: url)
+                myIp = ipAddress
+                print("My public IP address is: " + ipAddress)
+            }
+        } catch let error {
+            print(error)
+        }
+        return myIp
+    }
+  
+    func getWiFiSsid() -> String? {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                   
+                    break
+                }
+            }
+        }
+        print("ssid \(String(describing: ssid))")
+        return ssid
+    }
 }

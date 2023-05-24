@@ -21,7 +21,7 @@ class TabySegmentedControl: UISegmentedControl {
     }
     
     func setupBackground(){
-        let backgroundImage = UIImage(named: "segmented_unselected_bg")
+        let backgroundImage = UIImage(named: "h_line")
         let dividerImage = UIImage(named: "segmented_separator_bg")
         let backgroundImageSelected = UIImage(named: "segmented_selected_bg")
         

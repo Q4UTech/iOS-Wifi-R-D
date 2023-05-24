@@ -156,18 +156,24 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zHG-3w-WuM"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="half_circle" translatesAutoresizingMaskIntoConstraints="NO" id="PSR-3b-bI5">
+                                <rect key="frame" x="112" y="239" width="190" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="aD2-Y1-eqX"/>
+                                    <constraint firstAttribute="height" constant="190" id="omU-QO-ChN"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-gM-GWL">
-                                <rect key="frame" x="97" y="219" width="220" height="220"/>
+                                <rect key="frame" x="87" y="219" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="RVo-BK-JGd"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="qaT-0f-2le"/>
-                                    <constraint firstAttribute="height" constant="220" id="sJq-Mv-fXR"/>
+                                    <constraint firstAttribute="width" constant="240" id="RVo-BK-JGd"/>
+                                    <constraint firstAttribute="height" constant="240" id="sJq-Mv-fXR"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="xQ1-Y0-yNd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-Tv-83J">
-                                <rect key="frame" x="172" y="417" width="70" height="22"/>
+                                <rect key="frame" x="172" y="437" width="70" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-s2-q2R">
                                         <rect key="frame" x="0.0" y="2.6666666666666856" width="31.666666666666668" height="17"/>
@@ -193,7 +199,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2j8-OG-pwo">
-                                <rect key="frame" x="20" y="459" width="374" height="140"/>
+                                <rect key="frame" x="20" y="479" width="374" height="140"/>
                                 <subviews>
                                     <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2M-gs-BPr" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="5" y="5" width="364" height="130"/>
@@ -220,7 +226,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4H-3A-vTH">
-                                <rect key="frame" x="97" y="459" width="220" height="45"/>
+                                <rect key="frame" x="97" y="479" width="220" height="45"/>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="7lr-gT-7eD"/>
@@ -735,6 +741,7 @@
                         <viewLayoutGuide key="safeArea" id="MRp-kO-Sfg"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
                         <constraints>
+                            <constraint firstItem="PSR-3b-bI5" firstAttribute="centerX" secondItem="CAC-od-VCU" secondAttribute="centerX" id="0e4-4L-l2g"/>
                             <constraint firstItem="ofo-8L-tuJ" firstAttribute="trailing" secondItem="MRp-kO-Sfg" secondAttribute="trailing" id="1fC-ve-ZKM"/>
                             <constraint firstItem="k3K-p8-12A" firstAttribute="leading" secondItem="MRp-kO-Sfg" secondAttribute="leading" id="6Fe-dH-drJ"/>
                             <constraint firstItem="Yaa-Ll-dKP" firstAttribute="top" secondItem="ofo-8L-tuJ" secondAttribute="bottom" id="6rs-4i-wqt"/>
@@ -753,6 +760,7 @@
                             <constraint firstItem="Y4H-3A-vTH" firstAttribute="centerX" secondItem="H2P-gM-GWL" secondAttribute="centerX" id="dxf-tf-n3P"/>
                             <constraint firstItem="8kN-Tv-83J" firstAttribute="centerX" secondItem="Y4H-3A-vTH" secondAttribute="centerX" id="eNE-sL-4TP"/>
                             <constraint firstItem="k3K-p8-12A" firstAttribute="trailing" secondItem="MRp-kO-Sfg" secondAttribute="trailing" id="gXz-Xj-EfW"/>
+                            <constraint firstItem="PSR-3b-bI5" firstAttribute="top" secondItem="S0V-wk-anm" secondAttribute="bottom" constant="30" id="hDi-UK-oCc"/>
                             <constraint firstItem="H2P-gM-GWL" firstAttribute="top" secondItem="S0V-wk-anm" secondAttribute="bottom" constant="10" id="ior-a7-4ZJ"/>
                             <constraint firstAttribute="trailing" secondItem="Yaa-Ll-dKP" secondAttribute="trailing" id="kgM-Cg-VnE"/>
                             <constraint firstItem="H2P-gM-GWL" firstAttribute="top" secondItem="S0V-wk-anm" secondAttribute="bottom" constant="10" id="kjy-Od-Oeb"/>
@@ -1528,15 +1536,14 @@ to check connected devices</string>
                                     <constraint firstItem="yGG-Lp-h8Z" firstAttribute="leading" secondItem="Yhi-yc-WCF" secondAttribute="leading" constant="25" id="odZ-vv-eip"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vpn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="das-Ae-qEv">
-                                <rect key="frame" x="0.0" y="89" width="414" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_bg" translatesAutoresizingMaskIntoConstraints="NO" id="das-Ae-qEv">
+                                <rect key="frame" x="0.0" y="99" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="D7x-dZ-8Vg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="bbe-El-45i"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVj-0E-vSp">
-                                <rect key="frame" x="117" y="169" width="180" height="180"/>
+                                <rect key="frame" x="117" y="179" width="180" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vpn_outer" translatesAutoresizingMaskIntoConstraints="NO" id="PzZ-IB-MNS">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
@@ -1548,12 +1555,29 @@ to check connected devices</string>
                                             <constraint firstAttribute="width" constant="127" id="Vzo-IQ-HSZ"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="power_btn" translatesAutoresizingMaskIntoConstraints="NO" id="riG-o8-s4a">
+                                        <rect key="frame" x="71" y="48" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="0JF-YP-GtR"/>
+                                            <constraint firstAttribute="height" constant="38" id="qpf-tO-Pmw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-qM-15D">
+                                        <rect key="frame" x="69.666666666666657" y="96" width="41" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="riG-o8-s4a" firstAttribute="top" secondItem="aVj-0E-vSp" secondAttribute="top" constant="48" id="B3b-Xz-Ihm"/>
+                                    <constraint firstItem="0Mu-qM-15D" firstAttribute="centerX" secondItem="riG-o8-s4a" secondAttribute="centerX" id="D0T-GR-ite"/>
                                     <constraint firstItem="PzZ-IB-MNS" firstAttribute="leading" secondItem="aVj-0E-vSp" secondAttribute="leading" id="DrT-pB-y9Z"/>
                                     <constraint firstItem="w6S-fR-D8u" firstAttribute="centerX" secondItem="PzZ-IB-MNS" secondAttribute="centerX" id="GEx-oy-lWv"/>
+                                    <constraint firstItem="0Mu-qM-15D" firstAttribute="top" secondItem="riG-o8-s4a" secondAttribute="bottom" constant="10" id="Gtw-T5-m55"/>
                                     <constraint firstAttribute="width" constant="180" id="Ji9-bj-Utl"/>
+                                    <constraint firstItem="riG-o8-s4a" firstAttribute="centerX" secondItem="aVj-0E-vSp" secondAttribute="centerX" id="S3A-oZ-H7U"/>
                                     <constraint firstAttribute="trailing" secondItem="PzZ-IB-MNS" secondAttribute="trailing" id="TUu-8Y-0l8"/>
                                     <constraint firstItem="w6S-fR-D8u" firstAttribute="centerY" secondItem="PzZ-IB-MNS" secondAttribute="centerY" id="V4c-JI-NY6"/>
                                     <constraint firstAttribute="height" constant="180" id="YmL-5u-GXA"/>
@@ -1562,7 +1586,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82P-QT-v9H">
-                                <rect key="frame" x="99" y="369" width="216" height="22"/>
+                                <rect key="frame" x="99" y="379" width="216" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-ka-of1">
                                         <rect key="frame" x="10" y="0.33333333333331439" width="65.666666666666671" height="21.666666666666668"/>
@@ -1588,7 +1612,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:45:29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-nR-cmC">
-                                <rect key="frame" x="132" y="401" width="150" height="40.666666666666686"/>
+                                <rect key="frame" x="132" y="411" width="150" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1982,9 +2006,7 @@ to check connected devices</string>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="leading" secondItem="GOh-ba-wSE" secondAttribute="leading" id="8nh-Mn-tMA"/>
                             <constraint firstItem="Yhi-yc-WCF" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="BRo-EC-FiR"/>
                             <constraint firstItem="Yhi-yc-WCF" firstAttribute="trailing" secondItem="ZSM-7w-hGB" secondAttribute="trailing" id="Ddd-wT-kbW"/>
-                            <constraint firstItem="das-Ae-qEv" firstAttribute="top" secondItem="Yhi-yc-WCF" secondAttribute="bottom" constant="-5" id="ELp-k3-Z6x"/>
                             <constraint firstItem="Yhi-yc-WCF" firstAttribute="top" secondItem="ZSM-7w-hGB" secondAttribute="top" id="Elw-BB-w6R"/>
-                            <constraint firstItem="aVj-0E-vSp" firstAttribute="centerX" secondItem="das-Ae-qEv" secondAttribute="centerX" id="F95-Le-ho3"/>
                             <constraint firstAttribute="trailing" secondItem="c6W-NH-Nv8" secondAttribute="trailing" id="Gtq-SF-5gd"/>
                             <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="6is-cg-6Ws" secondAttribute="trailing" id="HHa-2j-e90"/>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="top" secondItem="GOh-ba-wSE" secondAttribute="top" id="IZX-ST-dAR"/>
@@ -1992,7 +2014,6 @@ to check connected devices</string>
                             <constraint firstItem="Kzi-51-hst" firstAttribute="trailing" secondItem="ZSM-7w-hGB" secondAttribute="trailing" id="Ixe-pn-uTd"/>
                             <constraint firstItem="aVj-0E-vSp" firstAttribute="top" secondItem="das-Ae-qEv" secondAttribute="bottom" constant="-40" id="JVX-oF-dVH"/>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="trailing" secondItem="ZSM-7w-hGB" secondAttribute="trailing" id="KDi-ED-wyG"/>
-                            <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="das-Ae-qEv" secondAttribute="trailing" id="Khj-yC-71v"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="bottom" id="L4C-e7-nt9"/>
                             <constraint firstItem="Cjy-fW-Ku7" firstAttribute="top" secondItem="HPc-mU-XcF" secondAttribute="bottom" constant="20" id="XEF-ch-3K9"/>
                             <constraint firstItem="Cjy-fW-Ku7" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" constant="15" id="XgE-kw-Ui2"/>
@@ -2000,7 +2021,10 @@ to check connected devices</string>
                             <constraint firstItem="82P-QT-v9H" firstAttribute="centerX" secondItem="aVj-0E-vSp" secondAttribute="centerX" id="b37-0m-Dj5"/>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="cgV-wW-68w"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="Cjy-fW-Ku7" secondAttribute="bottom" constant="25" id="hjh-oq-i8y"/>
+                            <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="das-Ae-qEv" secondAttribute="trailing" id="iPj-1V-1B3"/>
                             <constraint firstItem="UBp-nR-cmC" firstAttribute="centerX" secondItem="82P-QT-v9H" secondAttribute="centerX" id="liq-gR-MbY"/>
+                            <constraint firstItem="aVj-0E-vSp" firstAttribute="centerX" secondItem="das-Ae-qEv" secondAttribute="centerX" id="nk4-GP-OVt"/>
+                            <constraint firstItem="das-Ae-qEv" firstAttribute="top" secondItem="Yhi-yc-WCF" secondAttribute="bottom" constant="5" id="r7g-Jl-OTf"/>
                             <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="Cjy-fW-Ku7" secondAttribute="trailing" constant="15" id="xhn-8H-faY"/>
                             <constraint firstItem="das-Ae-qEv" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="zgm-FT-adJ"/>
                             <constraint firstItem="6is-cg-6Ws" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="zol-2j-Y6k"/>
@@ -2021,7 +2045,7 @@ to check connected devices</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8GF-N6-xYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2185.507246376812" y="92.410714285714278"/>
+            <point key="canvasLocation" x="-2186.9565217391305" y="92.410714285714278"/>
         </scene>
         <!--PermissionVC-->
         <scene sceneID="c6d-hr-UEp">
@@ -2677,7 +2701,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-vm-Eef">
-                                <rect key="frame" x="15" y="104" width="384" height="105"/>
+                                <rect key="frame" x="15" y="114" width="384" height="105"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X1c-Xu-r0a">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="105"/>
@@ -2864,7 +2888,7 @@ to check connected devices</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW9-JF-EUe">
-                                <rect key="frame" x="0.0" y="254" width="414" height="425"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="425"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-vz-G1c">
                                         <rect key="frame" x="21" y="20" width="129.33333333333334" height="19.333333333333329"/>
@@ -2914,7 +2938,7 @@ to check connected devices</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cec-Cw-WQt">
                                         <rect key="frame" x="362" y="118.33333333333331" width="31" height="14.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkr-6M-whf">
@@ -3080,7 +3104,7 @@ to check connected devices</string>
                             <constraint firstItem="pqF-vm-Eef" firstAttribute="leading" secondItem="3t7-iQ-sdj" secondAttribute="leading" constant="15" id="UYk-Ue-x07"/>
                             <constraint firstItem="3t7-iQ-sdj" firstAttribute="bottom" secondItem="fEO-t4-cgB" secondAttribute="bottom" id="XJj-Es-Jkp"/>
                             <constraint firstItem="3t7-iQ-sdj" firstAttribute="bottom" secondItem="waq-jo-eG0" secondAttribute="bottom" id="Xan-WW-GGy"/>
-                            <constraint firstItem="pqF-vm-Eef" firstAttribute="top" secondItem="Q3k-8z-Oda" secondAttribute="bottom" constant="10" id="YXb-58-VFO"/>
+                            <constraint firstItem="pqF-vm-Eef" firstAttribute="top" secondItem="Q3k-8z-Oda" secondAttribute="bottom" constant="20" id="YXb-58-VFO"/>
                             <constraint firstItem="VW9-JF-EUe" firstAttribute="trailing" secondItem="3t7-iQ-sdj" secondAttribute="trailing" id="b4c-XW-EpN"/>
                             <constraint firstItem="VW9-JF-EUe" firstAttribute="leading" secondItem="3t7-iQ-sdj" secondAttribute="leading" id="dvl-y7-r4l"/>
                             <constraint firstItem="iRz-nl-IsO" firstAttribute="centerY" secondItem="3t7-iQ-sdj" secondAttribute="centerY" id="h26-vu-opf"/>
@@ -3557,28 +3581,37 @@ to check connected devices</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-La-l6Z">
-                                <rect key="frame" x="25" y="44" width="10" height="20"/>
+                                <rect key="frame" x="25" y="54" width="10" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="1fw-mo-sh3"/>
                                     <constraint firstAttribute="width" constant="10" id="OA8-KL-Wcf"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="bk_btn"/>
+                                <connections>
+                                    <action selector="back:" destination="rAl-WX-P9l" eventType="touchUpInside" id="1YF-YX-vUY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Router Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVB-wy-GIZ">
-                                <rect key="frame" x="55" y="40.666666666666664" width="174" height="26.666666666666664"/>
+                                <rect key="frame" x="55" y="50.666666666666664" width="174" height="26.666666666666664"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5N-UA-SwB">
-                                <rect key="frame" x="55" y="34" width="309" height="40"/>
+                                <rect key="frame" x="55" y="44" width="309" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-RN-ddK">
                                         <rect key="frame" x="0.0" y="0.0" width="309" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" name="tab_color"/>
@@ -3589,27 +3622,38 @@ to check connected devices</string>
                                     <constraint firstAttribute="height" constant="40" id="h9F-o3-Z7a"/>
                                     <constraint firstItem="wSj-RN-ddK" firstAttribute="top" secondItem="G5N-UA-SwB" secondAttribute="top" id="mS1-1S-Xxa"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiP-aH-aoa">
-                                <rect key="frame" x="379" y="46.666666666666664" width="15" height="15"/>
+                                <rect key="frame" x="379" y="56.666666666666657" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="rnB-IL-qCG"/>
                                     <constraint firstAttribute="height" constant="15" id="wdy-Sd-pqJ"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="openSearch:" destination="rAl-WX-P9l" eventType="touchUpInside" id="4MB-FT-4vH"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkz-kp-y2o">
-                                <rect key="frame" x="379" y="46.666666666666664" width="15" height="15"/>
+                                <rect key="frame" x="379" y="56.666666666666657" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="kHJ-sv-paa"/>
                                     <constraint firstAttribute="width" constant="15" id="zl4-SH-R4D"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="closeSearch:" destination="rAl-WX-P9l" eventType="touchUpInside" id="UNv-ir-mk6"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-SK-R9f">
-                                <rect key="frame" x="0.0" y="94" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="1"/>
                                 <color key="backgroundColor" name="line_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="FEg-8I-6xJ"/>
@@ -3617,7 +3661,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S0W-Qq-Pf3" customClass="TabySegmentedControl" customModule="WiFiProvider" customModuleProvider="target">
-                                <rect key="frame" x="10" y="105" width="394" height="41"/>
+                                <rect key="frame" x="10" y="110" width="394" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6W4-He-YU7"/>
                                 </constraints>
@@ -3630,7 +3674,7 @@ to check connected devices</string>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtk-gm-Ajv">
-                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="160" width="414" height="702"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -3640,15 +3684,15 @@ to check connected devices</string>
                             <constraint firstItem="Gyo-SK-R9f" firstAttribute="leading" secondItem="4TV-ju-bPF" secondAttribute="leading" id="6ff-mA-ysR"/>
                             <constraint firstItem="Xtk-gm-Ajv" firstAttribute="top" secondItem="S0W-Qq-Pf3" secondAttribute="bottom" constant="10" id="8l3-rL-ge3"/>
                             <constraint firstItem="Xtk-gm-Ajv" firstAttribute="leading" secondItem="Bbq-oS-coO" secondAttribute="leading" id="Czk-57-Dp2"/>
-                            <constraint firstItem="bE5-La-l6Z" firstAttribute="top" secondItem="Bbq-oS-coO" secondAttribute="top" id="Fix-eA-jlx"/>
                             <constraint firstItem="Bbq-oS-coO" firstAttribute="trailing" secondItem="S0W-Qq-Pf3" secondAttribute="trailing" constant="10" id="I7L-PC-dKh"/>
                             <constraint firstItem="oVB-wy-GIZ" firstAttribute="leading" secondItem="bE5-La-l6Z" secondAttribute="trailing" constant="20" id="IGQ-2D-RGd"/>
-                            <constraint firstItem="Gyo-SK-R9f" firstAttribute="top" secondItem="G5N-UA-SwB" secondAttribute="bottom" constant="20" id="PFF-az-0Ez"/>
+                            <constraint firstItem="Gyo-SK-R9f" firstAttribute="top" secondItem="G5N-UA-SwB" secondAttribute="bottom" constant="15" id="PFF-az-0Ez"/>
                             <constraint firstItem="S0W-Qq-Pf3" firstAttribute="top" secondItem="Gyo-SK-R9f" secondAttribute="bottom" constant="10" id="TRE-yy-gVe"/>
                             <constraint firstAttribute="trailing" secondItem="Gyo-SK-R9f" secondAttribute="trailing" id="UD6-EJ-mrp"/>
                             <constraint firstItem="lkz-kp-y2o" firstAttribute="centerY" secondItem="G5N-UA-SwB" secondAttribute="centerY" id="W2n-eP-mdB"/>
                             <constraint firstAttribute="trailing" secondItem="YiP-aH-aoa" secondAttribute="trailing" constant="20" id="XEY-C8-wRt"/>
                             <constraint firstItem="oVB-wy-GIZ" firstAttribute="centerY" secondItem="bE5-La-l6Z" secondAttribute="centerY" id="ZZe-kp-n6J"/>
+                            <constraint firstItem="bE5-La-l6Z" firstAttribute="top" secondItem="Bbq-oS-coO" secondAttribute="top" constant="10" id="aCK-E8-PJL"/>
                             <constraint firstItem="YiP-aH-aoa" firstAttribute="centerY" secondItem="bE5-La-l6Z" secondAttribute="centerY" id="ak2-FL-UWp"/>
                             <constraint firstItem="Bbq-oS-coO" firstAttribute="bottom" secondItem="Xtk-gm-Ajv" secondAttribute="bottom" id="eZl-8w-0Hf"/>
                             <constraint firstAttribute="trailing" secondItem="lkz-kp-y2o" secondAttribute="trailing" constant="20" id="ety-fd-whO"/>
@@ -3661,7 +3705,11 @@ to check connected devices</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="lkz-kp-y2o" id="oIC-Wi-fB2"/>
                         <outlet property="contentView" destination="Xtk-gm-Ajv" id="jG8-hO-6zW"/>
+                        <outlet property="searchButton" destination="YiP-aH-aoa" id="S47-tt-T0g"/>
+                        <outlet property="searchData" destination="wSj-RN-ddK" id="DrC-kI-ZqM"/>
+                        <outlet property="searchView" destination="G5N-UA-SwB" id="HoZ-7b-F1t"/>
                         <outlet property="segmentedControl" destination="S0W-Qq-Pf3" id="HTu-TN-Ost"/>
                     </connections>
                 </viewController>
@@ -3703,6 +3751,7 @@ to check connected devices</string>
                                 <state key="normal" image="bk_btn"/>
                                 <connections>
                                     <action selector="back:" destination="THf-we-SFF" eventType="touchUpInside" id="vhW-t5-4dq"/>
+                                    <action selector="closePage:" destination="DxH-q2-7ro" eventType="touchUpInside" id="4yk-nT-lMv"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yE-CW-OL4">
@@ -3804,12 +3853,33 @@ users from using your Wi-Fi</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTH-fd-lay">
+                                <rect key="frame" x="0.0" y="89.666666666666686" width="414" height="772.33333333333326"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqw-iJ-8mt">
+                                <rect key="frame" x="372" y="43" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="gu6-18-hT4"/>
+                                    <constraint firstAttribute="height" constant="22" id="pe1-1N-8SJ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="help"/>
+                                <connections>
+                                    <action selector="openRouterSetting:" destination="DxH-q2-7ro" eventType="touchUpInside" id="mNx-ZL-hpn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p6T-5z-9j3"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
                         <constraints>
+                            <constraint firstItem="p6T-5z-9j3" firstAttribute="bottom" secondItem="VTH-fd-lay" secondAttribute="bottom" id="099-u1-eMr"/>
                             <constraint firstItem="TYV-rd-zgj" firstAttribute="centerY" secondItem="s4c-2p-ih6" secondAttribute="centerY" id="2aQ-kR-PPC"/>
+                            <constraint firstItem="p6T-5z-9j3" firstAttribute="trailing" secondItem="VTH-fd-lay" secondAttribute="trailing" id="5bC-uV-vgU"/>
+                            <constraint firstItem="p6T-5z-9j3" firstAttribute="trailing" secondItem="Iqw-iJ-8mt" secondAttribute="trailing" constant="20" id="MPu-Go-LIb"/>
+                            <constraint firstItem="VTH-fd-lay" firstAttribute="leading" secondItem="p6T-5z-9j3" secondAttribute="leading" id="MX8-Nu-Snq"/>
                             <constraint firstItem="TYV-rd-zgj" firstAttribute="leading" secondItem="s4c-2p-ih6" secondAttribute="trailing" constant="20" id="NnG-p4-EMF"/>
+                            <constraint firstItem="Iqw-iJ-8mt" firstAttribute="centerY" secondItem="TYV-rd-zgj" secondAttribute="centerY" id="PXG-6c-3mG"/>
                             <constraint firstItem="s4c-2p-ih6" firstAttribute="top" secondItem="p6T-5z-9j3" secondAttribute="top" id="SSr-mE-dQu"/>
                             <constraint firstItem="L9C-hE-g5d" firstAttribute="top" secondItem="TYV-rd-zgj" secondAttribute="bottom" constant="20" id="ZMz-hu-Z8Q"/>
                             <constraint firstItem="1yE-CW-OL4" firstAttribute="centerY" secondItem="p6T-5z-9j3" secondAttribute="centerY" id="a4X-Pd-Yyf"/>
@@ -3817,13 +3887,17 @@ users from using your Wi-Fi</string>
                             <constraint firstItem="1yE-CW-OL4" firstAttribute="centerX" secondItem="p6T-5z-9j3" secondAttribute="centerX" id="f3S-iM-UKD"/>
                             <constraint firstItem="L9C-hE-g5d" firstAttribute="top" secondItem="TYV-rd-zgj" secondAttribute="bottom" constant="20" id="sAw-OC-bcZ"/>
                             <constraint firstItem="s4c-2p-ih6" firstAttribute="leading" secondItem="p6T-5z-9j3" secondAttribute="leading" constant="25" id="xuT-yV-KJP"/>
+                            <constraint firstItem="VTH-fd-lay" firstAttribute="top" secondItem="L9C-hE-g5d" secondAttribute="bottom" id="yjb-AZ-0l7"/>
                             <constraint firstAttribute="trailing" secondItem="L9C-hE-g5d" secondAttribute="trailing" id="z0E-9d-AVy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="customWebView" destination="VTH-fd-lay" id="YkL-s2-p7b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6B-4l-tIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3723" y="109"/>
+            <point key="canvasLocation" x="-3723.188405797102" y="108.48214285714285"/>
         </scene>
         <!--CountryVC-->
         <scene sceneID="j1N-ce-EIY">
@@ -3975,7 +4049,7 @@ users from using your Wi-Fi</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3au-3A-pHP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="85" width="414" height="777"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PasswordHintCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PasswordHintCell" rowHeight="116" id="VWm-TB-mtQ" customClass="PasswordHintCell" customModule="WiFiProvider" customModuleProvider="target">
@@ -4160,16 +4234,91 @@ users from using your Wi-Fi</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Passwords : 1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz5-en-ea9">
+                                <rect key="frame" x="25" y="58" width="155" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCf-tS-lNU">
+                                <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAg-wU-wi1">
+                                        <rect key="frame" x="37" y="282.66666666666669" width="340" height="222"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-Zp-46y">
+                                                <rect key="frame" x="120" y="5" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="6L4-5L-lWd"/>
+                                                    <constraint firstAttribute="height" constant="100" id="obY-un-83R"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a list of WiFi Passwords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTQ-FD-a8f">
+                                                <rect key="frame" x="44.333333333333329" y="105" width="251.66666666666669" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePr-Lh-jaK">
+                                                <rect key="frame" x="32" y="139" width="276" height="45"/>
+                                                <color key="backgroundColor" name="custom_blue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="LPe-Es-llt"/>
+                                                    <constraint firstAttribute="width" constant="276" id="T6S-Mg-yr9"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Go Premium"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="goPremium:" destination="jwD-xR-mtk" eventType="touchUpInside" id="G5A-Yl-Mq4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.60427876655629142" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="LDa-Zp-46y" firstAttribute="centerX" secondItem="BAg-wU-wi1" secondAttribute="centerX" id="3ch-ia-3yV"/>
+                                            <constraint firstItem="LDa-Zp-46y" firstAttribute="top" secondItem="BAg-wU-wi1" secondAttribute="top" constant="5" id="8ml-Hd-f5j"/>
+                                            <constraint firstItem="ePr-Lh-jaK" firstAttribute="centerX" secondItem="KTQ-FD-a8f" secondAttribute="centerX" id="Q0k-Tr-hjv"/>
+                                            <constraint firstItem="KTQ-FD-a8f" firstAttribute="centerX" secondItem="LDa-Zp-46y" secondAttribute="centerX" id="UV5-0I-MDa"/>
+                                            <constraint firstItem="KTQ-FD-a8f" firstAttribute="top" secondItem="LDa-Zp-46y" secondAttribute="bottom" id="VZb-xp-cyH"/>
+                                            <constraint firstAttribute="width" constant="340" id="fkL-OT-CcQ"/>
+                                            <constraint firstAttribute="height" constant="222" id="paU-qs-Ze5"/>
+                                            <constraint firstItem="ePr-Lh-jaK" firstAttribute="top" secondItem="KTQ-FD-a8f" secondAttribute="bottom" constant="10" id="sgf-pb-DYQ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10055360099337748" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="BAg-wU-wi1" firstAttribute="centerX" secondItem="NCf-tS-lNU" secondAttribute="centerX" id="9Vk-UB-CNq"/>
+                                    <constraint firstItem="BAg-wU-wi1" firstAttribute="centerY" secondItem="NCf-tS-lNU" secondAttribute="centerY" id="BbJ-1N-ZbW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V5a-8O-KkT"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
                         <constraints>
+                            <constraint firstItem="NCf-tS-lNU" firstAttribute="leading" secondItem="V5a-8O-KkT" secondAttribute="leading" id="AZG-1i-JEK"/>
+                            <constraint firstItem="NCf-tS-lNU" firstAttribute="top" secondItem="Uz5-en-ea9" secondAttribute="bottom" id="Bdy-N3-iBo"/>
+                            <constraint firstItem="Uz5-en-ea9" firstAttribute="top" secondItem="V5a-8O-KkT" secondAttribute="top" constant="14" id="FNX-XG-UXg"/>
                             <constraint firstItem="V5a-8O-KkT" firstAttribute="bottom" secondItem="c8K-iN-D0M" secondAttribute="bottom" id="Sg3-Tr-iWK"/>
-                            <constraint firstItem="3au-3A-pHP" firstAttribute="top" secondItem="V5a-8O-KkT" secondAttribute="top" id="TVM-Hv-GA8"/>
+                            <constraint firstItem="c8K-iN-D0M" firstAttribute="top" secondItem="NCf-tS-lNU" secondAttribute="bottom" id="Tme-vy-SFi"/>
                             <constraint firstItem="3au-3A-pHP" firstAttribute="leading" secondItem="V5a-8O-KkT" secondAttribute="leading" id="aJk-H3-8Ag"/>
                             <constraint firstAttribute="trailing" secondItem="c8K-iN-D0M" secondAttribute="trailing" id="aev-cy-fAe"/>
+                            <constraint firstItem="NCf-tS-lNU" firstAttribute="top" secondItem="Uz5-en-ea9" secondAttribute="bottom" id="doB-c1-dpq"/>
                             <constraint firstItem="c8K-iN-D0M" firstAttribute="leading" secondItem="xba-aT-arx" secondAttribute="leading" id="eK3-1V-7Ll"/>
+                            <constraint firstItem="Uz5-en-ea9" firstAttribute="leading" secondItem="V5a-8O-KkT" secondAttribute="leading" constant="25" id="m0b-0W-0iO"/>
+                            <constraint firstItem="V5a-8O-KkT" firstAttribute="trailing" secondItem="NCf-tS-lNU" secondAttribute="trailing" id="oeY-U9-IJr"/>
                             <constraint firstItem="c8K-iN-D0M" firstAttribute="top" secondItem="3au-3A-pHP" secondAttribute="bottom" id="rh1-hD-sUa"/>
+                            <constraint firstItem="3au-3A-pHP" firstAttribute="top" secondItem="Uz5-en-ea9" secondAttribute="bottom" constant="10" id="rtm-h1-Gmv"/>
                             <constraint firstItem="V5a-8O-KkT" firstAttribute="trailing" secondItem="3au-3A-pHP" secondAttribute="trailing" id="sS4-QV-tX7"/>
                         </constraints>
                     </view>
@@ -4177,6 +4326,9 @@ users from using your Wi-Fi</string>
                         <outlet property="adView" destination="c8K-iN-D0M" id="bYK-Do-ZPL"/>
                         <outlet property="heightConstraint" destination="grQ-Y4-jty" id="QEE-Sz-mir"/>
                         <outlet property="passwordTaableView" destination="3au-3A-pHP" id="SvV-3Q-4K1"/>
+                        <outlet property="premiumDialogView" destination="BAg-wU-wi1" id="5Cn-vp-kkg"/>
+                        <outlet property="premiumView" destination="NCf-tS-lNU" id="CpY-iO-Q60"/>
+                        <outlet property="totalPassword" destination="Uz5-en-ea9" id="Pi3-p5-3PO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cr-hM-n7q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4586,6 +4738,7 @@ Cancel subscription anytime from AppStore.</string>
     </scenes>
     <resources>
         <image name="about_us" width="21" height="18"/>
+        <image name="big_bg" width="1033" height="303"/>
         <image name="bk_btn" width="27" height="50"/>
         <image name="block" width="20.333333969116211" height="20"/>
         <image name="block_wifi" width="19.333333969116211" height="27"/>
@@ -4602,6 +4755,8 @@ Cancel subscription anytime from AppStore.</string>
         <image name="downloading" width="36" height="36"/>
         <image name="empty" width="166.33332824707031" height="122.66666412353516"/>
         <image name="feedback" width="21" height="21"/>
+        <image name="half_circle" width="209.33332824707031" height="192.33332824707031"/>
+        <image name="help" width="22.333333969116211" height="22.333333969116211"/>
         <image name="hint_1" width="232" height="141"/>
         <image name="hint_2 " width="247.33332824707031" height="150.33332824707031"/>
         <image name="inapp_close" width="24.333333969116211" height="24"/>
@@ -4614,6 +4769,7 @@ Cancel subscription anytime from AppStore.</string>
         <image name="permission_bg" width="328" height="215.66667175292969"/>
         <image name="permission_check" width="36" height="35.666667938232422"/>
         <image name="ping_img" width="37" height="36"/>
+        <image name="power_btn" width="38.666667938232422" height="38.333332061767578"/>
         <image name="premium" width="187.33332824707031" height="195.33332824707031"/>
         <image name="radar_selected" width="25" height="25"/>
         <image name="rate_app" width="21" height="19"/>
@@ -4629,7 +4785,6 @@ Cancel subscription anytime from AppStore.</string>
         <image name="upload_active" width="36" height="36"/>
         <image name="uploading" width="36" height="36"/>
         <image name="vpn" width="19.666666030883789" height="21"/>
-        <image name="vpn_bg" width="411.33334350585938" height="121"/>
         <image name="vpn_inner" width="127.66666412353516" height="127.66666412353516"/>
         <image name="vpn_outer" width="189.66667175292969" height="189.66667175292969"/>
         <image name="wifi" width="24" height="18.333333969116211"/>

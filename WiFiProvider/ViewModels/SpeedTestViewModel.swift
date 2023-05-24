@@ -33,8 +33,12 @@ class SpeedTestViewModel{
                     if speed! > 0 && !status {
                         print("speedData \(speed)")
                         downLoadArray.append(speed!)
-                        SpeedTestCompleteListener.instanceHelper.showChartData(show: status,data: downLoadArray)
+                        
+                       
                         completion(speed!, 0,false)
+                        if status{
+                            SpeedTestCompleteListener.instanceHelper.downloadFinsihedFinished(isFinsihed: true,data: downLoadArray)
+                        }
                         
                     }else{
                         SpeedTestViewModel.init().uploadSpeedTest(completion: { [self]
@@ -88,7 +92,7 @@ class SpeedTestViewModel{
                                                 }
                                             }
                                         }
-                                       
+                                        SpeedTestCompleteListener.instanceHelper.uploadFinished(isFinsihed: true,data: uploadArray)
                                     } else {
                                         // Fallback on earlier versions
                                     }
@@ -142,44 +146,46 @@ class SpeedTestViewModel{
     
     
     func setSpeedMeterValue(speedMeterView:WMGaugeView){
+        speedMeterView.needleStyle = WMGaugeViewNeedleStyleFlatThin
+        speedMeterView.needleHeight = 0.3
+        speedMeterView.backgroundColor = UIColor.clear
+        speedMeterView.showInnerBackground = false
+        speedMeterView.innerRimBorderWidth = 8
+        speedMeterView.tintColor = UIColor.green
+        speedMeterView.showInnerRim = true
+      
+        speedMeterView.minValue = 0
+        speedMeterView.maxValue = 100.0
+        speedMeterView.scaleDivisions = 10
+//        speedMeterView.scaleSubdivisions = 5
+        speedMeterView.scaleStartAngle = 35
+        speedMeterView.scaleEndAngle = 315
+        speedMeterView.showScaleShadow = false
+        speedMeterView.scaleDivisionColor = UIColor.white
+        speedMeterView.unitOfMeasurementColor = UIColor.green
+        speedMeterView.scalesubdivisionsaligment = WMGaugeViewSubdivisionsAlignmentCenter
+        speedMeterView.scaleSubdivisionsWidth = 0.000
+        speedMeterView.scaleSubdivisionsLength = 0.00
+        speedMeterView.scaleDivisionsWidth = 0.000
+        speedMeterView.scaleDivisionsLength = 0.00
+        
 //        speedMeterView.needleStyle = WMGaugeViewNeedleStyleFlatThin
-//
 //        speedMeterView.backgroundColor = UIColor.clear
-//        speedMeterView.showInnerBackground = true
-//        speedMeterView.innerRimBorderWidth = 8
-//        speedMeterView.tintColor = UIColor.green
+//        speedMeterView.showInnerBackground = false
 //        speedMeterView.minValue = 0
 //        speedMeterView.maxValue = 100.0
-//        speedMeterView.scaleDivisions = 5
-//        speedMeterView.scaleSubdivisions = 5
+//        speedMeterView.scaleDivisions = 10
+//        speedMeterView.scaleSubdivisions = 10
 //        speedMeterView.scaleStartAngle = 45
 //        speedMeterView.scaleEndAngle = 315
 //        speedMeterView.showScaleShadow = false
 //        speedMeterView.scaleDivisionColor = UIColor.white
-//        speedMeterView.unitOfMeasurementColor = UIColor.green
+//        speedMeterView.unitOfMeasurementColor = UIColor.white
 //        speedMeterView.scalesubdivisionsaligment = WMGaugeViewSubdivisionsAlignmentCenter
-//        speedMeterView.scaleSubdivisionsWidth = 0.000
-//        speedMeterView.scaleSubdivisionsLength = 0.00
-//        speedMeterView.scaleDivisionsWidth = 0.000
-//        speedMeterView.scaleDivisionsLength = 0.00
-        
-        speedMeterView.needleStyle = WMGaugeViewNeedleStyleFlatThin
-        speedMeterView.backgroundColor = UIColor.clear
-        speedMeterView.showInnerBackground = false
-        speedMeterView.minValue = 0
-        speedMeterView.maxValue = 100.0
-        speedMeterView.scaleDivisions = 10
-        speedMeterView.scaleSubdivisions = 10
-        speedMeterView.scaleStartAngle = 45
-        speedMeterView.scaleEndAngle = 315
-        speedMeterView.showScaleShadow = false
-        speedMeterView.scaleDivisionColor = UIColor.white
-        speedMeterView.unitOfMeasurementColor = UIColor.white
-        speedMeterView.scalesubdivisionsaligment = WMGaugeViewSubdivisionsAlignmentCenter
-        speedMeterView.scaleSubdivisionsWidth = 0.002
-        speedMeterView.scaleSubdivisionsLength = 0.04
-        speedMeterView.scaleDivisionsWidth = 0.007
-        speedMeterView.scaleDivisionsLength = 0.07
+//        speedMeterView.scaleSubdivisionsWidth = 0.002
+//        speedMeterView.scaleSubdivisionsLength = 0.04
+//        speedMeterView.scaleDivisionsWidth = 0.007
+//        speedMeterView.scaleDivisionsLength = 0.07
         
        
 //        speedMeterView.maxValue = 240.0

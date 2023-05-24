@@ -13,16 +13,25 @@ import Foundation
 //    var routerlist:[PasswordDataDetail]?
 //
 //}
-struct PasswordData: Codable {
+struct PasswordData:Codable {
     let status: String
     let message: String
-    let routerList: [PasswordDataDetail]
+    let routerlist: [PasswordDataDetail]
 }
 
-struct PasswordDataDetail: Codable {
-    let brand: String
-    let type: String
-    let username: String
-    let passwrod: String
+struct PasswordDataDetail:Codable {
+    var brand = String()
+    var type = String()
+    var username = String()
+    var passwrod = String()
+    
+    init(brand: String , type: String , username: String, passwrod: String) {
+        self.brand = brand
+        self.type = type
+        self.username = username
+        self.passwrod = passwrod
+    }
+    
+
 }
 

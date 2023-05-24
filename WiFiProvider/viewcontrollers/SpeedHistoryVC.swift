@@ -12,8 +12,17 @@ class SpeedHistoryVC: UIViewController {
     @IBOutlet weak var averagePing:UILabel!
     @IBOutlet weak var averageDownloadSpeed:UILabel!
     @IBOutlet weak var averageUploadSpeed:UILabel!
+    var avgPing:Double = 0.0
+    var avgDownloadSpeed:Double = 0.0{
+        didSet{
+            
+        }
+    }
+    var avgUploadSpeed:Double = 0.0
     var speedDataList = [String:[SpeedTestData]]()
     var speedDetailData = [String]()
+    var uploadSpeed = [Double]()
+    var downloadSpeed = [Double]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -26,6 +35,12 @@ class SpeedHistoryVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchFavouriteList()
+       
+        if avgPing != nil && avgDownloadSpeed != nil && avgDownloadSpeed != nil {
+            averagePing.text = String(avgPing).maxLength(length: 4)
+            averageDownloadSpeed.text = String(avgDownloadSpeed).maxLength(length: 4)
+            averageUploadSpeed.text = String(avgUploadSpeed).maxLength(length: 4)
+        }
     }
     
     func fetchFavouriteList(){
@@ -81,6 +96,9 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
+        avgPing += Double(data!.ping)!
+        avgDownloadSpeed += data!.downloadSpeed
+        avgUploadSpeed  += data!.uploadSpeed
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
         cell.timeLabel.text = data?.time
         cell.ping.text = data?.ping
@@ -97,7 +115,12 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+        vc.isFrom = "SpeedHistory"
+        vc.ping = data!.ping
+        vc.uploadSpeed = data!.uploadSpeed
+        vc.downloadSpeed = data!.downloadSpeed
         navigationController?.pushViewController(vc, animated: true)
     }
     
