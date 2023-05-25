@@ -63,7 +63,7 @@ class DeviceDetailVC: UIViewController {
             
             if data.bestMake != nil{
                 deviceBestMake.text = data.bestOS
-                let img = info.getDeviceIcon(value: data.bestMake!)
+                let img = info.getOsIcon(value: data.bestOS!)
                 devideOsImg.image = UIImage(named:img)
                 osLabel.text = data.bestOS
                 osVersionLabel.text = data.bestMake
@@ -75,7 +75,8 @@ class DeviceDetailVC: UIViewController {
             if data.bestModel != nil{
                 deviceBestModel.text = data.bestName
                 parentLabel.text = data.bestMake
-                let img = info.getOsIcon(value: data.bestOS!)
+              
+                let img = info.getDeviceIcon(value: data.bestMake!)
                 devideModelImg.image = UIImage(named: img)
                 brandLabel.text = data.bestName
                 modelLabel.text = data.bestModel

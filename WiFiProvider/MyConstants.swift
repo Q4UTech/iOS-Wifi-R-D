@@ -224,7 +224,7 @@ class MyConstant {
         static let VPNCONNECTED = "VPNCONNECTED"
         static let CONNECTION_START_TIME = "CONNECTION_START_TIME"
         static let kExtensionBundleID = "com.quantum4u.vpnApp.neprovider"
-        static let kGroupID  = "group.com.quantum4u.vpn"
+        static let kGroupID  = "group.com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password"
         static let kProfileName = "Secure VPN"
         static let kNotificationIdentifier =  "com.quantum4u.vpnApp.neprovider.CategorizatioProcessor.notificationRequestIdentifier"
         static let SECRET_KEY = "de4d32f2d0bf48e6a168e9499c84b439"

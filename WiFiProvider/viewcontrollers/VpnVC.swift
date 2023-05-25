@@ -10,8 +10,12 @@ import Network
 import Toast_Swift
 
 @available(iOS 13.0, *)
-class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol,ConnectedTimerDelegate
+class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol,TimerManagerDelegate
 {
+    func timerUpdated(time: TimeInterval) {
+        updateTimerLabel(time: time)
+    }
+    
     func connectedTimer(connectedTimer: String) {
        print("connectedTimer\(connectedTimer)")
     }
@@ -31,18 +35,21 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     func countryChanged(newCountry: Bool) {
         
-//        connectButton.setTitle("Connect", for: .normal)
-//        taponButton.setTitle("Your Status: Not Connected", for: .normal)
+        
+        connectButton.setTitle("Connect", for: .normal)
+        statuslabel.text = "Not Connected"
+        TimerManager.shared.stopTimer()
         profileVM.connection.stopVPN()
-       
         buttonSwitched = false
+       
     }
     
     func connectionStatus(connectionStatus: String) {
         if connectionStatus == "connected" {
-//            connectionStatusLabel.text = "Connected Successfully"
+            statuslabel.text = "Connected"
             print("connected succesfully")
-          // delegate.setStatus(value: true)
+            setStatus(value: true)
+            //delegate.setStatus(value: true)
             
         }
         
@@ -50,12 +57,12 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     func setStatus(value: Bool) {
         if value == true {
-//            connectButton.setTitle("Disconnect", for: .normal)
-//            taponButton.setTitle("Your Status: Connected", for: .normal)
+            connectButton.setTitle("Disconnect", for: .normal)
+            statuslabel.text = "Connected"
         }
         else {
-//            connectButton.setTitle("Connect", for: .normal)
-//            taponButton.setTitle("Your Status: Not Connected", for: .normal)
+           connectButton.setTitle("Connect", for: .normal)
+            statuslabel.text =  "Not Connected"
         }
     }
     
@@ -65,7 +72,11 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         @IBOutlet weak var bottomSheet:UIView!
         @IBOutlet weak var countryView:UIView!
         @IBOutlet weak var countrylabel:UILabel!
+        @IBOutlet weak var timerLabel:UILabel!
         @IBOutlet weak var innerImg:UIImageView!
+        @IBOutlet weak var flagImg:UIImageView!
+        @IBOutlet weak var connectButton:UIButton!
+        @IBOutlet weak var statuslabel:UILabel!
         var internetStatus = Bool()
         var countryStatus = Bool()
       //  var profileVM = ProfileViewModel()
@@ -75,26 +86,50 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         let profileVM = ProfileViewModel()
         override func viewDidLoad() {
             super.viewDidLoad()
-            ConnectionStatus.instanceHelper.itemdelegates = self
-            ConnectedTimer.instanceHelper.itemdelegates = self
+            
+                // ConnectedTimer.instanceHelper.itemdelegates = self
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
             transView.addGestureRecognizer(tapGesture)
             let monitor = NetworkSpeedMonitor()
             monitor.startMonitoring()
-            
-            innerImg.layer.shadowColor = UIColor(red: 0, green: 0.8706, blue: 0.9176, alpha: 1.0).cgColor
-            innerImg.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-            innerImg.layer.shadowOpacity = 4.0
-            innerImg.layer.shadowRadius = 1.0
-            innerImg.layer.masksToBounds = true
-            innerImg.layer.cornerRadius = 1.0
+            ConnectionState.instanceHelper.itemdelegates = self
+            ConnectionStatus.instanceHelper.itemdelegates = self
             callCatApi()
             // Stop monitoring after a certain duration or when needed
             // monitor.stopMonitoring()
+            TimerManager.shared.delegate = self
+                    
+                    let elapsedTime = TimerManager.shared.getElapsedTime()
+                    updateTimerLabel(time: elapsedTime)
+//            let elapsedTime = TimerManager.shared.getElapsedTime()
+//                updateTimerLabel(time: elapsedTime)
         }
+    func updateTimerLabel(time: TimeInterval) {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        
+        let formattedString = formatter.string(from: time)
+        timerLabel.text = formattedString
+    }
+
+//    func updateTimerLabel(time: TimeInterval) {
+//        let formatter = DateComponentsFormatter()
+//        formatter.allowedUnits = [.hour, .minute, .second]
+//        formatter.zeroFormattingBehavior = .pad
+//        
+//        let formattedString = formatter.string(from: time)
+//        timerLabel.text = formattedString
+//    }
+
+    override func viewDidAppear(_ animated: Bool) {
+          
+        CountrySelectionList.instanceHelper.itemdelegates = self
+        
+    }
         
     override func viewWillAppear(_ animated: Bool) {
-        ConnectionStatus.instanceHelper.itemdelegates = self
+       
     }
         
         @IBAction func openMenu(_ sender:UIButton){
@@ -117,34 +152,41 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         bottomSheet.isHidden = true
      }
     @IBAction func connectButtonActions(_ sender: UIButton) {
-       
-        self.buttonSwitched = !self.buttonSwitched
-        if self.buttonSwitched{
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AnimationVC") as! AnimationVC
-//            vc.profileVM = profileVM
-//            vc.delegate = self
-            if #available(iOS 13.0, *) {
-             
-                Settings.saveProfile(profile: profileVM.profile)
-                Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
-               
-                profileVM.mainButtonAction()
-                print("called for data")
-            } else {
-                // Fallback on earlier versions
-            }
-          
-//            self.navigationController?.pushViewController(vc, animated: false)
-           
-        }
-       
-        else {
-            profileVM.connection.stopVPN()
+        TimerManager.shared.startTimer()
+        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
             ConnectionStatus.instanceHelper.itemdelegates = self
+            self.buttonSwitched = !self.buttonSwitched
+            if self.buttonSwitched{
+               
+              
+                    
+                    Settings.saveProfile(profile: profileVM.profile)
+                    Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
+                    
+                    profileVM.mainButtonAction()
+                    print("called for data")
+               
+                
+               
+                
+            }
             
+            else {
+                profileVM.connection.stopVPN()
+              //ConnectionStatus.instanceHelper.itemdelegates = self
+                
+            }
         }
     }
     @IBAction func locationListButtonAction(_ sender: Any) {
+        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
+            
+            goToCountryVC()
+        }else{
+            self.view.makeToast(MyConstant.constants.kCheckInternet, point: CGPoint(x:view.center.x, y: view.frame.maxY - 70), title: "", image: nil, completion: nil)
+        }
+    }
+    @IBAction func openCountyVpnList(_ sender: Any) {
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
             
             goToCountryVC()
@@ -191,6 +233,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
                         print("co\(self.countryData[0].vpnname)")
                         if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
                         self.countrylabel.text = self.countryData[0].vpnname
+                        self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
                         self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
                             
                         }

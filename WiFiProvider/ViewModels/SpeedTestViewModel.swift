@@ -11,6 +11,8 @@ import UIKit
 import WMGaugeView
 import Toast_Swift
 import PlainPing
+import SystemConfiguration.CaptiveNetwork
+import CoreTelephony
 
 class SpeedTestViewModel{
     var speedTestList  = [String:[SpeedTestData]]()
@@ -58,17 +60,18 @@ class SpeedTestViewModel{
                                        
                                       currentTime = getCurrentTime()
                                       pingData = UserDefaults.standard.string(forKey: "pingData")!
+                                       
                                       print("speedList1 \(pingData)")
                                         if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
-                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!)]
-                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()! )]
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()!))
                                             if let encode = try?  JSONEncoder().encode(speedTestList) {
                                                 UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
                                             }
                                             print("speedDataList7777\(speedDataList)")
                                            
                                         }else {
-                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed:uploadArray.last!))
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()! ))
                                             print("speedDataList77\(speedDataList)")
                                             if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
                                                 do {
@@ -78,7 +81,7 @@ class SpeedTestViewModel{
                                                     for (_ ,data) in speedTestList{
                                                         print("dataCount \(data.count)")
                                                         for i in data{
-                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed))
+                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()!))
                                                         }
 
                                                     }
@@ -245,5 +248,70 @@ class SpeedTestViewModel{
         
         print("currentTimeString \(currentTimeString)")
         return currentTimeString
+    }
+    func getConnectionType() -> String {
+            guard let reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "www.google.com") else {
+                return "NO INTERNET"
+            }
+
+            var flags = SCNetworkReachabilityFlags()
+            SCNetworkReachabilityGetFlags(reachability, &flags)
+
+            let isReachable = flags.contains(.reachable)
+            let isWWAN = flags.contains(.isWWAN)
+
+            if isReachable {
+                if isWWAN {
+                    let networkInfo = CTTelephonyNetworkInfo()
+                    let carrierType = networkInfo.serviceCurrentRadioAccessTechnology
+
+                    guard let carrierTypeName = carrierType?.first?.value else {
+                        return "UNKNOWN"
+                    }
+
+                    switch carrierTypeName {
+                    case CTRadioAccessTechnologyGPRS, CTRadioAccessTechnologyEdge, CTRadioAccessTechnologyCDMA1x:
+                        return "2G"
+                    case CTRadioAccessTechnologyLTE:
+                        return "4G"
+                    default:
+                        return "3G"
+                    }
+                } else {
+                    return "WIFI"
+                }
+            } else {
+                return "NO INTERNET"
+            }
+        }
+   
+    func getIFAddresses()->String {
+        let url = URL(string: "https://api.ipify.org")
+        var myIp=""
+        do {
+            if let url = url {
+                let ipAddress = try String(contentsOf: url)
+                myIp = ipAddress
+                print("My public IP address is: " + ipAddress)
+            }
+        } catch let error {
+            print(error)
+        }
+        return myIp
+    }
+  
+    func getWiFiSsid() -> String? {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                   
+                    break
+                }
+            }
+        }
+        print("ssid \(String(describing: ssid))")
+        return ssid
     }
 }

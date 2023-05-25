@@ -13,13 +13,10 @@ class SpeedHistoryVC: UIViewController {
     @IBOutlet weak var averageDownloadSpeed:UILabel!
     @IBOutlet weak var averageUploadSpeed:UILabel!
     var avgPing:Double = 0.0
-    var avgDownloadSpeed:Double = 0.0{
-        didSet{
-            
-        }
-    }
+    var avgDownloadSpeed:Double = 0.0
     var avgUploadSpeed:Double = 0.0
     var speedDataList = [String:[SpeedTestData]]()
+  
     var speedDetailData = [String]()
     var uploadSpeed = [Double]()
     var downloadSpeed = [Double]()
@@ -28,7 +25,7 @@ class SpeedHistoryVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
-      
+       
         
        
        
@@ -54,7 +51,10 @@ class SpeedHistoryVC: UIViewController {
                 for (key,data) in speedTestList{
                     print("speedListData= \(key) \(data)")
                     speedDetailData.append(key)
+                    
+                    
                 }
+               
             }catch{
                 
             }
@@ -121,6 +121,9 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         vc.ping = data!.ping
         vc.uploadSpeed = data!.uploadSpeed
         vc.downloadSpeed = data!.downloadSpeed
+        vc.ipAddressData = data!.ipAddress
+        vc.connectiontype = data!.connectionType
+        vc.providername = data!.providerName
         navigationController?.pushViewController(vc, animated: true)
     }
     

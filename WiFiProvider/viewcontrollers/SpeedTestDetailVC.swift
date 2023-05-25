@@ -30,6 +30,8 @@ class SpeedTestDetailVC: UIViewController {
     var provider = String()
     var ipAddressData = String()
     var isFrom = String()
+    var providername = String()
+    var connectiontype = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         askEnableLocationService()
@@ -38,9 +40,8 @@ class SpeedTestDetailVC: UIViewController {
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
             ipAddress.text = ipAddressData
-            connectedType.text = getConnectionType()
-            ipAddress.text = getIFAddresses()
-            providerLabel.text = getWiFiSsid()
+            connectedType.text = connectiontype
+            providerLabel.text = providername
         }else{
             pingLabel.text = ping
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)

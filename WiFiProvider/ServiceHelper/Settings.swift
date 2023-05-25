@@ -12,8 +12,8 @@ import Foundation
 ///
 ///
 public struct Config {
-    public static let appGroupName = "group.com.quantum4u.vpn"
-    public static let packetTunnelProviderBundleId = "com.quantum4u.vpnApp.TunnelProvider"
+    public static let appGroupName = "group.com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password"
+    public static let packetTunnelProviderBundleId = "com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider"
 }
 
 @available(iOS 13.0, *)

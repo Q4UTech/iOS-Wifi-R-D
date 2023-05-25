@@ -62,6 +62,7 @@
 		C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */; };
 		C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */; };
 		C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */; };
+		C79DA6712A1F1B1C00E90C22 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DA6702A1F1B1C00E90C22 /* TimerManager.swift */; };
 		C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */; };
 		C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */; };
 		C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */; };
@@ -96,6 +97,7 @@
 		C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F52A14CBF4002B7393 /* CategorizationProcessor.swift */; };
 		C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9F62A14CBF4002B7393 /* CategorizationActions.swift */; };
 		C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5AA092A14F272002B7393 /* SpeedData.swift */; };
+		C7C067052A1F666A004D8DC6 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */; };
 		C7C432612A17290300AD0E31 /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432602A17290300AD0E31 /* UnderlineView.swift */; };
 		C7C432642A17308300AD0E31 /* TabySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */; };
 		C7C432662A17374100AD0E31 /* PasswordHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C432652A17374100AD0E31 /* PasswordHintVC.swift */; };
@@ -135,14 +137,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		C71F94A52A1B830000A3BFF1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				C71F94A42A1B830000A3BFF1 /* TunnelProvider.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -220,6 +222,7 @@
 		C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
 		C7843BCA2A0E4ED900C7C2DB /* PingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSpeed.swift; sourceTree = "<group>"; };
 		C7843BCF2A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestCompleteListener.swift; sourceTree = "<group>"; };
+		C79DA6702A1F1B1C00E90C22 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		C7A95D462A134134006DBA68 /* SpeedHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHistoryVC.swift; sourceTree = "<group>"; };
 		C7A95D4A2A134CB0006DBA68 /* SpeedHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHistoryCell.swift; sourceTree = "<group>"; };
 		C7A95D4C2A135564006DBA68 /* SpeedTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestData.swift; sourceTree = "<group>"; };
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7843BA42A0DF7CF00C7C2DB /* FingKit.xcframework in Frameworks */,
+				C7C067052A1F666A004D8DC6 /* NetworkExtension.framework in Frameworks */,
 				041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +378,7 @@
 				C7461EC62A1689AA0002AEB2 /* DeviceName.swift */,
 				C7C432602A17290300AD0E31 /* UnderlineView.swift */,
 				C7C432632A17308300AD0E31 /* TabySegmentedControl.swift */,
+				C79DA6702A1F1B1C00E90C22 /* TimerManager.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -801,6 +806,7 @@
 				C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */,
 				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
 				C7A95D6E2A1399FD006DBA68 /* ConnectedTimer.swift in Sources */,
+				C79DA6712A1F1B1C00E90C22 /* TimerManager.swift in Sources */,
 				C7A95D572A1398FF006DBA68 /* GifImageClass.swift in Sources */,
 				C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */,
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
@@ -909,9 +915,10 @@
 			baseConfigurationReference = 633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J292RV4USG;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
@@ -923,8 +930,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios.TunnelProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -937,9 +945,10 @@
 			baseConfigurationReference = B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J292RV4USG;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
@@ -951,8 +960,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios.TunnelProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1010,7 +1020,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1064,7 +1074,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1085,20 +1095,24 @@
 				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J292RV4USG;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "allow for scanning network";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "allow to sacn network";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "allow to scan network";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1117,20 +1131,24 @@
 				CODE_SIGN_ENTITLEMENTS = WiFiProvider/WiFiProvider.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J292RV4USG;
+				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "allow for scanning network";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "allow to sacn network";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "allow to scan network";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.m24.cleanrios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

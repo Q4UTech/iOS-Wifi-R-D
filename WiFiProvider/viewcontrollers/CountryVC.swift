@@ -62,16 +62,17 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
         let cell = tableView.dequeueReusableCell(withIdentifier: MyConstant.keyName.kCountryCell) as! CountryTableViewCell
         cell.countryName.text = categoryData[indexPath.row].vpnname
         cell.countryFlagImage.sd_setImage(with: URL.init(string: categoryData[indexPath.row].vpn_flag))
+        print("vpnflag \(categoryData[indexPath.row].vpn_flag)")
         if selectedCountry == nil {
             if indexPath.row == 0 {
-                cell.selectedButton.setImage(UIImage(systemName: "record.circle"), for: .normal)
+                cell.selectedButton.setImage(UIImage(named:  "selected_icon"), for: .normal)
             }
         }
       else if selectedCountry == categoryData[indexPath.row].vpnname {
-            cell.selectedButton.setImage(UIImage(systemName: "record.circle"), for: .normal)
+            cell.selectedButton.setImage(UIImage(named:  "selected_icon"), for: .normal)
         }
         else {
-            cell.selectedButton.setImage(UIImage(systemName: "circle"), for: .normal)
+            cell.selectedButton.setImage(UIImage(named:  "unselected_icon"), for: .normal)
         }
         return cell
     }

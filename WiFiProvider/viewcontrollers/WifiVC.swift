@@ -58,7 +58,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         listView.addGestureRecognizer(listViewGesture)
         radarView.delegate = self
         radarView.dataSource = self
-      
+        askEnableLocationService()
         optionBtn.isHidden = false
         if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
             if isWiFiConnected(){
@@ -71,17 +71,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
        
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
-        if #available(iOS 13.0, *) {
-                 let status = CLLocationManager.authorizationStatus()
-                 if status == .authorizedWhenInUse {
-                     updateWiFi()
-                 } else {
-                     locationManager.delegate = self
-                     locationManager.requestWhenInUseAuthorization()
-                 }
-             } else {
-                 updateWiFi()
-             }
+       
         
     }
     func updateWiFi() {
@@ -96,6 +86,67 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
 //        }
         
     }
+    
+    func askEnableLocationService() {
+        var showAlertSetting = false
+        var showInitLocation = false
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .denied:
+                showAlertSetting = true
+                print("HH: kCLAuthorizationStatusDenied")
+            case .restricted:
+                showAlertSetting = true
+                print("HH: kCLAuthorizationStatusRestricted")
+            case .authorizedAlways:
+                topView.isHidden = true
+                coonectedView.isHidden = false
+                WifiName.isHidden = false
+                WifiName.text = getWiFiSsid()
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusAuthorizedAlways")
+            case .authorizedWhenInUse:
+                topView.isHidden = true
+                coonectedView.isHidden = false
+                WifiName.isHidden = false
+                WifiName.text = getWiFiSsid()
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
+            case .notDetermined:
+                showInitLocation = true
+                print("HH: kCLAuthorizationStatusNotDetermined")
+            default:
+                break
+            }
+        } else {
+            showAlertSetting = true
+            print("HH: locationServicesDisabled")
+        }
+        
+        if showAlertSetting {
+            let alertView = UIAlertController(title: nil, message: "Please enable location service for this app in ALLOW LOCATION ACCESS: Always, Go to Setting?", preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alertView.addAction(UIAlertAction(title: "Open Setting", style: .default) { _ in
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            })
+           
+            present(alertView, animated: true, completion: nil)
+        }
+        
+        if showInitLocation {
+            initLocationManager()
+        }
+    }
+    func initLocationManager() {
+        self.locationManager = CLLocationManager()
+        if self.locationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
+            self.locationManager.requestAlwaysAuthorization()
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         locationManager.delegate = nil
@@ -179,7 +230,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                 let dict1 = dictnry.convertToDictionary(text: decryptString!)
                 let code = dict1!["key"] as! String
                 
-                //getConnectedDevicesList(key:code)
+                getConnectedDevicesList(key:code)
             }
             else{
                
@@ -236,6 +287,10 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     
     
     @IBAction func openMenu(_ sender:UIButton){
+        hideUnhideMenuView(showTrans: false, showMenu: false)
+        
+    }
+    @IBAction func openMenuList(_ sender:UIButton){
         hideUnhideMenuView(showTrans: false, showMenu: false)
         
     }
@@ -393,17 +448,17 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                                 do {
                                     let decoder = JSONDecoder()
                                     let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
-                                    if let isp = scanResponse.fingIsp {
-                                       // print("parseScanData: fingNodes \(fingNodes.count)")
-                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
-                                        DispatchQueue.main.async { [self] in
-                                            topView.isHidden = true
-                                            coonectedView.isHidden = false
-                                            WifiName.text = isp.organization
-                                        }
-                                     
-                                       
-                                    }
+//                                    if let isp = scanResponse.fingIsp {
+//                                       // print("parseScanData: fingNodes \(fingNodes.count)")
+//                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
+//                                        DispatchQueue.main.async { [self] in
+//                                            topView.isHidden = true
+//                                            coonectedView.isHidden = false
+//                                            WifiName.text = isp.organization
+//                                        }
+//
+//
+//                                    }
                                     
                                     if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                        
@@ -600,7 +655,21 @@ extension WifiVC:RadarViewDelegate,RadarViewDataSource{
         return customView
     }
     
-    
+    func getWiFiSsid() -> String? {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                   
+                    break
+                }
+            }
+        }
+        print("ssid \(String(describing: ssid))")
+        UserDefaults.standard.set(ssid, forKey: "ssid")
+        return ssid
+    }
 }
 
 

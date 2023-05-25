@@ -6,13 +6,17 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>https://backend.northghost.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>allow to scan network</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>allow to sacn network</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>allow for scanning network</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

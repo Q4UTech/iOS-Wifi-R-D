@@ -78,6 +78,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     var speedTestList  = [String:[SpeedTestData]]()
     var speedDataList  = [SpeedTestData]()
     @IBOutlet weak var speedChartView: LineChartView!
+    @IBOutlet weak var uploadChartView: LineChartView!
     var speedArray = [Double]()
     var uploadArray = [Double]()
     var data = [Double]()
@@ -200,27 +201,29 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
                 if uploadSpeed > 0{
                     changeImgBgColor(imageView: uploadImg,position: 2)
                     speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,currentSpeedLabel: speedLabel,speedMeterView:speedMeterView!,status:status)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
+                        speedChartView.isHidden = true
+                        uploadChartView.isHidden = false
                         uploadArray.append(uploadSpeed)
 //                        for _ in uploadArray{
 //                            upCounter += 1
 //                            months.append(String(upCounter))
 //                        }
                         print("yourArray\(uploadArray.count)")
-                      //  let array =  Array(self.uploadArray.suffix(10))
-                     //  self.setChart(dataPoints: self.months, values: uploadArray)
+                        let array =  Array(self.uploadArray.suffix(10))
+                       self.setChart(dataPoints: self.months, values: uploadArray)
                         
                     }
             }
             
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) { [self] in
-            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-                   vc.ping =  "10.0"
-            vc.uploadSpeed = uploadArray.last!
-            vc.downloadSpeed = speedArray.last!
-           
-                   navigationController?.pushViewController(vc, animated: true)
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+//                   vc.ping =  "10.0"
+////            vc.uploadSpeed = uploadArray.last!
+////            vc.downloadSpeed = speedArray.last!
+//           
+//                   navigationController?.pushViewController(vc, animated: true)
         }
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
 //            let uploadDataArray =  Array(self.uploadArray.suffix(5))
@@ -333,28 +336,88 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
         let chartData = LineChartData(dataSets: [chartDataSet])
     
+     speedChartView.data = chartData
 
-        speedChartView.data = chartData
-
-        speedChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-       // lineChartView.xAxis.labelPosition = .bottom
-        speedChartView.rightAxis.enabled = false
-        speedChartView.leftAxis.enabled = false
-        speedChartView.xAxis.enabled = false
-        speedChartView.rightAxis.enabled = false
-        speedChartView.xAxis.drawGridLinesEnabled = false
-        speedChartView.xAxis.avoidFirstLastClippingEnabled = true
-   //  speedChartView.data?.accessibilityPath?.fill()
-        speedChartView.rightAxis.drawAxisLineEnabled = false
-        speedChartView.rightAxis.drawLabelsEnabled = false
-     speedChartView.animate(xAxisDuration: 0.4)
-        speedChartView.leftAxis.drawAxisLineEnabled = false
-        speedChartView.pinchZoomEnabled = false
-        speedChartView.doubleTapToZoomEnabled = false
-        speedChartView.legend.enabled = false
-        speedChartView.isUserInteractionEnabled = false
-        speedChartView.setScaleEnabled(false)
+     speedChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+    // lineChartView.xAxis.labelPosition = .bottom
+     speedChartView.rightAxis.enabled = false
+     speedChartView.leftAxis.enabled = false
+     speedChartView.xAxis.enabled = false
+     speedChartView.rightAxis.enabled = false
+     speedChartView.xAxis.drawGridLinesEnabled = false
+     speedChartView.xAxis.avoidFirstLastClippingEnabled = true
+//  speedChartView.data?.accessibilityPath?.fill()
+     speedChartView.rightAxis.drawAxisLineEnabled = false
+     speedChartView.rightAxis.drawLabelsEnabled = false
+  speedChartView.animate(xAxisDuration: 0.4)
+     speedChartView.leftAxis.drawAxisLineEnabled = false
+     speedChartView.pinchZoomEnabled = false
+     speedChartView.doubleTapToZoomEnabled = false
+     speedChartView.legend.enabled = false
+     speedChartView.isUserInteractionEnabled = false
+     speedChartView.setScaleEnabled(false)
+       
     }
+    
+    func setUploadChart(dataPoints: [String], values: [Double]) {
+        print("length99= \(dataPoints.count) \(values.count)")
+           var dataEntries: [ChartDataEntry] = []
+           if dataPoints != nil{
+               print("counts \(dataPoints.count)")
+               for i in 0..<dataPoints.count {
+                   if i != 0{
+                       let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
+                       dataEntries.append(dataEntry)
+                   }
+               }
+           }
+           let chartDataSet = LineChartDataSet(entries: dataEntries, label: "")
+           chartDataSet.circleRadius = 0
+           chartDataSet.circleHoleRadius = 0
+           chartDataSet.drawValuesEnabled = false
+        if isDownload{
+            chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
+        }else{
+            chartDataSet.setColor(hexStringColor(hex: "#FFA620"))
+        }
+        chartDataSet.mode = .cubicBezier
+        chartDataSet.cubicIntensity = 0.2
+        var gradientColors:CFArray? = nil
+        if isDownload{
+           gradientColors  = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
+        }else{
+            gradientColors  = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
+        }// Colors of the gradient
+        let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
+        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors!, locations: colorLocations) // Gradient Obj
+            chartDataSet.fill = LinearGradientFill(gradient: gradient!)
+        chartDataSet.drawFilledEnabled = true
+       
+           let chartData = LineChartData(dataSets: [chartDataSet])
+       
+
+         
+        uploadChartView.data = chartData
+
+     uploadChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+       // lineChartView.xAxis.labelPosition = .bottom
+     uploadChartView.rightAxis.enabled = false
+     uploadChartView.leftAxis.enabled = false
+     uploadChartView.xAxis.enabled = false
+     uploadChartView.rightAxis.enabled = false
+     uploadChartView.xAxis.drawGridLinesEnabled = false
+     uploadChartView.xAxis.avoidFirstLastClippingEnabled = true
+   //  speedChartView.data?.accessibilityPath?.fill()
+     uploadChartView.rightAxis.drawAxisLineEnabled = false
+     uploadChartView.rightAxis.drawLabelsEnabled = false
+     uploadChartView.animate(xAxisDuration: 0.4)
+     uploadChartView.leftAxis.drawAxisLineEnabled = false
+     uploadChartView.pinchZoomEnabled = false
+     uploadChartView.doubleTapToZoomEnabled = false
+     uploadChartView.legend.enabled = false
+     uploadChartView.isUserInteractionEnabled = false
+     uploadChartView.setScaleEnabled(false)
+       }
     
     @IBAction func openSpeedHistory(_ sender:UIButton){
         hideBottomSheet()
