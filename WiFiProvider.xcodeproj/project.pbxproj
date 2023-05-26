@@ -3,24 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		041FDC6FA5CCD8AEB529BF88 /* Pods_WiFiProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */; };
-		139954FCA5292EB261824236 /* Pods_TunnelProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */; };
 		C713C06929FAA227009308C2 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C713C06829FAA227009308C2 /* splash.json */; };
-		C71F949C2A1B830000A3BFF1 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */; };
-		C71F949F2A1B830000A3BFF1 /* AppProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */; };
-		C71F94A42A1B830000A3BFF1 /* TunnelProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C71F94B52A1B843A00A3BFF1 /* Profle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94AC2A1B843A00A3BFF1 /* Profle.swift */; };
-		C71F94B62A1B843A00A3BFF1 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */; };
-		C71F94B72A1B843A00A3BFF1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B02A1B843A00A3BFF1 /* Log.swift */; };
-		C71F94B82A1B843A00A3BFF1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B12A1B843A00A3BFF1 /* Message.swift */; };
-		C71F94B92A1B843A00A3BFF1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B22A1B843A00A3BFF1 /* Config.swift */; };
-		C71F94BA2A1B843A00A3BFF1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B32A1B843A00A3BFF1 /* Util.swift */; };
-		C71F94BB2A1B843A00A3BFF1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94B42A1B843A00A3BFF1 /* Settings.swift */; };
-		C71F94BD2A1B847C00A3BFF1 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */; };
 		C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94BE2A1B87DA00A3BFF1 /* Util.swift */; };
 		C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C42A1B896E00A3BFF1 /* Profile.swift */; };
 		C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C62A1B89FA00A3BFF1 /* Settings.swift */; };
@@ -35,6 +23,18 @@
 		C74C37CB2A1CB5B30066769E /* PasswordHintCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CA2A1CB5B30066769E /* PasswordHintCell.swift */; };
 		C74C37CE2A1CB6880066769E /* PasswordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CD2A1CB6880066769E /* PasswordData.swift */; };
 		C74C37D02A1CB6A00066769E /* PasswordDataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C37CF2A1CB6A00066769E /* PasswordDataDetail.swift */; };
+		C752457E2A20B0B800C17898 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */; };
+		C75245812A20B0B800C17898 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75245802A20B0B800C17898 /* PacketTunnelProvider.swift */; };
+		C75245862A20B0B800C17898 /* TunnelProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C752457D2A20B0B800C17898 /* TunnelProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C75245922A20B19E00C17898 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752458B2A20B19E00C17898 /* Bridge.swift */; };
+		C75245932A20B19E00C17898 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752458C2A20B19E00C17898 /* Log.swift */; };
+		C75245952A20B19E00C17898 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752458E2A20B19E00C17898 /* Message.swift */; };
+		C75245962A20B19E00C17898 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752458F2A20B19E00C17898 /* Config.swift */; };
+		C75245972A20B19E00C17898 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75245902A20B19E00C17898 /* Util.swift */; };
+		C75245982A20B19E00C17898 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75245912A20B19E00C17898 /* Settings.swift */; };
+		C752459B2A20B1A700C17898 /* Profle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752459A2A20B1A700C17898 /* Profle.swift */; };
+		C75245A02A20B63800C17898 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C752459F2A20B63800C17898 /* Config.swift */; };
+		C75245A12A20C15800C17898 /* Pods_TunnelProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F8D02CF074F53D2101B884 /* Pods_TunnelProvider.framework */; };
 		C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3929FB7DA900D89A3E /* MenuVC.swift */; };
 		C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */; };
 		C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */; };
@@ -89,7 +89,6 @@
 		C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */; };
 		C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D812A13A972006DBA68 /* NetworkManagers.swift */; };
 		C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A95D832A13AB18006DBA68 /* Constants.swift */; };
-		C7B3DE282A1DD67E00EC4A41 /* ConnectionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */; };
 		C7B3DE2B2A1DDFB500EC4A41 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DE2A2A1DDFB500EC4A41 /* SearchController.swift */; };
 		C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */; };
 		C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */; };
@@ -118,11 +117,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C71F94A22A1B830000A3BFF1 /* PBXContainerItemProxy */ = {
+		C75245842A20B0B800C17898 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7F2501129FA899700F23FEB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C71F94992A1B830000A3BFF1;
+			remoteGlobalIDString = C752457C2A20B0B800C17898;
 			remoteInfo = TunnelProvider;
 		};
 		C7843B942A0DF3F800C7C2DB /* PBXContainerItemProxy */ = {
@@ -141,7 +140,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C71F94A42A1B830000A3BFF1 /* TunnelProvider.appex in Embed Foundation Extensions */,
+				C75245862A20B0B800C17898 /* TunnelProvider.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -160,25 +159,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DD4A109DCB74818AF5D39A6 /* Pods_TunnelProviderService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProviderService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11F8D02CF074F53D2101B884 /* Pods_TunnelProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.release.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.release.xcconfig"; sourceTree = "<group>"; };
 		4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiFiProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.debug.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.debug.xcconfig"; sourceTree = "<group>"; };
+		7CBB895B35284A7CA5177D58 /* Pods-TunnelProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.release.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.release.xcconfig"; sourceTree = "<group>"; };
+		8D63C470C3519B7AFD91639E /* Pods-TunnelProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.debug.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.debug.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.debug.xcconfig"; sourceTree = "<group>"; };
-		B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.release.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.release.xcconfig"; sourceTree = "<group>"; };
 		C713C06829FAA227009308C2 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
-		C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TunnelProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
-		C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyProvider.swift; sourceTree = "<group>"; };
-		C71F94A02A1B830000A3BFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C71F94A12A1B830000A3BFF1 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
-		C71F94AC2A1B843A00A3BFF1 /* Profle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
-		C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
-		C71F94B02A1B843A00A3BFF1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C71F94B12A1B843A00A3BFF1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C71F94B22A1B843A00A3BFF1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C71F94B32A1B843A00A3BFF1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		C71F94B42A1B843A00A3BFF1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		C71F94BE2A1B87DA00A3BFF1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C71F94C42A1B896E00A3BFF1 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C71F94C62A1B89FA00A3BFF1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -193,6 +182,18 @@
 		C74C37CA2A1CB5B30066769E /* PasswordHintCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHintCell.swift; sourceTree = "<group>"; };
 		C74C37CD2A1CB6880066769E /* PasswordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordData.swift; sourceTree = "<group>"; };
 		C74C37CF2A1CB6A00066769E /* PasswordDataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDataDetail.swift; sourceTree = "<group>"; };
+		C752457D2A20B0B800C17898 /* TunnelProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TunnelProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75245802A20B0B800C17898 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		C75245822A20B0B800C17898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C75245832A20B0B800C17898 /* TunnelProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TunnelProvider.entitlements; sourceTree = "<group>"; };
+		C752458B2A20B19E00C17898 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		C752458C2A20B19E00C17898 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C752458E2A20B19E00C17898 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C752458F2A20B19E00C17898 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C75245902A20B19E00C17898 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C75245912A20B19E00C17898 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C752459A2A20B1A700C17898 /* Profle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profle.swift; sourceTree = "<group>"; };
+		C752459F2A20B63800C17898 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C75F1B3929FB7DA900D89A3E /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingHelper.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		C7A95D7E2A13A921006DBA68 /* CountryDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataVM.swift; sourceTree = "<group>"; };
 		C7A95D812A13A972006DBA68 /* NetworkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagers.swift; sourceTree = "<group>"; };
 		C7A95D832A13AB18006DBA68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTimer.swift; sourceTree = "<group>"; };
 		C7B3DE2A2A1DDFB500EC4A41 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		C7B5A9B32A149C9B002B7393 /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
 		C7B5A9B72A14A987002B7393 /* SwiftShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShadowImageView.swift; sourceTree = "<group>"; };
@@ -277,16 +277,15 @@
 		C7F2502829FA899800F23FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F2502A29FA899800F23FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7F2508C29FA9F1200F23FEB /* WifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiVC.swift; sourceTree = "<group>"; };
-		DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C71F94972A1B830000A3BFF1 /* Frameworks */ = {
+		C752457A2A20B0B800C17898 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C71F949C2A1B830000A3BFF1 /* NetworkExtension.framework in Frameworks */,
-				139954FCA5292EB261824236 /* Pods_TunnelProvider.framework in Frameworks */,
+				C752457E2A20B0B800C17898 /* NetworkExtension.framework in Frameworks */,
+				C75245A12A20C15800C17898 /* Pods_TunnelProvider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +307,8 @@
 			children = (
 				4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */,
 				C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */,
-				DAA127D9560BD3362EFBF07E /* Pods_TunnelProvider.framework */,
+				0DD4A109DCB74818AF5D39A6 /* Pods_TunnelProviderService.framework */,
+				11F8D02CF074F53D2101B884 /* Pods_TunnelProvider.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -318,45 +318,43 @@
 			children = (
 				8DC29E2E095279E106593919 /* Pods-WiFiProvider.debug.xcconfig */,
 				15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */,
-				633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */,
-				B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */,
+				8D63C470C3519B7AFD91639E /* Pods-TunnelProvider.debug.xcconfig */,
+				7CBB895B35284A7CA5177D58 /* Pods-TunnelProvider.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C71F949D2A1B830000A3BFF1 /* TunnelProvider */ = {
+		C752457F2A20B0B800C17898 /* TunnelProvider */ = {
 			isa = PBXGroup;
 			children = (
-				C71F94BC2A1B847C00A3BFF1 /* PacketTunnelProvider.swift */,
-				C71F94AE2A1B843A00A3BFF1 /* Helpers */,
-				C71F94AB2A1B843A00A3BFF1 /* Model */,
-				C71F949E2A1B830000A3BFF1 /* AppProxyProvider.swift */,
-				C71F94A02A1B830000A3BFF1 /* Info.plist */,
-				C71F94A12A1B830000A3BFF1 /* TunnelProvider.entitlements */,
+				C752458A2A20B19E00C17898 /* Helpers */,
+				C75245802A20B0B800C17898 /* PacketTunnelProvider.swift */,
+				C75245992A20B1A700C17898 /* Model */,
+				C75245822A20B0B800C17898 /* Info.plist */,
+				C75245832A20B0B800C17898 /* TunnelProvider.entitlements */,
 			);
 			path = TunnelProvider;
 			sourceTree = "<group>";
 		};
-		C71F94AB2A1B843A00A3BFF1 /* Model */ = {
+		C752458A2A20B19E00C17898 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C71F94AC2A1B843A00A3BFF1 /* Profle.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C71F94AE2A1B843A00A3BFF1 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C71F94AF2A1B843A00A3BFF1 /* Bridge.swift */,
-				C71F94B02A1B843A00A3BFF1 /* Log.swift */,
-				C71F94B12A1B843A00A3BFF1 /* Message.swift */,
-				C71F94B22A1B843A00A3BFF1 /* Config.swift */,
-				C71F94B32A1B843A00A3BFF1 /* Util.swift */,
-				C71F94B42A1B843A00A3BFF1 /* Settings.swift */,
-				C7B3DE272A1DD67E00EC4A41 /* ConnectionTimer.swift */,
+				C752458B2A20B19E00C17898 /* Bridge.swift */,
+				C752458C2A20B19E00C17898 /* Log.swift */,
+				C752458E2A20B19E00C17898 /* Message.swift */,
+				C752458F2A20B19E00C17898 /* Config.swift */,
+				C75245902A20B19E00C17898 /* Util.swift */,
+				C75245912A20B19E00C17898 /* Settings.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C75245992A20B1A700C17898 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C752459A2A20B1A700C17898 /* Profle.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C75F1B3B29FB819000D89A3E /* HelperClasses */ = {
@@ -448,6 +446,7 @@
 				C7843BBF2A0E3CA200C7C2DB /* VpnChecker.swift */,
 				C7843BC02A0E3CA200C7C2DB /* VPNConnection.swift */,
 				C7843BC12A0E3CA200C7C2DB /* NetworkSpeedTest.swift */,
+				C752459F2A20B63800C17898 /* Config.swift */,
 			);
 			path = ServiceHelper;
 			sourceTree = "<group>";
@@ -543,7 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F2501B29FA899700F23FEB /* WiFiProvider */,
-				C71F949D2A1B830000A3BFF1 /* TunnelProvider */,
+				C752457F2A20B0B800C17898 /* TunnelProvider */,
 				C7F2501A29FA899700F23FEB /* Products */,
 				BFD2D736738334E69D11FFC8 /* Pods */,
 				9A79FE8C9EE63DAF8F1454BC /* Frameworks */,
@@ -554,7 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F2501929FA899700F23FEB /* WiFiProvider.app */,
-				C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */,
+				C752457D2A20B0B800C17898 /* TunnelProvider.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -590,14 +589,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C71F94992A1B830000A3BFF1 /* TunnelProvider */ = {
+		C752457C2A20B0B800C17898 /* TunnelProvider */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C71F94A92A1B830000A3BFF1 /* Build configuration list for PBXNativeTarget "TunnelProvider" */;
+			buildConfigurationList = C75245872A20B0B800C17898 /* Build configuration list for PBXNativeTarget "TunnelProvider" */;
 			buildPhases = (
-				38380F44274EA4BE00D3C2E8 /* [CP] Check Pods Manifest.lock */,
-				C71F94962A1B830000A3BFF1 /* Sources */,
-				C71F94972A1B830000A3BFF1 /* Frameworks */,
-				C71F94982A1B830000A3BFF1 /* Resources */,
+				7143BA3C0C5317523E895D35 /* [CP] Check Pods Manifest.lock */,
+				C75245792A20B0B800C17898 /* Sources */,
+				C752457A2A20B0B800C17898 /* Frameworks */,
+				C752457B2A20B0B800C17898 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -605,7 +604,7 @@
 			);
 			name = TunnelProvider;
 			productName = TunnelProvider;
-			productReference = C71F949A2A1B830000A3BFF1 /* TunnelProvider.appex */;
+			productReference = C752457D2A20B0B800C17898 /* TunnelProvider.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		C7F2501829FA899700F23FEB /* WiFiProvider */ = {
@@ -623,7 +622,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C71F94A32A1B830000A3BFF1 /* PBXTargetDependency */,
+				C75245852A20B0B800C17898 /* PBXTargetDependency */,
 			);
 			name = WiFiProvider;
 			productName = WiFiProvider;
@@ -640,7 +639,7 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					C71F94992A1B830000A3BFF1 = {
+					C752457C2A20B0B800C17898 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 					C7F2501829FA899700F23FEB = {
@@ -649,7 +648,7 @@
 				};
 			};
 			buildConfigurationList = C7F2501429FA899700F23FEB /* Build configuration list for PBXProject "WiFiProvider" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -668,7 +667,7 @@
 			projectRoot = "";
 			targets = (
 				C7F2501829FA899700F23FEB /* WiFiProvider */,
-				C71F94992A1B830000A3BFF1 /* TunnelProvider */,
+				C752457C2A20B0B800C17898 /* TunnelProvider */,
 			);
 		};
 /* End PBXProject section */
@@ -684,7 +683,7 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C71F94982A1B830000A3BFF1 /* Resources */ = {
+		C752457B2A20B0B800C17898 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -709,7 +708,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		38380F44274EA4BE00D3C2E8 /* [CP] Check Pods Manifest.lock */ = {
+		7143BA3C0C5317523E895D35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -773,20 +772,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C71F94962A1B830000A3BFF1 /* Sources */ = {
+		C75245792A20B0B800C17898 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C71F949F2A1B830000A3BFF1 /* AppProxyProvider.swift in Sources */,
-				C71F94B52A1B843A00A3BFF1 /* Profle.swift in Sources */,
-				C71F94BB2A1B843A00A3BFF1 /* Settings.swift in Sources */,
-				C71F94B82A1B843A00A3BFF1 /* Message.swift in Sources */,
-				C71F94B72A1B843A00A3BFF1 /* Log.swift in Sources */,
-				C71F94BA2A1B843A00A3BFF1 /* Util.swift in Sources */,
-				C71F94B62A1B843A00A3BFF1 /* Bridge.swift in Sources */,
-				C71F94B92A1B843A00A3BFF1 /* Config.swift in Sources */,
-				C71F94BD2A1B847C00A3BFF1 /* PacketTunnelProvider.swift in Sources */,
-				C7B3DE282A1DD67E00EC4A41 /* ConnectionTimer.swift in Sources */,
+				C752459B2A20B1A700C17898 /* Profle.swift in Sources */,
+				C75245922A20B19E00C17898 /* Bridge.swift in Sources */,
+				C75245982A20B19E00C17898 /* Settings.swift in Sources */,
+				C75245952A20B19E00C17898 /* Message.swift in Sources */,
+				C75245812A20B0B800C17898 /* PacketTunnelProvider.swift in Sources */,
+				C75245972A20B19E00C17898 /* Util.swift in Sources */,
+				C75245932A20B19E00C17898 /* Log.swift in Sources */,
+				C75245962A20B19E00C17898 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +808,7 @@
 				C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */,
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
 				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
+				C75245A02A20B63800C17898 /* Config.swift in Sources */,
 				C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
 				C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */,
@@ -883,10 +881,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C71F94A32A1B830000A3BFF1 /* PBXTargetDependency */ = {
+		C75245852A20B0B800C17898 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C71F94992A1B830000A3BFF1 /* TunnelProvider */;
-			targetProxy = C71F94A22A1B830000A3BFF1 /* PBXContainerItemProxy */;
+			target = C752457C2A20B0B800C17898 /* TunnelProvider */;
+			targetProxy = C75245842A20B0B800C17898 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -910,12 +908,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C71F94A62A1B830000A3BFF1 /* Debug */ = {
+		C75245882A20B0B800C17898 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 633DD3FC9256E8FB8D308EFA /* Pods-TunnelProvider.debug.xcconfig */;
+			baseConfigurationReference = 8D63C470C3519B7AFD91639E /* Pods-TunnelProvider.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MAFY34W5UY;
@@ -923,16 +920,15 @@
 				INFOPLIST_FILE = TunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -940,12 +936,11 @@
 			};
 			name = Debug;
 		};
-		C71F94A72A1B830000A3BFF1 /* Release */ = {
+		C75245892A20B0B800C17898 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B251447BCB11395BCFE1B192 /* Pods-TunnelProvider.release.xcconfig */;
+			baseConfigurationReference = 7CBB895B35284A7CA5177D58 /* Pods-TunnelProvider.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TunnelProvider/TunnelProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MAFY34W5UY;
@@ -953,16 +948,15 @@
 				INFOPLIST_FILE = TunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TunnelProvider;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1159,11 +1153,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C71F94A92A1B830000A3BFF1 /* Build configuration list for PBXNativeTarget "TunnelProvider" */ = {
+		C75245872A20B0B800C17898 /* Build configuration list for PBXNativeTarget "TunnelProvider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C71F94A62A1B830000A3BFF1 /* Debug */,
-				C71F94A72A1B830000A3BFF1 /* Release */,
+				C75245882A20B0B800C17898 /* Debug */,
+				C75245892A20B0B800C17898 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

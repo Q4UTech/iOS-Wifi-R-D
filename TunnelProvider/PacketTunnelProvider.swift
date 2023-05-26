@@ -1,10 +1,16 @@
+//
+//  PacketTunnelProvider.swift
+//  TunnelProviderService
+//
+//  Created by gautam  on 26/05/23.
+//
 
 import NetworkExtension
 import OpenVPNAdapter
 
-/// PacketTunnelProvider extension
 @available(iOSApplicationExtension 13.0, *)
 class PacketTunnelProvider: NEPacketTunnelProvider {
+
     var startHandler: ((Error?) -> Void)?
     var stopHandler: (() -> Void)?
     var vpnReachability = OpenVPNReachability()
@@ -105,42 +111,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 extension PacketTunnelProvider: OpenVPNAdapterDelegate {
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, configureTunnelWithNetworkSettings networkSettings: NEPacketTunnelNetworkSettings?, completionHandler: @escaping (Error?) -> Void) {
 
-        // Add custom settings (dns, routes, etc)
         if let remoteIPAddress = networkSettings?.tunnelRemoteAddress ?? Util.getIPAddress(evaluation.remoteHost!) {
-           // let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: remoteIPAddress)
+           
             networkSettings?.dnsSettings?.matchDomains = [""]
             setTunnelNetworkSettings(networkSettings, completionHandler: completionHandler)
-//            let DNSSettings = NEDNSSettings(servers: dnsList)
-//            let ipv4Settings = networkSettings?.ipv4Settings
-//
-//
-//            var ipv4IncludeRoutes = [NEIPv4Route]()
-//            let dnsRoute = NEIPv4Route(destinationAddress: remoteIPAddress, subnetMask: "255.255.255.0")
-//
-//            ipv4IncludeRoutes.append(dnsRoute)
-//            ipv4Settings?.includedRoutes = ipv4IncludeRoutes
-//
-//            settings.ipv4Settings = ipv4Settings
-//            settings.dnsSettings = DNSSettings
-//
-//            setTunnelNetworkSettings(settings) { (error) in
-//                if error == nil {
-//                    // Start handling packets
-//                    self.packetFlow.readPackets(completionHandler: self.handlePackets)
-//                    //self.handlePackets()
-//
-//                    self.readPackets(completionHandler: self.handlePackets)
-//                    self.packetFlow.readPackets(completionHandler: self.handlePackets)
-//                    self.packetFlow.readPacketObjects(completionHandler: self.handler)
-//
-//                } else {
-//                    Log.append(Util.localize("error", error.debugDescription), .error, .packetTunnelProvider)
-//                }
 
-//                completionHandler(error)
-//            }
-
-            // Custom settings successfully added
             if networkSettings?.tunnelRemoteAddress != nil {
                 Log.append(Util.localize("remote-ip-address", networkSettings!.tunnelRemoteAddress), .info, .packetTunnelProvider)
                 Log.append(Util.localize("dns-servers-added", networkSettings!.dnsSettings?.servers.joined(separator: ", ") ?? ""), .info, .packetTunnelProvider)

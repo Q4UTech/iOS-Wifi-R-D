@@ -54,9 +54,12 @@ class SpeedTestViewModel{
                                     if #available(iOS 15, *) {
                                         let today = Date.now
                                         let formatter1 = DateFormatter()
-                                        formatter1.dateStyle = .short
+                                        formatter1.dateFormat = "d MMMM"
                                         print(formatter1.string(from: today))
-                                        
+                                       
+
+                                        // Convert the date to the desired output format
+                                      
                                        
                                       currentTime = getCurrentTime()
                                       pingData = UserDefaults.standard.string(forKey: "pingData")!

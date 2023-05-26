@@ -83,7 +83,7 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
 
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        print("speedDetailData22\(speedDetailData.count)")
+       
         return speedDetailData.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +91,8 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         return speedDataList[speedDetailData[section]]!.count
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print("speedDetailData22 \(speedDetailData[section])")
+        
         return speedDetailData[section]
     }
     

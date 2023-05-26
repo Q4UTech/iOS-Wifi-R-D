@@ -11,10 +11,7 @@ import Foundation
 /// Structure to store app settings on UserDefaults
 ///
 ///
-public struct Config {
-    public static let appGroupName = "group.com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password"
-    public static let packetTunnelProviderBundleId = "com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password.TunnelProvider"
-}
+
 
 @available(iOS 13.0, *)
 public struct Settings: Codable {

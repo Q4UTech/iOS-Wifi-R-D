@@ -30,7 +30,7 @@ public final class NetworkManagers {
         let launchcount = UserDefaults.standard.integer(forKey: LAUNCH_COUNT)
         let device_token = UserDefaults.standard.string(forKey: DEVICE_TOKEN)
         
-        params = ["app_id": "v4vpnios",
+        params = ["app_id": "v5whowifiiosq",
                   "country": getCountryNameInfo(),
                   "screen": "XHDPI",
                   "launchcount": "1",

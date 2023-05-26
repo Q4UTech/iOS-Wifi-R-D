@@ -45,7 +45,7 @@ class DeviceDetailVC: UIViewController {
                     devideTypeImg.image = UIImage(named: "router")
                     break
                 case "LAPTOP":
-                    devideTypeImg.image = UIImage(named: "router")
+                    devideTypeImg.image = UIImage(named: "desktop")
                     break
                 case "MOBILE":
                     devideTypeImg.image = UIImage(named: "iphone")

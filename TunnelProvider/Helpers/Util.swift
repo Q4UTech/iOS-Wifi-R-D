@@ -11,6 +11,7 @@ import Foundation
 public struct Util {
     /// Get current application (or extension) name
     public static func getAppName() -> String {
+        print("appName= \(Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "")")
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
     }
 

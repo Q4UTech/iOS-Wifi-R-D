@@ -306,7 +306,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         if dataPoints != nil{
             print("counts \(dataPoints.count)")
             for i in 0..<dataPoints.count {
-                if i != 0{
+                if i != nil{
                     let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
                     dataEntries.append(dataEntry)
                 }
