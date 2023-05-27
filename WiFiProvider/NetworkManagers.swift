@@ -36,7 +36,7 @@ public final class NetworkManagers {
                   "launchcount": "1",
                   "version": getAppVersionInfo(),
                   "osversion": getOSInfo(),
-                  "dversion": getDeviceModel(),
+                  "dversion": "iphone",
                   "os": "2"]
         
         //print("Params\(params)")
@@ -187,12 +187,12 @@ public final class NetworkManagers {
         return devicename
     }
     
-    func getDeviceModel()->String{
-        //let model = UIDevice.current.model
-        let model  = UIDevice.current.userDevicemodelName
-         
-        return model
-    }
+//    func getDeviceModel()->String{
+//        //let model = UIDevice.current.model
+//        let model  = UIDevice.current.userDevicemodelName
+//         
+//        return model
+//    }
     
     func getSystemVersion()->String{
         let systemVersion = UIDevice.current.systemVersion

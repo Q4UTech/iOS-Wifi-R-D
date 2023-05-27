@@ -49,6 +49,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         super.viewDidLoad()
         wifiTableView.delegate = self
         wifiTableView.dataSource = self
+      
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
@@ -149,6 +150,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
 
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
+        getBannerAd(self, adView, heightConstraint)
         locationManager.delegate = nil
        // checkWifi()
     }

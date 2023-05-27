@@ -129,7 +129,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
         
     override func viewWillAppear(_ animated: Bool) {
-       
+        getBannerAd(self, adView, heightConstraint)
     }
         
         @IBAction func openMenu(_ sender:UIButton){

@@ -75,6 +75,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var parentView: UIView!
+    @IBOutlet weak var mbpsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     var speedTestList  = [String:[SpeedTestData]]()
     var speedDataList  = [SpeedTestData]()
     @IBOutlet weak var speedChartView: LineChartView!
@@ -104,6 +106,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             self?.pingSpeed = pingSpeed
             
         }
+        mbpsLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+        
     }
     
 
@@ -138,6 +142,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        hideunhideLabel(true, true)
         SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         topView.isHidden = true
         speedMeterView!.value = 0
@@ -189,42 +194,46 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
 //                    timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(showGraph), userInfo: nil, repeats: true)
                   
                  
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        let array =  Array(self.speedArray.suffix(10))
-                        //        setChart(dataPoints: months, values: array)
-                        print("yourArray\(speedArray.count)")
-                        setChart(dataPoints: self.months, values: speedArray)
-                    }
+                  
                   
 
                 }
                 if uploadSpeed > 0{
                     changeImgBgColor(imageView: uploadImg,position: 2)
                     speedTestVM.downloadSpeed(downloadSpeed: uploadSpeed, speedLabel: uploadSpeedLabel,currentSpeedLabel: speedLabel,speedMeterView:speedMeterView!,status:status)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
-                        speedChartView.isHidden = true
-                        uploadChartView.isHidden = false
-                        uploadArray.append(uploadSpeed)
+                    uploadArray.append(uploadSpeed)
+            }
+            
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
+            hideunhideLabel(false, false)
+            let array =  Array(self.speedArray.suffix(10))
+            //        setChart(dataPoints: months, values: array)
+            print("yourArray\(speedArray.count)")
+            setChart(dataPoints: self.months, values: speedArray)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) { [self] in
+            speedChartView.isHidden = true
+            uploadChartView.isHidden = false
+           
 //                        for _ in uploadArray{
 //                            upCounter += 1
 //                            months.append(String(upCounter))
 //                        }
-                        print("yourArray\(uploadArray.count)")
-                        let array =  Array(self.uploadArray.suffix(10))
-                       self.setChart(dataPoints: self.months, values: uploadArray)
-                        
-                    }
+            print("yourArray\(uploadArray.count)")
+            let array =  Array(self.uploadArray.suffix(10))
+           self.setUploadChart(dataPoints: self.months, values: uploadArray)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+                       vc.ping =  "10.0"
+                vc.uploadSpeed = uploadArray.last!
+                vc.downloadSpeed = speedArray.last!
+               
+                       navigationController?.pushViewController(vc, animated: true)
             }
             
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11.0) { [self] in
-//            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-//                   vc.ping =  "10.0"
-////            vc.uploadSpeed = uploadArray.last!
-////            vc.downloadSpeed = speedArray.last!
-//           
-//                   navigationController?.pushViewController(vc, animated: true)
         }
+        
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
 //            let uploadDataArray =  Array(self.uploadArray.suffix(5))
 //            print("yourArray\(uploadDataArray)")
@@ -252,6 +261,10 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
 
     }
     
+    private func hideunhideLabel(_ isMbps:Bool,_ isTime:Bool){
+        mbpsLabel.isHidden = isMbps
+        timeLabel.isHidden = isTime
+    }
     
     
     private func changeImgBgColor(imageView:UIImageView,position:Int){
@@ -375,19 +388,17 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
            chartDataSet.circleRadius = 0
            chartDataSet.circleHoleRadius = 0
            chartDataSet.drawValuesEnabled = false
-        if isDownload{
-            chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
-        }else{
+//        if isDownload{
+//            chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
+//        }else{
             chartDataSet.setColor(hexStringColor(hex: "#FFA620"))
-        }
+       // }
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         var gradientColors:CFArray? = nil
-        if isDownload{
-           gradientColors  = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
-        }else{
-            gradientColors  = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
-        }// Colors of the gradient
+    
+        gradientColors  = [hexStringColor(hex: "#FFA620").cgColor, UIColor.clear.cgColor] as CFArray
+        // Colors of the gradient
         let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors!, locations: colorLocations) // Gradient Obj
             chartDataSet.fill = LinearGradientFill(gradient: gradient!)

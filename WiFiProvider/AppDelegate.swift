@@ -8,34 +8,88 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: EngineDelegate {
 
-    var window: UIWindow?
+ 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {(accepted, error) in
+            if !accepted {
+               
+            }
+        }
+        lightTheme()
+        adsIdCalling(application:application)
+//        ALSdk.shared()!.mediationProvider = "max"
+//        
+//          
+//        ALSdk.shared()!.initializeSdk { (configuration: ALSdkConfiguration) in
+//              
+//          }
+        RazeFaceProducts.store.restorePurchases(fromStart: true)
         return true
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-      
-            TimerManager.shared.stopTimer()
-      
-
-    }
-    // MARK: UISceneSession Lifecycle
-
-//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-//        // Called when a new scene session is being created.
-//        // Use this method to select a configuration to create the new scene with.
-//        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-//    }
+//    func applicationWillTerminate(_ application: UIApplication) {
+//      
+//            TimerManager.shared.stopTimer()
+//      
 //
-//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-//        // Called when the user discards a scene session.
-//        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-//        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 //    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+     
+        
+        if !userInfo.isEmpty{
+            let aps = userInfo["aps"] as? [String: Any]
+            let alert = aps!["alert"] as? [String: Any]
+            _ = alert!["title"] as? String ?? ""
+            _ = alert!["body"] as? String ?? ""
+            var type = String()
+            var value = String()
+            
+            if userInfo["gcm.notification.value"] != nil{
+                value = userInfo["gcm.notification.value"] as! String
+            }else{
+                value = ""
+            }
+            
+            if userInfo["gcm.notification.type"] != nil{
+                type = userInfo["gcm.notification.type"] as! String
+            }
+            else{
+                type = ""
+            }
+            
+          
+            
+            let sb = UIStoryboard(name: "Engine", bundle: nil)
+            let otherVC = sb.instantiateViewController(withIdentifier: "MapperVC") as! MapperVC
+
+            otherVC.type = type
+            otherVC.value = value
+
+            let navigationController = window?.rootViewController as! UINavigationController
+
+            navigationController.pushViewController(otherVC, animated: false)
+            
+            completionHandler()
+        }else {
+            
+            let sb = UIStoryboard(name: "Engine", bundle: nil)
+            let otherVC = sb.instantiateViewController(withIdentifier: "MapperVC") as! MapperVC
+            let navigationController = window?.rootViewController as! UINavigationController
+            navigationController.pushViewController(otherVC, animated: false)
+            completionHandler()
+        }
+       
+    }
 
 
 }

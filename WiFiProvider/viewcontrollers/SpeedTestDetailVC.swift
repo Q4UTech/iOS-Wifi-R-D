@@ -120,6 +120,9 @@ class SpeedTestDetailVC: UIViewController {
     @IBAction func openDeleteDialog(_ sender:UIButton){
       hideUnhideView(false, false)
     }
+    @IBAction func retest(_ sender:UIButton){
+        navigationController?.popViewController(animated: true)
+    }
     
     private func hideUnhideView(_ forDelete:Bool,_ forTrans:Bool){
         deleteView.isHidden = forDelete

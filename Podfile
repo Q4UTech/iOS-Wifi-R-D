@@ -19,6 +19,15 @@ target 'WiFiProvider' do
   pod 'SDWebImage', '~> 4.0'
   pod 'Charts'
   pod 'HGRippleRadarView'
+  pod "KRProgressHUD"
+  
+  pod 'HCSStarRatingView', '~> 1.5'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Messaging'
+  pod 'Google-Mobile-Ads-SDK', '~> 9.0.0'
+  pod 'Firebase/Analytics',  '~> 8.15.0'
+  pod 'GoogleMobileAdsMediationFacebook', '~> 6.10.0'
+  pod 'AppLovinSDK'
   end
 
   target 'TunnelProvider' do

@@ -20,12 +20,19 @@ class SpeedHistoryVC: UIViewController {
     var speedDetailData = [String]()
     var uploadSpeed = [Double]()
     var downloadSpeed = [Double]()
+    var avgData = [SpeedTestData]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
        
+        if speedDataList != nil {
+            for (key,_) in speedDataList{
+               
+            }
+           
+        }
         
        
        
@@ -33,11 +40,11 @@ class SpeedHistoryVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         fetchFavouriteList()
        
-        if avgPing != nil && avgDownloadSpeed != nil && avgDownloadSpeed != nil {
-            averagePing.text = String(avgPing).maxLength(length: 4)
-            averageDownloadSpeed.text = String(avgDownloadSpeed).maxLength(length: 4)
-            averageUploadSpeed.text = String(avgUploadSpeed).maxLength(length: 4)
-        }
+//        if avgPing != nil && avgDownloadSpeed != nil && avgDownloadSpeed != nil {
+//            averagePing.text = String(avgPing).maxLength(length: 4)
+//            averageDownloadSpeed.text = String(avgDownloadSpeed).maxLength(length: 5)
+//            averageUploadSpeed.text = String(avgUploadSpeed).maxLength(length: 5)
+//        }
     }
     
     func fetchFavouriteList(){
@@ -49,11 +56,25 @@ class SpeedHistoryVC: UIViewController {
                 print("speedList \(speedTestList)")
                 speedDataList = speedTestList
                 for (key,data) in speedTestList{
-                    print("speedListData= \(key) \(data)")
+                   
                     speedDetailData.append(key)
-                    
+                    avgData = speedDataList[key]!
                     
                 }
+                for i in avgData{
+                    avgPing += Double(i.ping)!
+                    avgDownloadSpeed += i.downloadSpeed
+                    avgUploadSpeed += i.uploadSpeed
+                }
+               
+            
+                var avDown:Double = Double(avgDownloadSpeed) / Double(avgData.count)
+                var avgUp:Double = Double(avgUploadSpeed) / Double(avgData.count)
+                var avgPing:Double = Double(avgPing) / Double(avgData.count)
+                print("speedListData= \(avgUploadSpeed) \(avgDownloadSpeed) \(avDown) \(avgUp)")
+                averagePing.text = "\(avgPing)".maxLength(length: 4)
+                averageDownloadSpeed.text = "\(avDown)".maxLength(length: 4)
+                averageUploadSpeed.text = "\(avgUp)".maxLength(length: 4)
                
             }catch{
                 
@@ -150,7 +171,20 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
             //let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
             self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                UserDefaults.standard.removeObject(forKey:MyConstant.SPEED_LIST)
+            let values = Array(speedDataList.values)
+                let selectedValue = values[indexPath.row]
+                
+//                if let key = speedDataList.first(where: { $0.value == selectedValue })?.key {
+//                    // Key is found, use it here
+//                    print("Selected key:", key)
+//                }
+//            if var storedPeople = speedDataList[indexPath.row] {
+//                if let index = storedPeople.firstIndex(where: { $0.pi }) {
+//                    storedPeople.remove(at: index)
+//                }
+//                myDictionary[keyToDeleteFrom] = storedPeople
+//            }
+              //  UserDefaults.standard.removeObject(forKey:MyConstant.SPEED_LIST)
                }
        
         

@@ -265,12 +265,12 @@ class NetworkHelper{
         return devicename
     }
 
-    func getDeviceModel()->String{
-     
-        let model  = UIDevice.current.userDevicemodelName
-         
-        return model
-    }
+//    func getDeviceModel()->String{
+//     
+//        let model  = UIDevice.current.userDevicemodelName
+//         
+//        return model
+//    }
 
     func getSystemVersion()->String{
         let systemVersion = UIDevice.current.systemVersion
@@ -279,45 +279,45 @@ class NetworkHelper{
 
 
 }
-extension CGFloat{
-    func getScreenHeightResolution()->CGFloat{
-       let screenSize: CGRect = UIScreen.main.bounds
-        return screenSize.height
-    }
-    
-    func getScreenWidthResolution()->CGFloat{
-          let screenSize: CGRect = UIScreen.main.bounds
-           return screenSize.width
-       }
-}
-extension String {
-    
-    func encrypt(text: String) -> String?  {
-        if let aes = try? AES(key:"2288445566deadcd",iv:"deadcd2288445566",padding: .zeroPadding),
-            let encrypted = try? aes.encrypt(Array(text.utf8)) {
-            return encrypted.toHexString()
-        }
-        return nil
-    }
+//extension CGFloat{
+//    func getScreenHeightResolution()->CGFloat{
+//       let screenSize: CGRect = UIScreen.main.bounds
+//        return screenSize.height
+//    }
+//
+//    func getScreenWidthResolution()->CGFloat{
+//          let screenSize: CGRect = UIScreen.main.bounds
+//           return screenSize.width
+//       }
+//}
+//extension String {
+//
+//    func encrypt(text: String) -> String?  {
+//        if let aes = try? AES(key:"2288445566deadcd",iv:"deadcd2288445566",padding: .zeroPadding),
+//            let encrypted = try? aes.encrypt(Array(text.utf8)) {
+//            return encrypted.toHexString()
+//        }
+//        return nil
+//    }
+//
+//    func decrypt(hexString: String) -> String? {
+//        if let aes = try? AES(key: "2288445566deadcd", iv: "deadcd2288445566",padding: .zeroPadding),
+//            let decrypted = try? aes.decrypt(Array<UInt8>(hex: hexString)) {
+//            return String(data: Data(_: decrypted), encoding: .utf8)
+//        }
+//        return nil
+//    }
+//
+//
+//   func convertToDictionary(text: String) -> [String: Any]? {
+//       if let data = text.data(using: .utf8) {
+//           do {
+//               return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+//           } catch {
+//               print(error.localizedDescription)
+//           }
+//       }
+//       return nil
+//   }
 
-    func decrypt(hexString: String) -> String? {
-        if let aes = try? AES(key: "2288445566deadcd", iv: "deadcd2288445566",padding: .zeroPadding),
-            let decrypted = try? aes.decrypt(Array<UInt8>(hex: hexString)) {
-            return String(data: Data(_: decrypted), encoding: .utf8)
-        }
-        return nil
-    }
-    
 
-   func convertToDictionary(text: String) -> [String: Any]? {
-       if let data = text.data(using: .utf8) {
-           do {
-               return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-           } catch {
-               print(error.localizedDescription)
-           }
-       }
-       return nil
-   }
-
-}

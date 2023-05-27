@@ -14,6 +14,98 @@
 		C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C62A1B89FA00A3BFF1 /* Settings.swift */; };
 		C71F94CA2A1B8AED00A3BFF1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C82A1B8AED00A3BFF1 /* Message.swift */; };
 		C71F94CB2A1B8AED00A3BFF1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F94C92A1B8AED00A3BFF1 /* Log.swift */; };
+		C732DDB22A20CB58001AE2E9 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD3F2A20CB58001AE2E9 /* PurchaseVC.swift */; };
+		C732DDB32A20CB58001AE2E9 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD412A20CB58001AE2E9 /* PurchaseCell.swift */; };
+		C732DDB42A20CB58001AE2E9 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD422A20CB58001AE2E9 /* IAPHelper.swift */; };
+		C732DDB52A20CB58001AE2E9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD432A20CB58001AE2E9 /* DetailViewController.swift */; };
+		C732DDB62A20CB58001AE2E9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD442A20CB58001AE2E9 /* ProductCell.swift */; };
+		C732DDB72A20CB58001AE2E9 /* PremiumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD452A20CB58001AE2E9 /* PremiumViewModel.swift */; };
+		C732DDB82A20CB58001AE2E9 /* PurchaseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD462A20CB58001AE2E9 /* PurchaseJson.swift */; };
+		C732DDB92A20CB58001AE2E9 /* RazeFaceProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD472A20CB58001AE2E9 /* RazeFaceProducts.swift */; };
+		C732DDBA2A20CB58001AE2E9 /* INAPPPurchaseComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD482A20CB58001AE2E9 /* INAPPPurchaseComplete.swift */; };
+		C732DDBB2A20CB58001AE2E9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD492A20CB58001AE2E9 /* MasterViewController.swift */; };
+		C732DDBC2A20CB58001AE2E9 /* INAPPJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD4A2A20CB58001AE2E9 /* INAPPJSON.swift */; };
+		C732DDBD2A20CB58001AE2E9 /* TransparentFullAdLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD4C2A20CB58001AE2E9 /* TransparentFullAdLaunchVC.swift */; };
+		C732DDBE2A20CB58001AE2E9 /* Engine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C732DD4E2A20CB58001AE2E9 /* Engine.storyboard */; };
+		C732DDBF2A20CB58001AE2E9 /* FbNativeMediumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD502A20CB58001AE2E9 /* FbNativeMediumView.xib */; };
+		C732DDC02A20CB58001AE2E9 /* InhouseCustomLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD512A20CB58001AE2E9 /* InhouseCustomLayout.xib */; };
+		C732DDC12A20CB58001AE2E9 /* FbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD522A20CB58001AE2E9 /* FbView.swift */; };
+		C732DDC22A20CB58001AE2E9 /* InhouseNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD532A20CB58001AE2E9 /* InhouseNativeView.swift */; };
+		C732DDC32A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD542A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib */; };
+		C732DDC42A20CB58001AE2E9 /* FbNativeMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD552A20CB58001AE2E9 /* FbNativeMediumView.swift */; };
+		C732DDC52A20CB58001AE2E9 /* FbNativeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD562A20CB58001AE2E9 /* FbNativeView.xib */; };
+		C732DDC62A20CB58001AE2E9 /* MoreAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD572A20CB58001AE2E9 /* MoreAppView.swift */; };
+		C732DDC72A20CB58001AE2E9 /* MoreAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD582A20CB58001AE2E9 /* MoreAppView.xib */; };
+		C732DDC82A20CB58001AE2E9 /* NativeManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD592A20CB58001AE2E9 /* NativeManualView.swift */; };
+		C732DDC92A20CB58001AE2E9 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD5A2A20CB58001AE2E9 /* UnifiedNativeAdView.xib */; };
+		C732DDCA2A20CB58001AE2E9 /* NativeManualAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C732DD5B2A20CB58001AE2E9 /* NativeManualAdView.xib */; };
+		C732DDCB2A20CB58001AE2E9 /* UnifiedNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD5C2A20CB58001AE2E9 /* UnifiedNativeView.swift */; };
+		C732DDCC2A20CB58001AE2E9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD5E2A20CB58001AE2E9 /* Constant.swift */; };
+		C732DDCD2A20CB58001AE2E9 /* MapperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD602A20CB58001AE2E9 /* MapperVC.swift */; };
+		C732DDCE2A20CB58001AE2E9 /* RateAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD622A20CB58001AE2E9 /* RateAppViewController.swift */; };
+		C732DDCF2A20CB58001AE2E9 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD632A20CB58001AE2E9 /* FeedbackVC.swift */; };
+		C732DDD02A20CB58001AE2E9 /* CheckForceUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD642A20CB58001AE2E9 /* CheckForceUpdateVC.swift */; };
+		C732DDD12A20CB58001AE2E9 /* FullPagePromoInhouseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD652A20CB58001AE2E9 /* FullPagePromoInhouseVC.swift */; };
+		C732DDD22A20CB58001AE2E9 /* ShareAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD662A20CB58001AE2E9 /* ShareAppVC.swift */; };
+		C732DDD32A20CB58001AE2E9 /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD682A20CB58001AE2E9 /* ServiceHelper.swift */; };
+		C732DDD42A20CB58001AE2E9 /* Slave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD6A2A20CB58001AE2E9 /* Slave.swift */; };
+		C732DDD52A20CB58001AE2E9 /* DataHubConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD6D2A20CB58001AE2E9 /* DataHubConstant.swift */; };
+		C732DDD62A20CB58001AE2E9 /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD6F2A20CB58001AE2E9 /* FirebaseUtils.swift */; };
+		C732DDD72A20CB58001AE2E9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C732DD702A20CB58001AE2E9 /* Default-568h@2x.png */; };
+		C732DDD82A20CB58001AE2E9 /* EngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD722A20CB58001AE2E9 /* EngineDelegate.swift */; };
+		C732DDD92A20CB58001AE2E9 /* ExtensionFIle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD742A20CB58001AE2E9 /* ExtensionFIle.swift */; };
+		C732DDDA2A20CB58001AE2E9 /* AppMapperConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD752A20CB58001AE2E9 /* AppMapperConstant.swift */; };
+		C732DDDB2A20CB58001AE2E9 /* GeneralExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD762A20CB58001AE2E9 /* GeneralExtension.swift */; };
+		C732DDDC2A20CB58001AE2E9 /* PurchaseReceiptResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD782A20CB58001AE2E9 /* PurchaseReceiptResponse.swift */; };
+		C732DDDD2A20CB58001AE2E9 /* InAppBillingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD792A20CB58001AE2E9 /* InAppBillingManager.swift */; };
+		C732DDDE2A20CB58001AE2E9 /* InAppBillingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD7A2A20CB58001AE2E9 /* InAppBillingHandler.swift */; };
+		C732DDDF2A20CB58001AE2E9 /* AdsGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD7B2A20CB58001AE2E9 /* AdsGlobal.swift */; };
+		C732DDE02A20CB58001AE2E9 /* NonRepeatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD7D2A20CB58001AE2E9 /* NonRepeatCount.swift */; };
+		C732DDE12A20CB58001AE2E9 /* AdsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD7E2A20CB58001AE2E9 /* AdsProvider.swift */; };
+		C732DDE22A20CB58001AE2E9 /* TopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD7F2A20CB58001AE2E9 /* TopicRequest.swift */; };
+		C732DDE32A20CB58001AE2E9 /* Billing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD802A20CB58001AE2E9 /* Billing.swift */; };
+		C732DDE42A20CB58001AE2E9 /* DataHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD812A20CB58001AE2E9 /* DataHubResponse.swift */; };
+		C732DDE52A20CB58001AE2E9 /* PushData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD822A20CB58001AE2E9 /* PushData.swift */; };
+		C732DDE62A20CB58001AE2E9 /* Inhouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD832A20CB58001AE2E9 /* Inhouse.swift */; };
+		C732DDE72A20CB58001AE2E9 /* UpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD842A20CB58001AE2E9 /* UpdateResponse.swift */; };
+		C732DDE82A20CB58001AE2E9 /* LoadAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD852A20CB58001AE2E9 /* LoadAd.swift */; };
+		C732DDE92A20CB58001AE2E9 /* AdsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD862A20CB58001AE2E9 /* AdsResponse.swift */; };
+		C732DDEA2A20CB58001AE2E9 /* LaunchNonRepeatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD872A20CB58001AE2E9 /* LaunchNonRepeatCount.swift */; };
+		C732DDEB2A20CB58001AE2E9 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD892A20CB58001AE2E9 /* AboutUsVC.swift */; };
+		C732DDEC2A20CB58001AE2E9 /* AssetsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD8B2A20CB58001AE2E9 /* AssetsFile.swift */; };
+		C732DDED2A20CB58001AE2E9 /* AdsListenerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD8D2A20CB58001AE2E9 /* AdsListenerHelper.swift */; };
+		C732DDEE2A20CB58001AE2E9 /* AdsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD8E2A20CB58001AE2E9 /* AdsHelper.swift */; };
+		C732DDEF2A20CB58001AE2E9 /* InHouseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD8F2A20CB58001AE2E9 /* InHouseHelper.swift */; };
+		C732DDF02A20CB58001AE2E9 /* FullAdsCloseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD912A20CB58001AE2E9 /* FullAdsCloseListener.swift */; };
+		C732DDF12A20CB58001AE2E9 /* ShowForceFullAdListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD922A20CB58001AE2E9 /* ShowForceFullAdListener.swift */; };
+		C732DDF22A20CB58001AE2E9 /* onBannerAdsIdLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD932A20CB58001AE2E9 /* onBannerAdsIdLoaded.swift */; };
+		C732DDF32A20CB58001AE2E9 /* FullAdsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD942A20CB58001AE2E9 /* FullAdsListener.swift */; };
+		C732DDF42A20CB58001AE2E9 /* SplashBannerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD952A20CB58001AE2E9 /* SplashBannerListener.swift */; };
+		C732DDF52A20CB58001AE2E9 /* OnCacheFullAddListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD962A20CB58001AE2E9 /* OnCacheFullAddListener.swift */; };
+		C732DDF62A20CB58001AE2E9 /* LanguageSelectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD972A20CB58001AE2E9 /* LanguageSelectionListener.swift */; };
+		C732DDF72A20CB58001AE2E9 /* onParseDefaultValueListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD982A20CB58001AE2E9 /* onParseDefaultValueListener.swift */; };
+		C732DDF82A20CB58001AE2E9 /* DeviceTokenFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD992A20CB58001AE2E9 /* DeviceTokenFetch.swift */; };
+		C732DDF92A20CB58001AE2E9 /* EngineOpenAdsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD9A2A20CB58001AE2E9 /* EngineOpenAdsListener.swift */; };
+		C732DDFA2A20CB58001AE2E9 /* AppFullAdsCloseListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD9B2A20CB58001AE2E9 /* AppFullAdsCloseListner.swift */; };
+		C732DDFB2A20CB58001AE2E9 /* BannerRectangleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD9C2A20CB58001AE2E9 /* BannerRectangleStatus.swift */; };
+		C732DDFC2A20CB58001AE2E9 /* LaunchFullCallBackListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD9D2A20CB58001AE2E9 /* LaunchFullCallBackListener.swift */; };
+		C732DDFD2A20CB58001AE2E9 /* InAppBillingListeners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DD9E2A20CB58001AE2E9 /* InAppBillingListeners.swift */; };
+		C732DDFE2A20CB58001AE2E9 /* FBProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA02A20CB58001AE2E9 /* FBProviderExtension.swift */; };
+		C732DDFF2A20CB58001AE2E9 /* AdMobExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA12A20CB58001AE2E9 /* AdMobExtension.swift */; };
+		C732DE002A20CB58001AE2E9 /* EngineHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA22A20CB58001AE2E9 /* EngineHandler.swift */; };
+		C732DE012A20CB58001AE2E9 /* InHouseAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA32A20CB58001AE2E9 /* InHouseAds.swift */; };
+		C732DE022A20CB58001AE2E9 /* IronSourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA42A20CB58001AE2E9 /* IronSourceUtils.swift */; };
+		C732DE032A20CB58001AE2E9 /* DataHubHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA52A20CB58001AE2E9 /* DataHubHandler.swift */; };
+		C732DE042A20CB58001AE2E9 /* AdMobMediation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA62A20CB58001AE2E9 /* AdMobMediation.swift */; };
+		C732DE052A20CB58001AE2E9 /* AHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA72A20CB58001AE2E9 /* AHandler.swift */; };
+		C732DE062A20CB58001AE2E9 /* AppLovinExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA82A20CB58001AE2E9 /* AppLovinExtension.swift */; };
+		C732DE072A20CB58001AE2E9 /* EngineOpenAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDA92A20CB58001AE2E9 /* EngineOpenAds.swift */; };
+		C732DE082A20CB58001AE2E9 /* GCMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAA2A20CB58001AE2E9 /* GCMRequest.swift */; };
+		C732DE092A20CB58001AE2E9 /* EngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAC2A20CB58001AE2E9 /* EngineClient.swift */; };
+		C732DE0A2A20CB58001AE2E9 /* BillingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */; };
+		C732DE0B2A20CB58001AE2E9 /* MapperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */; };
+		C732DE0C2A20CB58001AE2E9 /* BTAppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */; };
+		C732DE142A20DB75001AE2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */; };
 		C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7461EC62A1689AA0002AEB2 /* DeviceName.swift */; };
 		C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */; };
 		C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECA2A163D0600DF51A9 /* FingNetwork.swift */; };
@@ -173,6 +265,99 @@
 		C71F94C62A1B89FA00A3BFF1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C71F94C82A1B8AED00A3BFF1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C71F94C92A1B8AED00A3BFF1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C732DD3F2A20CB58001AE2E9 /* PurchaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
+		C732DD412A20CB58001AE2E9 /* PurchaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
+		C732DD422A20CB58001AE2E9 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		C732DD432A20CB58001AE2E9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C732DD442A20CB58001AE2E9 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C732DD452A20CB58001AE2E9 /* PremiumViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumViewModel.swift; sourceTree = "<group>"; };
+		C732DD462A20CB58001AE2E9 /* PurchaseJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseJson.swift; sourceTree = "<group>"; };
+		C732DD472A20CB58001AE2E9 /* RazeFaceProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazeFaceProducts.swift; sourceTree = "<group>"; };
+		C732DD482A20CB58001AE2E9 /* INAPPPurchaseComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INAPPPurchaseComplete.swift; sourceTree = "<group>"; };
+		C732DD492A20CB58001AE2E9 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C732DD4A2A20CB58001AE2E9 /* INAPPJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INAPPJSON.swift; sourceTree = "<group>"; };
+		C732DD4C2A20CB58001AE2E9 /* TransparentFullAdLaunchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentFullAdLaunchVC.swift; sourceTree = "<group>"; };
+		C732DD4E2A20CB58001AE2E9 /* Engine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Engine.storyboard; sourceTree = "<group>"; };
+		C732DD502A20CB58001AE2E9 /* FbNativeMediumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FbNativeMediumView.xib; sourceTree = "<group>"; };
+		C732DD512A20CB58001AE2E9 /* InhouseCustomLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InhouseCustomLayout.xib; sourceTree = "<group>"; };
+		C732DD522A20CB58001AE2E9 /* FbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbView.swift; sourceTree = "<group>"; };
+		C732DD532A20CB58001AE2E9 /* InhouseNativeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InhouseNativeView.swift; sourceTree = "<group>"; };
+		C732DD542A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeMediumAdView.xib; sourceTree = "<group>"; };
+		C732DD552A20CB58001AE2E9 /* FbNativeMediumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FbNativeMediumView.swift; sourceTree = "<group>"; };
+		C732DD562A20CB58001AE2E9 /* FbNativeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FbNativeView.xib; sourceTree = "<group>"; };
+		C732DD572A20CB58001AE2E9 /* MoreAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAppView.swift; sourceTree = "<group>"; };
+		C732DD582A20CB58001AE2E9 /* MoreAppView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreAppView.xib; sourceTree = "<group>"; };
+		C732DD592A20CB58001AE2E9 /* NativeManualView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeManualView.swift; sourceTree = "<group>"; };
+		C732DD5A2A20CB58001AE2E9 /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdView.xib; sourceTree = "<group>"; };
+		C732DD5B2A20CB58001AE2E9 /* NativeManualAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeManualAdView.xib; sourceTree = "<group>"; };
+		C732DD5C2A20CB58001AE2E9 /* UnifiedNativeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedNativeView.swift; sourceTree = "<group>"; };
+		C732DD5E2A20CB58001AE2E9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C732DD602A20CB58001AE2E9 /* MapperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperVC.swift; sourceTree = "<group>"; };
+		C732DD622A20CB58001AE2E9 /* RateAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateAppViewController.swift; sourceTree = "<group>"; };
+		C732DD632A20CB58001AE2E9 /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		C732DD642A20CB58001AE2E9 /* CheckForceUpdateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckForceUpdateVC.swift; sourceTree = "<group>"; };
+		C732DD652A20CB58001AE2E9 /* FullPagePromoInhouseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPagePromoInhouseVC.swift; sourceTree = "<group>"; };
+		C732DD662A20CB58001AE2E9 /* ShareAppVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareAppVC.swift; sourceTree = "<group>"; };
+		C732DD682A20CB58001AE2E9 /* ServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
+		C732DD6A2A20CB58001AE2E9 /* Slave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slave.swift; sourceTree = "<group>"; };
+		C732DD6B2A20CB58001AE2E9 /* App Engine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "App Engine.entitlements"; sourceTree = "<group>"; };
+		C732DD6D2A20CB58001AE2E9 /* DataHubConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubConstant.swift; sourceTree = "<group>"; };
+		C732DD6F2A20CB58001AE2E9 /* FirebaseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
+		C732DD702A20CB58001AE2E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C732DD722A20CB58001AE2E9 /* EngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineDelegate.swift; sourceTree = "<group>"; };
+		C732DD742A20CB58001AE2E9 /* ExtensionFIle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFIle.swift; sourceTree = "<group>"; };
+		C732DD752A20CB58001AE2E9 /* AppMapperConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMapperConstant.swift; sourceTree = "<group>"; };
+		C732DD762A20CB58001AE2E9 /* GeneralExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralExtension.swift; sourceTree = "<group>"; };
+		C732DD782A20CB58001AE2E9 /* PurchaseReceiptResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseReceiptResponse.swift; sourceTree = "<group>"; };
+		C732DD792A20CB58001AE2E9 /* InAppBillingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppBillingManager.swift; sourceTree = "<group>"; };
+		C732DD7A2A20CB58001AE2E9 /* InAppBillingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppBillingHandler.swift; sourceTree = "<group>"; };
+		C732DD7B2A20CB58001AE2E9 /* AdsGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsGlobal.swift; sourceTree = "<group>"; };
+		C732DD7D2A20CB58001AE2E9 /* NonRepeatCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonRepeatCount.swift; sourceTree = "<group>"; };
+		C732DD7E2A20CB58001AE2E9 /* AdsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsProvider.swift; sourceTree = "<group>"; };
+		C732DD7F2A20CB58001AE2E9 /* TopicRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicRequest.swift; sourceTree = "<group>"; };
+		C732DD802A20CB58001AE2E9 /* Billing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Billing.swift; sourceTree = "<group>"; };
+		C732DD812A20CB58001AE2E9 /* DataHubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubResponse.swift; sourceTree = "<group>"; };
+		C732DD822A20CB58001AE2E9 /* PushData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushData.swift; sourceTree = "<group>"; };
+		C732DD832A20CB58001AE2E9 /* Inhouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inhouse.swift; sourceTree = "<group>"; };
+		C732DD842A20CB58001AE2E9 /* UpdateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateResponse.swift; sourceTree = "<group>"; };
+		C732DD852A20CB58001AE2E9 /* LoadAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadAd.swift; sourceTree = "<group>"; };
+		C732DD862A20CB58001AE2E9 /* AdsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsResponse.swift; sourceTree = "<group>"; };
+		C732DD872A20CB58001AE2E9 /* LaunchNonRepeatCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchNonRepeatCount.swift; sourceTree = "<group>"; };
+		C732DD892A20CB58001AE2E9 /* AboutUsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		C732DD8B2A20CB58001AE2E9 /* AssetsFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsFile.swift; sourceTree = "<group>"; };
+		C732DD8D2A20CB58001AE2E9 /* AdsListenerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsListenerHelper.swift; sourceTree = "<group>"; };
+		C732DD8E2A20CB58001AE2E9 /* AdsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsHelper.swift; sourceTree = "<group>"; };
+		C732DD8F2A20CB58001AE2E9 /* InHouseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InHouseHelper.swift; sourceTree = "<group>"; };
+		C732DD912A20CB58001AE2E9 /* FullAdsCloseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullAdsCloseListener.swift; sourceTree = "<group>"; };
+		C732DD922A20CB58001AE2E9 /* ShowForceFullAdListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowForceFullAdListener.swift; sourceTree = "<group>"; };
+		C732DD932A20CB58001AE2E9 /* onBannerAdsIdLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = onBannerAdsIdLoaded.swift; sourceTree = "<group>"; };
+		C732DD942A20CB58001AE2E9 /* FullAdsListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullAdsListener.swift; sourceTree = "<group>"; };
+		C732DD952A20CB58001AE2E9 /* SplashBannerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashBannerListener.swift; sourceTree = "<group>"; };
+		C732DD962A20CB58001AE2E9 /* OnCacheFullAddListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnCacheFullAddListener.swift; sourceTree = "<group>"; };
+		C732DD972A20CB58001AE2E9 /* LanguageSelectionListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSelectionListener.swift; sourceTree = "<group>"; };
+		C732DD982A20CB58001AE2E9 /* onParseDefaultValueListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = onParseDefaultValueListener.swift; sourceTree = "<group>"; };
+		C732DD992A20CB58001AE2E9 /* DeviceTokenFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTokenFetch.swift; sourceTree = "<group>"; };
+		C732DD9A2A20CB58001AE2E9 /* EngineOpenAdsListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineOpenAdsListener.swift; sourceTree = "<group>"; };
+		C732DD9B2A20CB58001AE2E9 /* AppFullAdsCloseListner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFullAdsCloseListner.swift; sourceTree = "<group>"; };
+		C732DD9C2A20CB58001AE2E9 /* BannerRectangleStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerRectangleStatus.swift; sourceTree = "<group>"; };
+		C732DD9D2A20CB58001AE2E9 /* LaunchFullCallBackListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchFullCallBackListener.swift; sourceTree = "<group>"; };
+		C732DD9E2A20CB58001AE2E9 /* InAppBillingListeners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppBillingListeners.swift; sourceTree = "<group>"; };
+		C732DDA02A20CB58001AE2E9 /* FBProviderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBProviderExtension.swift; sourceTree = "<group>"; };
+		C732DDA12A20CB58001AE2E9 /* AdMobExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobExtension.swift; sourceTree = "<group>"; };
+		C732DDA22A20CB58001AE2E9 /* EngineHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineHandler.swift; sourceTree = "<group>"; };
+		C732DDA32A20CB58001AE2E9 /* InHouseAds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InHouseAds.swift; sourceTree = "<group>"; };
+		C732DDA42A20CB58001AE2E9 /* IronSourceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronSourceUtils.swift; sourceTree = "<group>"; };
+		C732DDA52A20CB58001AE2E9 /* DataHubHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubHandler.swift; sourceTree = "<group>"; };
+		C732DDA62A20CB58001AE2E9 /* AdMobMediation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobMediation.swift; sourceTree = "<group>"; };
+		C732DDA72A20CB58001AE2E9 /* AHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHandler.swift; sourceTree = "<group>"; };
+		C732DDA82A20CB58001AE2E9 /* AppLovinExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLovinExtension.swift; sourceTree = "<group>"; };
+		C732DDA92A20CB58001AE2E9 /* EngineOpenAds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineOpenAds.swift; sourceTree = "<group>"; };
+		C732DDAA2A20CB58001AE2E9 /* GCMRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCMRequest.swift; sourceTree = "<group>"; };
+		C732DDAC2A20CB58001AE2E9 /* EngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineClient.swift; sourceTree = "<group>"; };
+		C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingClient.swift; sourceTree = "<group>"; };
+		C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperUtils.swift; sourceTree = "<group>"; };
+		C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTAppUtility.swift; sourceTree = "<group>"; };
+		C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7461EC62A1689AA0002AEB2 /* DeviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingScanResponse.swift; sourceTree = "<group>"; };
 		C748CECA2A163D0600DF51A9 /* FingNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingNetwork.swift; sourceTree = "<group>"; };
@@ -322,6 +507,289 @@
 				7CBB895B35284A7CA5177D58 /* Pods-TunnelProvider.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C732DD3D2A20CB58001AE2E9 /* AppEngine */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD3E2A20CB58001AE2E9 /* Premium Plan Scene */,
+				C732DD4B2A20CB58001AE2E9 /* Transparent */,
+				C732DD4D2A20CB58001AE2E9 /* StoryBoard */,
+				C732DD4F2A20CB58001AE2E9 /* CustomLayout */,
+				C732DD5D2A20CB58001AE2E9 /* Constants */,
+				C732DD5F2A20CB58001AE2E9 /* Mapper */,
+				C732DD612A20CB58001AE2E9 /* View Controllers */,
+				C732DD672A20CB58001AE2E9 /* Service Helper */,
+				C732DD692A20CB58001AE2E9 /* Server */,
+				C732DD6B2A20CB58001AE2E9 /* App Engine.entitlements */,
+				C732DD6C2A20CB58001AE2E9 /* v2 */,
+				C732DD6E2A20CB58001AE2E9 /* Firebase */,
+				C732DD702A20CB58001AE2E9 /* Default-568h@2x.png */,
+				C732DD712A20CB58001AE2E9 /* EngineDelegate */,
+				C732DD732A20CB58001AE2E9 /* Supporting Files */,
+				C732DD772A20CB58001AE2E9 /* InApp Purchase */,
+				C732DD7B2A20CB58001AE2E9 /* AdsGlobal.swift */,
+				C732DD7C2A20CB58001AE2E9 /* Model Classes */,
+				C732DD882A20CB58001AE2E9 /* AboutUsScene */,
+				C732DD8A2A20CB58001AE2E9 /* assets */,
+				C732DD8C2A20CB58001AE2E9 /* Helper */,
+				C732DD902A20CB58001AE2E9 /* Listeners */,
+				C732DD9F2A20CB58001AE2E9 /* Handlers */,
+				C732DDAB2A20CB58001AE2E9 /* socket */,
+				C732DDAD2A20CB58001AE2E9 /* Utility */,
+			);
+			path = AppEngine;
+			sourceTree = "<group>";
+		};
+		C732DD3E2A20CB58001AE2E9 /* Premium Plan Scene */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD3F2A20CB58001AE2E9 /* PurchaseVC.swift */,
+				C732DD402A20CB58001AE2E9 /* In-App Purchase */,
+			);
+			path = "Premium Plan Scene";
+			sourceTree = "<group>";
+		};
+		C732DD402A20CB58001AE2E9 /* In-App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD412A20CB58001AE2E9 /* PurchaseCell.swift */,
+				C732DD422A20CB58001AE2E9 /* IAPHelper.swift */,
+				C732DD432A20CB58001AE2E9 /* DetailViewController.swift */,
+				C732DD442A20CB58001AE2E9 /* ProductCell.swift */,
+				C732DD452A20CB58001AE2E9 /* PremiumViewModel.swift */,
+				C732DD462A20CB58001AE2E9 /* PurchaseJson.swift */,
+				C732DD472A20CB58001AE2E9 /* RazeFaceProducts.swift */,
+				C732DD482A20CB58001AE2E9 /* INAPPPurchaseComplete.swift */,
+				C732DD492A20CB58001AE2E9 /* MasterViewController.swift */,
+				C732DD4A2A20CB58001AE2E9 /* INAPPJSON.swift */,
+			);
+			path = "In-App Purchase";
+			sourceTree = "<group>";
+		};
+		C732DD4B2A20CB58001AE2E9 /* Transparent */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD4C2A20CB58001AE2E9 /* TransparentFullAdLaunchVC.swift */,
+			);
+			path = Transparent;
+			sourceTree = "<group>";
+		};
+		C732DD4D2A20CB58001AE2E9 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD4E2A20CB58001AE2E9 /* Engine.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		C732DD4F2A20CB58001AE2E9 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD502A20CB58001AE2E9 /* FbNativeMediumView.xib */,
+				C732DD512A20CB58001AE2E9 /* InhouseCustomLayout.xib */,
+				C732DD522A20CB58001AE2E9 /* FbView.swift */,
+				C732DD532A20CB58001AE2E9 /* InhouseNativeView.swift */,
+				C732DD542A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib */,
+				C732DD552A20CB58001AE2E9 /* FbNativeMediumView.swift */,
+				C732DD562A20CB58001AE2E9 /* FbNativeView.xib */,
+				C732DD572A20CB58001AE2E9 /* MoreAppView.swift */,
+				C732DD582A20CB58001AE2E9 /* MoreAppView.xib */,
+				C732DD592A20CB58001AE2E9 /* NativeManualView.swift */,
+				C732DD5A2A20CB58001AE2E9 /* UnifiedNativeAdView.xib */,
+				C732DD5B2A20CB58001AE2E9 /* NativeManualAdView.xib */,
+				C732DD5C2A20CB58001AE2E9 /* UnifiedNativeView.swift */,
+			);
+			path = CustomLayout;
+			sourceTree = "<group>";
+		};
+		C732DD5D2A20CB58001AE2E9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD5E2A20CB58001AE2E9 /* Constant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C732DD5F2A20CB58001AE2E9 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD602A20CB58001AE2E9 /* MapperVC.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		C732DD612A20CB58001AE2E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD622A20CB58001AE2E9 /* RateAppViewController.swift */,
+				C732DD632A20CB58001AE2E9 /* FeedbackVC.swift */,
+				C732DD642A20CB58001AE2E9 /* CheckForceUpdateVC.swift */,
+				C732DD652A20CB58001AE2E9 /* FullPagePromoInhouseVC.swift */,
+				C732DD662A20CB58001AE2E9 /* ShareAppVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C732DD672A20CB58001AE2E9 /* Service Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD682A20CB58001AE2E9 /* ServiceHelper.swift */,
+			);
+			path = "Service Helper";
+			sourceTree = "<group>";
+		};
+		C732DD692A20CB58001AE2E9 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD6A2A20CB58001AE2E9 /* Slave.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		C732DD6C2A20CB58001AE2E9 /* v2 */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD6D2A20CB58001AE2E9 /* DataHubConstant.swift */,
+			);
+			path = v2;
+			sourceTree = "<group>";
+		};
+		C732DD6E2A20CB58001AE2E9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD6F2A20CB58001AE2E9 /* FirebaseUtils.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		C732DD712A20CB58001AE2E9 /* EngineDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD722A20CB58001AE2E9 /* EngineDelegate.swift */,
+			);
+			path = EngineDelegate;
+			sourceTree = "<group>";
+		};
+		C732DD732A20CB58001AE2E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD742A20CB58001AE2E9 /* ExtensionFIle.swift */,
+				C732DD752A20CB58001AE2E9 /* AppMapperConstant.swift */,
+				C732DD762A20CB58001AE2E9 /* GeneralExtension.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C732DD772A20CB58001AE2E9 /* InApp Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD782A20CB58001AE2E9 /* PurchaseReceiptResponse.swift */,
+				C732DD792A20CB58001AE2E9 /* InAppBillingManager.swift */,
+				C732DD7A2A20CB58001AE2E9 /* InAppBillingHandler.swift */,
+			);
+			path = "InApp Purchase";
+			sourceTree = "<group>";
+		};
+		C732DD7C2A20CB58001AE2E9 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD7D2A20CB58001AE2E9 /* NonRepeatCount.swift */,
+				C732DD7E2A20CB58001AE2E9 /* AdsProvider.swift */,
+				C732DD7F2A20CB58001AE2E9 /* TopicRequest.swift */,
+				C732DD802A20CB58001AE2E9 /* Billing.swift */,
+				C732DD812A20CB58001AE2E9 /* DataHubResponse.swift */,
+				C732DD822A20CB58001AE2E9 /* PushData.swift */,
+				C732DD832A20CB58001AE2E9 /* Inhouse.swift */,
+				C732DD842A20CB58001AE2E9 /* UpdateResponse.swift */,
+				C732DD852A20CB58001AE2E9 /* LoadAd.swift */,
+				C732DD862A20CB58001AE2E9 /* AdsResponse.swift */,
+				C732DD872A20CB58001AE2E9 /* LaunchNonRepeatCount.swift */,
+			);
+			path = "Model Classes";
+			sourceTree = "<group>";
+		};
+		C732DD882A20CB58001AE2E9 /* AboutUsScene */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD892A20CB58001AE2E9 /* AboutUsVC.swift */,
+			);
+			path = AboutUsScene;
+			sourceTree = "<group>";
+		};
+		C732DD8A2A20CB58001AE2E9 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD8B2A20CB58001AE2E9 /* AssetsFile.swift */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		C732DD8C2A20CB58001AE2E9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD8D2A20CB58001AE2E9 /* AdsListenerHelper.swift */,
+				C732DD8E2A20CB58001AE2E9 /* AdsHelper.swift */,
+				C732DD8F2A20CB58001AE2E9 /* InHouseHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C732DD902A20CB58001AE2E9 /* Listeners */ = {
+			isa = PBXGroup;
+			children = (
+				C732DD912A20CB58001AE2E9 /* FullAdsCloseListener.swift */,
+				C732DD922A20CB58001AE2E9 /* ShowForceFullAdListener.swift */,
+				C732DD932A20CB58001AE2E9 /* onBannerAdsIdLoaded.swift */,
+				C732DD942A20CB58001AE2E9 /* FullAdsListener.swift */,
+				C732DD952A20CB58001AE2E9 /* SplashBannerListener.swift */,
+				C732DD962A20CB58001AE2E9 /* OnCacheFullAddListener.swift */,
+				C732DD972A20CB58001AE2E9 /* LanguageSelectionListener.swift */,
+				C732DD982A20CB58001AE2E9 /* onParseDefaultValueListener.swift */,
+				C732DD992A20CB58001AE2E9 /* DeviceTokenFetch.swift */,
+				C732DD9A2A20CB58001AE2E9 /* EngineOpenAdsListener.swift */,
+				C732DD9B2A20CB58001AE2E9 /* AppFullAdsCloseListner.swift */,
+				C732DD9C2A20CB58001AE2E9 /* BannerRectangleStatus.swift */,
+				C732DD9D2A20CB58001AE2E9 /* LaunchFullCallBackListener.swift */,
+				C732DD9E2A20CB58001AE2E9 /* InAppBillingListeners.swift */,
+			);
+			path = Listeners;
+			sourceTree = "<group>";
+		};
+		C732DD9F2A20CB58001AE2E9 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				C732DDA02A20CB58001AE2E9 /* FBProviderExtension.swift */,
+				C732DDA12A20CB58001AE2E9 /* AdMobExtension.swift */,
+				C732DDA22A20CB58001AE2E9 /* EngineHandler.swift */,
+				C732DDA32A20CB58001AE2E9 /* InHouseAds.swift */,
+				C732DDA42A20CB58001AE2E9 /* IronSourceUtils.swift */,
+				C732DDA52A20CB58001AE2E9 /* DataHubHandler.swift */,
+				C732DDA62A20CB58001AE2E9 /* AdMobMediation.swift */,
+				C732DDA72A20CB58001AE2E9 /* AHandler.swift */,
+				C732DDA82A20CB58001AE2E9 /* AppLovinExtension.swift */,
+				C732DDA92A20CB58001AE2E9 /* EngineOpenAds.swift */,
+				C732DDAA2A20CB58001AE2E9 /* GCMRequest.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		C732DDAB2A20CB58001AE2E9 /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				C732DDAC2A20CB58001AE2E9 /* EngineClient.swift */,
+			);
+			path = socket;
+			sourceTree = "<group>";
+		};
+		C732DDAD2A20CB58001AE2E9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */,
+				C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */,
+				C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		C752457F2A20B0B800C17898 /* TunnelProvider */ = {
@@ -561,6 +1029,8 @@
 		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXGroup;
 			children = (
+				C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */,
+				C732DD3D2A20CB58001AE2E9 /* AppEngine */,
 				C7B5A9F42A14CBF4002B7393 /* neprovider */,
 				C7A95D582A1399FC006DBA68 /* Protocols */,
 				C7A95D492A134C92006DBA68 /* TableCell */,
@@ -618,6 +1088,7 @@
 				D3C1BC7B8E3C2F37334064D3 /* [CP] Embed Pods Frameworks */,
 				C7843BA62A0DF7CF00C7C2DB /* Embed Frameworks */,
 				C71F94A52A1B830000A3BFF1 /* Embed Foundation Extensions */,
+				C06A4FBDE86ECCFCDA311473 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -694,12 +1165,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C732DDBF2A20CB58001AE2E9 /* FbNativeMediumView.xib in Resources */,
 				C7843B982A0DF3F800C7C2DB /* README.md in Resources */,
+				C732DDBE2A20CB58001AE2E9 /* Engine.storyboard in Resources */,
 				C7843B992A0DF3F800C7C2DB /* .gitignore in Resources */,
+				C732DDC92A20CB58001AE2E9 /* UnifiedNativeAdView.xib in Resources */,
+				C732DDC02A20CB58001AE2E9 /* InhouseCustomLayout.xib in Resources */,
 				C7F2502929FA899800F23FEB /* LaunchScreen.storyboard in Resources */,
+				C732DDC32A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib in Resources */,
+				C732DDD72A20CB58001AE2E9 /* Default-568h@2x.png in Resources */,
+				C732DDC52A20CB58001AE2E9 /* FbNativeView.xib in Resources */,
+				C732DE142A20DB75001AE2E9 /* GoogleService-Info.plist in Resources */,
 				C7F2502629FA899800F23FEB /* Assets.xcassets in Resources */,
 				C713C06929FAA227009308C2 /* splash.json in Resources */,
 				C7C4326E2A178FC000AD0E31 /* AnimationView.xib in Resources */,
+				C732DDCA2A20CB58001AE2E9 /* NativeManualAdView.xib in Resources */,
+				C732DDC72A20CB58001AE2E9 /* MoreAppView.xib in Resources */,
 				C7F2502429FA899700F23FEB /* Main.storyboard in Resources */,
 				C7843B962A0DF3F800C7C2DB /* LICENSE in Resources */,
 			);
@@ -752,6 +1233,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C06A4FBDE86ECCFCDA311473 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3C1BC7B8E3C2F37334064D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -794,87 +1292,169 @@
 				C7A95D662A1399FD006DBA68 /* PremiumCallback.swift in Sources */,
 				C7843BC72A0E3CA200C7C2DB /* VpnChecker.swift in Sources */,
 				C71F94CB2A1B8AED00A3BFF1 /* Log.swift in Sources */,
+				C732DDF52A20CB58001AE2E9 /* OnCacheFullAddListener.swift in Sources */,
+				C732DDFC2A20CB58001AE2E9 /* LaunchFullCallBackListener.swift in Sources */,
+				C732DE032A20CB58001AE2E9 /* DataHubHandler.swift in Sources */,
 				C7F2502129FA899700F23FEB /* SplashVC.swift in Sources */,
+				C732DDB72A20CB58001AE2E9 /* PremiumViewModel.swift in Sources */,
 				C76B0A632A0CF4A400642AF5 /* ConnectedWifiDetail.swift in Sources */,
+				C732DDE52A20CB58001AE2E9 /* PushData.swift in Sources */,
 				C7A95D652A1399FD006DBA68 /* ConnectingState.swift in Sources */,
 				C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */,
 				C71F94CA2A1B8AED00A3BFF1 /* Message.swift in Sources */,
+				C732DDFE2A20CB58001AE2E9 /* FBProviderExtension.swift in Sources */,
 				C7C432642A17308300AD0E31 /* TabySegmentedControl.swift in Sources */,
+				C732DDD92A20CB58001AE2E9 /* ExtensionFIle.swift in Sources */,
 				C7A95D702A1399FD006DBA68 /* VPNPurchasedStatus.swift in Sources */,
+				C732DDCE2A20CB58001AE2E9 /* RateAppViewController.swift in Sources */,
 				C7F2508D29FA9F1200F23FEB /* WifiVC.swift in Sources */,
+				C732DDCC2A20CB58001AE2E9 /* Constant.swift in Sources */,
 				C7A95D6E2A1399FD006DBA68 /* ConnectedTimer.swift in Sources */,
 				C79DA6712A1F1B1C00E90C22 /* TimerManager.swift in Sources */,
 				C7A95D572A1398FF006DBA68 /* GifImageClass.swift in Sources */,
 				C7A95D4D2A135564006DBA68 /* SpeedTestData.swift in Sources */,
+				C732DDC12A20CB58001AE2E9 /* FbView.swift in Sources */,
 				C76B0A612A0CF46D00642AF5 /* ConnectedWifiVC.swift in Sources */,
 				C7A95D6C2A1399FD006DBA68 /* MoveToBuyPremium.swift in Sources */,
+				C732DDD02A20CB58001AE2E9 /* CheckForceUpdateVC.swift in Sources */,
 				C75245A02A20B63800C17898 /* Config.swift in Sources */,
+				C732DDED2A20CB58001AE2E9 /* AdsListenerHelper.swift in Sources */,
+				C732DDCB2A20CB58001AE2E9 /* UnifiedNativeView.swift in Sources */,
 				C7C4326D2A178FC000AD0E31 /* AnimationCell.swift in Sources */,
+				C732DDDA2A20CB58001AE2E9 /* AppMapperConstant.swift in Sources */,
+				C732DDFB2A20CB58001AE2E9 /* BannerRectangleStatus.swift in Sources */,
+				C732DDCD2A20CB58001AE2E9 /* MapperVC.swift in Sources */,
+				C732DDEA2A20CB58001AE2E9 /* LaunchNonRepeatCount.swift in Sources */,
+				C732DDE02A20CB58001AE2E9 /* NonRepeatCount.swift in Sources */,
 				C7A95D6A2A1399FD006DBA68 /* FreeTrafficRemaining.swift in Sources */,
 				C71F94C52A1B896E00A3BFF1 /* Profile.swift in Sources */,
+				C732DDBC2A20CB58001AE2E9 /* INAPPJSON.swift in Sources */,
 				C7B3DE2B2A1DDFB500EC4A41 /* SearchController.swift in Sources */,
+				C732DDF92A20CB58001AE2E9 /* EngineOpenAdsListener.swift in Sources */,
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */,
+				C732DE0C2A20CB58001AE2E9 /* BTAppUtility.swift in Sources */,
 				C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */,
 				C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
 				C7A95D6D2A1399FD006DBA68 /* ConnectionStatus.swift in Sources */,
 				C7C432612A17290300AD0E31 /* UnderlineView.swift in Sources */,
+				C732DDF72A20CB58001AE2E9 /* onParseDefaultValueListener.swift in Sources */,
+				C732DDEC2A20CB58001AE2E9 /* AssetsFile.swift in Sources */,
+				C732DDFF2A20CB58001AE2E9 /* AdMobExtension.swift in Sources */,
+				C732DE092A20CB58001AE2E9 /* EngineClient.swift in Sources */,
+				C732DDDB2A20CB58001AE2E9 /* GeneralExtension.swift in Sources */,
 				C74C37CE2A1CB6880066769E /* PasswordData.swift in Sources */,
+				C732DE072A20CB58001AE2E9 /* EngineOpenAds.swift in Sources */,
+				C732DDB22A20CB58001AE2E9 /* PurchaseVC.swift in Sources */,
 				C7A95D512A135D60006DBA68 /* RouterVC.swift in Sources */,
+				C732DE082A20CB58001AE2E9 /* GCMRequest.swift in Sources */,
+				C732DE062A20CB58001AE2E9 /* AppLovinExtension.swift in Sources */,
 				C748CED12A164FE500DF51A9 /* WifiDataCell.swift in Sources */,
+				C732DDD62A20CB58001AE2E9 /* FirebaseUtils.swift in Sources */,
+				C732DDF42A20CB58001AE2E9 /* SplashBannerListener.swift in Sources */,
+				C732DE002A20CB58001AE2E9 /* EngineHandler.swift in Sources */,
 				C7A95D742A13A6BD006DBA68 /* CountryTableViewCell.swift in Sources */,
 				C7A95D822A13A972006DBA68 /* NetworkManagers.swift in Sources */,
 				C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */,
 				C7CFFF042A123B9500898D67 /* ScannedWifiList.swift in Sources */,
+				C732DDFA2A20CB58001AE2E9 /* AppFullAdsCloseListner.swift in Sources */,
 				C7B5A9B82A14A987002B7393 /* SwiftShadowImageView.swift in Sources */,
+				C732DE0A2A20CB58001AE2E9 /* BillingClient.swift in Sources */,
 				C7A95D472A134134006DBA68 /* SpeedHistoryVC.swift in Sources */,
 				C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */,
 				C76B0A5F2A0CF38700642AF5 /* SpeedTestDetailVC.swift in Sources */,
 				C7843BD02A0E5C5B00C7C2DB /* SpeedTestCompleteListener.swift in Sources */,
 				C7C432682A17375800AD0E31 /* RouterHintVC.swift in Sources */,
+				C732DDF12A20CB58001AE2E9 /* ShowForceFullAdListener.swift in Sources */,
 				C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */,
 				C7CFFEFD2A11EA5800898D67 /* WifiAdminVC.swift in Sources */,
+				C732DDEF2A20CB58001AE2E9 /* InHouseHelper.swift in Sources */,
 				C7B5AA0A2A14F272002B7393 /* SpeedData.swift in Sources */,
 				C7F2501D29FA899700F23FEB /* AppDelegate.swift in Sources */,
+				C732DDDE2A20CB58001AE2E9 /* InAppBillingHandler.swift in Sources */,
 				C74C37D02A1CB6A00066769E /* PasswordDataDetail.swift in Sources */,
+				C732DDC62A20CB58001AE2E9 /* MoreAppView.swift in Sources */,
 				C7A95D7C2A13A810006DBA68 /* DataModelR.swift in Sources */,
 				C7843BB82A0E3AEE00C7C2DB /* MyConstants.swift in Sources */,
+				C732DDD42A20CB58001AE2E9 /* Slave.swift in Sources */,
+				C732DDF62A20CB58001AE2E9 /* LanguageSelectionListener.swift in Sources */,
+				C732DDE62A20CB58001AE2E9 /* Inhouse.swift in Sources */,
 				C7843BC82A0E3CA200C7C2DB /* VPNConnection.swift in Sources */,
+				C732DDD12A20CB58001AE2E9 /* FullPagePromoInhouseVC.swift in Sources */,
+				C732DDE92A20CB58001AE2E9 /* AdsResponse.swift in Sources */,
+				C732DDEE2A20CB58001AE2E9 /* AdsHelper.swift in Sources */,
 				C7843BAD2A0E0A5B00C7C2DB /* WifiKey.swift in Sources */,
+				C732DDB42A20CB58001AE2E9 /* IAPHelper.swift in Sources */,
+				C732DDDF2A20CB58001AE2E9 /* AdsGlobal.swift in Sources */,
+				C732DDBB2A20CB58001AE2E9 /* MasterViewController.swift in Sources */,
+				C732DDD82A20CB58001AE2E9 /* EngineDelegate.swift in Sources */,
+				C732DDBD2A20CB58001AE2E9 /* TransparentFullAdLaunchVC.swift in Sources */,
+				C732DDD32A20CB58001AE2E9 /* ServiceHelper.swift in Sources */,
 				C7A95D722A13A62A006DBA68 /* CountryVC.swift in Sources */,
 				C7843BB62A0E39C300C7C2DB /* VPNViewModel.swift in Sources */,
+				C732DDB82A20CB58001AE2E9 /* PurchaseJson.swift in Sources */,
+				C732DDB52A20CB58001AE2E9 /* DetailViewController.swift in Sources */,
+				C732DDD22A20CB58001AE2E9 /* ShareAppVC.swift in Sources */,
+				C732DDE32A20CB58001AE2E9 /* Billing.swift in Sources */,
 				C7A95D842A13AB18006DBA68 /* Constants.swift in Sources */,
+				C732DDDC2A20CB58001AE2E9 /* PurchaseReceiptResponse.swift in Sources */,
 				C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */,
+				C732DDB32A20CB58001AE2E9 /* PurchaseCell.swift in Sources */,
+				C732DE042A20CB58001AE2E9 /* AdMobMediation.swift in Sources */,
+				C732DE0B2A20CB58001AE2E9 /* MapperUtils.swift in Sources */,
 				C7C432702A179F2F00AD0E31 /* InAppPurchaseVC.swift in Sources */,
+				C732DE022A20CB58001AE2E9 /* IronSourceUtils.swift in Sources */,
+				C732DDE12A20CB58001AE2E9 /* AdsProvider.swift in Sources */,
+				C732DDC42A20CB58001AE2E9 /* FbNativeMediumView.swift in Sources */,
+				C732DDE42A20CB58001AE2E9 /* DataHubResponse.swift in Sources */,
+				C732DE012A20CB58001AE2E9 /* InHouseAds.swift in Sources */,
 				C7843BAA2A0DFBF200C7C2DB /* NetworkHelper.swift in Sources */,
 				C7A95D7A2A13A810006DBA68 /* DataModel.swift in Sources */,
+				C732DDC82A20CB58001AE2E9 /* NativeManualView.swift in Sources */,
 				C7B5A9B42A149C9B002B7393 /* NetworkSpeedMonitor.swift in Sources */,
+				C732DDB62A20CB58001AE2E9 /* ProductCell.swift in Sources */,
 				C7843BCB2A0E4ED900C7C2DB /* PingSpeed.swift in Sources */,
+				C732DDF32A20CB58001AE2E9 /* FullAdsListener.swift in Sources */,
+				C732DDD52A20CB58001AE2E9 /* DataHubConstant.swift in Sources */,
 				C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */,
 				C7843BC92A0E3CA200C7C2DB /* NetworkSpeedTest.swift in Sources */,
 				C7A95D6F2A1399FD006DBA68 /* VPNConnectedStatus.swift in Sources */,
 				C7A95D7F2A13A921006DBA68 /* CountryDataVM.swift in Sources */,
+				C732DDF02A20CB58001AE2E9 /* FullAdsCloseListener.swift in Sources */,
 				C76B0A652A0D0C2400642AF5 /* CloseListener.swift in Sources */,
 				C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */,
+				C732DDDD2A20CB58001AE2E9 /* InAppBillingManager.swift in Sources */,
+				C732DDC22A20CB58001AE2E9 /* InhouseNativeView.swift in Sources */,
 				C7B5A9FA2A14CBF4002B7393 /* CategorizationActions.swift in Sources */,
+				C732DDB92A20CB58001AE2E9 /* RazeFaceProducts.swift in Sources */,
 				C7C432662A17374100AD0E31 /* PasswordHintVC.swift in Sources */,
+				C732DDF22A20CB58001AE2E9 /* onBannerAdsIdLoaded.swift in Sources */,
 				C7B5A9BB2A14AF77002B7393 /* ProfileViewModel.swift in Sources */,
+				C732DDCF2A20CB58001AE2E9 /* FeedbackVC.swift in Sources */,
 				C7A95D7B2A13A810006DBA68 /* CountryModel.swift in Sources */,
 				C7A95D542A1392AB006DBA68 /* CustomSegmentControl.swift in Sources */,
 				C7A95D4B2A134CB0006DBA68 /* SpeedHistoryCell.swift in Sources */,
 				C74C37CB2A1CB5B30066769E /* PasswordHintCell.swift in Sources */,
+				C732DDBA2A20CB58001AE2E9 /* INAPPPurchaseComplete.swift in Sources */,
 				C7F2501F29FA899700F23FEB /* SceneDelegate.swift in Sources */,
 				C7843BB52A0E39C300C7C2DB /* SpeedTestViewModel.swift in Sources */,
+				C732DDF82A20CB58001AE2E9 /* DeviceTokenFetch.swift in Sources */,
+				C732DE052A20CB58001AE2E9 /* AHandler.swift in Sources */,
 				C7B5A9F92A14CBF4002B7393 /* CategorizationProcessor.swift in Sources */,
 				C7A95D682A1399FD006DBA68 /* ConnectionState.swift in Sources */,
+				C732DDEB2A20CB58001AE2E9 /* AboutUsVC.swift in Sources */,
 				C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */,
 				C7A95D6B2A1399FD006DBA68 /* MenuActionStatus.swift in Sources */,
 				C7A95D672A1399FD006DBA68 /* CountrySelectionList.swift in Sources */,
 				C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */,
+				C732DDE72A20CB58001AE2E9 /* UpdateResponse.swift in Sources */,
 				C76B0A5D2A0CF19500642AF5 /* PermissionVC.swift in Sources */,
+				C732DDE22A20CB58001AE2E9 /* TopicRequest.swift in Sources */,
 				C748CECF2A163E4300DF51A9 /* FingNodes.swift in Sources */,
+				C732DDE82A20CB58001AE2E9 /* LoadAd.swift in Sources */,
 				C7A95D692A1399FD006DBA68 /* PurchaseInfo.swift in Sources */,
+				C732DDFD2A20CB58001AE2E9 /* InAppBillingListeners.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,59 @@
+//
+//  FirebaseUtils.swift
+//  CustomGallery
+//
+//  Created by Deepti Chawla on 17/06/20.
+//  Copyright © 2020 Pavle Pesic. All rights reserved.
+//
+import Foundation
+import Firebase
+
+
+public let AUDIO_RECORDING_BUTTON = "AN_AUDIO_RECORDING_BUTTON"
+public let SPLASH_BUTTON = "AN_SPLASH"
+public let GO_TO_YOUTUBE_BUTTON = "AN_GO_TO_YOUTUBE_BUTTON"
+public let HOME_BUTTON = "AN_HOME_BUTTON"
+public let SEARCH_VIDEO_YOUTUBE = "AN_SEARCH_VIDEO_YOUTUBE"
+public let GALLERY_BUTTON = "AN_GALLERY_BUTTON"
+public let YOUTUBE_BUTTON = "AN_YOUTUBE_BUTTON"
+public let MYRECORDINGS_BUTTON = "AN_MYRECORDINGS_BUTTON"
+public let SETTINGS_BUTTON = "AN_SETTINGS_BUTTON"
+public let VPN_CONNECT_BUTTON = "AN_VPN_CONNECT_BUTTON"
+public let SPEED_TEST_BUTTON = "AN_SPEED_TEST_BUTTON"
+public let BEGIN_TEST_BUTTON = "AN_BEGIN_TEST_BUTTON"
+public let WEEKLY_SUBSCRIPTION = "AN_WEEKLY_SUBSCRIPTION"
+public let MONTHLY_SUBSCRIPTION = "AN_MONTHLY_SUBSCRIPTION"
+public let YEARLY_SUBSCRIPTION = "AN_YEARLY_SUBSCRIPTION"
+public let GOPREMIUM_BUTTON = "AN_GOPREMIUM_BUTTON"
+public let CUSTOMFACECAM_BUTTON = "AN_CUSTOMFACECAM_BUTTON"
+
+//Screen Tracking
+public let SPLASH_SCREEN = "AN_SPLASH_SCREEN"
+public let DASHBOARD_SCREEN = "AN_DASHBOARD_SCREEN"
+public let VPN_SCREEN  = "AN_VPN_SCREEN"
+public let CONNECTION_DETAIL_SCREEN = "AN_CONNECTION_DETAIL_SCREEN"
+public let COUNTRY_LIST_SCREEN = "AN_COUNTRY_LIST_SCREEN"
+public let SPEED_TEST_SCREEN = "AN_SPEED_TEST_SCREEN"
+public let GOPREMIUM_SCREEN = "AN_GOPREMIUM_SCREEN"
+public let SETTINGS_SCREEN = "AN_SETTINGS_SCREEN"
+public let RESOLUTION_SCREEN  = "AN_RESOLUTION_SCREEN"
+public let YOUTUBE_SCREEN = "AN_YOUTUBE_SCREEN"
+public let SHARE_TO_YOUTUBE_SCREEN = "AN_SHARE_TO_YOUTUBE"
+public let FACECAM_SCREEN = "AN_FACECAM_SCREEN"
+public let RECORDINGS_SCREEN = "AN_RECORDINGS_SCREEN"
+let PURCHASE_SCREEN = "AN_PURCHASE_SCREEN"
+public let CUSTOM_SCREEN = "CUSTOM_SCREEN"
+public let VIDEO_SCREEN = "VIDEO_SCREEN"
+public let VIDEO_SAVE_SCREEN = "VIDEO_SAVE_SCREEN"
+public let PREVIEW_VIDEO_SCREEN = "PREVIEW_VIDEO_SCREEN"
+public let AUDIO_RECORDING_SCREEN = "AN_AUDIO_RECORDING_SCREEN"
+
+public func getFirebaseTrackScreen(_ screenName:String){
+     //Analytics.setScreenName(screenName, screenClass: screenName)
+    
+}
+
+public func getFirebaseEvent(_ buttonClick:String){
+    // Analytics.logEvent(buttonClick, parameters: [:])
+}
+
