@@ -38,6 +38,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         
         connectButton.setTitle("Connect", for: .normal)
         statuslabel.text = "Not Connected"
+        statuslabel.textColor = hexStringColor(hex: "#EC2727")
         TimerManager.shared.stopTimer()
         profileVM.connection.stopVPN()
         buttonSwitched = false
@@ -63,6 +64,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         else {
            connectButton.setTitle("Connect", for: .normal)
             statuslabel.text =  "Not Connected"
+            statuslabel.textColor = hexStringColor(hex: "#EC2727")
         }
     }
     
@@ -77,6 +79,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         @IBOutlet weak var flagImg:UIImageView!
         @IBOutlet weak var connectButton:UIButton!
         @IBOutlet weak var statuslabel:UILabel!
+        @IBOutlet weak var topView:UIView!
         var internetStatus = Bool()
         var countryStatus = Bool()
       //  var profileVM = ProfileViewModel()
@@ -86,7 +89,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         let profileVM = ProfileViewModel()
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+            statuslabel.textColor = hexStringColor(hex: "#EC2727")
                 // ConnectedTimer.instanceHelper.itemdelegates = self
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
             transView.addGestureRecognizer(tapGesture)

@@ -52,8 +52,8 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
                 backButton.isHidden = false
             }
             else {
-                continueButton.isHidden = false
-                backButton.isHidden = true
+               // continueButton.isHidden = false
+              //  backButton.isHidden = true
             }
         }
         initalSetups()

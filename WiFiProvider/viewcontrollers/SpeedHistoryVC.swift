@@ -12,6 +12,10 @@ class SpeedHistoryVC: UIViewController {
     @IBOutlet weak var averagePing:UILabel!
     @IBOutlet weak var averageDownloadSpeed:UILabel!
     @IBOutlet weak var averageUploadSpeed:UILabel!
+    @IBOutlet weak var adView:UIView!
+    @IBOutlet weak var heightConstraint:NSLayoutConstraint!
+    @IBOutlet weak var deleteView:UIView!
+    
     var avgPing:Double = 0.0
     var avgDownloadSpeed:Double = 0.0
     var avgUploadSpeed:Double = 0.0
@@ -38,6 +42,7 @@ class SpeedHistoryVC: UIViewController {
        
     }
     override func viewWillAppear(_ animated: Bool) {
+        getBannerAd(self, adView, heightConstraint)
         fetchFavouriteList()
        
 //        if avgPing != nil && avgDownloadSpeed != nil && avgDownloadSpeed != nil {
@@ -87,6 +92,12 @@ class SpeedHistoryVC: UIViewController {
     @IBAction func back(_ sender:UIButton){
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func cancelDialog(_ sender:UIButton){
+        deleteView.isHidden = true
+    }
+   
+    
 
 }
 
@@ -169,11 +180,11 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [self] _, _ in
             //let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
-            self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
-                   self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            let values = Array(speedDataList.values)
-                let selectedValue = values[indexPath.row]
-                
+//            self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
+//                   self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//            let values = Array(speedDataList.values)
+//                let selectedValue = values[indexPath.row]
+            deleteView.isHidden = false
 //                if let key = speedDataList.first(where: { $0.value == selectedValue })?.key {
 //                    // Key is found, use it here
 //                    print("Selected key:", key)

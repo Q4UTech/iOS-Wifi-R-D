@@ -139,6 +139,9 @@ class DeviceDetailVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getBannerAd(self, adView, heightConstraint)
+    }
 
     @IBAction func blockDevice(_ sender:UIDevice){
         let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC

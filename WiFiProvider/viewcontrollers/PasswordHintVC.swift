@@ -69,10 +69,12 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         passwordTaableView.delegate = self
         premiumDialogView.borderColor = UIColor.white
         premiumDialogView.borderWidth = 2
+        callPasswordHintApi()
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        callPasswordHintApi()
+        getBannerAd(self, adView, heightConstraint)
+       
         
     }
     

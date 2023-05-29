@@ -8,7 +8,7 @@
 import UIKit
 
 
-class DashboardVC: UITabBarController {
+class DashboardVC: UITabBarController,UITabBarControllerDelegate {
     var value = String()
     var type = String()
     override func viewDidLoad() {

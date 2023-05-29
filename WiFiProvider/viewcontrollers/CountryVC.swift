@@ -32,12 +32,13 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
         selectedCountry = UserDefaults.standard.string(forKey: "VPN_NAME")
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
+    
     func setUpTableView(){
         countryTableView.delegate = self
         countryTableView.dataSource = self
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        getBannerAd(self, bannerAdsView, bannerAdsHeightContraint)
     }
     override func viewDidAppear(_ animated: Bool) {
        

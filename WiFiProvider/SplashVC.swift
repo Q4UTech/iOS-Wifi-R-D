@@ -76,6 +76,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
 //        Bundle.swizzleLocalization()
         CallOnSplash.shared.v2CallOnSplash(for: self)
         OnBannerAdsIdLoaded.adsInstanceHelper.onBannerAdsLoadeddelegates = self
+        
         lightTheme()
         SplashVC.fromSplash = true
         letsGoButton.isHidden = true
@@ -185,7 +186,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         } else {
             sender.isSelected = true
             checkStatus = true
-            checkButton.setImage(UIImage(named: "Shape"), for: .normal)
+            checkButton.setImage(UIImage(named: "shape"), for: .normal)
             //setCheckIcon(iconName: "Shape", button: sender)
             self.letsGoButton.isUserInteractionEnabled = true
         }
@@ -218,17 +219,17 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         self.fullAdStatus = status
     }
     func onCacheFullAdListener() {
-        //        if !UserDefaults.standard.bool(forKey: ISFIRSTTIME){
-        //            applaunch()
-        //        }
+//                if !UserDefaults.standard.bool(forKey: ISFIRSTTIME){
+//                    applaunch()
+//                }
         openDashboardThroughFullAdsCaching()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         LaunchFullCallBackListener.adsInstanceHelper.fulladsdelegates = self
-//        LanguageManager.shared.defaultLanguage = .deviceLanguage
-//        UserDefaults.standard.set(currentLanguage, forKey: kConstant.constants.APPLE_LANGUAGE)
+        OnCacheFullAddListener.adsInstanceHelper.onCacheFullAdsdelegates = self
+        SplashBannerListener.adsInstanceHelper.splashBannerdelegates = self
         callDelegates()
         getBannerAds()
     }
@@ -311,15 +312,9 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
     
     func goToNextVC(){
-//        if !UserDefaults.standard.bool(forKey: kConstant.constants.FIRST_TIME_ONBOARD){
-//            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnBoardVC") as? OnBoardVC
-//            vc!.fulladstatus = fullAdStatus
-//            vc!.fulladsType = Launch_FullAds
-//
-//            self.navigationController?.pushViewController(vc!, animated: true)
-//        }else {
+
             if fullAdStatus {
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WifiVC") as? WifiVC
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             else{
@@ -327,7 +322,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
                 vc!.fulladstype = Launch_FullAds
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
-//        }
+
     }
     
     

@@ -37,6 +37,9 @@ class RouterVC: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchView.borderWidth = 1
+        searchView.backgroundColor = hexStringColor(hex: "#27292C")
+        searchView.borderColor = hexStringColor(hex:"#OD323437")
         searchData.delegate = self
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue

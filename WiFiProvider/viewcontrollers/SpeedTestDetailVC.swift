@@ -23,6 +23,7 @@ class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var providerLabel:UILabel!
     @IBOutlet weak var deleteView:UIView!
     @IBOutlet weak var transView:UIView!
+    @IBOutlet weak var deleteBtn:UIButton!
     private var locationManager = CLLocationManager()
     var ping = String()
     var uploadSpeed = Double()
@@ -53,6 +54,10 @@ class SpeedTestDetailVC: UIViewController {
             providerLabel.text = getWiFiSsid()
         }
         print("add: \(getIFAddresses())")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getBannerAd(self, adView, heightConstraint)
     }
     func askEnableLocationService() {
         var showAlertSetting = false

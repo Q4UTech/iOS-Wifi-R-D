@@ -142,6 +142,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getBannerAd(self, adView, heightConstraint)
         hideunhideLabel(true, true)
         SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         topView.isHidden = true
@@ -205,14 +206,14 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             }
             
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
             hideunhideLabel(false, false)
             let array =  Array(self.speedArray.suffix(10))
             //        setChart(dataPoints: months, values: array)
             print("yourArray\(speedArray.count)")
             setChart(dataPoints: self.months, values: speedArray)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
             speedChartView.isHidden = true
             uploadChartView.isHidden = false
            
@@ -329,19 +330,13 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         chartDataSet.circleRadius = 0
         chartDataSet.circleHoleRadius = 0
         chartDataSet.drawValuesEnabled = false
-     if isDownload{
-         chartDataSet.setColor(hexStringColor(hex: "#38BEE9"))
-     }else{
-         chartDataSet.setColor(hexStringColor(hex: "#FFA620"))
-     }
+    
+         chartDataSet.setColor(hexStringColor(hex: "#3A89FF"))
+     
      chartDataSet.mode = .cubicBezier
      chartDataSet.cubicIntensity = 0.2
      var gradientColors:CFArray? = nil
-     if isDownload{
-        gradientColors  = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
-     }else{
-         gradientColors  = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
-     }// Colors of the gradient
+     gradientColors  = [hexStringColor(hex: "#3A89FF").cgColor, UIColor.clear.cgColor] as CFArray
      let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
      let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors!, locations: colorLocations) // Gradient Obj
          chartDataSet.fill = LinearGradientFill(gradient: gradient!)

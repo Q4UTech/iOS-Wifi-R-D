@@ -49,7 +49,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         super.viewDidLoad()
         wifiTableView.delegate = self
         wifiTableView.dataSource = self
-      
+       
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
@@ -327,15 +327,15 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
             let formatted = FGKUtils.formatResult(result, orError: error)
             let content = "\(header)\n\(formatted)"
             print("---VERIFY LICENSE KEY---\n\(formatted)")
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 print("content\(content)")
-                
+                scanDevice()
                 
             }
         }
         
         
-        scanDevice()
+       
     }
     func dataToJSON(data: Data) -> Any? {
        do {
@@ -538,6 +538,38 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func openInApp(_ sender:UIButton){
+        hideBottomSheet()
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func rateApp(_ sender:UIButton){
+        hideBottomSheet()
+       
+    }
+    
+    @IBAction func aboutUs(_ sender:UIButton){
+        hideBottomSheet()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func moreApp(_ sender:UIButton){
+        hideBottomSheet()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func shareApp(_ sender:UIButton){
+        hideBottomSheet()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func feedback(_ sender:UIButton){
+        hideBottomSheet()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
     private func hideBottomSheet(){
         bottomSheet.isHidden = true
         transView.isHidden = true
@@ -582,7 +614,7 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

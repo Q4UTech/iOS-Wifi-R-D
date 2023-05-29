@@ -21,13 +21,9 @@ class AppDelegate: EngineDelegate {
         }
         lightTheme()
         adsIdCalling(application:application)
-//        ALSdk.shared()!.mediationProvider = "max"
-//        
-//          
-//        ALSdk.shared()!.initializeSdk { (configuration: ALSdkConfiguration) in
-//              
-//          }
+
         RazeFaceProducts.store.restorePurchases(fromStart: true)
+      
         return true
     }
 
