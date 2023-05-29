@@ -13,6 +13,8 @@ class RouterVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var searchButton:UIButton!
     @IBOutlet weak var closeButton:UIButton!
     @IBOutlet weak var searchView:UIView!
+    @IBOutlet weak var premiumView:UIView!
+    @IBOutlet weak var premiumViewDialog:UIView!
      
     enum TabIndex : Int {
            case firstChildTab = 0
@@ -41,10 +43,23 @@ class RouterVC: UIViewController, UITextFieldDelegate{
         searchView.backgroundColor = hexStringColor(hex: "#27292C")
         searchView.borderColor = hexStringColor(hex:"#OD323437")
         searchData.delegate = self
+        premiumViewDialog.borderWidth = 1
+        premiumViewDialog.borderColor = .white
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
+        if hasPurchased(){
+            premiumView.isHidden = true
+            
+        }else{
+            premiumView.isHidden = false
+        }
        
+    }
+    
+    @IBAction func goPremium(_ sender:UIButton){
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

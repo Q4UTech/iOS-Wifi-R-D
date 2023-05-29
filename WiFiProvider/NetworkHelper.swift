@@ -161,6 +161,55 @@ class NetworkHelper{
             
             
         }
+    public func createReportKeyRequest(method: HTTPMethod,showHud :Bool, params: [String: String]!, apiName: String, completionHandler:@escaping (_ response: AnyObject?, _ error: NSError?) -> Void) {
+        
+            if isConnectedToNetwork() {
+              
+                if showHud {
+                   // self.showHud()
+                }
+             var url = String()
+             
+             
+                            url = HOST_URL + apiName
+                      
+                print("Internet Connected111 \(NetworkReachabilityManager.init()?.isReachable)")
+              Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseJSON { response in
+                  
+                  print("Internet Connected")
+                         switch response.result {
+                             
+                         case .success(let value):
+                          //   self.hideHud()
+                             let dict = value as! [String:String]
+                               
+                                  let dictValues = [String](dict.values)
+                                  let value  = dictValues[0]
+                                 
+
+                             completionHandler(value as AnyObject?, nil)
+                             break
+
+
+                         case .failure(_):
+                          //   self.hideHud()
+                             print("Check Almofire Failure \(response.error)")
+                             completionHandler(nil, response.error as NSError?)
+                             break
+
+
+                         }
+                     }
+                
+            } else {
+                
+                completionHandler(nil,NSError.init())
+                
+
+            }
+            
+            
+        }
      
     
     private func createSubCategoryPostRequest<T>(

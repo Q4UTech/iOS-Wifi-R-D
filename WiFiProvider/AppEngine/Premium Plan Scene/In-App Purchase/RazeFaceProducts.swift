@@ -10,12 +10,12 @@ import Foundation
 
 public struct RazeFaceProducts {
     public static let removeAdsID = "com.reactioncam.removeads"
-  public static let monthlyProductID = "com.quantum.reactioncam.1month"
+    public static let monthlyProductID = "com.pro.monthlysub"
     public static let quarterlyProductID = "com.quantum.reactioncam.3month"
-  public static let yearlyProductID = "com.quantum.reactioncam.1year"
+    public static let yearlyProductID = "com.pro.yearlysub"
     
     private static let productIdentifiers: Set<ProductIdentifier> = [""]
-
+    
     public static let store = IAPHelper(productIds: RazeFaceProducts.productIdentifiers)
 }
 

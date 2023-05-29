@@ -58,6 +58,7 @@ class MyConstant {
     public let ISFIRSTTIME = "ISFIRSTTIME"
 
      static let kAppName = "WifiProvider"
+     static let ROUTER_IP = "ROUTER_IP"
     let kEnglish = "English"
     let kHindi = "Hindi"
     let kFrench = "French"
@@ -228,7 +229,7 @@ class MyConstant {
         static let kGroupID  = "group.com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password"
         static let kProfileName = "Secure VPN"
         static let kNotificationIdentifier =  "com.quantum4u.vpnApp.neprovider.CategorizatioProcessor.notificationRequestIdentifier"
-        static let SECRET_KEY = "de4d32f2d0bf48e6a168e9499c84b439"
+        static let SECRET_KEY = "3be4b75210544d5db5c4822a6389ec58"
         static let kSandboxRecieptURL = "https://sandbox.itunes.apple.com/verifyReceipt"
         static let kLiveRecieptURL = "https://buy.itunes.apple.com/verifyReceipt"
     }

@@ -57,7 +57,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
             }
         }
         initalSetups()
-        bannerAd()
+       // bannerAd()
         KRProgressHUD.show()
         localizeStrings()
         if #available(iOS 13.0, *) {
@@ -67,7 +67,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     }
     
     func localizeStrings() {
-        navTitleLabel.text! = "VIP Access"
+      //  navTitleLabel.text! = "VIP Access"
         
     }
     
@@ -77,7 +77,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        bannerAd()
+     //   bannerAd()
         SplashVC.fromSplash = true
         RazeFaceProducts.store.restorePurchases(fromStart: true)
         InAppBillingListeners.adsInstanceHelper.delegates = self
@@ -116,10 +116,10 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         getFirebaseTrackScreen(PURCHASE_SCREEN)
     }
     
-    func bannerAd(){
-//        BaseClass.init().bannerAds(target: self, adsView: adsView, adsHeightConstraint: adsViewHeightConstraint)
-        getBannerAd(self, adsView, adsViewHeightConstraint)
-    }
+//    func bannerAd(){
+////        BaseClass.init().bannerAds(target: self, adsView: adsView, adsHeightConstraint: adsViewHeightConstraint)
+//        getBannerAd(self, adsView, adsViewHeightConstraint)
+//    }
     
     @IBAction func restoreButtonAction(_ sender: Any) {
         if !alreadyPurchased{
@@ -296,7 +296,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         //
         //        }
         
-        return 90
+        return 70
         
     }
     

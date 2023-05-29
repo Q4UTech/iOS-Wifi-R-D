@@ -69,10 +69,16 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         }else{
             self.requestPermissionsToShowSsidAndBssid()
         }
+        if isWiFiConnected(){
+            topViewLabel.text = "Wifi Provider"
+            networkCall()
+        }else{
+            topViewLabel.text = "No Wi-Fi Connection"
+        }
        
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
-       
+      
         
     }
     func updateWiFi() {
@@ -152,17 +158,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         print("viewWillAppear")
         getBannerAd(self, adView, heightConstraint)
         locationManager.delegate = nil
+       
        // checkWifi()
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
        checkWifi()
-        if isWiFiConnected(){
-            topViewLabel.text = "Wifi Provider"
-            networkCall()
-        }else{
-            topViewLabel.text = "No Wi-Fi Connection"
-        }
+        
     }
     
     @objc func switchToMapView(){
@@ -225,22 +227,73 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         var parametr = [String:String]()
         parametr = ["data":encodedString!]
         NetworkHelper.sharedInstanceHelper.createPostRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/authkey") { [self] (result, error) in
+//            do{
+                if result != nil{
+//                    do{
+                        UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
+                        let decryptString = decryptvalue.decrypt(hexString:result! as! String)
+                        let dict1 = dictnry.convertToDictionary(text: decryptString!)
+                        let code = dict1!["key"] as! String
+                        
+                        getConnectedDevicesList(key:code)
+//                    }catch {
+//                        doAuthKeyRequest()
+//                    }
+                    
+                    
+               }
+                else{
+
+                }
+                
+//            }catch{
+//                doAuthKeyRequest()
+//            }
+            
+        }
+       
+    }
+    
+    private func doAuthKeyRequest(){
+        var  params = ["app_id": APP_ID,
+                  "country": getCountryNameInfo(),
+                  "screen": "XHDPI",
+                  "launchcount": "1",
+                  "version": getAppVersionInfo(),
+                  "osversion": getOSInfo(),
+                  "dversion": getDeviceModel(),
+                  "os": "2"]
+        print(params)
+        let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        let jsonString1 = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+        let encodedString = hexadecimal.encrypt(text:jsonString1)
+        var parametr = [String:String]()
+        parametr = ["data":encodedString!]
+        NetworkHelper.sharedInstanceHelper.createReportKeyRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/reportkey") { [self] (result, error) in
             
             if result != nil{
-                UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
-                let decryptString = decryptvalue.decrypt(hexString:result! as! String)
-                let dict1 = dictnry.convertToDictionary(text: decryptString!)
-                let code = dict1!["key"] as! String
+                do{
+                    UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
+                    let decryptString = decryptvalue.decrypt(hexString:result! as! String)
+                    let dict1 = dictnry.convertToDictionary(text: decryptString!)
+                    let code = dict1!["message"] as! String
+                    if code == "success"{
+                        
+                    }
+                    
+                }catch {
+                    
+                }
                 
-                getConnectedDevicesList(key:code)
+                
             }
             else{
                
             }
             
         }
-       
     }
+    
     func getOSInfo()->String {
            let os = ProcessInfo().operatingSystemVersion
            return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
@@ -450,17 +503,11 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
                                 do {
                                     let decoder = JSONDecoder()
                                     let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
-//                                    if let isp = scanResponse.fingIsp {
-//                                       // print("parseScanData: fingNodes \(fingNodes.count)")
-//                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
-//                                        DispatchQueue.main.async { [self] in
-//                                            topView.isHidden = true
-//                                            coonectedView.isHidden = false
-//                                            WifiName.text = isp.organization
-//                                        }
-//
-//
-//                                    }
+                                    if let isp = scanResponse.gatewayIpAddress {
+                                      
+                                        UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
+
+                                    }
                                     
                                     if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                        

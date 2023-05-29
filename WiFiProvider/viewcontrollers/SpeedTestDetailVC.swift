@@ -37,6 +37,7 @@ class SpeedTestDetailVC: UIViewController {
         super.viewDidLoad()
         askEnableLocationService()
         if isFrom == "SpeedHistory"{
+            deleteBtn.isHidden = false
             pingLabel.text = ping
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
@@ -44,6 +45,7 @@ class SpeedTestDetailVC: UIViewController {
             connectedType.text = connectiontype
             providerLabel.text = providername
         }else{
+            deleteBtn.isHidden = true
             pingLabel.text = ping
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
