@@ -105,7 +105,6 @@
 		C732DE0A2A20CB58001AE2E9 /* BillingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */; };
 		C732DE0B2A20CB58001AE2E9 /* MapperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */; };
 		C732DE0C2A20CB58001AE2E9 /* BTAppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */; };
-		C732DE142A20DB75001AE2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */; };
 		C7461EC72A1689AA0002AEB2 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7461EC62A1689AA0002AEB2 /* DeviceName.swift */; };
 		C748CEC82A163C8000DF51A9 /* FingScanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */; };
 		C748CECB2A163D0600DF51A9 /* FingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748CECA2A163D0600DF51A9 /* FingNetwork.swift */; };
@@ -130,6 +129,8 @@
 		C75F1B3A29FB7DA900D89A3E /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3929FB7DA900D89A3E /* MenuVC.swift */; };
 		C75F1B3D29FB81DE00D89A3E /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */; };
 		C75F1B3F29FBD56D00D89A3E /* PingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */; };
+		C765CA4F2A25BACB005CA36C /* BaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C765CA4E2A25BACB005CA36C /* BaseClass.swift */; };
+		C765CA522A261BE4005CA36C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C765CA512A261BE4005CA36C /* GoogleService-Info.plist */; };
 		C76B0A552A0CE25500642AF5 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A542A0CE25500642AF5 /* DashboardVC.swift */; };
 		C76B0A572A0CE2FE00642AF5 /* VpnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */; };
 		C76B0A592A0CE31D00642AF5 /* SpeedTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76B0A582A0CE31D00642AF5 /* SpeedTestVC.swift */; };
@@ -251,7 +252,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0DD4A109DCB74818AF5D39A6 /* Pods_TunnelProviderService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProviderService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F8D02CF074F53D2101B884 /* Pods_TunnelProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TunnelProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B3AF1F651A7AC45E4F57EF /* Pods-WiFiProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiFiProvider.release.xcconfig"; path = "Target Support Files/Pods-WiFiProvider/Pods-WiFiProvider.release.xcconfig"; sourceTree = "<group>"; };
 		4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiFiProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,7 +357,6 @@
 		C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingClient.swift; sourceTree = "<group>"; };
 		C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperUtils.swift; sourceTree = "<group>"; };
 		C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTAppUtility.swift; sourceTree = "<group>"; };
-		C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7461EC62A1689AA0002AEB2 /* DeviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		C748CEC72A163C8000DF51A9 /* FingScanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingScanResponse.swift; sourceTree = "<group>"; };
 		C748CECA2A163D0600DF51A9 /* FingNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingNetwork.swift; sourceTree = "<group>"; };
@@ -383,6 +382,8 @@
 		C75F1B3C29FB81DE00D89A3E /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		C75F1B3E29FBD56C00D89A3E /* PingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingHelper.swift; sourceTree = "<group>"; };
 		C75F1B4029FBE47E00D89A3E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		C765CA4E2A25BACB005CA36C /* BaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClass.swift; sourceTree = "<group>"; };
+		C765CA512A261BE4005CA36C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C76B0A502A0CBF1000642AF5 /* WiFiProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiFiProvider.entitlements; sourceTree = "<group>"; };
 		C76B0A542A0CE25500642AF5 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		C76B0A562A0CE2FE00642AF5 /* VpnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnVC.swift; sourceTree = "<group>"; };
@@ -492,7 +493,6 @@
 			children = (
 				4EB8A54EB7E39F66F69D5E14 /* Pods_WiFiProvider.framework */,
 				C71F949B2A1B830000A3BFF1 /* NetworkExtension.framework */,
-				0DD4A109DCB74818AF5D39A6 /* Pods_TunnelProviderService.framework */,
 				11F8D02CF074F53D2101B884 /* Pods_TunnelProvider.framework */,
 			);
 			name = Frameworks;
@@ -788,6 +788,7 @@
 				C732DDAE2A20CB58001AE2E9 /* BillingClient.swift */,
 				C732DDAF2A20CB58001AE2E9 /* MapperUtils.swift */,
 				C732DDB02A20CB58001AE2E9 /* BTAppUtility.swift */,
+				C765CA4E2A25BACB005CA36C /* BaseClass.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1029,7 +1030,7 @@
 		C7F2501B29FA899700F23FEB /* WiFiProvider */ = {
 			isa = PBXGroup;
 			children = (
-				C732DE122A20DB75001AE2E9 /* GoogleService-Info.plist */,
+				C765CA512A261BE4005CA36C /* GoogleService-Info.plist */,
 				C732DD3D2A20CB58001AE2E9 /* AppEngine */,
 				C7B5A9F42A14CBF4002B7393 /* neprovider */,
 				C7A95D582A1399FC006DBA68 /* Protocols */,
@@ -1175,7 +1176,7 @@
 				C732DDC32A20CB58001AE2E9 /* UnifiedNativeMediumAdView.xib in Resources */,
 				C732DDD72A20CB58001AE2E9 /* Default-568h@2x.png in Resources */,
 				C732DDC52A20CB58001AE2E9 /* FbNativeView.xib in Resources */,
-				C732DE142A20DB75001AE2E9 /* GoogleService-Info.plist in Resources */,
+				C765CA522A261BE4005CA36C /* GoogleService-Info.plist in Resources */,
 				C7F2502629FA899800F23FEB /* Assets.xcassets in Resources */,
 				C713C06929FAA227009308C2 /* splash.json in Resources */,
 				C7C4326E2A178FC000AD0E31 /* AnimationView.xib in Resources */,
@@ -1334,6 +1335,7 @@
 				C7843BA82A0DFB9C00C7C2DB /* FGKUtils.swift in Sources */,
 				C71F94C72A1B89FA00A3BFF1 /* Settings.swift in Sources */,
 				C732DE0C2A20CB58001AE2E9 /* BTAppUtility.swift in Sources */,
+				C765CA4F2A25BACB005CA36C /* BaseClass.swift in Sources */,
 				C71F94BF2A1B87DA00A3BFF1 /* Util.swift in Sources */,
 				C748CECD2A163D4D00DF51A9 /* FingIsp.swift in Sources */,
 				C7CFFF062A12577700898D67 /* DeviceDetailVC.swift in Sources */,
@@ -1594,7 +1596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1648,7 +1650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1672,15 +1674,17 @@
 				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Who's on wifi";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "allow for scanning network";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "allow to sacn network";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "allow to scan network";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1708,15 +1712,17 @@
 				DEVELOPMENT_TEAM = MAFY34W5UY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WiFiProvider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Who's on wifi";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "allow for scanning network";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "allow to sacn network";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "allow to scan network";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

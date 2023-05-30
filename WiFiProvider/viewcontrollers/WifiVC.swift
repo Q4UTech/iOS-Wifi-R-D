@@ -59,6 +59,9 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
         listView.addGestureRecognizer(listViewGesture)
         radarView.delegate = self
         radarView.dataSource = self
+        radarView.paddingBetweenItems = 10
+        radarView.paddingBetweenCircles = 30
+        radarView.numberOfCircles = 4
         askEnableLocationService()
         optionBtn.isHidden = false
         if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
@@ -577,8 +580,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     @IBAction func openDeviceDetail(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
-        navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "VpnVC") as! VpnVC
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+      
     }
     @IBAction func openRouter(_ sender:UIButton){
         hideBottomSheet()
@@ -594,28 +602,29 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate{
     }
     @IBAction func rateApp(_ sender:UIButton){
         hideBottomSheet()
-       
+        WiFiProvider.rateApp(showCustom: true, self: self)
+    
     }
     
     @IBAction func aboutUs(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = UIStoryboard.init(name: "Engine", bundle: Bundle.main).instantiateViewController(withIdentifier:MyConstant.keyName.kAboutUs) as? AboutUsVC
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
     @IBAction func moreApp(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
-        navigationController?.pushViewController(vc, animated: true)
+        moreAppurl()
+        
     }
     @IBAction func shareApp(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
-        navigationController?.pushViewController(vc, animated: true)
+        shareAppsUrl(self,url:SHARE_URL,text:SHARE_TEXT)
+        
     }
     @IBAction func feedback(_ sender:UIButton){
         hideBottomSheet()
-        let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
-        navigationController?.pushViewController(vc, animated: true)
+        sendFeedback()
     }
     private func hideBottomSheet(){
         bottomSheet.isHidden = true

@@ -54,7 +54,7 @@ public class Connection: NSObject, ObservableObject {
                 
                 self.message = self.NEVPNStatusToMessage(self.providerManager.connection.status)
                 ConnectionStatus.instanceHelper.checkConnectionStatus(connectionStatus: self.providerManager.connection.status.description)
-                print("message\(self.message)")
+                print("message22 \(self.message)")
                 
             })
         }
@@ -147,6 +147,7 @@ public class Connection: NSObject, ObservableObject {
                 tunnelProtocol.disconnectOnSleep = false
                 
                 self.providerManager.protocolConfiguration = tunnelProtocol
+                print("data444 \(Util.getAppName()) (\(self.profile.profileName))")
                 self.providerManager.localizedDescription = "\(Util.getAppName()) (\(self.profile.profileName))" // the title of the VPN profile which will appear on Settings
                 self.providerManager.isEnabled = true
                 

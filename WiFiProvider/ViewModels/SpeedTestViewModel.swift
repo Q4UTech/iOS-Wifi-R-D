@@ -62,7 +62,7 @@ class SpeedTestViewModel{
                                       
                                        
                                       currentTime = getCurrentTime()
-                                      pingData = UserDefaults.standard.string(forKey: "pingData")!
+                                      pingData = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
                                        
                                       print("speedList1 \(pingData)")
                                         if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{

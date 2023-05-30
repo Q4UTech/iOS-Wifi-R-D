@@ -149,6 +149,11 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         startBtn.isHidden = false
         speedView.isHidden = false
+        uploadChartView.isHidden = true
+        speedChartView.isHidden = true
+        speedChartView.data = nil
+
+        speedChartView.xAxis.valueFormatter = nil
        // speedLabel.isHidden = true
         setSpeedTest()
     }
@@ -211,7 +216,9 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             let array =  Array(self.speedArray.suffix(10))
             //        setChart(dataPoints: months, values: array)
             print("yourArray\(speedArray.count)")
-            setChart(dataPoints: self.months, values: speedArray)
+            if array.count == 10 {
+                setChart(dataPoints: self.months, values: array)
+            }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
             speedChartView.isHidden = true
@@ -223,15 +230,10 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
 //                        }
             print("yourArray\(uploadArray.count)")
             let array =  Array(self.uploadArray.suffix(10))
-           self.setUploadChart(dataPoints: self.months, values: uploadArray)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-                let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-                       vc.ping =  "10.0"
-                vc.uploadSpeed = uploadArray.last!
-                vc.downloadSpeed = speedArray.last!
-               
-                       navigationController?.pushViewController(vc, animated: true)
+            if array.count == 10 {
+                self.setUploadChart(dataPoints: self.months, values: array)
             }
+           
             
         }
         
@@ -317,15 +319,17 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
  func setChart(dataPoints: [String], values: [Double]) {
      print("length99= \(dataPoints.count) \(values.count)")
         var dataEntries: [ChartDataEntry] = []
-        if dataPoints != nil{
-            print("counts \(dataPoints.count)")
-            for i in 0..<dataPoints.count {
-                if i != nil{
-                    let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
-                    dataEntries.append(dataEntry)
-                }
-            }
-        }
+     if values != nil {
+         if dataPoints != nil{
+             print("counts \(dataPoints.count)")
+             for i in 0..<dataPoints.count {
+                 if i != nil{
+                     let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
+                     dataEntries.append(dataEntry)
+                 }
+             }
+         }
+     }
         let chartDataSet = LineChartDataSet(entries: dataEntries, label: "")
         chartDataSet.circleRadius = 0
         chartDataSet.circleHoleRadius = 0
@@ -370,15 +374,17 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     func setUploadChart(dataPoints: [String], values: [Double]) {
         print("length99= \(dataPoints.count) \(values.count)")
            var dataEntries: [ChartDataEntry] = []
-           if dataPoints != nil{
-               print("counts \(dataPoints.count)")
-               for i in 0..<dataPoints.count {
-                   if i != 0{
-                       let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
-                       dataEntries.append(dataEntry)
-                   }
-               }
-           }
+        if values != nil && values.count > 0 {
+            if dataPoints != nil{
+                print("counts \(dataPoints.count)")
+                for i in 0..<dataPoints.count {
+                    if i != 0{
+                        let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
+                        dataEntries.append(dataEntry)
+                    }
+                }
+            }
+        }
            let chartDataSet = LineChartDataSet(entries: dataEntries, label: "")
            chartDataSet.circleRadius = 0
            chartDataSet.circleHoleRadius = 0
@@ -423,6 +429,15 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
      uploadChartView.legend.enabled = false
      uploadChartView.isUserInteractionEnabled = false
      uploadChartView.setScaleEnabled(false)
+       DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+                   vc.ping =  "10.0"
+            vc.uploadSpeed = uploadArray.last!
+            vc.downloadSpeed = speedArray.last!
+           
+                   navigationController?.pushViewController(vc, animated: true)
+            showFullAds(viewController: self, isForce: false)
+        }
        }
     
     @IBAction func openSpeedHistory(_ sender:UIButton){

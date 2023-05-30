@@ -63,8 +63,11 @@ class DeviceDetailVC: UIViewController {
             
             if data.bestMake != nil{
                 deviceBestMake.text = data.bestOS
-                let img = info.getOsIcon(value: data.bestOS!)
-                devideOsImg.image = UIImage(named:img)
+                if data.bestOS != nil{
+                    let img = info.getOsIcon(value: data.bestOS!)
+                    devideOsImg.image = UIImage(named:img)
+                }
+                
                 osLabel.text = data.bestOS
                 osVersionLabel.text = data.bestMake
             }else{

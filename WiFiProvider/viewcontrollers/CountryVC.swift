@@ -88,6 +88,7 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
         let countryData = categoryData[indexPath.row]
         print("countrydata \(countryData.file_location)")
 //        if countryData.purchsedType == "free" {
+       
             CountrySelectionList.instanceHelper.checkConnectionState(countrySelection:categoryData[indexPath.row].vpnname, fileLocation: categoryData[indexPath.row].file_location)
             UserDefaults.standard.set(categoryData[indexPath.row].vpnname, forKey: "VPN_NAME")
             cell.isSelected = true

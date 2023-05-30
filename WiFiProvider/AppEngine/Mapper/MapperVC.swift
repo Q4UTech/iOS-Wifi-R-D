@@ -83,14 +83,14 @@ class MapperVC: UIViewController {
                 launchAppWithMapper(type, MYPROJECTS)
                 break
             default:
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SplashVC") as? SplashVC
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             
         }
         catch{
             self.dismiss(animated: true, completion: nil)
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SplashVC") as? SplashVC
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }

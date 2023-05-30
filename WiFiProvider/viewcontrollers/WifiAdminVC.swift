@@ -17,7 +17,7 @@ class WifiAdminVC: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if hasPurchased(){
+       if hasPurchased(){
             hideUnhidePremiumView(hide: true)
             wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
             wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -25,9 +25,9 @@ class WifiAdminVC: UIViewController, WKUIDelegate {
             var router_url = "http://"+UserDefaults.standard.string(forKey: MyConstant.ROUTER_IP)!
             let url = URL(string: router_url)
             wkWebview.load(URLRequest(url: url!))
-//        }else{
-//            hideUnhidePremiumView(hide:false)
-//        }
+        }else{
+            hideUnhidePremiumView(hide:false)
+        }
 
     }
     

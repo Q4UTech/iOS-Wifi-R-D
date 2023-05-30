@@ -10,7 +10,8 @@ import Network
 import Toast_Swift
 
 @available(iOS 13.0, *)
-class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol,TimerManagerDelegate
+class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol
+             ,TimerManagerDelegate
 {
     func timerUpdated(time: TimeInterval) {
         updateTimerLabel(time: time)
@@ -80,13 +81,14 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         @IBOutlet weak var connectButton:UIButton!
         @IBOutlet weak var statuslabel:UILabel!
         @IBOutlet weak var topView:UIView!
+        @IBOutlet weak var disconnectView:UIView!
         var internetStatus = Bool()
         var countryStatus = Bool()
-      //  var profileVM = ProfileViewModel()
+        var profileVM = ProfileViewModel()
         var countryData = [DataModel]()
         var buttonSwitched : Bool = false
         var speedTestVM = SpeedTestViewModel()
-        let profileVM = ProfileViewModel()
+       // let profileVM = ProfileViewModel()
         override func viewDidLoad() {
             super.viewDidLoad()
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
@@ -157,11 +159,11 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     @IBAction func connectButtonActions(_ sender: UIButton) {
         TimerManager.shared.startTimer()
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-            ConnectionStatus.instanceHelper.itemdelegates = self
+           ConnectionStatus.instanceHelper.itemdelegates = self
             self.buttonSwitched = !self.buttonSwitched
             if self.buttonSwitched{
                
-              
+               
                     
                     Settings.saveProfile(profile: profileVM.profile)
                     Settings.setSelectedProfile(profileId: profileVM.profile.profileId)

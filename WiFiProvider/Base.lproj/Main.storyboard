@@ -1612,6 +1612,93 @@ to check connected devices</string>
                                     <constraint firstAttribute="height" constant="22" id="vM3-Cb-Fhs"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-14-uuf">
+                                <rect key="frame" x="43" y="204" width="344" height="500"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dissconnect" translatesAutoresizingMaskIntoConstraints="NO" id="TgB-PU-kTw">
+                                        <rect key="frame" x="82" y="10" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="xHU-JA-HaV"/>
+                                            <constraint firstAttribute="width" constant="180" id="xWq-l5-sn0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfC-gL-KR1">
+                                        <rect key="frame" x="111.66666666666666" y="190" width="121" height="28.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-xb-Nxg">
+                                        <rect key="frame" x="74.666666666666686" y="237.66666666666669" width="195" height="24"/>
+                                        <string key="text">Would you like to disconnect the current
+connection?</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.1176470588" green="0.12549019610000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeD-Py-lLJ">
+                                        <rect key="frame" x="130" y="450" width="94" height="30"/>
+                                        <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DQv-3c-ACJ"/>
+                                            <constraint firstAttribute="width" constant="94" id="uri-Tb-K9H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Disconnect">
+                                            <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cancel:" destination="uvW-Ya-KCm" eventType="touchUpInside" id="bzs-9p-zuB"/>
+                                            <action selector="cancelDialog:" destination="THf-we-SFF" eventType="touchUpInside" id="WZl-gw-bJq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-zc-tlg">
+                                        <rect key="frame" x="235" y="450" width="94" height="30"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.1529411765" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="94" id="kUe-Ng-zh7"/>
+                                            <constraint firstAttribute="height" constant="30" id="sEt-Iw-ITe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Delete"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteData:" destination="uvW-Ya-KCm" eventType="touchUpInside" id="emp-zU-wnx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="sdy-zc-tlg" secondAttribute="bottom" constant="20" id="Ago-At-xDg"/>
+                                    <constraint firstAttribute="trailing" secondItem="sdy-zc-tlg" secondAttribute="trailing" constant="15" id="C0F-Gp-aTk"/>
+                                    <constraint firstItem="yPa-xb-Nxg" firstAttribute="top" secondItem="VfC-gL-KR1" secondAttribute="bottom" constant="19" id="N3F-a5-OR1"/>
+                                    <constraint firstAttribute="width" constant="344" id="QB0-mN-kAd"/>
+                                    <constraint firstItem="yPa-xb-Nxg" firstAttribute="centerX" secondItem="VfC-gL-KR1" secondAttribute="centerX" id="cDR-k2-IoL"/>
+                                    <constraint firstItem="TgB-PU-kTw" firstAttribute="top" secondItem="9el-14-uuf" secondAttribute="top" constant="10" id="ghp-LS-5Gm"/>
+                                    <constraint firstItem="VfC-gL-KR1" firstAttribute="top" secondItem="TgB-PU-kTw" secondAttribute="bottom" id="jX9-Dm-KaD"/>
+                                    <constraint firstItem="TeD-Py-lLJ" firstAttribute="centerY" secondItem="sdy-zc-tlg" secondAttribute="centerY" id="kJ2-At-651"/>
+                                    <constraint firstItem="sdy-zc-tlg" firstAttribute="leading" secondItem="TeD-Py-lLJ" secondAttribute="trailing" constant="11" id="lQA-SG-n2l"/>
+                                    <constraint firstItem="VfC-gL-KR1" firstAttribute="centerX" secondItem="TgB-PU-kTw" secondAttribute="centerX" id="mMQ-Rd-ur6"/>
+                                    <constraint firstItem="TgB-PU-kTw" firstAttribute="centerX" secondItem="9el-14-uuf" secondAttribute="centerX" id="t5k-4D-g43"/>
+                                    <constraint firstAttribute="height" constant="500" id="tCQ-Vx-Jxd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6W-NH-Nv8">
                                 <rect key="frame" x="0.0" y="849" width="430" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1635,6 +1722,25 @@ to check connected devices</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPc-mU-XcF">
+                                <rect key="frame" x="77" y="714" width="276" height="45"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.72549019609999998" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="mVJ-nD-2yc"/>
+                                    <constraint firstAttribute="height" constant="45" id="sZu-yY-kcr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Connect"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="connectButtonActions:" destination="6dt-d1-ALS" eventType="touchUpInside" id="1Io-BX-3hi"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjy-fW-Ku7">
                                 <rect key="frame" x="15" y="779" width="400" height="60"/>
                                 <subviews>
@@ -1987,25 +2093,6 @@ to check connected devices</string>
                                     <constraint firstItem="QUB-cm-5X1" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="top" id="wgX-5e-xHf"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPc-mU-XcF">
-                                <rect key="frame" x="77" y="714" width="276" height="45"/>
-                                <color key="backgroundColor" red="0.18039215689999999" green="0.72549019609999998" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="276" id="mVJ-nD-2yc"/>
-                                    <constraint firstAttribute="height" constant="45" id="sZu-yY-kcr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Connect"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="connectButtonActions:" destination="6dt-d1-ALS" eventType="touchUpInside" id="1Io-BX-3hi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZSM-7w-hGB"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
@@ -2027,6 +2114,7 @@ to check connected devices</string>
                             <constraint firstItem="aVj-0E-vSp" firstAttribute="top" secondItem="das-Ae-qEv" secondAttribute="bottom" constant="-40" id="JVX-oF-dVH"/>
                             <constraint firstItem="huO-xZ-7rE" firstAttribute="trailing" secondItem="ZSM-7w-hGB" secondAttribute="trailing" id="KDi-ED-wyG"/>
                             <constraint firstItem="c6W-NH-Nv8" firstAttribute="top" secondItem="Kzi-51-hst" secondAttribute="bottom" id="L4C-e7-nt9"/>
+                            <constraint firstItem="9el-14-uuf" firstAttribute="centerX" secondItem="ZSM-7w-hGB" secondAttribute="centerX" id="PZJ-C8-WT0"/>
                             <constraint firstItem="Cjy-fW-Ku7" firstAttribute="top" secondItem="HPc-mU-XcF" secondAttribute="bottom" constant="20" id="XEF-ch-3K9"/>
                             <constraint firstItem="Cjy-fW-Ku7" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" constant="15" id="XgE-kw-Ui2"/>
                             <constraint firstItem="Kzi-51-hst" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="Yhz-Dm-uqe"/>
@@ -2037,6 +2125,7 @@ to check connected devices</string>
                             <constraint firstItem="UBp-nR-cmC" firstAttribute="centerX" secondItem="82P-QT-v9H" secondAttribute="centerX" id="liq-gR-MbY"/>
                             <constraint firstItem="aVj-0E-vSp" firstAttribute="centerX" secondItem="das-Ae-qEv" secondAttribute="centerX" id="nk4-GP-OVt"/>
                             <constraint firstItem="das-Ae-qEv" firstAttribute="top" secondItem="Yhi-yc-WCF" secondAttribute="bottom" id="r7g-Jl-OTf"/>
+                            <constraint firstItem="9el-14-uuf" firstAttribute="centerY" secondItem="ZSM-7w-hGB" secondAttribute="centerY" id="xXH-r0-GgX"/>
                             <constraint firstItem="ZSM-7w-hGB" firstAttribute="trailing" secondItem="Cjy-fW-Ku7" secondAttribute="trailing" constant="15" id="xhn-8H-faY"/>
                             <constraint firstItem="das-Ae-qEv" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="zgm-FT-adJ"/>
                             <constraint firstItem="6is-cg-6Ws" firstAttribute="leading" secondItem="ZSM-7w-hGB" secondAttribute="leading" id="zol-2j-Y6k"/>
@@ -2051,6 +2140,7 @@ to check connected devices</string>
                         <outlet property="connectButton" destination="HPc-mU-XcF" id="gSJ-gU-0fd"/>
                         <outlet property="countryView" destination="Cjy-fW-Ku7" id="PrR-sQ-FHm"/>
                         <outlet property="countrylabel" destination="5W8-di-nZK" id="q3y-zH-iIq"/>
+                        <outlet property="disconnectView" destination="9el-14-uuf" id="v9f-H9-9o9"/>
                         <outlet property="flagImg" destination="bsV-JQ-0pC" id="xIp-uW-4vq"/>
                         <outlet property="heightConstraint" destination="GW2-hc-yta" id="ZXF-uD-gOq"/>
                         <outlet property="innerImg" destination="w6S-fR-D8u" id="PfP-g7-0CD"/>
@@ -2338,7 +2428,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRq-Tb-lLh">
-                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104"/>
+                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104.00000000000003"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-8K-NRm">
                                         <rect key="frame" x="25" y="31.666666666666686" width="41" height="41"/>
@@ -3037,7 +3127,7 @@ to check connected devices</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure want to delete this history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swZ-Ea-cs7">
-                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="267" height="18"/>
+                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="266.99999999999994" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3574,7 +3664,7 @@ to check connected devices</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure want to delete this history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Qb-l2G">
-                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="267" height="18"/>
+                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="266.99999999999994" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -5192,6 +5282,7 @@ Cancel subscription anytime from AppStore.</string>
         <image name="default_icon" width="41.666667938232422" height="41.333332061767578"/>
         <image name="delete" width="16" height="19.666666030883789"/>
         <image name="detail" width="21" height="21.333333969116211"/>
+        <image name="dissconnect" width="156" height="116.33333587646484"/>
         <image name="divider" width="3.3333332538604736" height="10.333333015441895"/>
         <image name="download_active" width="36" height="36"/>
         <image name="downloading" width="36" height="36"/>

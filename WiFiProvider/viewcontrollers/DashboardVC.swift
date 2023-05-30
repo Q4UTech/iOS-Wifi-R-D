@@ -13,6 +13,7 @@ class DashboardVC: UITabBarController,UITabBarControllerDelegate {
     var type = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("values3434 \(type) \(value)")
         CallAppLaunch.shared.v2CallonAppLaunch(from: self,value:value,type: type)
         // Do any additional setup after loading the view.
     }

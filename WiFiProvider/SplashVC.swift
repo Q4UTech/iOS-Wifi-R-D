@@ -14,7 +14,8 @@ import Network
 
 
 
-class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallBackListenerProtocol ,LanguageSelectionDelegate,SplashBannerListenerProtocol,OnBannerAdsIdLoadedProtocol{
+class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallBackListenerProtocol ,SplashBannerListenerProtocol,OnBannerAdsIdLoadedProtocol{
+    let SPLASH_SCREEN = "AN_SPLASH_SCREEN"
     func onBannerFailToLoad() {
         if !isSplash{
             isSplash = true
@@ -75,10 +76,11 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         super.viewDidLoad()
 //        Bundle.swizzleLocalization()
         CallOnSplash.shared.v2CallOnSplash(for: self)
+        SplashVC.fromSplash = true
         OnBannerAdsIdLoaded.adsInstanceHelper.onBannerAdsLoadeddelegates = self
         
         lightTheme()
-        SplashVC.fromSplash = true
+       
         letsGoButton.isHidden = true
         if !UserDefaults.standard.bool(forKey: ISFIRSTTIME) {
             setUpUI(status:false)
@@ -112,7 +114,6 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     }
     func callDelegates(){
         OnCacheFullAddListener.adsInstanceHelper.onCacheFullAdsdelegates = self
-        LanguageSelectionListener.instanceHelper.itemdelegates  = self
         SplashBannerListener.adsInstanceHelper.splashBannerdelegates = self
     }
     func checkApplaunch(){
@@ -170,10 +171,11 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
     @IBAction func policiesButtonAction(_ sender: Any) {
        //
+        BaseClass.init().privacyPolicy()
     }
     
     @IBAction func termsAction(_ sender: Any) {
-       // BaseClass.init().termsCondition()
+        BaseClass.init().termsCondition()
     }
     
     @IBAction func checkTermsConditionAction(_ sender: UIButton) {
@@ -230,14 +232,17 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         LaunchFullCallBackListener.adsInstanceHelper.fulladsdelegates = self
         OnCacheFullAddListener.adsInstanceHelper.onCacheFullAdsdelegates = self
         SplashBannerListener.adsInstanceHelper.splashBannerdelegates = self
-        callDelegates()
+//        callDelegates()
         getBannerAds()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         getBannerAds()
-       // getFirebaseTrackScreen(SPLASH_SCREEN)
+        getFirebaseTrackScreen(SPLASH_SCREEN)
     }
+    
+   
     
     private func startTimer() {
         self.splashCounter = 6
@@ -314,7 +319,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     func goToNextVC(){
 
             if fullAdStatus {
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WifiVC") as? WifiVC
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             else{
@@ -326,12 +331,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     }
     
     
-    func languageSelection(name: String, code: String) {
-        print("slecected\(name)")
-        //  self.selectedlanguageLabel.text = name
-        UserDefaults.standard.set(code, forKey: MyConstant.constants.APPLE_LANGUAGE)
-        // Bundle.swizzleLocalization()
-    }
+   
     func runnable(){
         if (!UserDefaults.standard.bool(forKey: ISFIRSTTIME) || !self.isFulladsLoaded || !self.isBannerLoaded ) {
             self.isFirstadsnotLoaded = true

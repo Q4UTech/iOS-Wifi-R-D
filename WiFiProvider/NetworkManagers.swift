@@ -30,7 +30,7 @@ public final class NetworkManagers {
         let launchcount = UserDefaults.standard.integer(forKey: LAUNCH_COUNT)
         let device_token = UserDefaults.standard.string(forKey: DEVICE_TOKEN)
         
-        params = ["app_id": "v5whowifiiosq",
+        params = ["app_id":APP_ID,
                   "country": getCountryNameInfo(),
                   "screen": "XHDPI",
                   "launchcount": "1",

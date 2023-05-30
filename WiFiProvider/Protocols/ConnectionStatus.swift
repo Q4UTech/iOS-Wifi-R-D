@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol ConnectionStatusDelegate: class {
+protocol ConnectionStatusDelegate: AnyObject {
     /// SwiftyAd did open
     
     func connectionStatus(connectionStatus: String)
