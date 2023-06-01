@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager"="Wi-Fi Manager";
+"No Wi-Fi Connection"="No Wi-Fi Connection";
+"Wifi Scan"="Wifi Scan";
+"Vpn"="Vpn";
+"Speed Test"="Speed Test";
+"Map View"="Map View";
+"List View"="List View";
+"VPN"="VPN";
+"Status"="Status";
+"Connected"="Connected";
+"Not Connected"="Not Connected";
+"Connecting"="Not Connecting";
+"Start"="Start";
+"Wait"="Wait";
+"Stop"="Stop";
+"Disconnect"="Disconnect";
+"Cancel"="Cancel";
+"Would you like to disconnect the current
+connection?"="Would you like to disconnect the current
+connection?";
+"Premium"="Premium";
+"Get access to premium features
+with no limit"="Get access to premium features
+with no limit";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi"="Unlock access to premium features and block unknown
+users from using your Wi-Fi";
+"Go Premium"="Go Premium";
+"Not now"="Not now";
+"Connected with"="Connected with";
+"Device Details"="Device Details";
+"Operating System"="Operating System";
+"Name"="Name";
+"Version"="Version";
+"Model"="Model";
+"Brand"="Brand";
+"Family"="Family";
+"Block this Device"="Block this Device";
+"Router Settings"="Router Settings";
+"Router Password"="Router Password";
+"Password"="Password";
+"Guide"="Guide";
+"Test Again"="Test Again";
+"Details"="Details";
+"mbps"="mbps";
+"Ping"="Ping";
+"Uploading"="Uploading";
+"Downloading"="Downloading";
+"Connected Type"="Connected Type";
+"IP Address"="IP Address";
+"Provider"="Provider";
+"Check Internet Speed Again"="Check Internet Speed Again";
+"History"="History";
+"Internet Speed Analysis"="Internet Speed Analysis";
+"Result History"="Result History";
+"Continue"="Continue";
+"Select Language"="Select Language";
+"Are you sure want to delete"="Are you sure want to delete";
+"WiFi Connection Needed"="WiFi Connection Needed";
+"Please connect to your Wi-Fi network
+to check connected devices"="Please connect to your Wi-Fi network
+to check connected devices";
+"Connect Now"="Connect Now";
+"ms"="ms";
+"Mbps"="Mbps";
+"Time Period"="Time Period";
+"Get a list of WiFi Passwords"="Get a list of WiFi Passwords";
+"Manage"="Manage";
+
+

@@ -1,0 +1,80 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "مدير Wi-Fi";
+"No Wi-Fi Connection" = "لا اتصال Wi-Fi";
+"Wifi Scan" = "مسح WiFi";
+"Vpn" = "VPN";
+"Speed Test" = "اختبار السرعة";
+"Map View" = "عرض الخريطة";
+"List View" = "عرض القائمة";
+"VPN" = "VPN";
+"Status" = "حالة";
+"Connected" = "متصل";
+"Not Connected" = "غير متصل";
+"Connecting" = "توصيل";
+"Start" = "يبدأ";
+"Wait" = "انتظر";
+"Stop" = "قف";
+"Disconnect" = "قطع الاتصال";
+"Cancel" = "يلغي";
+"Would you like to disconnect the current
+connection?" = "هل ترغب في فصل التيار
+اتصال
+";
+"Premium" = "غالي";
+"Get access to premium features
+with no limit" = "
+احصل على الوصول إلى الميزات المتميزة
+بلا حدود
+";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" ="فتح الوصول إلى الميزات المتميزة وحظر المجهول
+المستخدمين من استخدام شبكة Wi-Fi الخاصة بك
+";
+"Go Premium" = "احصل على الاشتراك الرئيسي";
+"Not now" = "ليس الآن";
+"Connected with" = "متصل مع";
+"Device Details" = "تفاصيل الجهاز";
+"Operating System" = "نظام التشغيل";
+"Name" = "اسم";
+"Version" = "إصدار";
+"Model" = "نموذج";
+"Brand" = "ماركة";
+"Family" = "عائلة";
+"Block this Device" = "منع هذا الجهاز";
+"Router Settings" = "إعدادات جهاز التوجيه";
+"Router Password" = "كلمة مرور الجهاز";
+"Password" = "كلمة المرور";
+"Guide" = "مرشد";
+"Test Again" = "اختبار مرة أخرى";
+"Details" = "تفاصيل";
+"mbps" = "ميغابت في الثانية";
+"Ping" = "بينغ";
+"Uploading" = "التحميل";
+"Downloading" = "جارى التحميل";
+"Connected Type" = "نوع متصل";
+"IP Address" = "عنوان IP";
+"Provider" = "مزود";
+"Check Internet Speed Again" = "تحقق من سرعة الإنترنت مرة أخرى";
+"History" = "تاريخ";
+"Internet Speed Analysis" = "تحليل سرعة الإنترنت";
+"Result History" = "تاريخ النتيجة";
+"Continue" = "يكمل";
+"Select Language" = "اختار اللغة";
+"Are you sure want to delete" = "هل أنت متأكد من حذف";
+"WiFi Connection Needed" = "اتصال wifi المطلوب";
+"Please connect to your Wi-Fi network
+to check connected devices" = "يرجى الاتصال بشبكة Wi-Fi الخاصة بك
+للتحقق من الأجهزة المتصلة
+";
+"Connect Now" = "الاتصال الآن";
+"ms" = "آنسة";
+"Mbps" = "ميغابت في الثانية";
+"Time Period" = "فترة زمنية";
+"Get a list of WiFi Passwords" = "احصل على قائمة بكلمات مرور WiFi";
+"Manage" = "يدير";

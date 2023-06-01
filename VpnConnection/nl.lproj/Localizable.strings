@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "Wifi manager";
+"No Wi-Fi Connection" = "Geen wifi-verbinding";
+"Wifi Scan" = "Wifi -scan";
+"Vpn" = "VPN";
+"Speed Test" = "Snelheidstest";
+"Map View" = "Kaartweergave";
+"List View" = "Lijstweergave";
+"VPN" = "VPN";
+"Status" = "Toestand";
+"Connected" = "Verbonden";
+"Not Connected" = "Niet verbonden";
+"Connecting" = "Verbinden";
+"Start" = "Begin";
+"Wait" = "Wachten";
+"Stop" = "Stop";
+"Disconnect" = "Loskoppelen";
+"Cancel" = "Annuleren";
+"Would you like to disconnect the current
+connection?" = "Wilt u de stroom loskoppelen
+verbinding?";
+"Premium" = "Premie";
+"Get access to premium features
+with no limit" = "Krijg toegang tot premium -functies
+zonder limiet";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" = "Ontgrendel toegang tot premium -functies en blokkeer onbekend
+Gebruikers van het gebruik van uw wifi";
+"Go Premium" = "Go Premium";
+"Not now" = "Niet nu";
+"Connected with" = "Verbonden met";
+"Device Details" = "Apparaatdetails";
+"Operating System" = "Besturingssysteem";
+"Name" = "Naam";
+"Version" = "Versie";
+"Model" = "Model";
+"Brand" = "Merk";
+"Family" = "Familie";
+"Block this Device" = "Blokkeer dit apparaat";
+"Router Settings" = "Routerinstellingen";
+"Router Password" = "Routerwachtwoord";
+"Password" = "Wachtwoord";
+"Guide" = "Gids";
+"Test Again" = "Nog een keer testen";
+"Details" = "Details";
+"mbps" = "Mbps";
+"Ping" = "Ping";
+"Uploading" = "Het uploaden";
+"Downloading" = "Het downloaden";
+"Connected Type" = "Verbonden type";
+"IP Address" = "IP adres";
+"Provider" = "Leverancier";
+"Check Internet Speed Again" = "Controleer de internetsnelheid opnieuw";
+"History" = "Geschiedenis";
+"Internet Speed Analysis" = "Internetsnelheidsanalyse";
+"Result History" = "Resultaatgeschiedenis";
+"Continue" = "Doorgaan";
+"Select Language" = "Selecteer taal";
+"Are you sure want to delete" = "Wilt u zeker verwijderen?";
+"WiFi Connection Needed" = "Wifi -verbinding nodig";
+"Please connect to your Wi-Fi network
+to check connected devices" = "Maak verbinding met uw wifi-netwerk
+Om verbonden apparaten te controleren";
+"Connect Now" = "Verbind nu";
+"ms" = "Mevr";
+"Mbps" = "Mbps";
+"Time Period" = "Tijdsperiode";
+"Get a list of WiFi Passwords" = "Koop een lijst met wifi -wachtwoorden";
+"Manage" = "Beheren";

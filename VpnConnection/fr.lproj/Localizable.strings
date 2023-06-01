@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "Wi-Fi Manager";
+"No Wi-Fi Connection" = "Pas de connexion Wi-Fi";
+"Wifi Scan" = "Scanner wifi";
+"Vpn" = "VPN";
+"Speed Test" = "Test de rapidité";
+"Map View" = "Vue de la carte";
+"List View" = "Affichage de la liste";
+"VPN" = "VPN";
+"Status" = "Statut";
+"Connected" = "Connecté";
+"Not Connected" = "Pas connecté";
+"Connecting" = "De liaison";
+"Start" = "Commencer";
+"Wait" = "Attendez";
+"Stop" = "Arrêt";
+"Disconnect" = "Débrancher";
+"Cancel" = "Annuler";
+"Would you like to disconnect the current
+connection?" = "Souhaitez-vous déconnecter le courant
+connexion?";
+"Premium" = "Prime";
+"Get access to premium features
+with no limit" = "Avoir accès aux fonctionnalités premium
+sans limite";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" = "Déverrouiller l'accès aux fonctionnalités premium et à bloquer inconnu
+utilisateurs de l'utilisation de votre Wi-Fi";
+"Go Premium" = "Passer en Premium";
+"Not now" = "Pas maintenant";
+"Connected with" = "Connecté avec";
+"Device Details" = "Détails de l'appareil";
+"Operating System" = "Système opérateur";
+"Name" = "Nom";
+"Version" = "Version";
+"Model" = "Modèle";
+"Brand" = "Marque";
+"Family" = "Famille";
+"Block this Device" = "Bloquer cet appareil";
+"Router Settings" = "Paramètres du routeur";
+"Router Password" = "Mot de passe du routeur";
+"Password" = "Mot de passe";
+"Guide" = "Guide";
+"Test Again" = "Testez à nouveau";
+"Details" = "Détails";
+"mbps" = "MBPS";
+"Ping" = "Ping-ping";
+"Uploading" = "Téléchargement";
+"Downloading" = "Téléchargement";
+"Connected Type" = "Type connecté";
+"IP Address" = "Adresse IP";
+"Provider" = "Fournisseur";
+"Check Internet Speed Again" = "Vérifiez à nouveau la vitesse Internet";
+"History" = "Histoire";
+"Internet Speed Analysis" = "Analyse de la vitesse Internet";
+"Result History" = "Historique des résultats";
+"Continue" = "Continuer";
+"Select Language" = "Choisir la langue";
+"Are you sure want to delete" = "Êtes-vous sûr de vouloir supprimer";
+"WiFi Connection Needed" = "Connexion wifi nécessaire";
+"Please connect to your Wi-Fi network
+to check connected devices" = "Veuillez vous connecter à votre réseau Wi-Fi
+Pour vérifier les appareils connectés";
+"Connect Now" = "Se connecter maintenant";
+"ms" = "SP";
+"Mbps" = "MBPS";
+"Time Period" = "Période de temps";
+"Get a list of WiFi Passwords" = "Obtenez une liste de mots de passe wifi";
+"Manage" = "Gérer";

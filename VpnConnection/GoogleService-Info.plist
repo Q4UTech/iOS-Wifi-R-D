@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>10773095903-nanfj7pr7jvqullsf0j9ebghsbh236ep.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.10773095903-nanfj7pr7jvqullsf0j9ebghsbh236ep</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBPa6qcm3-LUUQ_JKbDsbAX2jcwnIzHh3w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>10773095903</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.quantum.whoisonmywifi.wifimap.wifiscan.wifidetector.wifihacker.password</string>
+	<key>PROJECT_ID</key>
+	<string>ios-who-is-on-wifi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ios-who-is-on-wifi.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:10773095903:ios:5686225d0b40175ea6906a</string>
+</dict>
+</plist>

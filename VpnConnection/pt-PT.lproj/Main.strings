@@ -1,0 +1,540 @@
+
+/* Class = "UILabel"; text = "Start"; ObjectID = "0Mu-qM-15D"; */
+"0Mu-qM-15D.text" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Go Premium"; ObjectID = "0Nt-FJ-6GP"; */
+"0Nt-FJ-6GP.normalTitle" = "Go Premium";
+
+/* Class = "UILabel"; text = "windows"; ObjectID = "0k5-qC-M8i"; */
+"0k5-qC-M8i.text" = "windows";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "16K-dm-wUw"; */
+"16K-dm-wUw.text" = "History";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "16n-kj-qYC"; */
+"16n-kj-qYC.text" = "Label";
+
+/* Class = "UILabel"; text = "Desktop"; ObjectID = "2ee-kW-N7D"; */
+"2ee-kW-N7D.text" = "Desktop";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "37W-Zl-uep"; */
+"37W-Zl-uep.text" = "00.0";
+
+/* Class = "UILabel"; text = "Wifi Manager"; ObjectID = "3Y8-as-mLM"; */
+"3Y8-as-mLM.text" = "Wifi Manager";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3pk-uB-o9B"; */
+"3pk-uB-o9B.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3uP-iQ-TZS"; */
+"3uP-iQ-TZS.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Go Premium"; ObjectID = "4SW-50-y4W"; */
+"4SW-50-y4W.normalTitle" = "Go Premium";
+
+/* Class = "UIButton"; normalTitle = "Subscribe Now"; ObjectID = "4mx-CI-w6a"; */
+"4mx-CI-w6a.normalTitle" = "Subscribe Now";
+
+/* Class = "UILabel"; text = "Yearly plan will Auto-renews every year for $59.99.\nCancel subscription anytime from AppStore."; ObjectID = "5Jq-8U-UYF"; */
+"5Jq-8U-UYF.text" = "Yearly plan will Auto-renews every year for $59.99.\nCancel subscription anytime from AppStore.";
+
+/* Class = "UILabel"; text = "Connected Type:"; ObjectID = "5NS-vz-G1c"; */
+"5NS-vz-G1c.text" = "Connected Type:";
+
+/* Class = "UILabel"; text = "America"; ObjectID = "5W8-di-nZK"; */
+"5W8-di-nZK.text" = "America";
+
+/* Class = "UILabel"; text = "&"; ObjectID = "5wq-GL-Xbi"; */
+"5wq-GL-Xbi.text" = "&";
+
+/* Class = "UILabel"; text = "Dell"; ObjectID = "6JC-E2-Esh"; */
+"6JC-E2-Esh.text" = "Dell";
+
+/* Class = "UILabel"; text = "Upload Mbps "; ObjectID = "6c6-Dp-RMu"; */
+"6c6-Dp-RMu.text" = "Upload Mbps ";
+
+/* Class = "UILabel"; text = "Map View"; ObjectID = "76T-d4-dA4"; */
+"76T-d4-dA4.text" = "Map View";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "7Sc-hU-TgR"; */
+"7Sc-hU-TgR.text" = "Label";
+
+/* Class = "UILabel"; text = "Rate App"; ObjectID = "8KB-Ti-Cbz"; */
+"8KB-Ti-Cbz.text" = "Rate App";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "9pX-Su-9zb"; */
+"9pX-Su-9zb.text" = "History";
+
+/* Class = "UILabel"; text = "Speed Test"; ObjectID = "A4Z-Zw-DL9"; */
+"A4Z-Zw-DL9.text" = "Speed Test";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "B5s-S7-loY"; */
+"B5s-S7-loY.text" = "mbps";
+
+/* Class = "UILabel"; text = "Go Premium"; ObjectID = "BSe-4a-pEJ"; */
+"BSe-4a-pEJ.text" = "Go Premium";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "BmZ-gf-aMt"; */
+"BmZ-gf-aMt.text" = "History";
+
+/* Class = "UITabBarItem"; title = "Vpn"; ObjectID = "Cbh-ll-DUA"; */
+"Cbh-ll-DUA.title" = "Vpn";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cec-Cw-WQt"; */
+"Cec-Cw-WQt.text" = "Label";
+
+/* Class = "UILabel"; text = "17:22"; ObjectID = "Cpo-Y7-aWZ"; */
+"Cpo-Y7-aWZ.text" = "17:22";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "D2f-kr-PSH"; */
+"D2f-kr-PSH.normalTitle" = "Delete";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "D6V-RY-bEv"; */
+"D6V-RY-bEv.text" = "00.0";
+
+/* Class = "UILabel"; text = "If you can only see the password on the\nback of the router,"; ObjectID = "Daa-O7-aNu"; */
+"Daa-O7-aNu.text" = "If you can only see the password on the\nback of the router,";
+
+/* Class = "UILabel"; text = "Rate App"; ObjectID = "EpM-Un-bJE"; */
+"EpM-Un-bJE.text" = "Rate App";
+
+/* Class = "UILabel"; text = "Connected with"; ObjectID = "Exg-PP-wPp"; */
+"Exg-PP-wPp.text" = "Connected with";
+
+/* Class = "UILabel"; text = "Remove Ads"; ObjectID = "F4u-vk-i27"; */
+"F4u-vk-i27.text" = "Remove Ads";
+
+/* Class = "UILabel"; text = "Operating System"; ObjectID = "FM8-C6-91A"; */
+"FM8-C6-91A.text" = "Operating System";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "FwG-hU-EF3"; */
+"FwG-hU-EF3.text" = "English";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G4P-JK-cfb"; */
+"G4P-JK-cfb.text" = "Label";
+
+/* Class = "UILabel"; text = "Delete"; ObjectID = "GQj-XH-CVQ"; */
+"GQj-XH-CVQ.text" = "Delete";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GnT-ze-ait"; */
+"GnT-ze-ait.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Connect"; ObjectID = "HPc-mU-XcF"; */
+"HPc-mU-XcF.normalTitle" = "Connect";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hh4-zg-bXB"; */
+"Hh4-zg-bXB.text" = "Label";
+
+/* Class = "UILabel"; text = "Status : "; ObjectID = "Ioa-ka-of1"; */
+"Ioa-ka-of1.text" = "Status : ";
+
+/* Class = "UILabel"; text = "Singapore"; ObjectID = "JCF-Rs-xvS"; */
+"JCF-Rs-xvS.text" = "Singapore";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "JWR-cz-EUX"; */
+"JWR-cz-EUX.text" = "00.0";
+
+/* Class = "UILabel"; text = "Time Peroid"; ObjectID = "JiH-y3-nGH"; */
+"JiH-y3-nGH.text" = "Time Peroid";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "JlK-iY-KAO"; */
+"JlK-iY-KAO.normalTitle" = "Skip";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KIX-UC-0QB"; */
+"KIX-UC-0QB.text" = "Label";
+
+/* Class = "UILabel"; text = "Share App"; ObjectID = "KM9-Jc-vUt"; */
+"KM9-Jc-vUt.text" = "Share App";
+
+/* Class = "UILabel"; text = "ms"; ObjectID = "Kc5-gz-6fG"; */
+"Kc5-gz-6fG.text" = "ms";
+
+/* Class = "UILabel"; text = "More Apps"; ObjectID = "Khy-ve-Ayi"; */
+"Khy-ve-Ayi.text" = "More Apps";
+
+/* Class = "UILabel"; text = "Share App"; ObjectID = "KlF-YM-ep0"; */
+"KlF-YM-ep0.text" = "Share App";
+
+/* Class = "UIButton"; normalTitle = "Not Now"; ObjectID = "Kun-uC-kkJ"; */
+"Kun-uC-kkJ.normalTitle" = "Not Now";
+
+/* Class = "UILabel"; text = "Subscribe for"; ObjectID = "L3a-4P-nN8"; */
+"L3a-4P-nN8.text" = "Subscribe for";
+
+/* Class = "UILabel"; text = "Provider:"; ObjectID = "Lco-i8-97J"; */
+"Lco-i8-97J.text" = "Provider:";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "Mct-lm-jKn"; */
+"Mct-lm-jKn.text" = "0.00";
+
+/* Class = "UIButton"; normalTitle = "Allow"; ObjectID = "Mhq-qz-cvZ"; */
+"Mhq-qz-cvZ.normalTitle" = "Allow";
+
+/* Class = "UILabel"; text = "Select Language"; ObjectID = "N24-Sa-O0P"; */
+"N24-Sa-O0P.text" = "Select Language";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "Ne4-c7-PE6"; */
+"Ne4-c7-PE6.text" = "0.00";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "O8G-vM-Ihj"; */
+"O8G-vM-Ihj.text" = "Label";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "OVP-40-KaL"; */
+"OVP-40-KaL.text" = "0.00";
+
+/* Class = "UITabBarItem"; title = "Speed Test"; ObjectID = "Osd-AM-5Mn"; */
+"Osd-AM-5Mn.title" = "Speed Test";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "OtS-Bx-obT"; */
+"OtS-Bx-obT.text" = "Language";
+
+/* Class = "UILabel"; text = "Select Server"; ObjectID = "PEK-Pu-EKP"; */
+"PEK-Pu-EKP.text" = "Select Server";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "PFy-io-5hm"; */
+"PFy-io-5hm.text" = "Feedback";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "RSn-UU-uxH"; */
+"RSn-UU-uxH.text" = "History";
+
+/* Class = "UISegmentedControl"; S0W-Qq-Pf3.segmentTitles[0] = "Password"; ObjectID = "S0W-Qq-Pf3"; */
+"S0W-Qq-Pf3.segmentTitles[0]" = "Password";
+
+/* Class = "UISegmentedControl"; S0W-Qq-Pf3.segmentTitles[1] = "Guide"; ObjectID = "S0W-Qq-Pf3"; */
+"S0W-Qq-Pf3.segmentTitles[1]" = "Guide";
+
+/* Class = "UILabel"; text = "Average"; ObjectID = "S3q-Tl-bY5"; */
+"S3q-Tl-bY5.text" = "Average";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TJN-xa-S7e"; */
+"TJN-xa-S7e.text" = "Label";
+
+/* Class = "UILabel"; text = "Router Settings"; ObjectID = "TYV-rd-zgj"; */
+"TYV-rd-zgj.text" = "Router Settings";
+
+/* Class = "UILabel"; text = "version"; ObjectID = "Tcx-4Q-eka"; */
+"Tcx-4Q-eka.text" = "version";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "Tdg-e7-J0K"; */
+"Tdg-e7-J0K.text" = "00.0";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "TeD-Py-lLJ"; */
+"TeD-Py-lLJ.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "Tk1-aK-TfF"; */
+"Tk1-aK-TfF.text" = "00.0";
+
+/* Class = "UIButton"; normalTitle = "Test Again"; ObjectID = "Tkr-6M-whf"; */
+"Tkr-6M-whf.normalTitle" = "Test Again";
+
+/* Class = "UILabel"; text = "Unlock Premium Features"; ObjectID = "TyM-82-a4A"; */
+"TyM-82-a4A.text" = "Unlock Premium Features";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "U71-Kj-ysi"; */
+"U71-Kj-ysi.text" = "0.00";
+
+/* Class = "UILabel"; text = "00:45:29"; ObjectID = "UBp-nR-cmC"; */
+"UBp-nR-cmC.text" = "00:45:29";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "UCC-KC-HzZ"; */
+"UCC-KC-HzZ.text" = "Language";
+
+/* Class = "UILabel"; text = "Average"; ObjectID = "UD2-OH-SXJ"; */
+"UD2-OH-SXJ.text" = "Average";
+
+/* Class = "UILabel"; text = "Type (IP)"; ObjectID = "UKY-zl-BOV"; */
+"UKY-zl-BOV.text" = "Type (IP)";
+
+/* Class = "UILabel"; text = "Upload"; ObjectID = "UTQ-jA-Xc0"; */
+"UTQ-jA-Xc0.text" = "Upload";
+
+/* Class = "UILabel"; text = "Device Detail"; ObjectID = "UU6-OY-oJr"; */
+"UU6-OY-oJr.text" = "Device Detail";
+
+/* Class = "UILabel"; text = "Ads free\nAccess"; ObjectID = "Ulm-7f-OyX"; */
+"Ulm-7f-OyX.text" = "Ads free\nAccess";
+
+/* Class = "UILabel"; text = "Total Passwords : 1500"; ObjectID = "Uz5-en-ea9"; */
+"Uz5-en-ea9.text" = "Total Passwords : 1500";
+
+/* Class = "UILabel"; text = "Dell"; ObjectID = "UzD-1B-yxX"; */
+"UzD-1B-yxX.text" = "Dell";
+
+/* Class = "UILabel"; text = "Default password"; ObjectID = "V5e-bR-QyJ"; */
+"V5e-bR-QyJ.text" = "Default password";
+
+/* Class = "UILabel"; text = "Wi-Fi Manager"; ObjectID = "VM4-VJ-cgP"; */
+"VM4-VJ-cgP.text" = "Wi-Fi Manager";
+
+/* Class = "UILabel"; text = "Disconnect"; ObjectID = "VfC-gL-KR1"; */
+"VfC-gL-KR1.text" = "Disconnect";
+
+/* Class = "UILabel"; text = "Result History"; ObjectID = "W04-v4-WRt"; */
+"W04-v4-WRt.text" = "Result History";
+
+/* Class = "UITabBarItem"; title = "Wifi Scan"; ObjectID = "XdD-Wo-doT"; */
+"XdD-Wo-doT.title" = "Wifi Scan";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "Y4H-3A-vTH"; */
+"Y4H-3A-vTH.normalTitle" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Get Started"; ObjectID = "YEt-L9-Sca"; */
+"YEt-L9-Sca.normalTitle" = "Get Started";
+
+/* Class = "UILabel"; text = "Check Internet Speed Again"; ObjectID = "YsD-gw-Tq0"; */
+"YsD-gw-Tq0.text" = "Check Internet Speed Again";
+
+/* Class = "UILabel"; text = "Download"; ObjectID = "ZJj-Z9-toj"; */
+"ZJj-Z9-toj.text" = "Download";
+
+/* Class = "UILabel"; text = "Ok! We need some access!"; ObjectID = "Zu5-Il-EKs"; */
+"Zu5-Il-EKs.text" = "Ok! We need some access!";
+
+/* Class = "UILabel"; text = "Latitude"; ObjectID = "aZf-zm-dok"; */
+"aZf-zm-dok.text" = "Latitude";
+
+/* Class = "UILabel"; text = "Get a list of WiFi Passwords"; ObjectID = "ad2-8q-biw"; */
+"ad2-8q-biw.text" = "Get a list of WiFi Passwords";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bia-yA-chp"; */
+"bia-yA-chp.text" = "Label";
+
+/* Class = "UILabel"; text = "List View"; ObjectID = "bxw-JN-1dh"; */
+"bxw-JN-1dh.text" = "List View";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "c4y-yQ-GGs"; */
+"c4y-yQ-GGs.text" = "About Us";
+
+/* Class = "UILabel"; text = "Default user name"; ObjectID = "cdz-HG-NTq"; */
+"cdz-HG-NTq.text" = "Default user name";
+
+/* Class = "UILabel"; text = "Get access to premium features\nwith no limit"; ObjectID = "cit-1i-tlu"; */
+"cit-1i-tlu.text" = "Get access to premium features\nwith no limit";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "d7B-s2-q2R"; */
+"d7B-s2-q2R.text" = "0.00";
+
+/* Class = "UILabel"; text = "Router Password"; ObjectID = "dAH-UJ-gyL"; */
+"dAH-UJ-gyL.text" = "Router Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dD8-yx-cjF"; */
+"dD8-yx-cjF.text" = "Label";
+
+/* Class = "UILabel"; text = "Downloading"; ObjectID = "dLP-ot-hw0"; */
+"dLP-ot-hw0.text" = "Downloading";
+
+/* Class = "UILabel"; text = "Brand"; ObjectID = "dXI-0M-Xur"; */
+"dXI-0M-Xur.text" = "Brand";
+
+/* Class = "UILabel"; text = "Latitude"; ObjectID = "duR-om-ZNT"; */
+"duR-om-ZNT.text" = "Latitude";
+
+/* Class = "UILabel"; text = "Brand"; ObjectID = "eQp-Xu-Q58"; */
+"eQp-Xu-Q58.text" = "Brand";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "eWK-nk-CKj"; */
+"eWK-nk-CKj.text" = "mbps";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "enT-Gv-O8L"; */
+"enT-Gv-O8L.text" = "Feedback";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fFY-jb-53r"; */
+"fFY-jb-53r.text" = "Label";
+
+/* Class = "UILabel"; text = "i agree"; ObjectID = "fOf-VK-7bI"; */
+"fOf-VK-7bI.text" = "i agree";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "fad-YA-m1r"; */
+"fad-YA-m1r.text" = "mbps";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gMx-hv-uPq"; */
+"gMx-hv-uPq.text" = "Label";
+
+/* Class = "UILabel"; text = "Block unwanted\ndevices"; ObjectID = "gWa-aU-WlM"; */
+"gWa-aU-WlM.text" = "Block unwanted\ndevices";
+
+/* Class = "UILabel"; text = "Window"; ObjectID = "gpl-oj-tNd"; */
+"gpl-oj-tNd.text" = "Window";
+
+/* Class = "UILabel"; text = "ms"; ObjectID = "gqk-a7-HKM"; */
+"gqk-a7-HKM.text" = "ms";
+
+/* Class = "UILabel"; text = "Download  Mbps"; ObjectID = "gsn-OJ-2Ra"; */
+"gsn-OJ-2Ra.text" = "Download  Mbps";
+
+/* Class = "UILabel"; text = "Not Connected"; ObjectID = "hK0-Gs-Msu"; */
+"hK0-Gs-Msu.text" = "Not Connected";
+
+/* Class = "UILabel"; text = "[Mbps]"; ObjectID = "hZh-Sh-74a"; */
+"hZh-Sh-74a.text" = "[Mbps]";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "hbp-4o-4aM"; */
+"hbp-4o-4aM.text" = "mbps";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "iIh-Ju-liI"; */
+"iIh-Ju-liI.text" = "Language";
+
+/* Class = "UILabel"; text = "Rate App"; ObjectID = "iNX-QE-WUu"; */
+"iNX-QE-WUu.text" = "Rate App";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "iQg-p0-hj5"; */
+"iQg-p0-hj5.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Connect Now"; ObjectID = "ixs-is-TdQ"; */
+"ixs-is-TdQ.normalTitle" = "Connect Now";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "j6j-u9-25c"; */
+"j6j-u9-25c.normalTitle" = "Delete";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "j7M-y7-BbA"; */
+"j7M-y7-BbA.text" = "About Us";
+
+/* Class = "UILabel"; text = "View WiFi\nPasswords"; ObjectID = "j9w-KH-AO0"; */
+"j9w-KH-AO0.text" = "View WiFi\nPasswords";
+
+/* Class = "UILabel"; text = "Internet Speed Analysis"; ObjectID = "jBu-mR-TM1"; */
+"jBu-mR-TM1.text" = "Internet Speed Analysis";
+
+/* Class = "UILabel"; text = "Consumer"; ObjectID = "jMH-0U-bI1"; */
+"jMH-0U-bI1.text" = "Consumer";
+
+/* Class = "UILabel"; text = "Ping"; ObjectID = "jhL-IP-iKF"; */
+"jhL-IP-iKF.text" = "Ping";
+
+/* Class = "UILabel"; text = "More App"; ObjectID = "juU-TN-fD8"; */
+"juU-TN-fD8.text" = "More App";
+
+/* Class = "UILabel"; text = "00.0"; ObjectID = "k45-DQ-Roc"; */
+"k45-DQ-Roc.text" = "00.0";
+
+/* Class = "UILabel"; text = "(online since 6h)"; ObjectID = "k5X-0W-dTT"; */
+"k5X-0W-dTT.text" = "(online since 6h)";
+
+/* Class = "UILabel"; text = "Average"; ObjectID = "kDO-Ve-wzZ"; */
+"kDO-Ve-wzZ.text" = "Average";
+
+/* Class = "UILabel"; text = "ms"; ObjectID = "kaT-eK-rwp"; */
+"kaT-eK-rwp.text" = "ms";
+
+/* Class = "UILabel"; text = "Remove Ads"; ObjectID = "kv3-mJ-ko1"; */
+"kv3-mJ-ko1.text" = "Remove Ads";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "kvu-lI-EBG"; */
+"kvu-lI-EBG.text" = "Details";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "lBK-BY-Axq"; */
+"lBK-BY-Axq.text" = "0.00";
+
+/* Class = "UILabel"; text = "Ping"; ObjectID = "lDP-Bd-NqP"; */
+"lDP-Bd-NqP.text" = "Ping";
+
+/* Class = "UILabel"; text = "IP Address:"; ObjectID = "m5e-vI-EyU"; */
+"m5e-vI-EyU.text" = "IP Address:";
+
+/* Class = "UILabel"; text = "Family"; ObjectID = "m9f-rd-vLd"; */
+"m9f-rd-vLd.text" = "Family";
+
+/* Class = "UILabel"; text = "Unlock access to premium features and block unknown\nusers from using your Wi-Fi"; ObjectID = "mO6-fX-Yfu"; */
+"mO6-fX-Yfu.text" = "Unlock access to premium features and block unknown\nusers from using your Wi-Fi";
+
+/* Class = "UILabel"; text = "Wi-Fi Connection Needed"; ObjectID = "moQ-28-G2P"; */
+"moQ-28-G2P.text" = "Wi-Fi Connection Needed";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "nMa-ss-1TB"; */
+"nMa-ss-1TB.text" = "Feedback";
+
+/* Class = "UILabel"; text = "Check who is usig your WI-FI"; ObjectID = "o8W-Dp-g4K"; */
+"o8W-Dp-g4K.text" = "Check who is usig your WI-FI";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "o8Z-qs-JQB"; */
+"o8Z-qs-JQB.text" = "mbps";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "oFe-ZL-aea"; */
+"oFe-ZL-aea.text" = "mbps";
+
+/* Class = "UILabel"; text = "Router Password"; ObjectID = "oVB-wy-GIZ"; */
+"oVB-wy-GIZ.text" = "Router Password";
+
+/* Class = "UILabel"; text = "Premium"; ObjectID = "oVD-40-ddZ"; */
+"oVD-40-ddZ.text" = "Premium";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "pT1-gq-IJQ"; */
+"pT1-gq-IJQ.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Share App"; ObjectID = "pwM-v5-XaF"; */
+"pwM-v5-XaF.text" = "Share App";
+
+/* Class = "UIButton"; normalTitle = "Block this Device"; ObjectID = "pwf-Ys-gCh"; */
+"pwf-Ys-gCh.normalTitle" = "Block this Device";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "q5e-hf-1TM"; */
+"q5e-hf-1TM.text" = "About Us";
+
+/* Class = "UILabel"; text = "Ping"; ObjectID = "qBS-5Y-PU0"; */
+"qBS-5Y-PU0.text" = "Ping";
+
+/* Class = "UILabel"; text = "Product Class"; ObjectID = "qC1-9B-WkU"; */
+"qC1-9B-WkU.text" = "Product Class";
+
+/* Class = "UILabel"; text = "Please connect to your Wi-Fi network\nto check connected devices"; ObjectID = "qSV-NM-5ft"; */
+"qSV-NM-5ft.text" = "Please connect to your Wi-Fi network\nto check connected devices";
+
+/* Class = "UILabel"; text = "Premium Benefits"; ObjectID = "qad-Np-sUU"; */
+"qad-Np-sUU.text" = "Premium Benefits";
+
+/* Class = "UILabel"; text = "/ Weekly"; ObjectID = "rPw-ZY-lSg"; */
+"rPw-ZY-lSg.text" = "/ Weekly";
+
+/* Class = "UILabel"; text = "then the username is usually ‘admin’."; ObjectID = "rW3-6r-tgS"; */
+"rW3-6r-tgS.text" = "then the username is usually ‘admin’.";
+
+/* Class = "UILabel"; text = "Ping ms"; ObjectID = "s4n-7H-cfl"; */
+"s4n-7H-cfl.text" = "Ping ms";
+
+/* Class = "UIButton"; normalTitle = "Diconnect"; ObjectID = "sdy-zc-tlg"; */
+"sdy-zc-tlg.normalTitle" = "Diconnect";
+
+/* Class = "UILabel"; text = "Are you sure you want to delete "; ObjectID = "swZ-Ea-cs7"; */
+"swZ-Ea-cs7.text" = "Are you sure you want to delete ";
+
+/* Class = "UILabel"; text = "Delete"; ObjectID = "tjy-Xz-K6P"; */
+"tjy-Xz-K6P.text" = "Delete";
+
+/* Class = "UILabel"; text = "mbps"; ObjectID = "tyQ-bg-hAb"; */
+"tyQ-bg-hAb.text" = "mbps";
+
+/* Class = "UILabel"; text = "Rahul’s Wi-Fi"; ObjectID = "uPF-8M-FKz"; */
+"uPF-8M-FKz.text" = "Rahul’s Wi-Fi";
+
+/* Class = "UILabel"; text = "Uploading"; ObjectID = "uWl-XB-PrR"; */
+"uWl-XB-PrR.text" = "Uploading";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uX6-Qo-IR8"; */
+"uX6-Qo-IR8.text" = "Label";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "ulK-XI-Qtl"; */
+"ulK-XI-Qtl.text" = "0.00";
+
+/* Class = "UILabel"; text = "Uploading"; ObjectID = "vng-70-3do"; */
+"vng-70-3do.text" = "Uploading";
+
+/* Class = "UILabel"; text = "The username are usually located on\nthe back of your WiFi router."; ObjectID = "xJU-Ne-hVe"; */
+"xJU-Ne-hVe.text" = "The username are usually located on\nthe back of your WiFi router.";
+
+/* Class = "UILabel"; text = "As you can see in the picture."; ObjectID = "xkO-6z-km2"; */
+"xkO-6z-km2.text" = "As you can see in the picture.";
+
+/* Class = "UILabel"; text = "VPN"; ObjectID = "yGG-Lp-h8Z"; */
+"yGG-Lp-h8Z.text" = "VPN";
+
+/* Class = "UILabel"; text = "Would you like to disconnect the current\nconnection?"; ObjectID = "yPa-xb-Nxg"; */
+"yPa-xb-Nxg.text" = "Would you like to disconnect the current\nconnection?";
+
+/* Class = "UILabel"; text = "Are you sure want to delete this history"; ObjectID = "yRw-Qb-l2G"; */
+"yRw-Qb-l2G.text" = "Are you sure want to delete this history";
+
+/* Class = "UILabel"; text = "More App"; ObjectID = "ywr-nh-trw"; */
+"ywr-nh-trw.text" = "More App";
+
+/* Class = "UILabel"; text = "Downloading"; ObjectID = "zFr-0a-jM1"; */
+"zFr-0a-jM1.text" = "Downloading";

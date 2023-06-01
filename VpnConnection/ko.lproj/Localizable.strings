@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "Wi-Fi 관리자";
+"No Wi-Fi Connection" = "Wi-Fi 연결이 없습니다";
+"Wifi Scan" = "Wi -Fi 스캔";
+"Vpn" = "VPN";
+"Speed Test" = "속도 테스트";
+"Map View" = "지도보기";
+"List View" = "목록보기";
+"VPN" = "VPN";
+"Status" = "상태";
+"Connected" = "연결";
+"Not Connected" = "연결되지 않은";
+"Connecting" = "연결";
+"Start" = "시작";
+"Wait" = "기다리다";
+"Stop" = "멈추다";
+"Disconnect" = "연결을 끊습니다";
+"Cancel" = "취소";
+"Would you like to disconnect the current
+connection?" = "전류를 분리하고 싶습니까?
+연결?";
+"Premium" = "프리미엄";
+"Get access to premium features
+with no limit" = "프리미엄 기능에 액세스하십시오
+제한이 없습니다";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" = "프리미엄 기능에 대한 액세스를 잠금 해제하고 알 수없는 차단
+Wi-Fi를 사용하는 사용자";
+"Go Premium" = "프리미엄으로 이동하십시오";
+"Not now" = "지금은 아닙니다";
+"Connected with" = "연관된";
+"Device Details" = "장치 세부 사항";
+"Operating System" = "운영 체제";
+"Name" = "이름";
+"Version" = "버전";
+"Model" = "모델";
+"Brand" = "상표";
+"Family" = "가족";
+"Block this Device" = "이 장치를 차단하십시오";
+"Router Settings" = "라우터 설정";
+"Router Password" = "라우터 비밀번호";
+"Password" = "비밀번호";
+"Guide" = "가이드";
+"Test Again" = "다시 테스트하십시오";
+"Details" = "세부";
+"mbps" = "MBPS";
+"Ping" = "핑";
+"Uploading" = "업로드";
+"Downloading" = "다운로드";
+"Connected Type" = "연결된 유형";
+"IP Address" = "IP 주소";
+"Provider" = "공급자";
+"Check Internet Speed Again" = "인터넷 속도를 다시 확인하십시오";
+"History" = "역사";
+"Internet Speed Analysis" = "인터넷 속도 분석";
+"Result History" = "결과 이력";
+"Continue" = "계속하다";
+"Select Language" = "언어를 선택하십시오";
+"Are you sure want to delete" = "삭제하고 싶습니까?";
+"WiFi Connection Needed" = "Wi -Fi 연결이 필요했습니다";
+"Please connect to your Wi-Fi network
+to check connected devices" = "Wi-Fi 네트워크에 연결하십시오
+연결된 장치를 확인합니다";
+"Connect Now" = "지금 연결하십시오";
+"ms" = "MS";
+"Mbps" = "MBPS";
+"Time Period" = "기간";
+"Get a list of WiFi Passwords" = "Wi -Fi 비밀번호 목록을 얻으십시오";
+"Manage" = "관리하다";

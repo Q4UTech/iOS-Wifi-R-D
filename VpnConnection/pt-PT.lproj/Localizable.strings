@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "Gerente Wi-Fi";
+"No Wi-Fi Connection" = "Sem conexão Wi-Fi";
+"Wifi Scan" = "Scan WiFi";
+"Vpn" = "VPN";
+"Speed Test" = "Teste rápido";
+"Map View" = "Visão do mapa";
+"List View" = "Exibição de lista";
+"VPN" = "VPN";
+"Status" = "Status";
+"Connected" = "Conectado";
+"Not Connected" = "Não conectado";
+"Connecting" = "Conectando";
+"Start" = "Começar";
+"Wait" = "Espere";
+"Stop" = "Parar";
+"Disconnect" = "desconectar";
+"Cancel" = "Cancelar";
+"Would you like to disconnect the current
+connection?" = "Você gostaria de desconectar a corrente
+conexão?";
+"Premium" = "Prêmio";
+"Get access to premium features
+with no limit" = "Obtenha acesso a recursos premium
+sem limite";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" = "Desbloqueie o acesso a recursos premium e bloqueie desconhecido
+Usuários de usar seu Wi-Fi";
+"Go Premium" = "Go Premium";
+"Not now" = "Agora não";
+"Connected with" = "Conectado com";
+"Device Details" = "Detalhes do dispositivo";
+"Operating System" = "Sistema operacional";
+"Name" = "Nome";
+"Version" = "Versão";
+"Model" = "Modelo";
+"Brand" = "Marca";
+"Family" = "Família";
+"Block this Device" = "Bloqueie este dispositivo";
+"Router Settings" = "Configurações do roteador";
+"Router Password" = "Senha do roteador";
+"Password" = "Senha";
+"Guide" = "Guia";
+"Test Again" = "Teste novamente";
+"Details" = "Detalhes";
+"mbps" = "Mbps";
+"Ping" = "Ping";
+"Uploading" = "Enviando";
+"Downloading" = "Baixando";
+"Connected Type" = "Tipo conectado";
+"IP Address" = "Endereço de IP";
+"Provider" = "Fornecedor";
+"Check Internet Speed Again" = "Verifique a velocidade da Internet novamente";
+"History" = "História";
+"Internet Speed Analysis" = "Análise de velocidade da Internet";
+"Result History" = "Histórico de resultados";
+"Continue" = "Continuar";
+"Select Language" = "Selecione o idioma";
+"Are you sure want to delete" = "Você tem certeza que deseja excluir";
+"WiFi Connection Needed" = "Conexão WiFi necessária";
+"Please connect to your Wi-Fi network
+to check connected devices" = "Por favor, conecte-se à sua rede Wi-Fi
+Para verificar os dispositivos conectados";
+"Connect Now" = "Conecte agora";
+"ms" = "EM";
+"Mbps" = "Mbps";
+"Time Period" = "Período de tempo";
+"Get a list of WiFi Passwords" = "Obtenha uma lista de senhas wifi";
+"Manage" = "Gerenciar";

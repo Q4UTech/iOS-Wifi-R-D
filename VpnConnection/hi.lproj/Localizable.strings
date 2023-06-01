@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  VpnConnection
+
+  Created by gautam  on 01/06/23.
+  
+*/
+"Wi-Fi Manager" = "वाई-फाई प्रबंधक";
+"No Wi-Fi Connection" = "कोई वाई-फाई कनेक्शन नहीं";
+"Wifi Scan" = "वाईफाई स्कैन";
+"Vpn" = "वीपीएन";
+"Speed Test" = "गति परीक्षण";
+"Map View" = "नक्शा देखें";
+"List View" = "लिस्ट व्यू";
+"VPN" = "वीपीएन";
+"Status" = "दर्जा";
+"Connected" = "जुड़े हुए";
+"Not Connected" = "जुड़े नहीं हैं";
+"Connecting" = "कनेक्ट";
+"Start" = "शुरू";
+"Wait" = "इंतज़ार";
+"Stop" = "रुकना";
+"Disconnect" = "डिस्कनेक्ट";
+"Cancel" = "रद्द करना";
+"Would you like to disconnect the current
+connection?" = "क्या आप करंट को डिस्कनेक्ट करना चाहेंगे
+संबंध?";
+"Premium" = "अधिमूल्य";
+"Get access to premium features
+with no limit" = "प्रीमियम सुविधाओं तक पहुंच प्राप्त करें
+कोई सीमा नहीं है";
+"Unlock access to premium features and block unknown
+users from using your Wi-Fi" = "प्रीमियम सुविधाओं तक पहुंच अनलॉक करें और अज्ञात को ब्लॉक करें
+आपके वाई-फाई का उपयोग करने से उपयोगकर्ता";
+"Go Premium" = "प्रीमियम के लिए जाएँ";
+"Not now" = "अभी नहीं";
+"Connected with" = "साथ जुड़े";
+"Device Details" = "युक्ति विवरण";
+"Operating System" = "ऑपरेटिंग सिस्टम";
+"Name" = "नाम";
+"Version" = "संस्करण";
+"Model" = "नमूना";
+"Brand" = "ब्रैंड";
+"Family" = "परिवार";
+"Block this Device" = "इस डिवाइस को ब्लॉक करें";
+"Router Settings" = "राउटर सेटिंग्स";
+"Router Password" = "राउटर पासवर्ड";
+"Password" = "पासवर्ड";
+"Guide" = "मार्गदर्शक";
+"Test Again" = "फिर से परीक्षण करें";
+"Details" = "विवरण";
+"mbps" = "एमबीपीएस";
+"Ping" = "गुनगुनाहट";
+"Uploading" = "अपलोड हो रहा है";
+"Downloading" = "डाउनलोड";
+"Connected Type" = "जुड़ा हुआ प्रकार";
+"IP Address" = "आईपी ​​पता";
+"Provider" = "प्रदाता";
+"Check Internet Speed Again" = "फिर से इंटरनेट की गति की जाँच करें";
+"History" = "इतिहास";
+"Internet Speed Analysis" = "इंटरनेट गति विश्लेषण";
+"Result History" = "परिणाम इतिहास";
+"Continue" = "जारी रखना";
+"Select Language" = "भाषा चुने";
+"Are you sure want to delete" = "क्या आप निश्चित रूप से हटाना चाहते हैं";
+"WiFi Connection Needed" = "वाईफाई कनेक्शन की जरूरत है";
+"Please connect to your Wi-Fi network
+to check connected devices" = "कृपया अपने वाई-फाई नेटवर्क से कनेक्ट करें
+जुड़े उपकरणों की जांच करने के लिए";
+"Connect Now" = "अब जोड़ो";
+"ms" = "एमएस";
+"Mbps" = "एमबीपीएस";
+"Time Period" = "समय सीमा";
+"Get a list of WiFi Passwords" = "वाईफाई पासवर्ड की एक सूची प्राप्त करें";
+"Manage" = "प्रबंधित करना";
