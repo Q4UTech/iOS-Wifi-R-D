@@ -56,7 +56,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     func connectionStatus(connectionStatus: String) {
         if connectionStatus == "connected" {
             statuslabel.text = "Connected"
-            statuslabel.textColor = .white
+            statuslabel.textColor = hexStringColor(hex: "#2EB92B")
             print("connected succesfully")
             setStatus(value: true)
             topViewUiLabel.text = "Stop"

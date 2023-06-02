@@ -61,6 +61,15 @@ class SpeedTestDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getBannerAd(self, adView, heightConstraint)
     }
+    
+    @IBAction func deleteButtonDialog(_ sender:UIButton){
+        showHideDeleteDialog(isShow:false)
+    }
+    
+    private func showHideDeleteDialog(isShow:Bool){
+        deleteView.isHidden = isShow
+    }
+    
     func askEnableLocationService() {
         var showAlertSetting = false
         var showInitLocation = false

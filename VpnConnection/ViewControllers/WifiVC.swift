@@ -14,12 +14,12 @@ import Foundation
 import HGRippleRadarView
 import Network
 
-class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDelegate{
+class WifiVC: UIViewController ,LanguageSelectionDelegate {
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
     }
-    var locationManager = CLLocationManager()
+    var locationManager:CLLocationManager? = nil
 //     var currentNetworkInfos: Array<NetworkInfo>? {
 //         get {
 //             return SSID.fetchNetworkInfo()
@@ -43,6 +43,11 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
     @IBOutlet weak var mapImg:UIImageView!
     @IBOutlet weak var listImg:UIImageView!
     @IBOutlet weak var optionBtn:UIButton!
+    @IBOutlet weak var langLabel:UILabel!
+    @IBOutlet weak var moreAppLbl:UILabel!
+    @IBOutlet weak var rateAppLbl:UILabel!
+    @IBOutlet weak var feedbackLbl:UILabel!
+    @IBOutlet weak var abtUsLbl:UILabel!
    
     var decryptvalue = String()
     var dictnry = String()
@@ -66,25 +71,21 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
         radarView.paddingBetweenItems = 10
         radarView.paddingBetweenCircles = 30
         radarView.numberOfCircles = 4
-        locationManager.delegate = nil
-        askEnableLocationService()
+      
+      
         optionBtn.isHidden = false
-        requestPermissionsToShowSsidAndBssid()
+       // askEnableLocationService()
+        print("wifissd \(getWiFiSsid())")
+        
+       
         checkWifi()
-        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
-            if isWiFiConnected(){
-                topViewLabel.text = "Wi-Fi Manager".localiz()
-                networkCall()
-            }
-        }else{
-            self.requestPermissionsToShowSsidAndBssid()
-        }
-        if isWiFiConnected(){
-            topViewLabel.text = "Wi-Fi Manager".localiz()
-            networkCall()
-        }else{
-            topViewLabel.text = "No Wi-Fi Connection"
-            .localiz()        }
+//        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
+//            if isWiFiConnected(){
+//                topViewLabel.text = "Wi-Fi Manager".localiz()
+//                networkCall()
+//            }
+//        }
+        
        
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
@@ -107,7 +108,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
     func askEnableLocationService() {
         var showAlertSetting = false
         var showInitLocation = false
-        
+        print("wifissd \(getWiFiSsid())")
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .denied:
@@ -117,17 +118,13 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
                 showAlertSetting = true
                 print("HH: kCLAuthorizationStatusRestricted")
             case .authorizedAlways:
-                topView.isHidden = true
-                coonectedView.isHidden = false
-                WifiName.isHidden = false
-                WifiName.text = getWiFiSsid()
+               
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedAlways")
             case .authorizedWhenInUse:
                 topView.isHidden = true
                 coonectedView.isHidden = false
-                WifiName.isHidden = false
-                WifiName.text = getWiFiSsid()
+               
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
             case .notDetermined:
@@ -159,8 +156,8 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
     }
     func initLocationManager() {
         self.locationManager = CLLocationManager()
-        if self.locationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
-            self.locationManager.requestAlwaysAuthorization()
+        if self.locationManager!.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) {
+            self.locationManager!.requestAlwaysAuthorization()
         }
     }
 
@@ -173,8 +170,8 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
-      
         
+       // askEnableLocationService()
     }
     
     @objc func switchToMapView(){
@@ -202,13 +199,15 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
     
     private func checkWifi(){
         if isWiFiConnected(){
+            topViewLabel.text = "Wi-Fi Manager".localiz()
             showWifiView(status:true)
-           
-           // scanDevice()
+           // networkCall()
         }else{
-           
+            topViewLabel.text = "No Wi-Fi Connection"
+            .localiz()
             showWifiView(status:false)
         }
+        
     }
     
     private func  showWifiView(status:Bool){
@@ -222,7 +221,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
         
         
       //  params = ["app_id": "m24screenrecios"]
-        params = ["app_id": "v5wifitrackernew",
+        params = ["app_id": APP_ID,
                   "country": getCountryNameInfo(),
                   "screen": "XHDPI",
                   "launchcount": "1",
@@ -237,9 +236,9 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
         var parametr = [String:String]()
         parametr = ["data":encodedString!]
         NetworkHelper.sharedInstanceHelper.createPostRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/authkey") { [self] (result, error) in
-//            do{
+            do{
                 if result != nil{
-//                    do{
+                   do{
                         UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
                         let decryptString = decryptvalue.decrypt(hexString:result! as! String)
                         let dict1 = dictnry.convertToDictionary(text: decryptString!)
@@ -249,9 +248,9 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
                         getConnectedDevicesList(key:code)
                   
                
-//                    }catch {
-//                        doAuthKeyRequest()
-//                    }
+                    }catch {
+                        doAuthKeyRequest()
+                    }
                     
                     
                }
@@ -259,9 +258,9 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
 
                 }
                 
-//            }catch{
-//                doAuthKeyRequest()
-//            }
+            }catch{
+                doAuthKeyRequest()
+            }
             
         }
        
@@ -417,46 +416,55 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
             print("Location permissions have been already granted!")
             UserDefaults.standard.set(true, forKey: MyConstant.PERMISSION_GRANTED)
             locationPermissionGranted = true
+            topView.isHidden = true
+            coonectedView.isHidden = false
+            WifiName.isHidden = false
+            WifiName.text = getWiFiSsid()
             return
+        }else {
+            
+            
+            let controller = UIAlertController(title: "Location permissions required", message: "\nStarting from iOS 13, in order to request Wi-Fi network SSID and BSSID apps must:\n\n• Request location permissions\n• Declare \"Access WiFi information in \"Signing & Capabilities\"", preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            if status == .notDetermined {
+                controller.addAction(UIAlertAction(title: "Request permissions", style: .default, handler: { _ in
+                    
+                    self.locationManager!.requestWhenInUseAuthorization()
+                }))
+            }
+            else if status == .authorizedWhenInUse || status == .authorizedAlways{
+                print("granted")
+            }
+            else {
+                controller.addAction(UIAlertAction(title: "Go to iOS settings", style: .default, handler: { _ in
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+                    }
+                }))
+            }
+            
+            present(controller, animated: true, completion: nil)
         }
-      
-        
-        let controller = UIAlertController(title: "Location permissions required", message: "\nStarting from iOS 13, in order to request Wi-Fi network SSID and BSSID apps must:\n\n• Request location permissions\n• Declare \"Access WiFi information in \"Signing & Capabilities\"", preferredStyle: .alert)
-        
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-       
-       if status == .notDetermined {
-            controller.addAction(UIAlertAction(title: "Request permissions", style: .default, handler: { _ in
-                self.locationManager.delegate = self
-                self.locationManager.requestWhenInUseAuthorization()
-            }))
-        } else {
-            controller.addAction(UIAlertAction(title: "Go to iOS settings", style: .default, handler: { _ in
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
-                }
-            }))
-        }
-        
-        present(controller, animated: true, completion: nil)
     }
     
     // ------------------------------------
     // LOCATION MANAGER DELEGATE
     // ------------------------------------
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        DispatchQueue.main.async {
-            if status == .authorizedAlways || status == .authorizedWhenInUse {
-                let controller = UIAlertController(title: "Permissions granted!", message: "You can now request network information to obtain Wi-Fi network SSID and BSSID!", preferredStyle: .alert)
-                controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(controller, animated: true, completion: nil)
-            }
-            self.locationManager.delegate = nil
-        }
-    }
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        DispatchQueue.main.async {
+//            if status == .authorizedAlways || status == .authorizedWhenInUse {
+//                let controller = UIAlertController(title: "Permissions granted!", message: "You can now request network information to obtain Wi-Fi network SSID and BSSID!", preferredStyle: .alert)
+//                controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(controller, animated: true, completion: nil)
+//            }
+//            self.locationManager.delegate = nil
+//        }
+//    }
     
     
     
@@ -520,20 +528,28 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
                                     if let isp = scanResponse.gatewayIpAddress {
                                       
                                         UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
-
+                                        
+                                    }
+                                    if let ispName = scanResponse.fingIsp {
+                                        DispatchQueue.main.async { [self] in
+                                            WifiName.text = ispName.ispName
+                                        }
                                     }
                                     
                                     if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                        
                                         // FingNodesHandler.shared.setFingNodes(fingNodes)
                                         fingData = fingNodes
+                                        
                                         DispatchQueue.main.async { [self] in
                                             let items = fingData.map{Item(uniqueKey: $0.bestName!, value: $0) }
                                             radarView.add(items: items)
                                         }
                                       
                                         DispatchQueue.main.async { [self] in
-                                            connectedDeviceCount.text = "( \(fingNodes.count) )"
+                                            coonectedView.isHidden = false
+                                            topView.isHidden = true
+                                            connectedDeviceCount.text = "(\(fingNodes.count))"
                                             wifiTableView.reloadData()
                                         }
                                     }
@@ -588,7 +604,7 @@ class WifiVC: UIViewController ,CLLocationManagerDelegate,LanguageSelectionDeleg
         hideBottomSheet()
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
         navigationController?.pushViewController(vc, animated: true)
-        showFullAds(viewController: self, isForce: false)
+        showFullAds(viewController: self, isForce: true)
     }
     
     

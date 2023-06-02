@@ -83,53 +83,55 @@ class PasswordHintVC: UIViewController,SearchDelegate{
     
     private func callPasswordHintApi(){
        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-           Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
-               print("respnse \(response)")
-               switch response.result {
-                 
-               case .success(let value):
-                   print("respnse1 \(value)")
-                   
-                    do {
-                       let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
-                       let status = jObject!["status"] as? String
-                       let array = jObject!["routerlist"] as? NSArray
-                      // print("status \(String(describing: status)) \(jObject)")
-                        for i in array! {
-                            let data:Dictionary? = i as? Dictionary<String, Any>
-                            let brand = data!["brand"] as? String
-                            let type = data!["type"] as? String
-                            let username = data!["username"] as? String
-                            let password = data!["passwrod"] as? String
-                            passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
-                            filteredData = passwordList
-                            totalCount = filteredData.count
-                        }
-                        DispatchQueue.main.async { [self] in
-                            passwordTaableView.reloadData()
-                            if totalCount != nil{
-                                totalPassword.text = "Total Password : \(totalCount)"
-                            }
-                        }
-                            
-
-                   }catch{
-
+           DispatchQueue.global(qos: .background).async { [self] in
+               
+               Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
+                   print("respnse \(response)")
+                   switch response.result {
+                       
+                   case .success(let value):
+                       print("respnse1 \(value)")
+                       
+                       do {
+                           let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
+                           let status = jObject!["status"] as? String
+                           let array = jObject!["routerlist"] as? NSArray
+                           // print("status \(String(describing: status)) \(jObject)")
+                           for i in array! {
+                               let data:Dictionary? = i as? Dictionary<String, Any>
+                               let brand = data!["brand"] as? String
+                               let type = data!["type"] as? String
+                               let username = data!["username"] as? String
+                               let password = data!["passwrod"] as? String
+                               passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
+                               filteredData = passwordList
+                               totalCount = filteredData.count
+                           }
+                           DispatchQueue.main.async { [self] in
+                               passwordTaableView.reloadData()
+                               if totalCount != nil{
+                                   totalPassword.text = "Total Password : \(totalCount)"
+                               }
+                           }
+                           
+                           
+                       }catch{
+                           
+                       }
+                       
+                       
+                       
+                       break
+                   case .failure(_):
+                       print("filure11\(response.error)")
+                       
+                       break
+                       
+                       
                    }
-
-                 
-                   
-                   break
-               case .failure(_):
-                   print("filure11\(response.error)")
-                  
-                   break
-                   
-                   
                }
+               
            }
-       
-                    
                
        }else{
            view.makeToast("Please connect to internet")

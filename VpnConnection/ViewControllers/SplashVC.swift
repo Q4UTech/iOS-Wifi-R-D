@@ -11,6 +11,7 @@ import NetworkExtension
 import Foundation
 import LanguageManager_iOS
 import Network
+import CoreLocation
 
 
 
@@ -18,7 +19,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constants.APPLE_LANGUAGE)
     }
-    
+    var locationManager = CLLocationManager()
     let SPLASH_SCREEN = "AN_SPLASH_SCREEN"
     func onBannerFailToLoad() {
         if !isSplash{
@@ -239,6 +240,43 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         UserDefaults.standard.set(currentLanguage, forKey: MyConstant.constants.APPLE_LANGUAGE)
 //        callDelegates()
         getBannerAds()
+       // requestPermissionsToShowSsidAndBssid()
+    }
+    func requestPermissionsToShowSsidAndBssid() {
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            print("Location permissions have been already granted!")
+            UserDefaults.standard.set(true, forKey: MyConstant.PERMISSION_GRANTED)
+           
+            return
+        }else {
+            
+            
+            let controller = UIAlertController(title: "Location permissions required", message: "\nStarting from iOS 13, in order to request Wi-Fi network SSID and BSSID apps must:\n\n• Request location permissions\n• Declare \"Access WiFi information in \"Signing & Capabilities\"", preferredStyle: .alert)
+            
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            if status == .notDetermined {
+                controller.addAction(UIAlertAction(title: "Request permissions", style: .default, handler: { _ in
+                    
+                    self.locationManager.requestWhenInUseAuthorization()
+                }))
+            }
+            else if status == .authorizedWhenInUse || status == .authorizedAlways{
+                print("granted")
+            }
+            else {
+                controller.addAction(UIAlertAction(title: "Go to iOS settings", style: .default, handler: { _ in
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+                    }
+                }))
+            }
+            
+            present(controller, animated: true, completion: nil)
+        }
     }
     
     
@@ -324,7 +362,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     func goToNextVC(){
 
             if fullAdStatus {
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WifiVC") as? WifiVC
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             else{

@@ -2067,10 +2067,10 @@ to check connected devices</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-xb-Nxg">
-                                        <rect key="frame" x="74.666666666666686" y="237.66666666666663" width="195" height="24"/>
+                                        <rect key="frame" x="57.666666666666671" y="223.66666666666669" width="228.66666666666663" height="28.666666666666657"/>
                                         <string key="text">Would you like to disconnect the current
 connection?</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.1176470588" green="0.12549019610000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2122,7 +2122,7 @@ connection?</string>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="sdy-zc-tlg" secondAttribute="bottom" constant="20" id="Ago-At-xDg"/>
                                     <constraint firstAttribute="trailing" secondItem="sdy-zc-tlg" secondAttribute="trailing" constant="15" id="C0F-Gp-aTk"/>
-                                    <constraint firstItem="yPa-xb-Nxg" firstAttribute="top" secondItem="VfC-gL-KR1" secondAttribute="bottom" constant="19" id="N3F-a5-OR1"/>
+                                    <constraint firstItem="yPa-xb-Nxg" firstAttribute="top" secondItem="VfC-gL-KR1" secondAttribute="bottom" constant="5" id="N3F-a5-OR1"/>
                                     <constraint firstAttribute="width" constant="344" id="QB0-mN-kAd"/>
                                     <constraint firstItem="yPa-xb-Nxg" firstAttribute="centerX" secondItem="VfC-gL-KR1" secondAttribute="centerX" id="cDR-k2-IoL"/>
                                     <constraint firstItem="TgB-PU-kTw" firstAttribute="top" secondItem="9el-14-uuf" secondAttribute="top" constant="10" id="ghp-LS-5Gm"/>
@@ -2809,8 +2809,7 @@ connection?</string>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="delete"/>
                                         <connections>
-                                            <action selector="openMenu:" destination="I5O-BB-h3D" eventType="touchUpInside" id="LK3-Ek-aPG"/>
-                                            <action selector="openMenu:" destination="5pP-OI-AEm" eventType="touchUpInside" id="NAx-DS-Lot"/>
+                                            <action selector="deleteButtonDialog:" destination="uvW-Ya-KCm" eventType="touchUpInside" id="IHG-uZ-01g"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOW-lB-Wwy">
@@ -3695,6 +3694,13 @@ connection?</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwU-Va-oJv">
+                                <rect key="frame" x="0.0" y="898" width="430" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="y3J-x8-Rux"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyC-Nk-9P7">
                                 <rect key="frame" x="43" y="228.66666666666663" width="344" height="500"/>
                                 <subviews>
@@ -3779,13 +3785,6 @@ connection?</string>
                                         <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwU-Va-oJv">
-                                <rect key="frame" x="0.0" y="898" width="430" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="y3J-x8-Rux"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ro4-GK-seq"/>
@@ -3968,7 +3967,7 @@ connection?</string>
                                                 <state key="normal" title="Go Premium"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="16"/>
+                                                        <integer key="value" value="22"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -4135,15 +4134,15 @@ with no limit</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO6-fX-Yfu">
-                                        <rect key="frame" x="39" y="340" width="266" height="24"/>
+                                        <rect key="frame" x="16" y="326" width="312" height="28.666666666666686"/>
                                         <string key="text">Unlock access to premium features and block unknown
 users from using your Wi-Fi</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nt-FJ-6GP">
-                                        <rect key="frame" x="62" y="383" width="220" height="45"/>
+                                        <rect key="frame" x="62" y="373.66666666666674" width="220" height="45"/>
                                         <color key="backgroundColor" red="0.30017006800000001" green="0.34643388609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="0we-qo-B2h"/>
@@ -4161,7 +4160,7 @@ users from using your Wi-Fi</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kun-uC-kkJ">
-                                        <rect key="frame" x="137" y="438" width="70" height="34"/>
+                                        <rect key="frame" x="137" y="428.66666666666674" width="70" height="34"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Not Now">
                                             <color key="titleColor" red="0.52941176469999995" green="0.55294117649999996" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -4177,7 +4176,7 @@ users from using your Wi-Fi</string>
                                     <constraint firstItem="mO6-fX-Yfu" firstAttribute="centerX" secondItem="cit-1i-tlu" secondAttribute="centerX" id="3Vo-ss-UHL"/>
                                     <constraint firstItem="cit-1i-tlu" firstAttribute="top" secondItem="5bs-Yw-Qno" secondAttribute="bottom" constant="19" id="4EP-VW-DcQ"/>
                                     <constraint firstAttribute="width" constant="344" id="7oB-By-Myp"/>
-                                    <constraint firstItem="mO6-fX-Yfu" firstAttribute="top" secondItem="cit-1i-tlu" secondAttribute="bottom" constant="19" id="9Fd-VE-O2T"/>
+                                    <constraint firstItem="mO6-fX-Yfu" firstAttribute="top" secondItem="cit-1i-tlu" secondAttribute="bottom" constant="5" id="9Fd-VE-O2T"/>
                                     <constraint firstItem="cit-1i-tlu" firstAttribute="centerX" secondItem="5bs-Yw-Qno" secondAttribute="centerX" id="GDF-0f-7kl"/>
                                     <constraint firstAttribute="height" constant="500" id="HYg-dG-iaE"/>
                                     <constraint firstItem="5bs-Yw-Qno" firstAttribute="centerX" secondItem="xuQ-xY-dWs" secondAttribute="centerX" id="Kuc-Dl-n7K"/>
@@ -4781,12 +4780,26 @@ the back of your WiFi router.</string>
                                     <constraint firstAttribute="width" constant="180" id="zLf-El-git"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVZ-ic-nOU">
+                                <rect key="frame" x="20.000000000000007" y="298.66666666666669" width="113.66666666666669" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3Z4-j8-8g6"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium Benefits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qad-Np-sUU">
                                 <rect key="frame" x="138.66666666666666" y="288.33333333333331" width="152.99999999999997" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14i-mh-1IG">
+                                <rect key="frame" x="310" y="298.66666666666669" width="100" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="pWF-mD-Mth"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yCl-6d-26Y">
                                 <rect key="frame" x="0.0" y="320" width="430" height="100"/>
                                 <subviews>
@@ -4877,7 +4890,7 @@ devices</string>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxK-JV-rhd">
-                                <rect key="frame" x="0.0" y="420" width="430" height="273.66666666666674"/>
+                                <rect key="frame" x="0.0" y="420" width="430" height="273"/>
                                 <color key="backgroundColor" name="dashboard_bg_color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PurchaseCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PurchaseCell" rowHeight="70" id="s2U-Ai-EtM" customClass="PurchaseCell" customModule="VpnConnection" customModuleProvider="target">
@@ -4950,7 +4963,7 @@ devices</string>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-CI-w6a">
-                                <rect key="frame" x="77" y="703.66666666666663" width="276" height="45"/>
+                                <rect key="frame" x="77" y="703" width="276" height="45"/>
                                 <color key="backgroundColor" name="custom_blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Cwz-iQ-8ei"/>
@@ -4960,12 +4973,12 @@ devices</string>
                                 <state key="normal" title="Subscribe Now"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="16"/>
+                                        <integer key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jq-8U-UYF">
-                                <rect key="frame" x="51.333333333333343" y="768.66666666666663" width="327.66666666666663" height="33.666666666666629"/>
+                                <rect key="frame" x="51.333333333333343" y="768" width="327.66666666666663" height="33.666666666666629"/>
                                 <string key="text">Yearly plan will Auto-renews every year for $59.99.
 Cancel subscription anytime from AppStore.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4981,7 +4994,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-pS-2N2">
-                                <rect key="frame" x="227" y="811" width="83" height="30"/>
+                                <rect key="frame" x="227" y="811" width="90" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fY5-i5-x4e"/>
                                 </constraints>
@@ -4999,7 +5012,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKZ-t3-ceL">
-                                <rect key="frame" x="102" y="812.33333333333337" width="101" height="27.666666666666629"/>
+                                <rect key="frame" x="87" y="811.66666666666663" width="116" height="28.666666666666629"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -5014,7 +5027,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdh-t3-yGJ">
-                                <rect key="frame" x="156" y="838" width="118" height="30"/>
+                                <rect key="frame" x="147.66666666666666" y="838" width="134.99999999999997" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3u8-aE-uUf"/>
                                 </constraints>
@@ -5037,6 +5050,7 @@ Cancel subscription anytime from AppStore.</string>
                             <constraint firstItem="qdh-t3-yGJ" firstAttribute="centerX" secondItem="bEn-ML-zcQ" secondAttribute="centerX" id="3Wa-H4-xUb"/>
                             <constraint firstItem="oxK-JV-rhd" firstAttribute="leading" secondItem="bEn-ML-zcQ" secondAttribute="leading" id="3ny-Hl-q9Q"/>
                             <constraint firstItem="4mx-CI-w6a" firstAttribute="top" secondItem="oxK-JV-rhd" secondAttribute="bottom" constant="10" id="6hr-nv-pGZ"/>
+                            <constraint firstItem="qad-Np-sUU" firstAttribute="leading" secondItem="kVZ-ic-nOU" secondAttribute="trailing" constant="5" id="BTZ-2W-DN3"/>
                             <constraint firstItem="qad-Np-sUU" firstAttribute="top" secondItem="9hc-aR-i2t" secondAttribute="bottom" constant="20" id="CSW-RM-XBr"/>
                             <constraint firstItem="qdh-t3-yGJ" firstAttribute="centerX" secondItem="tei-6K-lU0" secondAttribute="centerX" id="DU4-ba-bI7"/>
                             <constraint firstItem="A0n-pS-2N2" firstAttribute="centerY" secondItem="tei-6K-lU0" secondAttribute="centerY" id="DaN-C3-lmN"/>
@@ -5045,11 +5059,14 @@ Cancel subscription anytime from AppStore.</string>
                             <constraint firstItem="qdh-t3-yGJ" firstAttribute="top" secondItem="tei-6K-lU0" secondAttribute="bottom" constant="10" id="GJH-oS-Fu1"/>
                             <constraint firstItem="tei-6K-lU0" firstAttribute="centerX" secondItem="5Jq-8U-UYF" secondAttribute="centerX" id="JkG-Cb-fEN"/>
                             <constraint firstItem="TyM-82-a4A" firstAttribute="centerX" secondItem="bEn-ML-zcQ" secondAttribute="centerX" id="Lje-bp-3GU"/>
+                            <constraint firstItem="14i-mh-1IG" firstAttribute="centerY" secondItem="qad-Np-sUU" secondAttribute="centerY" id="NrC-2J-ema"/>
                             <constraint firstItem="bEn-ML-zcQ" firstAttribute="trailing" secondItem="RdM-0r-Be3" secondAttribute="trailing" constant="20" id="PqX-qz-HNS"/>
                             <constraint firstItem="TyM-82-a4A" firstAttribute="top" secondItem="bEn-ML-zcQ" secondAttribute="top" constant="10" id="S9P-Ra-D9P"/>
                             <constraint firstItem="4mx-CI-w6a" firstAttribute="top" secondItem="oxK-JV-rhd" secondAttribute="bottom" constant="10" id="Wty-cO-H3R"/>
                             <constraint firstItem="RdM-0r-Be3" firstAttribute="centerY" secondItem="TyM-82-a4A" secondAttribute="centerY" id="b5M-BB-AQR"/>
+                            <constraint firstItem="kVZ-ic-nOU" firstAttribute="centerY" secondItem="qad-Np-sUU" secondAttribute="centerY" id="hcn-G8-Fgo"/>
                             <constraint firstItem="9hc-aR-i2t" firstAttribute="top" secondItem="TyM-82-a4A" secondAttribute="bottom" constant="30" id="hnF-Ms-atV"/>
+                            <constraint firstItem="kVZ-ic-nOU" firstAttribute="leading" secondItem="bEn-ML-zcQ" secondAttribute="leading" constant="20" id="i9i-1W-a4w"/>
                             <constraint firstItem="yCl-6d-26Y" firstAttribute="leading" secondItem="bEn-ML-zcQ" secondAttribute="leading" id="mDl-6w-vF4"/>
                             <constraint firstItem="5Jq-8U-UYF" firstAttribute="top" secondItem="4mx-CI-w6a" secondAttribute="bottom" constant="20" id="mz3-yt-JJv"/>
                             <constraint firstItem="qad-Np-sUU" firstAttribute="centerX" secondItem="9hc-aR-i2t" secondAttribute="centerX" id="mzm-CO-AQ2"/>
@@ -5057,9 +5074,11 @@ Cancel subscription anytime from AppStore.</string>
                             <constraint firstItem="oxK-JV-rhd" firstAttribute="top" secondItem="yCl-6d-26Y" secondAttribute="bottom" id="qfS-PJ-Uhc"/>
                             <constraint firstItem="bEn-ML-zcQ" firstAttribute="trailing" secondItem="oxK-JV-rhd" secondAttribute="trailing" id="qmX-C1-FOP"/>
                             <constraint firstItem="5Jq-8U-UYF" firstAttribute="centerX" secondItem="4mx-CI-w6a" secondAttribute="centerX" id="r5J-eS-Vcd"/>
+                            <constraint firstAttribute="trailing" secondItem="14i-mh-1IG" secondAttribute="trailing" constant="20" id="sBj-SH-qxJ"/>
                             <constraint firstItem="tei-6K-lU0" firstAttribute="leading" secondItem="tKZ-t3-ceL" secondAttribute="trailing" constant="10" id="t0F-fA-EhP"/>
                             <constraint firstItem="tKZ-t3-ceL" firstAttribute="top" secondItem="5Jq-8U-UYF" secondAttribute="bottom" constant="10" id="tg9-Ac-tbv"/>
                             <constraint firstItem="bEn-ML-zcQ" firstAttribute="bottom" secondItem="qdh-t3-yGJ" secondAttribute="bottom" constant="30" id="xIS-Kx-5vc"/>
+                            <constraint firstItem="14i-mh-1IG" firstAttribute="leading" secondItem="9hc-aR-i2t" secondAttribute="trailing" constant="5" id="xc0-Ja-Tan"/>
                             <constraint firstItem="bEn-ML-zcQ" firstAttribute="trailing" secondItem="yCl-6d-26Y" secondAttribute="trailing" id="yqR-AX-4Lq"/>
                             <constraint firstItem="tKZ-t3-ceL" firstAttribute="centerY" secondItem="tei-6K-lU0" secondAttribute="centerY" id="zOJ-WZ-x3Q"/>
                         </constraints>
@@ -5113,8 +5132,8 @@ Cancel subscription anytime from AppStore.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check who is usig your WI-FI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-Dp-g4K">
-                                <rect key="frame" x="98.666666666666686" y="482.33333333333331" width="233" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check who is using your WI-FI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-Dp-g4K">
+                                <rect key="frame" x="93.666666666666686" y="482.33333333333331" width="243" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" name="custom_gray"/>
                                 <nil key="highlightedColor"/>
@@ -5327,7 +5346,7 @@ Cancel subscription anytime from AppStore.</string>
         <!--LanguageVC-->
         <scene sceneID="SvL-XL-fcM">
             <objects>
-                <viewController storyboardIdentifier="LanguageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eWk-LD-L2D" customClass="LanguageVC" customModule="MeditationApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LanguageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eWk-LD-L2D" customClass="LanguageVC" customModule="VpnConnection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8np-9g-shz">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5342,7 +5361,7 @@ Cancel subscription anytime from AppStore.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P4-Ot-W8g">
-                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45"/>
+                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="INQ-hS-ebd"/>
                                             <constraint firstAttribute="height" constant="45" id="Wdg-cf-Rzg"/>
@@ -5374,7 +5393,7 @@ Cancel subscription anytime from AppStore.</string>
                                 <rect key="frame" x="0.0" y="109" width="430" height="789"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" rowHeight="92" id="nhK-4b-yhN" customClass="LanguageCell" customModule="MeditationApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" rowHeight="92" id="nhK-4b-yhN" customClass="LanguageCell" customModule="VpnConnection" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="430" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhK-4b-yhN" id="DJC-mh-Y5C">

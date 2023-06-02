@@ -66,15 +66,15 @@ class SpeedTestViewModel{
                                        
                                       print("speedList1 \(pingData)")
                                         if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
-                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()! )]
-                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()!))
+                                            speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available" )]
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
                                             if let encode = try?  JSONEncoder().encode(speedTestList) {
                                                 UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
                                             }
                                             print("speedDataList7777\(speedDataList)")
                                            
                                         }else {
-                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()! ))
+                                            speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downLoadArray.last!, uploadSpeed: uploadArray.last!,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()  ?? "No Data Available" ))
                                             print("speedDataList77\(speedDataList)")
                                             if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
                                                 do {
@@ -84,7 +84,7 @@ class SpeedTestViewModel{
                                                     for (_ ,data) in speedTestList{
                                                         print("dataCount \(data.count)")
                                                         for i in data{
-                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()!))
+                                                            speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
                                                         }
 
                                                     }
