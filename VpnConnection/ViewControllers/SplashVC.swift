@@ -240,7 +240,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         UserDefaults.standard.set(currentLanguage, forKey: MyConstant.constants.APPLE_LANGUAGE)
 //        callDelegates()
         getBannerAds()
-       // requestPermissionsToShowSsidAndBssid()
+       requestPermissionsToShowSsidAndBssid()
     }
     func requestPermissionsToShowSsidAndBssid() {
         let status = CLLocationManager.authorizationStatus()

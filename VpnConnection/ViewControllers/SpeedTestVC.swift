@@ -9,8 +9,24 @@ import UIKit
 import WMGaugeView
 import Charts
 import PlainPing
+import NetworkExtension
+import SystemConfiguration.CaptiveNetwork
+import CoreTelephony
 
-class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol,LanguageSelectionDelegate{
+@available(iOS 13.0, *)
+class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol,LanguageSelectionDelegate,RetestProtocol{
+    func isSpeedTestComplete(complete: Bool) {
+        for _ in 0...9{
+            speedArray.append(0.0)
+        }
+        let array =  Array(self.speedArray.suffix(10))
+        //        setChart(dataPoints: months, values: array)
+        print("yourArray\(speedArray.count)")
+        if array.count == 10 {
+            setChart(dataPoints: self.months, values: array)
+        }
+    }
+    
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
@@ -112,10 +128,116 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             
         }
         mbpsLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
-        
-    }
-    
+        RetestListener.instanceHelper.retestDelegate = self
+        var currentNetworkInfo: [String: Any] = [:]
 
+        getNetworkInfo { [self] (wifiInfo) in
+                       
+          currentNetworkInfo = wifiInfo
+            print("currentNetworkInfo \(currentSSIDs()) \(wifiInfo) \(getInterfaces())")
+        }
+      //  print("Strength \(getWiFiRSSI())")
+        
+       
+        if let wifiRSSI = wifiStrength() {
+            print("Wi-Fi RSSI: \(wifiRSSI)")
+        } else {
+            print("Unable to retrieve Wi-Fi RSSI.")
+        }
+    }
+    private func wifiStrength() -> Int? {
+        var rssi: Int?
+        
+//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//            let statusBarManager = windowScene.statusBarManager,
+//            let statusBarFrame = statusBarManager.statusBarFrame,
+//            let statusBarView = statusBarManager.statusBarView?.subviews.first(where: { $0.frame.equalTo(statusBarFrame) }) else {
+//                return rssi
+//        }
+//        
+//        for subview in statusBarView.subviews {
+//            if let statusBarDataNetworkItemView = NSClassFromString("UIStatusBarDataNetworkItemView"),
+//                subview.isKind(of: statusBarDataNetworkItemView),
+//                let val = subview.value(forKey: "wifiStrengthRaw") as? Int {
+//                rssi = val
+//                break
+//            }
+//        }
+        
+        return rssi
+    }
+
+
+    
+//    private func wifiStrength() -> Int? {
+//        let app = UIApplication.shared
+//        var rssi: Int?
+//        guard let statusBar = app.value(forKey: "statusBar") as? UIView, let foregroundView = statusBar.value(forKey: "foregroundView") as? UIView else {
+//            return rssi
+//        }
+//        for view in foregroundView.subviews {
+//            if let statusBarDataNetworkItemView = NSClassFromString("UIStatusBarDataNetworkItemView"), view .isKind(of: statusBarDataNetworkItemView) {
+//                if let val = view.value(forKey: "wifiStrengthRaw") as? Int {
+//                    //print("rssi: \(val)")
+//
+//                    rssi = val
+//                    break
+//                }
+//            }
+//        }
+//        return rssi
+//    }
+//    private func getWiFiRSSI() -> Int? {
+//        let app = UIApplication.shared
+//        var rssi: Int?
+//        let exception = tryBlock {
+//            guard let statusBar = app.value(forKey: "statusBar") as? UIView else { return }
+//            if let statusBarMorden = NSClassFromString("UIStatusBar_Modern"), statusBar .isKind(of: statusBarMorden) { return }
+//
+//            guard let foregroundView = statusBar.value(forKey: "foregroundView") as? UIView else { return  }
+//
+//            for view in foregroundView.subviews {
+//                if let statusBarDataNetworkItemView = NSClassFromString("UIStatusBarDataNetworkItemView"), view .isKind(of: statusBarDataNetworkItemView) {
+//                    if let val = view.value(forKey: "wifiStrengthRaw") as? Int {
+//                        rssi = val
+//                        break
+//                    }
+//                }
+//            }
+//        }
+//        if let exception = exception {
+//            print("getWiFiRSSI exception: \(exception)")
+//        }
+//        return rssi
+//    }
+    
+    func getInterfaces() -> String?  {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                    break
+                }
+            }
+        }
+        return ssid
+    }
+
+    func currentSSIDs() -> [String] {
+            guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else {
+                return []
+            }
+        return interfaceNames.compactMap { name in
+                guard let info = CNCopyCurrentNetworkInfo(name as CFString) as? [String:AnyObject] else {
+                    return nil
+                }
+                guard let ssid = info[kCNNetworkInfoKeySSID as String] as? String else {
+                    return nil
+                }
+                return ssid
+            }
+        }
     func setSpeedMeterUI(){
         speedMeterView = WMGaugeView()
         speedMeterView!.frame = speedView.frame
@@ -341,6 +463,46 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         
     }
     
+    func getNetworkInfo(compleationHandler: @escaping ([String: Any])->Void){
+        
+       var currentWirelessInfo: [String: Any] = [:]
+        
+        if #available(iOS 14.0, *) {
+            
+            NEHotspotNetwork.fetchCurrent { network in
+                
+                guard let network = network else {
+                    compleationHandler([:])
+                    return
+                }
+                
+                let bssid = network.bssid
+                let ssid = network.ssid
+                currentWirelessInfo = ["BSSID ": bssid, "SSID": ssid, "SSIDDATA": "<54656e64 615f3443 38354430>"]
+                compleationHandler(currentWirelessInfo)
+            }
+        }
+        else {
+            #if !TARGET_IPHONE_SIMULATOR
+            guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else {
+                compleationHandler([:])
+                return
+            }
+            
+            guard let name = interfaceNames.first, let info = CNCopyCurrentNetworkInfo(name as CFString) as? [String: Any] else {
+                compleationHandler([:])
+                return
+            }
+            
+            currentWirelessInfo = info
+            
+            #else
+            currentWirelessInfo = ["BSSID ": "c8:3a:35:4c:85:d0", "SSID": "Tenda_4C85D0", "SSIDDATA": "<54656e64 615f3443 38354430>"]
+            #endif
+            compleationHandler(currentWirelessInfo)
+        }
+    }
+
     
     func getIP(){
         if pingSpeed?.city != nil {
@@ -506,4 +668,5 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
    
 }
+
 

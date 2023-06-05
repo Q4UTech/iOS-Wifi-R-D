@@ -204,6 +204,7 @@
 		C718C4222A27731C004A37C6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C718C40D2A27731B004A37C6 /* .gitignore */; };
 		C718C42A2A2774D6004A37C6 /* FingKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C718C40B2A27731B004A37C6 /* FingKit.xcframework */; };
 		C718C42B2A2774D6004A37C6 /* FingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C718C40B2A27731B004A37C6 /* FingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C750B3212A2DACB40038C1F8 /* RetestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3202A2DACB40038C1F8 /* RetestListener.swift */; };
 		C7B3A7E12A289152008336DC /* LanguageTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DD2A289152008336DC /* LanguageTimer.swift */; };
 		C7B3A7E22A289152008336DC /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DE2A289152008336DC /* LanguageVC.swift */; };
 		C7B3A7E32A289152008336DC /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DF2A289152008336DC /* LanguageCell.swift */; };
@@ -458,6 +459,7 @@
 		C718C40B2A27731B004A37C6 /* FingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FingKit.xcframework; sourceTree = "<group>"; };
 		C718C40C2A27731B004A37C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C718C40D2A27731B004A37C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C750B3202A2DACB40038C1F8 /* RetestListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetestListener.swift; sourceTree = "<group>"; };
 		C7B3A7DD2A289152008336DC /* LanguageTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTimer.swift; sourceTree = "<group>"; };
 		C7B3A7DE2A289152008336DC /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		C7B3A7DF2A289152008336DC /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				BD7F1D362A273DB400BEB451 /* SearchController.swift */,
 				BD7F1D382A273DB400BEB451 /* VPNConnectedStatus.swift */,
 				BD7F1D312A273DB400BEB451 /* VPNPurchasedStatus.swift */,
+				C750B3202A2DACB40038C1F8 /* RetestListener.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1357,6 +1360,7 @@
 				BD7F1C8D2A27083400BEB451 /* Settings.swift in Sources */,
 				C70CE2642A274B34002E4DD1 /* GCMRequest.swift in Sources */,
 				C70CE24A2A274B34002E4DD1 /* AdsHelper.swift in Sources */,
+				C750B3212A2DACB40038C1F8 /* RetestListener.swift in Sources */,
 				C706473C2A27640700ED425B /* CountryVC.swift in Sources */,
 				C70CE21D2A274B34002E4DD1 /* FbView.swift in Sources */,
 				C70CE27B2A274D09002E4DD1 /* FingNodes.swift in Sources */,
@@ -1594,7 +1598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1649,7 +1653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1678,7 +1682,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1851,7 +1855,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

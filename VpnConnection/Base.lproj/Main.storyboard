@@ -1610,7 +1610,7 @@ to check connected devices</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82P-QT-v9H">
-                                <rect key="frame" x="107" y="389" width="216" height="22"/>
+                                <rect key="frame" x="115" y="389" width="200" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-ka-of1">
                                         <rect key="frame" x="10" y="0.33333333333331439" width="65.666666666666671" height="21.666666666666668"/>
@@ -1619,7 +1619,7 @@ to check connected devices</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK0-Gs-Msu">
-                                        <rect key="frame" x="87.000000000000014" y="0.33333333333331439" width="129.33333333333337" height="21.666666666666668"/>
+                                        <rect key="frame" x="77.666666666666643" y="0.33333333333331439" width="129.33333333333337" height="21.666666666666668"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1627,8 +1627,8 @@ to check connected devices</string>
                                 </subviews>
                                 <color key="backgroundColor" name="dashboard_bg_color"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="4R2-3V-fgR"/>
-                                    <constraint firstItem="hK0-Gs-Msu" firstAttribute="leading" secondItem="Ioa-ka-of1" secondAttribute="trailing" constant="11.33" id="UzL-bm-Vf2"/>
+                                    <constraint firstAttribute="width" constant="200" id="4R2-3V-fgR"/>
+                                    <constraint firstItem="hK0-Gs-Msu" firstAttribute="leading" secondItem="Ioa-ka-of1" secondAttribute="trailing" constant="2" id="UzL-bm-Vf2"/>
                                     <constraint firstItem="Ioa-ka-of1" firstAttribute="leading" secondItem="82P-QT-v9H" secondAttribute="leading" constant="10" id="aoQ-Ar-BUq"/>
                                     <constraint firstItem="Ioa-ka-of1" firstAttribute="centerY" secondItem="82P-QT-v9H" secondAttribute="centerY" id="eHA-cZ-RWF"/>
                                     <constraint firstItem="hK0-Gs-Msu" firstAttribute="centerY" secondItem="Ioa-ka-of1" secondAttribute="centerY" id="k6u-WR-h2e"/>
@@ -3718,7 +3718,7 @@ connection?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure want to delete this history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Qb-l2G">
-                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="267" height="18"/>
+                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="266.99999999999994" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -4033,6 +4033,8 @@ connection?</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="WI-FI Password" image="lock_8" id="Gcb-k7-kwf"/>
                     <connections>
+                        <outlet property="backBtn" destination="bE5-La-l6Z" id="OAY-X7-oTX"/>
+                        <outlet property="btnWidth" destination="OA8-KL-Wcf" id="Yy6-lj-uRv"/>
                         <outlet property="closeButton" destination="lkz-kp-y2o" id="oIC-Wi-fB2"/>
                         <outlet property="contentView" destination="Xtk-gm-Ajv" id="jG8-hO-6zW"/>
                         <outlet property="premiumView" destination="Wrj-Ln-cJy" id="Xmt-x1-geA"/>
@@ -4889,7 +4891,7 @@ devices</string>
                                     <constraint firstAttribute="height" constant="100" id="In0-f1-azt"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxK-JV-rhd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxK-JV-rhd">
                                 <rect key="frame" x="0.0" y="420" width="430" height="273"/>
                                 <color key="backgroundColor" name="dashboard_bg_color"/>
                                 <prototypes>
@@ -4901,30 +4903,30 @@ devices</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaY-tZ-cBt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="430" height="70"/>
+                                                    <rect key="frame" x="10" y="5" width="410" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3a-4P-nN8">
-                                                            <rect key="frame" x="30" y="10" width="123" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <rect key="frame" x="29.999999999999993" y="10" width="96.333333333333314" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPw-ZY-lSg">
-                                                            <rect key="frame" x="90" y="39" width="77.666666666666686" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <rect key="frame" x="79" y="33" width="60.333333333333343" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_premium" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-sV-M2W">
-                                                            <rect key="frame" x="385" y="22.666666666666671" width="25" height="25"/>
+                                                            <rect key="frame" x="365" y="17.666666666666668" width="25" height="25.000000000000004"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="Clf-ZC-78e"/>
                                                                 <constraint firstAttribute="height" constant="25" id="T6z-20-ISu"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sc-hU-TgR">
-                                                            <rect key="frame" x="30" y="39" width="50" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <rect key="frame" x="30" y="33" width="39" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -4948,16 +4950,21 @@ devices</string>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="xaY-tZ-cBt" firstAttribute="top" secondItem="ArT-R1-hrA" secondAttribute="top" id="QgQ-bS-hzi"/>
-                                                <constraint firstAttribute="bottom" secondItem="xaY-tZ-cBt" secondAttribute="bottom" id="Skx-pj-Lr0"/>
-                                                <constraint firstAttribute="trailing" secondItem="xaY-tZ-cBt" secondAttribute="trailing" id="wRX-MV-r6e"/>
-                                                <constraint firstItem="xaY-tZ-cBt" firstAttribute="leading" secondItem="ArT-R1-hrA" secondAttribute="leading" id="yz3-LD-aJ4"/>
+                                                <constraint firstItem="xaY-tZ-cBt" firstAttribute="top" secondItem="ArT-R1-hrA" secondAttribute="top" constant="5" id="QgQ-bS-hzi"/>
+                                                <constraint firstAttribute="bottom" secondItem="xaY-tZ-cBt" secondAttribute="bottom" constant="5" id="Skx-pj-Lr0"/>
+                                                <constraint firstAttribute="trailing" secondItem="xaY-tZ-cBt" secondAttribute="trailing" constant="10" id="wRX-MV-r6e"/>
+                                                <constraint firstItem="xaY-tZ-cBt" firstAttribute="leading" secondItem="ArT-R1-hrA" secondAttribute="leading" constant="10" id="yz3-LD-aJ4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="detailView" destination="xaY-tZ-cBt" id="ZAU-Io-8QQ"/>
+                                            <outlet property="priceLabel" destination="7Sc-hU-TgR" id="Mnf-Sg-84V"/>
                                             <outlet property="selectedPlanImg" destination="G1t-sV-M2W" id="4hh-sW-GLm"/>
+                                            <outlet property="subtitleLabel" destination="rPw-ZY-lSg" id="XhC-Go-0el"/>
+                                            <outlet property="titleLabel" destination="L3a-4P-nN8" id="ZsL-9R-FhX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -5361,7 +5368,7 @@ Cancel subscription anytime from AppStore.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P4-Ot-W8g">
-                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45.000000000000007"/>
+                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="INQ-hS-ebd"/>
                                             <constraint firstAttribute="height" constant="45" id="Wdg-cf-Rzg"/>
@@ -5415,7 +5422,7 @@ Cancel subscription anytime from AppStore.</string>
                                                                 <constraint firstAttribute="width" constant="20" id="DGB-n2-RzZ"/>
                                                                 <constraint firstAttribute="height" constant="20" id="kPn-8l-YXF"/>
                                                             </constraints>
-                                                            <state key="normal" image="language_unselected"/>
+                                                            <state key="normal" image="unselected_icon"/>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y90-jg-xH9">
                                                             <rect key="frame" x="10" y="18.666666666666671" width="45" height="45"/>
@@ -5425,7 +5432,7 @@ Cancel subscription anytime from AppStore.</string>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" name="tab_color"/>
                                                     <constraints>
                                                         <constraint firstItem="FwG-hU-EF3" firstAttribute="centerY" secondItem="y90-jg-xH9" secondAttribute="centerY" id="6Xx-ZY-I6e"/>
                                                         <constraint firstAttribute="height" constant="82" id="KuW-QD-ITf"/>
@@ -5437,29 +5444,18 @@ Cancel subscription anytime from AppStore.</string>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
+                                                            <integer key="value" value="12"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aH-dI-k58">
-                                                    <rect key="frame" x="20" y="91" width="390" height="1"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14243584440000001" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="OVI-kW-Fs6"/>
-                                                        <constraint firstAttribute="height" constant="1" id="xQq-NJ-jo5"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="4aH-dI-k58" secondAttribute="bottom" id="OWV-SD-hN5"/>
-                                                <constraint firstAttribute="trailing" secondItem="4aH-dI-k58" secondAttribute="trailing" constant="20" id="PqY-Pr-CqX"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hnq-pi-1la" secondAttribute="bottom" constant="5" id="Q3L-Iw-mxb"/>
                                                 <constraint firstItem="Hnq-pi-1la" firstAttribute="leading" secondItem="DJC-mh-Y5C" secondAttribute="leading" constant="10" id="RxS-qP-ahq"/>
                                                 <constraint firstItem="Hnq-pi-1la" firstAttribute="top" secondItem="DJC-mh-Y5C" secondAttribute="top" constant="5" id="TCf-2T-W6C"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hnq-pi-1la" secondAttribute="trailing" constant="10" id="a5M-6M-lae"/>
                                                 <constraint firstItem="Hnq-pi-1la" firstAttribute="top" secondItem="DJC-mh-Y5C" secondAttribute="top" constant="5" id="ef2-75-lfK"/>
-                                                <constraint firstItem="4aH-dI-k58" firstAttribute="leading" secondItem="DJC-mh-Y5C" secondAttribute="leading" constant="20" id="ggT-A7-vEw"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hnq-pi-1la" secondAttribute="bottom" constant="5" id="msJ-Fc-q2I"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hnq-pi-1la" secondAttribute="bottom" constant="5" id="nwP-AT-NKV"/>
                                                 <constraint firstItem="Hnq-pi-1la" firstAttribute="top" secondItem="DJC-mh-Y5C" secondAttribute="top" constant="5" id="zAi-UD-2Ga"/>
@@ -5529,7 +5525,6 @@ Cancel subscription anytime from AppStore.</string>
         <image name="hint_2 " width="247.33332824707031" height="150.33332824707031"/>
         <image name="inapp_close" width="24.333333969116211" height="24"/>
         <image name="lang" width="19.333333969116211" height="19.666666030883789"/>
-        <image name="language_unselected" width="30" height="30"/>
         <image name="list_unselected" width="25.333333969116211" height="25.333333969116211"/>
         <image name="lock_8" width="24.333333969116211" height="18.666666030883789"/>
         <image name="map_bg" width="390.33334350585938" height="272"/>
@@ -5555,6 +5550,7 @@ Cancel subscription anytime from AppStore.</string>
         <image name="splash_bg" width="390.33334350585938" height="844"/>
         <image name="splash_icon" width="268" height="203"/>
         <image name="top_bg" width="411.33334350585938" height="110.33333587646484"/>
+        <image name="unselected_icon" width="31.333333969116211" height="31"/>
         <image name="untick_icon" width="22.333333969116211" height="22.333333969116211"/>
         <image name="upload_active" width="36" height="36"/>
         <image name="uploading" width="36" height="36"/>

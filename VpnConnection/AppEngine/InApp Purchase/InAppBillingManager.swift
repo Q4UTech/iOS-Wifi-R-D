@@ -31,7 +31,7 @@ public class InAppBillingManager : NSObject {
     public func receiptValidation(fromStart:Bool) {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
-                let verifyReceiptURL = kLiveRecieptURL
+                let verifyReceiptURL = kSandboxRecieptURL
                 let receiptFileURL = Bundle.main.appStoreReceiptURL
                 if receiptFileURL != nil{
                     let receiptData = try? Data(contentsOf: receiptFileURL!)

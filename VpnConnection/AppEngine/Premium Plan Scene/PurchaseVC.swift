@@ -270,7 +270,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
             }else{
                 if products.count == mBillingList.count {
                     tableView.isHidden = false
-                    tabelViewheight.constant = 280
+                 //   tabelViewheight.constant = 280
                     return products.count
                 }else{
                     return 0
@@ -302,40 +302,40 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseCell", for: indexPath) as! PurchaseCell
-        cell.dividerLabel.isHidden = true
+     //   cell.dividerLabel.isHidden = true
         
         
         let product = products[indexPath.row]
-        if product.productIdentifier.description == RazeFaceProducts.removeAdsID {
-            cell.imgView!.image = UIImage(named: "Removeads")
-            
-            
-        } else if product.productIdentifier.description == RazeFaceProducts.yearlyProductID {
-            cell.imgView!.image = UIImage(named: "Gold")
-        } else if product.productIdentifier.description == RazeFaceProducts.quarterlyProductID {
-            cell.imgView!.image = UIImage(named: "Silver")
-            
-        }
-        else  {
-            cell.imgView!.image = UIImage(named: "Bronze")
-        }
+//        if product.productIdentifier.description == RazeFaceProducts.removeAdsID {
+//            cell.selectedPlanImg!.image = UIImage(named: "Removeads")
+//
+//
+//        } else if product.productIdentifier.description == RazeFaceProducts.yearlyProductID {
+//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
+//        } else if product.productIdentifier.description == RazeFaceProducts.quarterlyProductID {
+//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
+//
+//        }
+//        else  {
+//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
+//        }
         
         
         cell.detailView.clipsToBounds = true
         cell.detailView.layer.cornerRadius = 12.0
-        cell.priceView.layer.cornerRadius = 12.0
+       // cell.priceView.layer.cornerRadius = 12.0
        // tableView.isEmptyRowsHidden = true
         
         
-        if #available(iOS 13.0, *) {
-            cell.priceView.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        } else {
-            // Fallback on earlier versions
-        }
-        cell.priceView.layer.shadowOffset = CGSize(width: 5, height: 0);
-        cell.priceView.layer.shadowOpacity = 1;
-        cell.priceView.layer.shadowRadius = 1.0;
-        
+//        if #available(iOS 13.0, *) {
+//            cell.priceView.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        cell.priceView.layer.shadowOffset = CGSize(width: 5, height: 0);
+//        cell.priceView.layer.shadowOpacity = 1;
+//        cell.priceView.layer.shadowRadius = 1.0;
+//
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = bgColorView
@@ -349,7 +349,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
                 cell.subtitleLabel.text? =  billingProduct.product_offer_sub_text
                 ProductCell.priceFormatter.locale = product.priceLocale
                 cell.priceLabel.text? = ProductCell.priceFormatter.string(from: product.price)!
-                purchaseViewSubtitleLabel.text! = billingProduct.details_description
+              //  purchaseViewSubtitleLabel.text! = billingProduct.details_description
             }else{
                 print("product.localizedTitle\(product.localizedTitle)")
                 cell.titleLabel.text? = product.localizedTitle
@@ -405,18 +405,18 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         }else{
             if !alreadyPurchased{
                 cell.isUserInteractionEnabled = true
-                cell.detailView.backgroundColor = hexStringColor(hex: "F6F6F6")
-                cell.titleLabel.textColor = UIColor.black
-                cell.memberLabel.textColor = UIColor.black
-                cell.priceLabel.textColor = hexStringColor(hex: "424242")
-                cell.subtitleLabel.textColor = hexStringColor(hex: "898989")
+                cell.detailView.backgroundColor = hexStringColor(hex: "191C20")
+                cell.titleLabel.textColor = UIColor.white
+              //  cell.memberLabel.textColor = UIColor.black
+                cell.priceLabel.textColor = UIColor.white
+                cell.subtitleLabel.textColor = UIColor.white
             }else{
                 cell.isUserInteractionEnabled = false
-                cell.detailView.backgroundColor = hexStringColor(hex: "F6F6F6")
-                cell.titleLabel.textColor = UIColor.black
-                cell.memberLabel.textColor = UIColor.black
-                cell.priceLabel.textColor = hexStringColor(hex: "424242")
-                cell.subtitleLabel.textColor = hexStringColor(hex: "898989")
+                cell.detailView.backgroundColor = hexStringColor(hex: "191C20")
+                cell.titleLabel.textColor = UIColor.white
+              //  cell.memberLabel.textColor = UIColor.black
+                cell.priceLabel.textColor = UIColor.white
+                cell.subtitleLabel.textColor = UIColor.white
             }
         }
         

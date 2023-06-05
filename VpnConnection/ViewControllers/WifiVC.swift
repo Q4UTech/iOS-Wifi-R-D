@@ -8,7 +8,7 @@
 import UIKit
 import FingKit
 import NetworkExtension
-import SystemConfiguration
+import SystemConfiguration.CaptiveNetwork
 import CoreLocation
 import Foundation
 import HGRippleRadarView
@@ -75,7 +75,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
       
         optionBtn.isHidden = false
        // askEnableLocationService()
-        print("wifissd \(getWiFiSsid())")
+     
         
        
         checkWifi()
@@ -89,9 +89,38 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
        
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
-      
+      print("getWiFiName \(printCurrentWifiInfo())")
         
     }
+    
+    func printCurrentWifiInfo() {
+      if let interface = CNCopySupportedInterfaces() {
+        for i in 0..<CFArrayGetCount(interface) {
+          let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interface, i)
+          let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
+          if let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString), let interfaceData = unsafeInterfaceData as? [String : AnyObject] {
+            // connected wifi
+            print("BSSID: \(interfaceData["BSSID"]), SSID: \(interfaceData["SSID"]), SSIDDATA: \(interfaceData["SSIDDATA"])")
+          } else {
+            // not connected wifi
+          }
+        }
+      }
+    }
+    func getWiFiName() -> String? {
+           var ssid: String?
+           if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+               for interface in interfaces {
+                   if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                       ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                       break
+                   }
+               }
+           }
+           return ssid
+       }
+
+   
     func updateWiFi() {
 //        print("SSID: \(currentNetworkInfos?.first?.ssid ?? "")")
 //
@@ -118,10 +147,11 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                 showAlertSetting = true
                 print("HH: kCLAuthorizationStatusRestricted")
             case .authorizedAlways:
-               
+                print("wifissd \(getWiFiSsid()) \(printCurrentWifiInfo())")
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedAlways")
             case .authorizedWhenInUse:
+                print("wifissd \(getWiFiSsid()) \(printCurrentWifiInfo())")
                 topView.isHidden = true
                 coonectedView.isHidden = false
                
@@ -201,7 +231,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
         if isWiFiConnected(){
             topViewLabel.text = "Wi-Fi Manager".localiz()
             showWifiView(status:true)
-           // networkCall()
+           networkCall()
         }else{
             topViewLabel.text = "No Wi-Fi Connection"
             .localiz()
@@ -267,6 +297,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
     }
     
     private func doAuthKeyRequest(){
+        
         var  params = ["app_id": APP_ID,
                   "country": getCountryNameInfo(),
                   "screen": "XHDPI",
@@ -284,6 +315,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
         NetworkHelper.sharedInstanceHelper.createReportKeyRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/reportkey") { [self] (result, error) in
             
             if result != nil{
+                
                 do{
                     UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
                     let decryptString = decryptvalue.decrypt(hexString:result! as! String)

@@ -15,7 +15,9 @@ class RouterVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var searchView:UIView!
     @IBOutlet weak var premiumView:UIView!
     @IBOutlet weak var premiumViewDialog:UIView!
-     
+    @IBOutlet weak var backBtn:UIButton!
+    @IBOutlet weak var btnWidth:NSLayoutConstraint!
+     var isFrom = Bool()
     enum TabIndex : Int {
            case firstChildTab = 0
            case secondChildTab = 1
@@ -55,7 +57,21 @@ class RouterVC: UIViewController, UITextFieldDelegate{
             premiumView.isHidden = false
         }
        
+        if isFrom{
+           
+            hideUnhide(isShow: false,value: 40)
+        }else{
+           
+            hideUnhide(isShow: true,value: 0)
+
+        }
+        
     }
+    func hideUnhide(isShow:Bool,value:Int){
+        backBtn.isHidden = isShow
+        btnWidth.constant = CGFloat(value)
+    }
+    
     
     @IBAction func goPremium(_ sender:UIButton){
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC

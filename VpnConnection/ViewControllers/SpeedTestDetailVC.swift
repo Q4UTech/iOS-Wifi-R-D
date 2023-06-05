@@ -78,14 +78,17 @@ class SpeedTestDetailVC: UIViewController {
             switch CLLocationManager.authorizationStatus() {
             case .denied:
                 showAlertSetting = true
+                print("ssid_Val \(getWiFiSsid())")
                 print("HH: kCLAuthorizationStatusDenied")
             case .restricted:
                 showAlertSetting = true
                 print("HH: kCLAuthorizationStatusRestricted")
             case .authorizedAlways:
+                print("ssid_Val \(getWiFiSsid())")
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedAlways")
             case .authorizedWhenInUse:
+                print("ssid_Val \(getWiFiSsid())")
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
             case .notDetermined:
@@ -125,6 +128,7 @@ class SpeedTestDetailVC: UIViewController {
 
     
     @IBAction func back(_ sender:UIButton){
+        RetestListener.instanceHelper.isSpeedTestComplete(complete: true)
         navigationController?.popViewController(animated: true)
     }
     @IBAction func deleteData(_ sender:UIButton){
@@ -137,6 +141,7 @@ class SpeedTestDetailVC: UIViewController {
       hideUnhideView(false, false)
     }
     @IBAction func retest(_ sender:UIButton){
+        RetestListener.instanceHelper.isSpeedTestComplete(complete: true)
         navigationController?.popViewController(animated: true)
     }
     

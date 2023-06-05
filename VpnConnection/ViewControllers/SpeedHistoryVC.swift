@@ -134,10 +134,19 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         avgDownloadSpeed += data!.downloadSpeed
         avgUploadSpeed  += data!.uploadSpeed
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
-        cell.timeLabel.text = data?.time
-        cell.ping.text = data?.ping
-        cell.upload.text = String(data!.uploadSpeed).maxLength(length: 4)
-        cell.download.text = String(data!.downloadSpeed).maxLength(length: 4)
+        let dates = Array(speedDataList.keys).sorted(by: >)
+            let currentDate = dates[indexPath.section]
+            if let models = speedDataList[currentDate] {
+                let model = models[indexPath.row]
+                cell.timeLabel.text = model.time
+                cell.ping.text = model.ping
+                cell.upload.text = String(model.uploadSpeed).maxLength(length: 4)
+                cell.download.text = String(model.downloadSpeed).maxLength(length: 4)
+            }
+//        cell.timeLabel.text = data?.time
+//        cell.ping.text = data?.ping
+//        cell.upload.text = String(data!.uploadSpeed).maxLength(length: 4)
+//        cell.download.text = String(data!.downloadSpeed).maxLength(length: 4)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -181,10 +190,13 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [self] _, _ in
             let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
-            self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
-                   self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            let values = Array(speedDataList.values)
-                let selectedValue = values[indexPath.row]
+//            self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
+//                   self.tableView.deleteRows(at: [indexPath], with: .automatic)
+         
+            let new = removeValue(value: (speedDataList[speedDetailData[indexPath.section]]?[indexPath.row])!, fromDict: speedDataList)
+//            let values = Array(speedDataList.values)
+//            let selectedValue = values[indexPath.row]
+//            speedDetailData[indexPath.section].remove(at: indexPath.row)
           //  deleteView.isHidden = false
 //                if let key = speedDataList.first(where: { $0.value == selectedValue })?.key {
 //                    // Key is found, use it here
@@ -204,6 +216,25 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
                return [deleteAction]
     }
     
+//    func removeValue(value: String, fromDict dict: [String: [String]]) -> [String: [String]] {
+//        var out = [String: [String]]()
+//        for entry in dict {
+//            out[entry.key] = entry.value.filter({
+//                $0 != value
+//            })
+//        }
+//        return out
+//    }
+    
+    func removeValue(value: SpeedTestData, fromDict dict: [String: [SpeedTestData]]) -> [String: [SpeedTestData]] {
+        var out = [String: [SpeedTestData]]()
+        for entry in dict {
+            out[entry.key] = entry.value.filter({
+                $0 !== value
+            })
+        }
+        return out
+    }
     
 }
 

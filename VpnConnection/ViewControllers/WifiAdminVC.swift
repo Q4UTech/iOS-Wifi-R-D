@@ -34,6 +34,7 @@ class WifiAdminVC: UIViewController, WKUIDelegate {
     @IBAction func openRouterSetting(_ sender:UIButton){
         let vc = storyboard?.instantiateViewController(withIdentifier: "RouterVC") as! RouterVC
         navigationController?.pushViewController(vc, animated: true)
+        vc.isFrom = true
         showFullAds(viewController: self, isForce: false)
         
     }

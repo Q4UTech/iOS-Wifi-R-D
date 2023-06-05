@@ -14,7 +14,7 @@ class LanguageVC: UIViewController ,UITableViewDataSource,UITableViewDelegate{
       
       var langCodeArr = [MyConstant.languageCode.kEn,MyConstant.languageCode.kFr,MyConstant.languageCode.kNl,MyConstant.languageCode.kHi,MyConstant.languageCode.kEs,MyConstant.languageCode.kKo,MyConstant.languageCode.kAr,MyConstant.languageCode.kPT]
       
-    var flagArr = ["english","french","dutch","hindi","spanish","korean","arabic","portugal"]
+    var flagArr = ["english","french","dutch","hindi","spanish","korean","arabic","portugese"]
     @IBOutlet weak var backButtonAction: UIButton!
     @IBOutlet weak var languageTableView: UITableView!
     @IBOutlet weak var adView: UIView!
@@ -65,9 +65,9 @@ class LanguageVC: UIViewController ,UITableViewDataSource,UITableViewDelegate{
             
       
         if  UserDefaults.standard.value(forKey: MyConstant.constant.APPLE_LANGUAGE) as! String == langCode[indexPath.row] {
-            cell.languageSelectedButton.setImage(UIImage(named: "language_selected_btn"), for: .normal)
+            cell.languageSelectedButton.setImage(UIImage(named: "selected_icon"), for: .normal)
         }else{
-            cell.languageSelectedButton.setImage(UIImage(named: "language_unselected"), for: .normal)
+            cell.languageSelectedButton.setImage(UIImage(named: "unselected_icon"), for: .normal)
         }
         
       
