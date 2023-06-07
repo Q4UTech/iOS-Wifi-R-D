@@ -10,10 +10,10 @@
 target 'VpnConnection' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod "PlainPing"
-  
+#  pod "PlainPing"
+# pod 'SwiftPing'
   pod 'Alamofire', '~> 4.0'
-  
+  pod 'IQKeyboardManager'
   pod 'Toast-Swift'
   pod 'WMGaugeView'
   pod 'MASegmentedControl'

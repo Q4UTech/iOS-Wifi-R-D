@@ -14,7 +14,54 @@ import Foundation
 import HGRippleRadarView
 import Network
 
-class WifiVC: UIViewController ,LanguageSelectionDelegate {
+enum Network: String {
+    case wifi = "en0"
+    case cellular = "pdp_ip0"
+    //... case ipv4 = "ipv4"
+    //... case ipv6 = "ipv6"
+}
+
+
+class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,WifiDelegate{
+    func showList(list: [String]) {
+        print("listCount \(list.count)")
+        offlineData.removeAll()
+        for (i,item) in list.enumerated(){
+            print("i val \(i)")
+//            offlineData.append(OfflineData(ipName: item, ipDetail: item))
+            let newItem = OfflineData(ipName: item, ipDetail: item)
+            if !offlineData.contains(newItem) {
+                offlineData.append(newItem)
+            }
+            if i == list.count - 1{
+                loadData(items: offlineData)
+                print("counts \(offlineData.count)")
+               //
+               
+               
+            }
+        }
+       
+    }
+    private func loadData(items:[OfflineData]){
+       
+        let items = items.map{Item(uniqueKey: $0.ipName, value: $0) }
+        DispatchQueue.main.async { [self] in
+            coonectedView.isHidden = false
+            topView.isHidden = true
+            connectedDeviceCount.text = "(\(offlineData.count))"
+            wifiTableView.reloadData()
+        }
+        DispatchQueue.main.async { [self] in
+          
+            if items.count > 0 {
+                radarView.add(items: items)
+                return
+            }
+        }
+    }
+    
+    
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
@@ -45,19 +92,25 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
     @IBOutlet weak var optionBtn:UIButton!
     @IBOutlet weak var langLabel:UILabel!
     @IBOutlet weak var moreAppLbl:UILabel!
-    @IBOutlet weak var rateAppLbl:UILabel!
-    @IBOutlet weak var feedbackLbl:UILabel!
+    @IBOutlet weak var mapViewLbl:UILabel!
+    @IBOutlet weak var listViewLbl:UILabel!
     @IBOutlet weak var abtUsLbl:UILabel!
-   
+    @IBOutlet weak var mapWidthConstraint:NSLayoutConstraint!
+    @IBOutlet weak var listWidthConstraint:NSLayoutConstraint!
+    
+    var wifiHelper:WifiHelper?
     var decryptvalue = String()
     var dictnry = String()
     var hexadecimal = String()
     var locationPermissionGranted:Bool = false
     var fingData = [FingNodes]()
+    var offlineData = [OfflineData]()
+    var offline:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         wifiTableView.delegate = self
         wifiTableView.dataSource = self
+        MainListHelper.instanceHelper.wifiDelegate = self
         LanguageSelectionListener.instanceHelper.itemdelegates = self
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
@@ -76,7 +129,13 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
         optionBtn.isHidden = false
        // askEnableLocationService()
      
-        
+        if mapViewLbl.text!.count >= 10{
+            mapWidthConstraint.constant = 130
+            listWidthConstraint.constant = 150
+        }else{
+            mapWidthConstraint.constant = 94
+            listWidthConstraint.constant = 94
+        }
        
         checkWifi()
 //        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
@@ -90,6 +149,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
       print("getWiFiName \(printCurrentWifiInfo())")
+        
         
     }
     
@@ -231,7 +291,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
         if isWiFiConnected(){
             topViewLabel.text = "Wi-Fi Manager".localiz()
             showWifiView(status:true)
-           networkCall()
+             networkCall()
         }else{
             topViewLabel.text = "No Wi-Fi Connection"
             .localiz()
@@ -245,7 +305,8 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
     }
     
     private func networkCall(){
-        
+        DispatchQueue.global(qos: .background).async { [self] in
+         
         var params = [String:Any]()
         
         
@@ -279,7 +340,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                   
                
                     }catch {
-                        doAuthKeyRequest()
+                      //  doAuthKeyRequest()
                     }
                     
                     
@@ -289,9 +350,11 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                 }
                 
             }catch{
-                doAuthKeyRequest()
+               // doAuthKeyRequest()
             }
             
+        }
+          
         }
        
     }
@@ -487,16 +550,17 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
     // LOCATION MANAGER DELEGATE
     // ------------------------------------
     
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        DispatchQueue.main.async {
-//            if status == .authorizedAlways || status == .authorizedWhenInUse {
-//                let controller = UIAlertController(title: "Permissions granted!", message: "You can now request network information to obtain Wi-Fi network SSID and BSSID!", preferredStyle: .alert)
-//                controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//                self.present(controller, animated: true, completion: nil)
-//            }
-//            self.locationManager.delegate = nil
-//        }
-//    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        DispatchQueue.main.async { [self] in
+            if status == .authorizedAlways || status == .authorizedWhenInUse {
+                let controller = UIAlertController(title: "Permissions granted!", message: "You can now request network information to obtain Wi-Fi network SSID and BSSID!", preferredStyle: .alert)
+                controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(controller, animated: true, completion: nil)
+                print("getWifiname \(getWiFiSsid()) \(getWiFiName())")
+            }
+            self.locationManager!.delegate = nil
+        }
+    }
     
     
     
@@ -545,6 +609,14 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                 let completed = FGKUtils.extractFromJSON(result, forKey: "completed")
                 let formatted = FGKUtils.formatResult(result, orError: error)
                 print("---NETWORK SCAN22---\n\(formatted)")
+                if formatted as! String == "License has expired"{
+                    print("do action")
+                    offline = true
+                    wifiHelper = WifiHelper(limit:254)
+                    wifiHelper?.startWifiScan()
+                }else{
+                    offline = false
+                }
                // DispatchQueue.main.async {
                 //    self.printToUI(formatted as! String )
                     if completed == nil || completed as! String == "true" {
@@ -557,6 +629,9 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                                 do {
                                     let decoder = JSONDecoder()
                                     let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
+                                    if let content = scanResponse.completed{
+                                        print("data888 \(content)")
+                                    }
                                     if let isp = scanResponse.gatewayIpAddress {
                                       
                                         UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
@@ -584,6 +659,8 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
                                             connectedDeviceCount.text = "(\(fingNodes.count))"
                                             wifiTableView.reloadData()
                                         }
+                                    }else{
+                                        
                                     }
                                     
                                     print("scan done11")
@@ -690,35 +767,49 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate {
 extension WifiVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("fingData\(fingData.count)")
-         return fingData.count
+        if offline{
+            return offlineData.count
+        }else{
+            return fingData.count
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = fingData[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "WifiDataCell", for: indexPath) as! WifiDataCell
-        cell.bestName.text = data.bestName
-        switch(data.bestType){
-        case "ROUTER":
-            cell.bestTypes.image = UIImage(named: "router")
-            break
-        case "LAPTOP":
-            cell.bestTypes.image = UIImage(named: "router")
-            break
-        case "MOBILE":
-            cell.bestTypes.image = UIImage(named: "iphone")
-            break
-        case "COMPUTER":
-            cell.bestTypes.image = UIImage(named: "desktop")
-            break
-        case "PRINTER":
-            cell.bestTypes.image = UIImage(named: "printer")
-            break
-        default :
-            print("none")
-        }
         
-        cell.ipAddress.text = data.ipAddresses?.first
+        if offline{
+            let data = offlineData[indexPath.row]
+            cell.bestName.text = data.ipName
+            cell.ipAddress.text = data.ipName
+            cell.bestTypes.image = UIImage(named: "default_icon")
+        }else{
+            let data = fingData[indexPath.row]
+            cell.bestName.text = data.bestName
+           
+            switch(data.bestType){
+            case "ROUTER":
+                cell.bestTypes.image = UIImage(named: "router")
+                break
+            case "LAPTOP":
+                cell.bestTypes.image = UIImage(named: "router")
+                break
+            case "MOBILE":
+                cell.bestTypes.image = UIImage(named: "iphone")
+                break
+            case "COMPUTER":
+                cell.bestTypes.image = UIImage(named: "desktop")
+                break
+            case "PRINTER":
+                cell.bestTypes.image = UIImage(named: "printer")
+                break
+            default :
+                cell.bestTypes.image = UIImage(named: "default_icon")
+            }
+            
+            cell.ipAddress.text = data.ipAddresses?.first
+        }
+       
         return cell
         
     }
@@ -729,9 +820,13 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
-        vc.data  = fingData[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
-        showFullAds(viewController: self, isForce: false)
+        if offline{
+            
+        }else{
+            vc.data  = fingData[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+            showFullAds(viewController: self, isForce: false)
+        }
     }
     
  
@@ -741,12 +836,17 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
 extension WifiVC:RadarViewDelegate,RadarViewDataSource{
     func radarView(radarView: HGRippleRadarView.RadarView, didSelect item: HGRippleRadarView.Item) {
         let view = radarView.view(for: item)
-        guard let animal = item.value as? FingNodes else { return }
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
-        vc.data  = animal
-        navigationController?.pushViewController(vc, animated: true)
-        showFullAds(viewController: self, isForce: false)
-        print("item0000000\(item)")
+        if offline{
+            
+        }else{
+            guard let animal = item.value as? FingNodes else { return }
+            let vc = storyboard?.instantiateViewController(withIdentifier: "DeviceDetailVC") as! DeviceDetailVC
+            vc.data  = animal
+            navigationController?.pushViewController(vc, animated: true)
+            showFullAds(viewController: self, isForce: false)
+            print("item0000000\(item)")
+        }
+        
     }
     
     func radarView(radarView: HGRippleRadarView.RadarView, didDeselect item: HGRippleRadarView.Item) {
@@ -760,18 +860,36 @@ extension WifiVC:RadarViewDelegate,RadarViewDataSource{
     func radarView(radarView: HGRippleRadarView.RadarView, viewFor item: HGRippleRadarView.Item, preferredSize: CGSize) -> UIView {
         let customView = UIView(frame: CGRect(x:0, y:0, width:50, height:preferredSize.height))
                customView.backgroundColor = UIColor.clear // Set your desired background color
-               
-               // Customize the appearance of the view as per your requirements
-         let data = item.value as? FingNodes
         let nibObjects = Bundle.main.loadNibNamed("AnimationView", owner: nil, options: nil)
-        
         let loadView = nibObjects?.first as? AnimationCell
-        //  loadView.backgroundColor = UIColor.clear
+               // Customize the appearance of the view as per your requirements
+        if offline{
+            let data = item.value as? OfflineData
+            let nibObjects = Bundle.main.loadNibNamed("AnimationView", owner: nil, options: nil)
+            
+            let loadView = nibObjects?.first as? AnimationCell
+            //  loadView.backgroundColor = UIColor.clear
+            
+            loadView?.deviceName.text = data!.ipName
+            loadView?.deviceName.textColor = .white
+            loadView?.animatedImage.image = UIImage(named: "default_icon")
+            
         
-        loadView?.deviceName.text = data!.bestName
-        loadView?.deviceName.textColor = .white
-        
+        loadView?.animationView.frame.size.width = customView.frame.size.width
+        loadView?.animationView.backgroundColor = UIColor.clear
+        loadView?.animationView.frame.size.height = customView.frame.size.height
+        customView.addSubview(loadView!)
+        }else{
+            let data = item.value as? FingNodes
+          
+            
        
+            //  loadView.backgroundColor = UIColor.clear
+            
+            loadView?.deviceName.text = data!.bestName
+            loadView?.deviceName.textColor = .white
+            
+            
             switch(data!.bestType){
             case "ROUTER":
                 loadView?.animatedImage.image = UIImage(named: "router")
@@ -790,12 +908,14 @@ extension WifiVC:RadarViewDelegate,RadarViewDataSource{
                 break
             default :
                 loadView?.animatedImage.image = UIImage(named: "default_icon")
-            
+                
+            }
+            loadView?.animationView.frame.size.width = customView.frame.size.width
+            loadView?.animationView.backgroundColor = UIColor.clear
+            loadView?.animationView.frame.size.height = customView.frame.size.height
+            customView.addSubview(loadView!)
         }
-        loadView?.animationView.frame.size.width = customView.frame.size.width
-        loadView?.animationView.backgroundColor = UIColor.clear
-        loadView?.animationView.frame.size.height = customView.frame.size.height
-        customView.addSubview(loadView!)
+      
         customView.backgroundColor = UIColor.clear
         customView.contentMode = .scaleAspectFill
         return customView
@@ -818,4 +938,11 @@ extension WifiVC:RadarViewDelegate,RadarViewDataSource{
     }
 }
 
+
+public extension Array where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter{ seen.insert($0).inserted }
+    }
+}
 

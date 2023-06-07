@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Toast_Swift
+import KRProgressHUD
 
 class PasswordHintVC: UIViewController,SearchDelegate{
     func searchData(searchDarta: String) {
@@ -67,8 +68,8 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         // Do any additional setup after loading the view.
         passwordTaableView.dataSource = self
         passwordTaableView.delegate = self
-       
         callPasswordHintApi()
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -77,16 +78,21 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         
     }
     
+   
+    
     @IBAction func goPremium(_ sender:UIButton){
         
     }
     
-    private func callPasswordHintApi(){
+     func callPasswordHintApi(){
        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-           DispatchQueue.global(qos: .background).async { [self] in
-               
+           
+           KRProgressHUD.showOn(self).show()
+           passwordList.removeAll()
+           print("URL_DATA\(URL)")
                Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
                    print("respnse \(response)")
+                   
                    switch response.result {
                        
                    case .success(let value):
@@ -106,8 +112,10 @@ class PasswordHintVC: UIViewController,SearchDelegate{
                                passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
                                filteredData = passwordList
                                totalCount = filteredData.count
+                               KRProgressHUD.dismiss()
                            }
                            DispatchQueue.main.async { [self] in
+                               KRProgressHUD.dismiss()
                                passwordTaableView.reloadData()
                                if totalCount != nil{
                                    totalPassword.text = "Total Password : \(totalCount)"
@@ -131,7 +139,7 @@ class PasswordHintVC: UIViewController,SearchDelegate{
                    }
                }
                
-           }
+//           }
                
        }else{
            view.makeToast("Please connect to internet")

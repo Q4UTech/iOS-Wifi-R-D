@@ -56,9 +56,10 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     func connectionStatus(connectionStatus: String) {
         if connectionStatus == "connected" {
             statuslabel.text = "Connected"
+            isConnected = true
             statuslabel.textColor = hexStringColor(hex: "#2EB92B")
             print("connected succesfully")
-            setStatus(value: true)
+          //  setStatus(value: true)
             topViewUiLabel.text = "Stop"
             topImg.image = UIImage(named: "lock")
             TimerManager.shared.startTimer()
@@ -66,6 +67,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             
         }
         if connectionStatus == "connecting"{
+         //   isConnected = false
             topViewUiLabel.text = "Wait"
             statuslabel.text = "Connecting"
             statuslabel.textColor = .white
@@ -73,6 +75,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         }
         
         if connectionStatus == "disconnected"{
+           // isConnected = false
             topViewUiLabel.text = "Start"
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
@@ -117,6 +120,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         var countryData = [DataModel]()
         var buttonSwitched : Bool = false
         var speedTestVM = SpeedTestViewModel()
+    
+         var isConnected:Bool = false
        // let profileVM = ProfileViewModel()
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -200,7 +205,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
           // ConnectionStatus.instanceHelper.itemdelegates = self
             self.buttonSwitched = !self.buttonSwitched
-            if self.buttonSwitched{
+//            if self.buttonSwitched{
+            if !isConnected{
                
                
                     
@@ -211,12 +217,12 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
                     print("called for data")
                
                 
-               
+           
                 
-            }
-            
-            else {
-               hideUndideDialog(isShow: false)
+            }else {
+                if isConnected{
+                    hideUndideDialog(isShow: false)
+                }
                
               //ConnectionStatus.instanceHelper.itemdelegates = self
                 

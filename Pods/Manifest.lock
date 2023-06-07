@@ -120,6 +120,7 @@ PODS:
     - GoogleUtilities/Logger
   - HCSStarRatingView (1.5)
   - HGRippleRadarView (0.1.2)
+  - IQKeyboardManager (6.5.11)
   - KRActivityIndicatorView (3.0.7)
   - KRProgressHUD (3.4.7):
     - KRActivityIndicatorView (= 3.0.7)
@@ -144,7 +145,6 @@ PODS:
   - OpenVPNAdapter/OpenVPN3 (0.7.0)
   - OpenVPNAdapter/OpenVPNAdapter (0.7.0)
   - OpenVPNAdapter/OpenVPNClient (0.7.0)
-  - PlainPing (0.5.2)
   - PromisesObjC (2.1.1)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
@@ -165,12 +165,12 @@ DEPENDENCIES:
   - GoogleMobileAdsMediationFacebook (~> 6.10.0)
   - HCSStarRatingView (~> 1.5)
   - HGRippleRadarView
+  - IQKeyboardManager
   - KRProgressHUD
   - LanguageManager-iOS
   - lottie-ios
   - MASegmentedControl
   - OpenVPNAdapter (from `https://github.com/deneraraujo/OpenVPNAdapter.git`)
-  - PlainPing
   - SDWebImage (~> 4.0)
   - Toast-Swift
   - WMGaugeView
@@ -197,13 +197,13 @@ SPEC REPOS:
     - GoogleUtilities
     - HCSStarRatingView
     - HGRippleRadarView
+    - IQKeyboardManager
     - KRActivityIndicatorView
     - KRProgressHUD
     - LanguageManager-iOS
     - lottie-ios
     - MASegmentedControl
     - nanopb
-    - PlainPing
     - PromisesObjC
     - SDWebImage
     - SwiftAlgorithms
@@ -240,6 +240,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
   HGRippleRadarView: 5379e27634c09222ebc836671c7425ad7b257cc4
+  IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   LanguageManager-iOS: 049345fe4d1c5fbe22af93d438540917f4936359
@@ -247,13 +248,12 @@ SPEC CHECKSUMS:
   MASegmentedControl: 9b58f9ba3a562a739b63b29e4ca2b9dc4d9c62cb
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   OpenVPNAdapter: 173fcc4c11a3a8a83ae8d250c079cdc5b9fb8ff1
-  PlainPing: 41fb93099deb2f5ddbc534a934eb3bf07522d437
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: 1df6cc5c4f134b98728e323eaf53ccd33fbc5a49
+PODFILE CHECKSUM: 5d7764c8050517107d048b5e826df698001c9d5c
 
 COCOAPODS: 1.11.3

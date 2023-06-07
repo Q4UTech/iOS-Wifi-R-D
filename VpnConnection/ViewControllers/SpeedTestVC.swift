@@ -8,13 +8,17 @@
 import UIKit
 import WMGaugeView
 import Charts
-import PlainPing
+//import PlainPing
 import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
 import CoreTelephony
+import CoreLocation
+//import SwiftPing
 
 @available(iOS 13.0, *)
-class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol,LanguageSelectionDelegate,RetestProtocol{
+class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol,LanguageSelectionDelegate,RetestProtocol, SimplePingDelegate{
+    var locationManager: CLLocationManager?
+    var canStartPinging = false
     func isSpeedTestComplete(complete: Bool) {
         for _ in 0...9{
             speedArray.append(0.0)
@@ -121,51 +125,97 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         LanguageSelectionListener.instanceHelper.itemdelegates = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
-                transView.addGestureRecognizer(tapGesture)
+        transView.addGestureRecognizer(tapGesture)
         setSpeedMeterUI()
-       fetchFilms { [weak self] (pingSpeed) in
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+        fetchFilms { [weak self] (pingSpeed) in
             self?.pingSpeed = pingSpeed
             
         }
+        // SimplePingHelper.init(address: "www.apple.com", target: self, selector: #selector(pingResult(_:)))
+        
         mbpsLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
         RetestListener.instanceHelper.retestDelegate = self
-        var currentNetworkInfo: [String: Any] = [:]
+        //        var currentNetworkInfo: [String: Any] = [:]
+        //
+        //        getNetworkInfo { [self] (wifiInfo) in
+        //
+        //          currentNetworkInfo = wifiInfo
+        //            print("currentNetworkInfo \(currentSSIDs()) \(wifiInfo) \(getInterfaces())")
+        //            let pinger = SimplePing(hostName: "www.apple.com")
+        //            pinger!.delegate = self;
+        //            pinger!.start()
+        //
+        //            repeat {
+        //                if (canStartPinging) {
+        //                    pinger!.send(with: nil)
+        //                }
+        //                RunLoop.current.run(mode: RunLoop.Mode.default, before: (NSDate.distantFuture as NSDate) as Date)
+        //            } while(pinger != nil)
+        //        }
+        //  print("Strength \(getWiFiRSSI())")
+        
+        
+        //        if let wifiRSSI = wifiStrength() {
+        //            print("Wi-Fi RSSI: \(wifiRSSI)")
+        //        } else {
+        //            print("Unable to retrieve Wi-Fi RSSI.")
+        //        }
+ //   getWiFiName()
+    }
+    
+    func getWiFiName() -> String? {
+        var ssid: String?
 
-        getNetworkInfo { [self] (wifiInfo) in
-                       
-          currentNetworkInfo = wifiInfo
-            print("currentNetworkInfo \(currentSSIDs()) \(wifiInfo) \(getInterfaces())")
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+          for interface in interfaces {
+            if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+              ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+              break
+            }
+          }
         }
-      //  print("Strength \(getWiFiRSSI())")
-        
-       
-        if let wifiRSSI = wifiStrength() {
-            print("Wi-Fi RSSI: \(wifiRSSI)")
-        } else {
-            print("Unable to retrieve Wi-Fi RSSI.")
-        }
-    }
-    private func wifiStrength() -> Int? {
-        var rssi: Int?
-        
-//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//            let statusBarManager = windowScene.statusBarManager,
-//            let statusBarFrame = statusBarManager.statusBarFrame,
-//            let statusBarView = statusBarManager.statusBarView?.subviews.first(where: { $0.frame.equalTo(statusBarFrame) }) else {
-//                return rssi
+
+        return ssid
+      }
+    
+//    @objc func pingResult(_ success: NSNumber) {
+//        if success.boolValue {
+//            log("SUCCESS")
+//        } else {
+//            log("FAILURE")
 //        }
-//        
-//        for subview in statusBarView.subviews {
-//            if let statusBarDataNetworkItemView = NSClassFromString("UIStatusBarDataNetworkItemView"),
-//                subview.isKind(of: statusBarDataNetworkItemView),
-//                let val = subview.value(forKey: "wifiStrengthRaw") as? Int {
-//                rssi = val
-//                break
-//            }
-//        }
-        
-        return rssi
-    }
+//    }
+//
+//    func log(_ message: String) {
+//        // Your log implementation
+//        print("msg11 \(message)")
+//    }
+   
+//    private func wifiStrength() -> Int? {
+//        var rssi: Int?
+//
+////        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+////            let statusBarManager = windowScene.statusBarManager,
+////            let statusBarFrame = statusBarManager.statusBarFrame,
+////            let statusBarView = statusBarManager.statusBarView?.subviews.first(where: { $0.frame.equalTo(statusBarFrame) }) else {
+////                return rssi
+////        }
+////
+////        for subview in statusBarView.subviews {
+////            if let statusBarDataNetworkItemView = NSClassFromString("UIStatusBarDataNetworkItemView"),
+////                subview.isKind(of: statusBarDataNetworkItemView),
+////                let val = subview.value(forKey: "wifiStrengthRaw") as? Int {
+////                rssi = val
+////                break
+////            }
+////        }
+//
+//        return rssi
+//    }
 
 
     
@@ -315,10 +365,20 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         getNetworkSpeed()
         getIP()
-        speedTestVM.setPingData(pingLabel: ping)
-        
+    // speedTestVM.setPingData(pingLabel: ping)
+//        let pingInterval:TimeInterval = 3
+//        let timeoutInterval:TimeInterval = 4
+//        let configuration = PingConfiguration(pInterval:pingInterval, withTimeout:  timeoutInterval)
+//
+//        print(configuration)
+//
+//        SwiftPing.ping(host: "google.com", configuration: configuration, queue: DispatchQueue.main) { (ping, error) in
+//        print("ping data \(ping)")
+//        print("\(error)")
+//        }
        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         getBannerAd(self, adView, heightConstraint)
@@ -668,5 +728,36 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
    
 }
-
+@available(iOS 13.0, *)
+extension SpeedTestVC: CLLocationManagerDelegate {
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+      switch status{
+      case .authorizedWhenInUse :
+          let ssid = self.getWiFiName()
+          print("SSID11: \(String(describing: ssid))")
+          break
+      case .authorizedAlways:
+          let ssid = self.getWiFiName()
+          print("SSID11: \(String(describing: ssid))")
+         break
+      case .denied:
+          let ssid = self.getWiFiName()
+          print("SSID11: \(String(describing: ssid))")
+          break
+      case .notDetermined:
+          let ssid = self.getWiFiName()
+          print("SSID11: \(String(describing: ssid))")
+          break
+      case .restricted:
+          let ssid = self.getWiFiName()
+          print("SSID11: \(String(describing: ssid))")
+          break
+      default:
+          print("unknown")
+      }
+      
+   
+      print("status22 \(status)")
+  }
+}
 

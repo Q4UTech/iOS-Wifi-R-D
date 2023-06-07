@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 import WMGaugeView
 import Toast_Swift
-import PlainPing
+//import PlainPing
 import SystemConfiguration.CaptiveNetwork
 import CoreTelephony
+
 
 class SpeedTestViewModel{
     var speedTestList  = [String:[SpeedTestData]]()
@@ -130,7 +131,7 @@ class SpeedTestViewModel{
            
         }
         DispatchQueue.main.asyncAfter(deadline: .now()+5) { [self] in
-            pingData = UserDefaults.standard.string(forKey: "pingData")!
+            pingData = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
             SpeedTestCompleteListener.instanceHelper.isSpeedCheckComplete(complete: true,ping:pingData,upload: uploadArray.last ?? 1.09  ,download: downLoadArray.last ?? 2.03)
         }
     }
@@ -225,22 +226,41 @@ class SpeedTestViewModel{
 
     }
     
-    func setPingData(pingLabel:UILabel){
-        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { [self] (timeElapsed:Double?, error:Error?) in
-            if let latency = timeElapsed {
-                pingData = "\(String(latency).prefix(4))"
-                print("pingData\(pingData)")
-                UserDefaults.standard.set(pingData, forKey: "pingData")
-                pingLabel.text = pingData
-                
-               
-            }
-
-            if let error = error {
-                print("error: \(error.localizedDescription)")
-            }
-        })
-    }
+//    func setPingData(pingLabel:UILabel){
+//        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { [self] (timeElapsed:Double?, error:Error?) in
+//            if let latency = timeElapsed {
+//                pingData = "\(String(latency).prefix(4))"
+//                print("pingData\(pingData)")
+//                UserDefaults.standard.set(pingData, forKey: "pingData")
+//                pingLabel.text = pingData
+//
+//
+//            }
+//
+//            if let error = error {
+//                print("error: \(error.localizedDescription)")
+//            }
+//        })
+//    }
+    
+//    func setPingData(pingLabel:UILabel) {
+//
+//            let config:PingConfiguration = PingConfiguration(interval: 1)
+//
+//
+//        SwiftPing.pingOnce(host: "www.google.com",
+//                                  configuration: config,
+//                                  queue: DispatchQueue.main){ (response: PingResponse) in
+//
+//                                   print(response)
+//                                   print(response.duration)
+//                                   print(response.ipAddress)
+//                                   print(response.error)
+//                                   print(response.identifier)
+//               }
+//
+//
+//        }
     
     private func getCurrentTime()->String{
         let formatter = DateFormatter()
@@ -309,12 +329,12 @@ class SpeedTestViewModel{
             for interface in interfaces {
                 if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
                     ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                   
+                 
                     break
                 }
             }
         }
-        print("ssid \(String(describing: ssid))")
+        print("ssid112 \(String(describing: ssid))")
         return ssid
     }
 }

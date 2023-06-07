@@ -985,7 +985,7 @@
                                             <constraint firstAttribute="width" constant="24" id="ddq-Ii-WtC"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76T-d4-dA4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map View" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76T-d4-dA4">
                                         <rect key="frame" x="37" y="9.6666666666666572" width="48.666666666666657" height="12"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1241,7 +1241,6 @@ to check connected devices</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="430" height="46.333333333333336"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
-                                                            <action selector="openRouter:" destination="I5O-BB-h3D" eventType="touchUpInside" id="bFi-Nt-jAG"/>
                                                             <action selector="rateApp:" destination="I5O-BB-h3D" eventType="touchUpInside" id="ops-sU-R29"/>
                                                         </connections>
                                                     </button>
@@ -1466,8 +1465,12 @@ to check connected devices</string>
                         <outlet property="heightConstraint" destination="9jV-Vl-vHX" id="cdE-ia-Rge"/>
                         <outlet property="listImg" destination="roY-Yb-igc" id="TLW-f6-iMZ"/>
                         <outlet property="listView" destination="Hv7-Cz-d9g" id="y6U-83-n0G"/>
+                        <outlet property="listViewLbl" destination="bxw-JN-1dh" id="NyY-4A-YPn"/>
+                        <outlet property="listWidthConstraint" destination="0Nf-nv-K1b" id="kFV-94-iQt"/>
                         <outlet property="mapImg" destination="3J1-7a-MJt" id="bAo-hx-CkZ"/>
                         <outlet property="mapView" destination="6Cz-sX-5Hz" id="cjZ-1e-fc2"/>
+                        <outlet property="mapViewLbl" destination="76T-d4-dA4" id="Nb4-Kg-jRY"/>
+                        <outlet property="mapWidthConstraint" destination="yFS-wN-Qld" id="rqN-3X-NgU"/>
                         <outlet property="noWifi" destination="6ug-Ff-wz4" id="CcA-RD-p7n"/>
                         <outlet property="optionBtn" destination="bEA-cS-QJY" id="vpL-En-fhx"/>
                         <outlet property="radarView" destination="4Hx-io-5KS" id="Y41-ZU-AGm"/>
@@ -1699,8 +1702,8 @@ to check connected devices</string>
                                             <action selector="locationListButtonAction:" destination="6dt-d1-ALS" eventType="touchUpInside" id="e6C-3Y-izO"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="America" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5W8-di-nZK">
-                                        <rect key="frame" x="56" y="21.666666666666629" width="53" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5W8-di-nZK">
+                                        <rect key="frame" x="56" y="30" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2476,7 +2479,7 @@ connection?</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRq-Tb-lLh">
-                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104.00000000000003"/>
+                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-8K-NRm">
                                         <rect key="frame" x="25" y="31.666666666666686" width="41" height="41"/>
@@ -3718,7 +3721,7 @@ connection?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure want to delete this history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Qb-l2G">
-                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="266.99999999999994" height="18"/>
+                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="267" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

@@ -18,10 +18,11 @@ class DashboardVC: UITabBarController,UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-       showFullAds(viewController: self, isForce: false)
-        
-    }
+//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//       showFullAds(viewController: self, isForce: false)
+//        
+//    }
+    
     
 
 }
