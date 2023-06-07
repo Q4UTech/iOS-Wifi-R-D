@@ -20,12 +20,28 @@ public class ProfileViewModel {
         connection = Connection(profile: profile)
     }
     
+//    func mainButtonAction() {
+//        switch connection.connectionStatus {
+//        case .invalid, .disconnected:
+//            connection.startVPN()
+//            break
+//        case .connecting, .connected, .reasserting:
+//            connection.stopVPN()
+//            break
+//        case .disconnecting:
+//            break
+//        @unknown default:
+//            connection.startVPN()
+//            break
+//        }
+//
+//    }
     func mainButtonAction() {
         switch connection.connectionStatus {
         case .invalid, .disconnected:
             connection.startVPN()
             break
-        case .connecting, .connected, .reasserting:
+        case  .connected, .reasserting:
             connection.stopVPN()
             break
         case .disconnecting:

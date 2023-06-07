@@ -814,14 +814,14 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rahul’s Wi-Fi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPF-8M-FKz">
-                                        <rect key="frame" x="20" y="21.666666666666671" width="130.66666666666666" height="26.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPF-8M-FKz">
+                                        <rect key="frame" x="20.000000000000007" y="21.666666666666671" width="94.666666666666686" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" red="0.1803921568627451" green="0.72549019607843135" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-pr-8d7">
-                                        <rect key="frame" x="152.66666666666666" y="35" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="116.66666666666667" y="35" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.72549019609999998" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1417,6 +1417,12 @@ to check connected devices</string>
                                     <constraint firstAttribute="trailing" secondItem="m8I-ka-8lX" secondAttribute="trailing" id="xEm-ZV-6mv"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-iG-p97">
+                                <rect key="frame" x="165.33333333333334" y="445" width="99.666666666666657" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jqh-3S-gHa"/>
                         <color key="backgroundColor" name="dashboard_bg_color"/>
@@ -1440,6 +1446,8 @@ to check connected devices</string>
                             <constraint firstItem="4Hx-io-5KS" firstAttribute="leading" secondItem="Jqh-3S-gHa" secondAttribute="leading" id="Owt-X0-Mzx"/>
                             <constraint firstItem="4Hx-io-5KS" firstAttribute="top" secondItem="Hv7-Cz-d9g" secondAttribute="bottom" constant="8" id="R8P-2Z-9BD"/>
                             <constraint firstItem="Jqh-3S-gHa" firstAttribute="trailing" secondItem="RY1-g0-hWb" secondAttribute="trailing" id="WTE-c9-OGK"/>
+                            <constraint firstItem="dfF-iG-p97" firstAttribute="centerX" secondItem="Jqh-3S-gHa" secondAttribute="centerX" id="Wx0-yY-Y3a"/>
+                            <constraint firstItem="dfF-iG-p97" firstAttribute="centerY" secondItem="Jqh-3S-gHa" secondAttribute="centerY" id="YM5-ie-jSa"/>
                             <constraint firstItem="Hit-zm-EVT" firstAttribute="top" secondItem="6Cz-sX-5Hz" secondAttribute="bottom" constant="8" id="ZBN-Mm-jsp"/>
                             <constraint firstItem="91B-Oh-Ufo" firstAttribute="leading" secondItem="Jqh-3S-gHa" secondAttribute="leading" id="e8P-6D-qCx"/>
                             <constraint firstItem="4Hx-io-5KS" firstAttribute="trailing" secondItem="Jqh-3S-gHa" secondAttribute="trailing" id="eNO-iy-xxl"/>
@@ -1477,6 +1485,7 @@ to check connected devices</string>
                         <outlet property="topView" destination="i6d-Dm-S5Q" id="KkZ-vj-wof"/>
                         <outlet property="topViewLabel" destination="3Y8-as-mLM" id="ul8-ec-rPk"/>
                         <outlet property="transView" destination="t15-bJ-8xw" id="3Wc-Ad-Fh4"/>
+                        <outlet property="waitingLbl" destination="dfF-iG-p97" id="9a2-pi-5zy"/>
                         <outlet property="wifiTableView" destination="Hit-zm-EVT" id="R1g-bF-mev"/>
                     </connections>
                 </viewController>

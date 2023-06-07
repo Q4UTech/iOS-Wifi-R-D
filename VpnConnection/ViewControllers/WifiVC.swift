@@ -22,45 +22,27 @@ enum Network: String {
 }
 
 
-class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,WifiDelegate{
-    func showList(list: [String]) {
-        print("listCount \(list.count)")
-        offlineData.removeAll()
-        for (i,item) in list.enumerated(){
-            print("i val \(i)")
-//            offlineData.append(OfflineData(ipName: item, ipDetail: item))
-            let newItem = OfflineData(ipName: item, ipDetail: item)
-            if !offlineData.contains(newItem) {
-                offlineData.append(newItem)
-            }
-            if i == list.count - 1{
-                loadData(items: offlineData)
-                print("counts \(offlineData.count)")
-               //
-               
-               
-            }
-        }
-       
-    }
-    private func loadData(items:[OfflineData]){
-       
-        let items = items.map{Item(uniqueKey: $0.ipName, value: $0) }
+class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
+    func showList(list: [OfflineData]) {
+
+        let items = list.map{Item(uniqueKey: $0.ipName, value: $0) }
         DispatchQueue.main.async { [self] in
             coonectedView.isHidden = false
             topView.isHidden = true
-            connectedDeviceCount.text = "(\(offlineData.count))"
+            connectedDeviceCount.text = "(\(list.count))"
             wifiTableView.reloadData()
         }
         DispatchQueue.main.async { [self] in
           
             if items.count > 0 {
                 radarView.add(items: items)
+                radarView.stopAnimation()
                 return
             }
         }
+       
     }
-    
+   
     
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
@@ -97,8 +79,9 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
     @IBOutlet weak var abtUsLbl:UILabel!
     @IBOutlet weak var mapWidthConstraint:NSLayoutConstraint!
     @IBOutlet weak var listWidthConstraint:NSLayoutConstraint!
+    @IBOutlet weak var waitingLbl:UILabel!
     
-    var wifiHelper:WifiHelper?
+  //  var wifiHelper:WifiHelper?
     var decryptvalue = String()
     var dictnry = String()
     var hexadecimal = String()
@@ -110,7 +93,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
         super.viewDidLoad()
         wifiTableView.delegate = self
         wifiTableView.dataSource = self
-        MainListHelper.instanceHelper.wifiDelegate = self
+       // MainListHelper.instanceHelper.wifiDelegate = self
         LanguageSelectionListener.instanceHelper.itemdelegates = self
         locationManager = CLLocationManager()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
@@ -265,11 +248,12 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
     }
     
     @objc func switchToMapView(){
-        
+        waitingLbl.isHidden = true
         switchView(isMap: false, isList: true)
         
     }
     @objc func switchToListView(){
+        waitingLbl.isHidden = false
         switchView(isMap: true, isList: false)
     }
     
@@ -277,10 +261,13 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
         wifiTableView.isHidden = isList
         radarView.isHidden = isMap
         optionBtn.isHidden = false
+        
         if isMap{
+            
             mapImg.image = UIImage(named: "radar_unselected")
             listImg.image = UIImage(named: "list_selected")
         }else{
+            
             mapImg.image = UIImage(named: "radar_selected")
             listImg.image = UIImage(named: "list_unselected")
         }
@@ -612,8 +599,10 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
                 if formatted as! String == "License has expired"{
                     print("do action")
                     offline = true
-                    wifiHelper = WifiHelper(limit:254)
-                    wifiHelper?.startWifiScan()
+//                    wifiHelper = WifiHelper(limit:254)
+//                    wifiHelper?.startWifiScan()
+                    let scanner = LANScanner(delegate: self, continuous: false)
+                    scanner.startScan()
                 }else{
                     offline = false
                 }
@@ -651,10 +640,13 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
                                         DispatchQueue.main.async { [self] in
                                             let items = fingData.map{Item(uniqueKey: $0.bestName!, value: $0) }
                                             radarView.add(items: items)
+                                            radarView.stopAnimation()
+                                            waitingLbl.isHidden = true
                                         }
                                       
                                         DispatchQueue.main.async { [self] in
                                             coonectedView.isHidden = false
+                                            waitingLbl.isHidden = true
                                             topView.isHidden = true
                                             connectedDeviceCount.text = "(\(fingNodes.count))"
                                             wifiTableView.reloadData()
@@ -689,6 +681,24 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate ,Wi
         input.deviceEntries = table
         return input
     }
+    
+    func LANScannerFinished() {
+        waitingLbl.isHidden = true
+       showList(list: offlineData)
+    }
+    
+    func LANScannerDiscovery(_ device: LANDevice) {
+        print("Hellooo \(device.ipAddress)  \(device.hostName)")
+        offlineData.append(OfflineData(ipName: device.ipAddress, ipDetail: device.ipAddress))
+    }
+    func LANScannerRestarted() {
+        print("hhhhhhhh")
+    }
+    
+    func LANScannerFailed(_ error: NSError) {
+        print("scan failed \(error)")
+    }
+    
     func isWiFiConnected() -> Bool {
         var flags = SCNetworkReachabilityFlags()
         let reachability = SCNetworkReachabilityCreateWithName(nil, "www.google.com")

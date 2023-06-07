@@ -67,7 +67,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             
         }
         if connectionStatus == "connecting"{
-         //   isConnected = false
+            isConnected = false
             topViewUiLabel.text = "Wait"
             statuslabel.text = "Connecting"
             statuslabel.textColor = .white
@@ -75,7 +75,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         }
         
         if connectionStatus == "disconnected"{
-           // isConnected = false
+            isConnected = false
             topViewUiLabel.text = "Start"
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
@@ -220,9 +220,9 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
            
                 
             }else {
-                if isConnected{
+              
                     hideUndideDialog(isShow: false)
-                }
+              
                
               //ConnectionStatus.instanceHelper.itemdelegates = self
                 

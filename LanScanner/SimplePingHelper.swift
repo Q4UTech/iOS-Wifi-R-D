@@ -17,20 +17,19 @@ import UIKit
 
 class SimplePingHelper: NSObject, SimplePingDelegate {
     
-    var address:String
-    var simplePing:SimplePing?
-    var target:AnyObject
-    var selector:Selector
+    fileprivate var address:String
+    fileprivate var simplePing:SimplePing?
+    fileprivate var target:AnyObject
+    fileprivate var selector:Selector
     
-//    static func start(_ address:String, target:AnyObject, selector:Selector) {
-//
-//        SimplePingHelper(address: address, target: target, selector: selector).start()
-//    }
+    static func start(_ address:String, target:AnyObject, selector:Selector) {
+        
+        SimplePingHelper(address: address, target: target, selector: selector).start()
+    }
     
     init(address: String, target:AnyObject, selector:Selector) {
         
         self.simplePing = SimplePing(hostName:address)
-       // self.simplePing = SimplePing(hostAddress: address.data(using: .utf8))
         self.target = target
         self.selector = selector
         self.address = address
@@ -38,15 +37,12 @@ class SimplePingHelper: NSObject, SimplePingDelegate {
         super.init()
         
         self.simplePing!.delegate = self
-        
-        start()
     }
     
     func start() {
-        print("simplePing start")
-
+        
         self.simplePing?.start()
-        self.perform(#selector(endTime), with: nil, afterDelay: 2)
+        self.perform(#selector(SimplePingHelper.endTime), with: nil, afterDelay: 1)
         
     }
     
@@ -58,7 +54,6 @@ class SimplePingHelper: NSObject, SimplePingDelegate {
     }
     
     func successPing() {
-       print("successPing")
         self.killPing()
         let _ = self.target.perform(self.selector, with: [
             "status": true,
@@ -67,7 +62,7 @@ class SimplePingHelper: NSObject, SimplePingDelegate {
     }
     
     func failPing(_ reason: String) {
-        print("failPing \(reason)")
+        
         self.killPing()
         let _ = self.target.perform(self.selector, with: [
             "status": false,
@@ -77,7 +72,6 @@ class SimplePingHelper: NSObject, SimplePingDelegate {
     }
     
     @objc func endTime() {
-        print("endTime")
         if let _ = self.simplePing {
             self.failPing("timeout")
             return
