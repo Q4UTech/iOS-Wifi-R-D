@@ -204,6 +204,8 @@
 		C718C4222A27731C004A37C6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C718C40D2A27731B004A37C6 /* .gitignore */; };
 		C718C42A2A2774D6004A37C6 /* FingKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C718C40B2A27731B004A37C6 /* FingKit.xcframework */; };
 		C718C42B2A2774D6004A37C6 /* FingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C718C40B2A27731B004A37C6 /* FingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C73154262A31B7780034B92B /* ConnectivityNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73154252A31B7780034B92B /* ConnectivityNotifiable.swift */; };
+		C73154292A31B88C0034B92B /* ReachablityUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73154282A31B88C0034B92B /* ReachablityUtil.swift */; };
 		C750B3212A2DACB40038C1F8 /* RetestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3202A2DACB40038C1F8 /* RetestListener.swift */; };
 		C750B3522A2DDF9A0038C1F8 /* LANDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3442A2DDF9A0038C1F8 /* LANDevice.swift */; };
 		C750B3532A2DDF9A0038C1F8 /* LANHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3462A2DDF9A0038C1F8 /* LANHost.swift */; };
@@ -473,6 +475,8 @@
 		C718C40B2A27731B004A37C6 /* FingKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FingKit.xcframework; sourceTree = "<group>"; };
 		C718C40C2A27731B004A37C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C718C40D2A27731B004A37C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C73154252A31B7780034B92B /* ConnectivityNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityNotifiable.swift; sourceTree = "<group>"; };
+		C73154282A31B88C0034B92B /* ReachablityUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachablityUtil.swift; sourceTree = "<group>"; };
 		C750B3202A2DACB40038C1F8 /* RetestListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetestListener.swift; sourceTree = "<group>"; };
 		C750B3442A2DDF9A0038C1F8 /* LANDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LANDevice.swift; sourceTree = "<group>"; };
 		C750B3452A2DDF9A0038C1F8 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
@@ -1065,6 +1069,8 @@
 				C70CE2B62A274E35002E4DD1 /* GifImageClass.swift */,
 				C70CE2B72A274E35002E4DD1 /* CloseListener.swift */,
 				C70CE2B82A274E35002E4DD1 /* CustomSegmentControl.swift */,
+				C73154252A31B7780034B92B /* ConnectivityNotifiable.swift */,
+				C73154282A31B88C0034B92B /* ReachablityUtil.swift */,
 			);
 			path = UtilityClasses;
 			sourceTree = "<group>";
@@ -1373,6 +1379,7 @@
 				C70CE27D2A274D09002E4DD1 /* SpeedTestData.swift in Sources */,
 				C70CE2C42A274E35002E4DD1 /* UnderlineView.swift in Sources */,
 				C70CE22D2A274B34002E4DD1 /* FullPagePromoInhouseVC.swift in Sources */,
+				C73154292A31B88C0034B92B /* ReachablityUtil.swift in Sources */,
 				C750B3592A2DDF9A0038C1F8 /* SimplePingHelper.swift in Sources */,
 				C70647542A2765A200ED425B /* SpeedHistoryCell.swift in Sources */,
 				C70CE2C92A274E36002E4DD1 /* CustomSegmentControl.swift in Sources */,
@@ -1458,6 +1465,7 @@
 				C70CE2BD2A274E35002E4DD1 /* TimerManager.swift in Sources */,
 				BD7F1D202A272F5600BEB451 /* NetworkManagers.swift in Sources */,
 				C70CE2BB2A274E35002E4DD1 /* ExtensionFile.swift in Sources */,
+				C73154262A31B7780034B92B /* ConnectivityNotifiable.swift in Sources */,
 				C70CE27F2A274D09002E4DD1 /* PasswordData.swift in Sources */,
 				C70CE2182A274B34002E4DD1 /* INAPPJSON.swift in Sources */,
 				C70CE21E2A274B34002E4DD1 /* InhouseNativeView.swift in Sources */,

@@ -4006,7 +4006,7 @@ connection?</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30463576159602651" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70586713576821192" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="28q-9S-5xP" firstAttribute="centerY" secondItem="Wrj-Ln-cJy" secondAttribute="centerY" id="WiD-7x-5XU"/>
                                     <constraint firstItem="28q-9S-5xP" firstAttribute="centerX" secondItem="Wrj-Ln-cJy" secondAttribute="centerX" id="djx-Hs-pwI"/>

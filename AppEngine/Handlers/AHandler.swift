@@ -455,8 +455,11 @@ extension BannerHeader : AdsListenerProtocol {
 }
 
 class BannerFooter :NSObject{
+    
     static let bannerFooterInstance = BannerFooter()
+    
     func getBannerFooter(_ viewController:UIViewController,_ view:UIView,_ heightConstraint:NSLayoutConstraint){
+        
         let hasInAppPurchased = UserDefaults.standard.bool(forKey: IN_APP_PURCHASED)
         print("hasInAppPurchased\(hasInAppPurchased)")
         if  hasInAppPurchased {
@@ -464,12 +467,14 @@ class BannerFooter :NSObject{
             heightConstraint.constant = 0
         } else {
             UserDefaults.standard.set(0, forKey: LOAD_DATA_POSITION)
-            
+            print("getDaysDiff0 \(getDaysDiff()) \(getStringtoInt(data: BOTTOM_BANNER_STARTDATE))")
             
             if getDaysDiff() >= getStringtoInt(data: BOTTOM_BANNER_STARTDATE){
                 AdsListenerHelper.adsInstanceHelper.delegates = self
                 print("getDaysDiff()\(getDaysDiff()) \(getStringtoInt(data: BOTTOM_BANNER_STARTDATE))")
+                print("TYPE_BOTTOM_BANNER 0 \(TYPE_BOTTOM_BANNER) \(getStringtoInt(data: BOTTOM_BANNER_call_native))")
                 if TYPE_BOTTOM_BANNER == BOTTOM_BANNER_call_native{
+                    
                     print("TYPE_BOTTOM_BANNER\(TYPE_BOTTOM_BANNER) \(getStringtoInt(data: BOTTOM_BANNER_call_native))")
                     view.isHidden = false
                     //                    heightConstraint.constant = 65

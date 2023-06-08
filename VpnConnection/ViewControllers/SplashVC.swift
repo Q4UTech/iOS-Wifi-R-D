@@ -240,7 +240,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         UserDefaults.standard.set(currentLanguage, forKey: MyConstant.constants.APPLE_LANGUAGE)
 //        callDelegates()
         getBannerAds()
-      requestPermissionsToShowSsidAndBssid()
+        LocationManager.shared.requestLocationAuthorization()
     }
     func requestPermissionsToShowSsidAndBssid() {
         let status = CLLocationManager.authorizationStatus()
@@ -282,7 +282,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
     override func viewDidAppear(_ animated: Bool) {
         getBannerAds()
-        getFirebaseTrackScreen(SPLASH_SCREEN)
+       // getFirebaseTrackScreen(SPLASH_SCREEN)
     }
     
    
@@ -399,61 +399,9 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
     
     
-//   func getIPAddress() -> String {
-//    var address: String?
-//    var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
-//    if getifaddrs(&ifaddr) == 0 {
-//        var ptr = ifaddr
-//        while ptr != nil {
-//            defer { ptr = ptr?.pointee.ifa_next }
-//
-//            guard let interface = ptr?.pointee else { return "" }
-//            let addrFamily = interface.ifa_addr.pointee.sa_family
-//            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-//
-//                // wifi = ["en0"]
-//                // wired = ["en2", "en3", "en4"]
-//                // cellular = ["pdp_ip0","pdp_ip1","pdp_ip2","pdp_ip3"]
-//
-//                let name: String = String(cString: (interface.ifa_name))
-//                if  name == "en0" || name == "en2" || name == "en3" || name == "en4" || name == "pdp_ip0" || name == "pdp_ip1" || name == "pdp_ip2" || name == "pdp_ip3" {
-//                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-//                    getnameinfo(interface.ifa_addr, socklen_t((interface.ifa_addr.pointee.sa_len)), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
-//                    address = String(cString: hostname)
-//                }
-//            }
-//        }
-//        freeifaddrs(ifaddr)
-//    }
-//    return address ?? ""
-//}
-//
-//    func getConnectedWifiList() {
-//        PlainPing.ping("www.google.com", withTimeout: 1.0, completionBlock: { (timeElapsed:Double?, error:Error?) in
-//            if let latency = timeElapsed {
-////                self.pingResultLabel.text = "latency (ms): \(latency)"
-//                print("latency (ms): \(latency)")
-//            }
-//
-//
-//            if let error = error {
-//                print("error: \(error.localizedDescription)")
-//            }
-//        })
-////
-////           let task = Process()
-////            task.launchPath = "/sbin/ping"
-////            task.arguments = ["-c", "1", ipAddress]
-////            let pipe = Pipe()
-////            task.standardOutput = pipe
-////            task.launch()
-////            task.waitUntilExit()
-////            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-////            let output = String(data: data, encoding: .utf8)
-////            print(output ?? "No output")
-//
-//    }
-//
+
+
+
     private func playAnimation(){
         splashAnimationView=LottieAnimationView(name: "splash")
         splashAnimationView.contentMode = .scaleAspectFit
@@ -469,3 +417,36 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
 }
 
+class LocationManager: NSObject, CLLocationManagerDelegate {
+
+    static let shared = LocationManager()
+    private var locationManager: CLLocationManager = CLLocationManager()
+    private var requestLocationAuthorizationCallback: ((CLAuthorizationStatus) -> Void)?
+
+    public func requestLocationAuthorization() {
+        self.locationManager.delegate = self
+        let currentStatus = CLLocationManager.authorizationStatus()
+
+        // Only ask authorization if it was never asked before
+        guard currentStatus == .notDetermined else { return }
+        
+        // Starting on iOS 13.4.0, to get .authorizedAlways permission, you need to
+        // first ask for WhenInUse permission, then ask for Always permission to
+        // get to a second system alert
+        if #available(iOS 13.4, *) {
+            self.requestLocationAuthorizationCallback = { status in
+                if status == .authorizedWhenInUse {
+                    self.locationManager.requestAlwaysAuthorization()
+                }
+            }
+            self.locationManager.requestWhenInUseAuthorization()
+        } else {
+            self.locationManager.requestAlwaysAuthorization()
+        }
+    }
+    // MARK: - CLLocationManagerDelegate
+    public func locationManager(_ manager: CLLocationManager,
+                                didChangeAuthorization status: CLAuthorizationStatus) {
+        self.requestLocationAuthorizationCallback?(status)
+    }
+}

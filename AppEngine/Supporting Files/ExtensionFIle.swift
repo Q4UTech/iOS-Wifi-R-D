@@ -393,18 +393,26 @@ func  generateUniqueId() -> String {
 
 public func getBannerAd(_ self:UIViewController, _ adView:UIView, _ adViewHeightConstraint:NSLayoutConstraint){
 
-        if ServiceHelper.sharedInstanceHelper.isConnectedToNetwork(){
-            
-           // if ETC_1 == "1" {
-                    BannerFooter.bannerFooterInstance.getBannerFooter(self,adView,adViewHeightConstraint)
-//            }else{
+//        if ServiceHelper.sharedInstanceHelper.isConnectedToNetwork(){
 //
-//                    BannerHeader.bannerHeaderInstance.getBannerHeader(self,adView,adViewHeightConstraint)
-//            }
-        }
-        else{
-            adViewHeightConstraint.constant = 0
-        }
+//           // if ETC_1 == "1" {
+//                    BannerFooter.bannerFooterInstance.getBannerFooter(self,adView,adViewHeightConstraint)
+////            }else{
+////
+////                    BannerHeader.bannerHeaderInstance.getBannerHeader(self,adView,adViewHeightConstraint)
+////            }
+//        }
+//        else{
+//            adViewHeightConstraint.constant = 0
+//        }
+    if ServiceHelper.sharedInstanceHelper.isConnectedToNetwork(){
+        adView.translatesAutoresizingMaskIntoConstraints = false
+        BannerFooter.bannerFooterInstance.getBannerFooter(self,adView,adViewHeightConstraint)
+
+    }
+    else{
+        adViewHeightConstraint.constant = 0
+    }
 }
 
 public extension UIDevice {

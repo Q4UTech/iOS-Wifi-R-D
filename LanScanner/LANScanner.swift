@@ -92,7 +92,7 @@ open class LANScanner: NSObject {
                     self.baseAddressEnd = 255
                 }
                 
-                self.timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(LANScanner.pingAddress), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LANScanner.pingAddress), userInfo: nil, repeats: true)
             }
         }
         else {
@@ -200,32 +200,33 @@ open class LANScanner: NSObject {
                 let interface = ptr!.pointee
                 let flags = Int32(interface.ifa_flags)
                 var addr = interface.ifa_addr.pointee
-                
+                print("flags\(flags)\(addr)")
                 /// Check for running IPv4, IPv6 interfaces. Skip the loopback interface.
                 if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
                     if addr.sa_family == UInt8(AF_INET) || addr.sa_family == UInt8(AF_INET6) {
                         /// Narrow it down to just the wifi card
                         let name = String(cString:interface.ifa_name)
-                        if name == "en0"  || name == "en2"
-                        || name == "en3" || name == "en4" || name == "pdp_ip0" || name == "pdp_ip1" || name == "pdp_ip2" || name == "pdp_ip3" {
+                        if name == "en0" || name == "en2" || name == "en3" || name == "en4" || name == "pdp_ip0" || name == "pdp_ip1" || name == "pdp_ip2" || name == "pdp_ip3"{
                             
                             /// Convert interface address to a human readable string
                             var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                           
                             if (getnameinfo(&addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count),
                                             nil, socklen_t(0), NI_NUMERICHOST) == 0) {
                                 if let address = String(validatingUTF8: hostname) {
-                                    print("ip4 \(address)")
-                                   
                                     var net = interface.ifa_netmask.pointee
                                     var netmaskName = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                                    
+                                    print("addressss1\(address)")
                                     if getnameinfo(&net, socklen_t(net.sa_len), &netmaskName, socklen_t(netmaskName.count),
                                                    nil, socklen_t(0), NI_NUMERICHOST) == 0 {
                                         if let netmask = String(validatingUTF8: netmaskName) {
-                                            
+                                            let allAddress = NetInfo(ip: address, netmask: netmask)
+                                            print("localAddress1\(allAddress.netmask)")
+                                            if allAddress.netmask == "255.255.255.0" {
+                                               localAddress = NetInfo(ip: address, netmask: netmask)
+                                            }
                                            
-                                            localAddress = NetInfo(ip: address, netmask: netmask)
-                                         
+                                           
                                         }
                                     }
                                 }
@@ -234,12 +235,12 @@ open class LANScanner: NSObject {
                     }
                 }
                 ptr = interface.ifa_next
-               
-        
+                
+                
             }
-           
+            
             freeifaddrs(ifaddr)
-           
+            
         }
         return localAddress
     }

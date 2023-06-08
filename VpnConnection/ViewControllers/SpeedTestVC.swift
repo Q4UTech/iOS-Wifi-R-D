@@ -381,6 +381,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     
     
     override func viewWillAppear(_ animated: Bool) {
+        speedLabel.text = "0.00"
+        hideUnhideMenuView(showTrans: true, showMenu: true)
         getBannerAd(self, adView, heightConstraint)
         hideunhideLabel(true, true)
         SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
@@ -422,7 +424,9 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         hideUnhideMenuView(showTrans: true, showMenu: true)
        }
     func checkDownloadSpeed(){
-       
+        DispatchQueue.main.async { [self] in
+            hideunhideLabel(false,false)
+        }
         SpeedTestViewModel.init().downloadSpeedTest(target: self, completion: { [self] speed ,uploadSpeed,status  in
             print("status\(status)")
             
@@ -451,7 +455,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
-            hideunhideLabel(false, false)
+           
             let array =  Array(self.speedArray.suffix(10))
             //        setChart(dataPoints: months, values: array)
             print("yourArray\(speedArray.count)")

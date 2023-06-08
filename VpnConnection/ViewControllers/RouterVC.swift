@@ -72,6 +72,10 @@ class RouterVC: UIViewController, UITextFieldDelegate{
         btnWidth.constant = CGFloat(value)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        SearchController.instanceHelper.searchData(searchDarta: "")
+        hideUnhideView(isSearch: true, isSearchBtn: false, isCloseBtn: true)
+    }
     
     @IBAction func goPremium(_ sender:UIButton){
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
@@ -139,6 +143,7 @@ class RouterVC: UIViewController, UITextFieldDelegate{
     @IBAction func closeSearch(_ sender:UIButton){
         searchData.resignFirstResponder()
         searchData.text = ""
+        SearchController.instanceHelper.searchData(searchDarta: "")
         hideUnhideView(isSearch: true, isSearchBtn: false, isCloseBtn: true)
        
     }

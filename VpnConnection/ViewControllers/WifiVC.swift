@@ -14,6 +14,7 @@ import Foundation
 import HGRippleRadarView
 import Network
 
+
 enum Network: String {
     case wifi = "en0"
     case cellular = "pdp_ip0"
@@ -22,7 +23,7 @@ enum Network: String {
 }
 
 
-class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
+class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
     func showList(list: [OfflineData]) {
 
         let items = list.map{Item(uniqueKey: $0.ipName, value: $0) }
@@ -30,12 +31,14 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
             coonectedView.isHidden = false
             topView.isHidden = true
             connectedDeviceCount.text = "(\(list.count))"
+            waitingLbl.isHidden = true
             wifiTableView.reloadData()
         }
         DispatchQueue.main.async { [self] in
           
             if items.count > 0 {
                 radarView.add(items: items)
+               
                 radarView.stopAnimation()
                 return
             }
@@ -82,13 +85,18 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
     @IBOutlet weak var waitingLbl:UILabel!
     
   //  var wifiHelper:WifiHelper?
-    var decryptvalue = String()
-    var dictnry = String()
-    var hexadecimal = String()
-    var locationPermissionGranted:Bool = false
-    var fingData = [FingNodes]()
-    var offlineData = [OfflineData]()
-    var offline:Bool = false
+    private  var decryptvalue = String()
+    private  var dictnry = String()
+    private  var hexadecimal = String()
+    private var locationPermissionGranted:Bool = false
+    private var fingData = [FingNodes]()
+    private var offlineData = [OfflineData]()
+    private  var offline:Bool = false
+    private  var isFetched:Bool = false
+  
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         wifiTableView.delegate = self
@@ -133,7 +141,25 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
         
       print("getWiFiName \(printCurrentWifiInfo())")
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnteredForeground), name: NSNotification.Name("AppEnteredForegroundNotification"), object: nil)
+   
+    
+  
+   }
+
+   @objc func appEnteredForeground() {
+       // Handle the app entering the foreground
+       // This method will be called when the app comes from the background to the foreground
+       print("App entered foreground")
+       if ReachabilityUtil.isConnectedToNetwork(){
+           noWifi.isHidden = true
+       }else{
+           print("Internet Connection not Available!")
+           noWifi.isHidden = false
+       }
+   }
+    deinit {
+        appEnteredForeground()
     }
     
     func printCurrentWifiInfo() {
@@ -237,7 +263,8 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getBannerAd(self, adView, heightConstraint)
-      
+        hideUnhideMenuView(showTrans: true, showMenu: true)
+       
        
        // checkWifi()
     }
@@ -253,7 +280,11 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
         
     }
     @objc func switchToListView(){
-        waitingLbl.isHidden = false
+        if isFetched{
+            waitingLbl.isHidden = true
+        }else{
+            waitingLbl.isHidden = false
+        }
         switchView(isMap: true, isList: false)
     }
     
@@ -273,7 +304,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
         }
     }
     
-    
+   
     private func checkWifi(){
         if isWiFiConnected(){
             topViewLabel.text = "Wi-Fi Manager".localiz()
@@ -296,9 +327,6 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
          
         var params = [String:Any]()
         
-        
-        
-      //  params = ["app_id": "m24screenrecios"]
         params = ["app_id": APP_ID,
                   "country": getCountryNameInfo(),
                   "screen": "XHDPI",
@@ -317,7 +345,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
             do{
                 if result != nil{
                    do{
-                        UserDefaults.standard.set(result!, forKey: MASTER_RESPONSE_VALUE)
+
                         let decryptString = decryptvalue.decrypt(hexString:result! as! String)
                         let dict1 = dictnry.convertToDictionary(text: decryptString!)
                         let code = dict1!["key"] as! String
@@ -606,6 +634,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
                 }else{
                     offline = false
                 }
+               
                // DispatchQueue.main.async {
                 //    self.printToUI(formatted as! String )
                     if completed == nil || completed as! String == "true" {
@@ -645,6 +674,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
                                         }
                                       
                                         DispatchQueue.main.async { [self] in
+                                            isFetched = true
                                             coonectedView.isHidden = false
                                             waitingLbl.isHidden = true
                                             topView.isHidden = true
@@ -683,8 +713,10 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate {
     }
     
     func LANScannerFinished() {
+        print("scan finished")
         waitingLbl.isHidden = true
        showList(list: offlineData)
+        isFetched = true
     }
     
     func LANScannerDiscovery(_ device: LANDevice) {
@@ -790,7 +822,7 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
         
         if offline{
             let data = offlineData[indexPath.row]
-            cell.bestName.text = data.ipName
+            cell.bestName.text = "Not Found"
             cell.ipAddress.text = data.ipName
             cell.bestTypes.image = UIImage(named: "default_icon")
         }else{

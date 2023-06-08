@@ -17,19 +17,22 @@ var typeArray = String()
 func parseDecryptMasterData(_ response: [String:Any],_ fetchFromServer:Bool){
 
     print("MasterResponse:\(response)")
-    
+    print("version_request5")
     if response.description.count>100 {
+        print("version_request6\(response)")
         if let adresponses = response.validatedValue("adsresponse", expected: [[String:Any]]() as AnyObject) as? [[String:Any]] {
-            
-            // let adresponses = response.validatedValue("adsresponse", expected: [[String:Any]]() as AnyObject) as? [[String:Any]]
+
+            print("version_request7")
             let obj = AdsResponse()
             dataArray = obj.getAdsResponseData(dataArray: adresponses)
-            
+            print("version_request8")
             if adresponses.count>0{
+                print("version_request9")
                 loadSlaveAdResponse(dataArray,fetchFromServer)
             }
         }
     }
+    
 }
 
 

@@ -170,6 +170,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
         
     override func viewWillAppear(_ animated: Bool) {
+        hideUnhideMenuView(showTrans: true, showMenu: true)
         getBannerAd(self, adView, heightConstraint)
         if UserDefaults.standard.string(forKey: "VPN_NAME") != nil {
             countrylabel.text = UserDefaults.standard.string(forKey: "VPN_NAME")
