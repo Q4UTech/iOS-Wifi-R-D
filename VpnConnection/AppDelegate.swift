@@ -24,6 +24,8 @@ class AppDelegate: EngineDelegate {
 
         RazeFaceProducts.store.restorePurchases(fromStart: true)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillBecomeActive), name: UIApplication.willEnterForegroundNotification, object: nil)
+       
             
         return true
     }
@@ -38,6 +40,17 @@ class AppDelegate: EngineDelegate {
         // This method will be called when the app comes from the background to the foreground
         print("App entered foreground111")
     }
+    @objc func appWillBecomeActive() {
+        // Post a notification to let the view controller know that the app entered the foreground
+        NotificationCenter.default.post(name: NSNotification.Name("AppWillBecomeActive"), object: nil)
+    }
+
+//    @objc func appEnteredForeground() {
+//        // Handle the app entering the foreground
+//        // This method will be called when the app comes from the background to the foreground
+//        print("App entered foreground111")
+//    }
+    
 //    func applicationWillTerminate(_ application: UIApplication) {
 //
 //            TimerManager.shared.stopTimer()

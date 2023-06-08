@@ -79,6 +79,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     var splashAnimationView:LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationManager.shared.requestLocationAuthorization()
        Bundle.swizzleLocalization()
         CallOnSplash.shared.v2CallOnSplash(for: self)
         SplashVC.fromSplash = true
@@ -240,7 +241,7 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         UserDefaults.standard.set(currentLanguage, forKey: MyConstant.constants.APPLE_LANGUAGE)
 //        callDelegates()
         getBannerAds()
-        LocationManager.shared.requestLocationAuthorization()
+        
     }
     func requestPermissionsToShowSsidAndBssid() {
         let status = CLLocationManager.authorizationStatus()

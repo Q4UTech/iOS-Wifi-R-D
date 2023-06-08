@@ -16,13 +16,13 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
     }
-
+    
     func timerUpdated(time: TimeInterval) {
-        updateTimerLabel(time: time)
+       // updateTimerLabel(time: time)
     }
     
     func connectedTimer(connectedTimer: String) {
-       print("connectedTimer\(connectedTimer)")
+        print("connectedTimer\(connectedTimer)")
     }
     
     func connectionState(uploadSpeed: String, downloadSpeed: String) {
@@ -47,10 +47,10 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         topImg.image = UIImage(named: "power_btn")
         statuslabel.textColor = hexStringColor(hex: "#EC2727")
         topViewUiLabel.text = "Start"
-        TimerManager.shared.stopTimer()
+        stopBackgroundTiming()
         profileVM.connection.stopVPN()
         buttonSwitched = false
-       
+        
     }
     
     func connectionStatus(connectionStatus: String) {
@@ -59,10 +59,11 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             isConnected = true
             statuslabel.textColor = hexStringColor(hex: "#2EB92B")
             print("connected succesfully")
-          //  setStatus(value: true)
+            //  setStatus(value: true)
             topViewUiLabel.text = "Stop"
             topImg.image = UIImage(named: "lock")
-            TimerManager.shared.startTimer()
+//            TimerManager.shared.startTimer()
+            startStopAction()
             //delegate.setStatus(value: true)
             
         }
@@ -80,7 +81,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
             statuslabel.text =  "Not Connected"
-            TimerManager.shared.stopTimer()
+           // TimerManager.shared.stopTimer()
+            stopBackgroundTiming()
             timerLabel.text = "00:00:00"
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
         }
@@ -93,57 +95,226 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             statuslabel.text = "Connected"
         }
         else {
-           connectButton.setTitle("Connect", for: .normal)
+            connectButton.setTitle("Connect", for: .normal)
             statuslabel.text =  "Not Connected"
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
         }
     }
     
-        @IBOutlet weak var adView:UIView!
-        @IBOutlet weak var heightConstraint:NSLayoutConstraint!
-        @IBOutlet weak var transView:UIView!
-        @IBOutlet weak var bottomSheet:UIView!
-        @IBOutlet weak var countryView:UIView!
-        @IBOutlet weak var countrylabel:UILabel!
-        @IBOutlet weak var timerLabel:UILabel!
-        @IBOutlet weak var innerImg:UIImageView!
-        @IBOutlet weak var flagImg:UIImageView!
-        @IBOutlet weak var connectButton:UIButton!
-        @IBOutlet weak var statuslabel:UILabel!
-        @IBOutlet weak var topView:UIView!
-        @IBOutlet weak var disconnectView:UIView!
-        @IBOutlet weak var topViewUiLabel:UILabel!
-        @IBOutlet weak var topImg:UIImageView!
-        var internetStatus = Bool()
-        var countryStatus = Bool()
-        var profileVM = ProfileViewModel()
-        var countryData = [DataModel]()
-        var buttonSwitched : Bool = false
-        var speedTestVM = SpeedTestViewModel()
+    @IBOutlet weak var adView:UIView!
+    @IBOutlet weak var heightConstraint:NSLayoutConstraint!
+    @IBOutlet weak var transView:UIView!
+    @IBOutlet weak var bottomSheet:UIView!
+    @IBOutlet weak var countryView:UIView!
+    @IBOutlet weak var countrylabel:UILabel!
+    @IBOutlet weak var timerLabel:UILabel!
+    @IBOutlet weak var innerImg:UIImageView!
+    @IBOutlet weak var flagImg:UIImageView!
+    @IBOutlet weak var connectButton:UIButton!
+    @IBOutlet weak var statuslabel:UILabel!
+    @IBOutlet weak var topView:UIView!
+    @IBOutlet weak var disconnectView:UIView!
+    @IBOutlet weak var topViewUiLabel:UILabel!
+    @IBOutlet weak var topImg:UIImageView!
+    var internetStatus = Bool()
+    var countryStatus = Bool()
+    var profileVM = ProfileViewModel()
+    var countryData = [DataModel]()
+    var buttonSwitched : Bool = false
+    var speedTestVM = SpeedTestViewModel()
     
-         var isConnected:Bool = false
-       // let profileVM = ProfileViewModel()
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            LanguageSelectionListener.instanceHelper.itemdelegates = self
-            statuslabel.textColor = hexStringColor(hex: "#EC2727")
-                // ConnectedTimer.instanceHelper.itemdelegates = self
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
-            transView.addGestureRecognizer(tapGesture)
-            let monitor = NetworkSpeedMonitor()
-            monitor.startMonitoring()
-            ConnectionState.instanceHelper.itemdelegates = self
-            ConnectionStatus.instanceHelper.itemdelegates = self
-            callCatApi()
-            // Stop monitoring after a certain duration or when needed
-            // monitor.stopMonitoring()
-            TimerManager.shared.delegate = self
-                    
-                    let elapsedTime = TimerManager.shared.getElapsedTime()
-                    updateTimerLabel(time: elapsedTime)
-//            let elapsedTime = TimerManager.shared.getElapsedTime()
-//                updateTimerLabel(time: elapsedTime)
+    var isConnected:Bool = false
+    // let profileVM = ProfileViewModel()
+    
+    var timerCounting:Bool = false
+    var startTime:Date?
+    var stopTime:Date?
+    
+    let userDefaults = UserDefaults.standard
+    let START_TIME_KEY = "startTime"
+    let STOP_TIME_KEY = "stopTime"
+    let COUNTING_KEY = "countingKey"
+    
+    var scheduledTimer: Timer!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        LanguageSelectionListener.instanceHelper.itemdelegates = self
+        statuslabel.textColor = hexStringColor(hex: "#EC2727")
+        // ConnectedTimer.instanceHelper.itemdelegates = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
+        transView.addGestureRecognizer(tapGesture)
+        let monitor = NetworkSpeedMonitor()
+        monitor.startMonitoring()
+        ConnectionState.instanceHelper.itemdelegates = self
+        ConnectionStatus.instanceHelper.itemdelegates = self
+        callCatApi()
+        // Stop monitoring after a certain duration or when needed
+        // monitor.stopMonitoring()
+        TimerManager.shared.delegate = self
+        
+//        let elapsedTime = TimerManager.shared.getElapsedTime()
+//        updateTimerLabel(time: elapsedTime)
+        //            let elapsedTime = TimerManager.shared.getElapsedTime()
+        //                updateTimerLabel(time: elapsedTime)
+        let notificationCenter = NotificationCenter.default
+        
+        //UIApplicationDidEnterBackgroundNotification & UIApplicationWillEnterForegroundNotification shouldn't be quoted
+//        notificationCenter.addObserver(self, selector: #selector(didEnterBackground), name: NSNotification.Name("didEnterBackground"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name("AppWillBecomeActive"), object: nil)
+        
+        backgroundTimer()
+    }
+    
+    func startStopAction()
+    {
+        if timerCounting
+        {
+            setStopTime(date: Date())
+            stopTimer()
         }
+        else
+        {
+            if let stop = stopTime
+            {
+                let restartTime = calcRestartTime(start: startTime!, stop: stop)
+                setStopTime(date: nil)
+                setStartTime(date: restartTime)
+            }
+            else
+            {
+                setStartTime(date: Date())
+            }
+            
+            startTimer()
+        }
+    }
+    
+    private func backgroundTimer(){
+        startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
+        stopTime = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
+        timerCounting = userDefaults.bool(forKey: COUNTING_KEY)
+        
+        
+        if timerCounting
+        {
+            startTimer()
+        }
+        else
+        {
+            stopTimer()
+            if let start = startTime
+            {
+                if let stop = stopTime
+                {
+                    let time = calcRestartTime(start: start, stop: stop)
+                    let diff = Date().timeIntervalSince(time)
+                    setTimeLabel(Int(diff))
+                }
+            }
+        }
+    }
+    func calcRestartTime(start: Date, stop: Date) -> Date
+    {
+        let diff = start.timeIntervalSince(stop)
+        return Date().addingTimeInterval(diff)
+    }
+    func startTimer()
+    {
+        scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
+        setTimerCounting(true)
+       
+    }
+    
+    @objc func refreshValue()
+    {
+        if let start = startTime
+        {
+            let diff = Date().timeIntervalSince(start)
+            setTimeLabel(Int(diff))
+        }
+        else
+        {
+            stopTimer()
+            setTimeLabel(0)
+        }
+    }
+    
+    func setTimeLabel(_ val: Int)
+    {
+        let time = secondsToHoursMinutesSeconds(val)
+        let timeString = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+        timerLabel.text = timeString
+    }
+    
+    func secondsToHoursMinutesSeconds(_ ms: Int) -> (Int, Int, Int)
+    {
+        let hour = ms / 3600
+        let min = (ms % 3600) / 60
+        let sec = (ms % 3600) % 60
+        return (hour, min, sec)
+    }
+    
+    func makeTimeString(hour: Int, min: Int, sec: Int) -> String
+    {
+        var timeString = ""
+        timeString += String(format: "%02d", hour)
+        timeString += ":"
+        timeString += String(format: "%02d", min)
+        timeString += ":"
+        timeString += String(format: "%02d", sec)
+        return timeString
+    }
+    
+    func stopTimer()
+    {
+        if scheduledTimer != nil
+        {
+            scheduledTimer.invalidate()
+        }
+        setTimerCounting(false)
+       
+    }
+    
+    private func stopBackgroundTiming(){
+        setStopTime(date: nil)
+        setStartTime(date: nil)
+        timerLabel.text = makeTimeString(hour: 0, min: 0, sec: 0)
+        stopTimer()
+    }
+    
+    func setStartTime(date: Date?)
+    {
+        startTime = date
+        userDefaults.set(startTime, forKey: START_TIME_KEY)
+    }
+    
+    func setStopTime(date: Date?)
+    {
+        stopTime = date
+        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
+    }
+    
+    func setTimerCounting(_ val: Bool)
+    {
+        timerCounting = val
+        userDefaults.set(timerCounting, forKey: COUNTING_KEY)
+    }
+    @objc func didEnterBackground() {
+        print("didEnterBackground")
+    }
+    
+    @objc func didBecomeActive() {
+        print("didBecomeActive")
+//        TimerManager.shared.startTimer()
+       
+      
+       
+    }
+    
+   
     func updateTimerLabel(time: TimeInterval) {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
@@ -152,80 +323,80 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         let formattedString = formatter.string(from: time)
         timerLabel.text = formattedString
     }
-
-//    func updateTimerLabel(time: TimeInterval) {
-//        let formatter = DateComponentsFormatter()
-//        formatter.allowedUnits = [.hour, .minute, .second]
-//        formatter.zeroFormattingBehavior = .pad
-//        
-//        let formattedString = formatter.string(from: time)
-//        timerLabel.text = formattedString
-//    }
-
+    
+    //    func updateTimerLabel(time: TimeInterval) {
+    //        let formatter = DateComponentsFormatter()
+    //        formatter.allowedUnits = [.hour, .minute, .second]
+    //        formatter.zeroFormattingBehavior = .pad
+    //
+    //        let formattedString = formatter.string(from: time)
+    //        timerLabel.text = formattedString
+    //    }
+    
     override func viewDidAppear(_ animated: Bool) {
         ConnectionState.instanceHelper.itemdelegates = self
         ConnectionStatus.instanceHelper.itemdelegates = self
         CountrySelectionList.instanceHelper.itemdelegates = self
         
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         hideUnhideMenuView(showTrans: true, showMenu: true)
         getBannerAd(self, adView, heightConstraint)
         if UserDefaults.standard.string(forKey: "VPN_NAME") != nil {
             countrylabel.text = UserDefaults.standard.string(forKey: "VPN_NAME")
-           
+            
         }
         if UserDefaults.standard.string(forKey: "VPN_FLAG") != nil {
             self.flagImg.sd_setImage(with: URL.init(string: UserDefaults.standard.string(forKey: "VPN_FLAG")!))
         }
     }
-        
-        @IBAction func openMenu(_ sender:UIButton){
-            hideUnhideMenuView(showTrans: false, showMenu: false)
-        }
-        
-        private func hideUnhideMenuView(showTrans:Bool,showMenu:Bool){
-            transView.isHidden = showTrans
-            bottomSheet.isHidden = showMenu
-        }
-        
-        @objc func hideView() {
-            hideUnhideMenuView(showTrans: true, showMenu: true)
-        }
-        @IBAction func openSpeedHistory(_ sender:UIButton){
-            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
-            navigationController?.pushViewController(vc, animated: true)
-            showFullAds(viewController: self, isForce: false)
-        }
+    
+    @IBAction func openMenu(_ sender:UIButton){
+        hideUnhideMenuView(showTrans: false, showMenu: false)
+    }
+    
+    private func hideUnhideMenuView(showTrans:Bool,showMenu:Bool){
+        transView.isHidden = showTrans
+        bottomSheet.isHidden = showMenu
+    }
+    
+    @objc func hideView() {
+        hideUnhideMenuView(showTrans: true, showMenu: true)
+    }
+    @IBAction func openSpeedHistory(_ sender:UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedHistoryVC") as! SpeedHistoryVC
+        navigationController?.pushViewController(vc, animated: true)
+        showFullAds(viewController: self, isForce: false)
+    }
     private func hideBottomSheet(){
         bottomSheet.isHidden = true
-     }
+    }
     @IBAction func connectButtonActions(_ sender: UIButton) {
-      
+        
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-          // ConnectionStatus.instanceHelper.itemdelegates = self
+            // ConnectionStatus.instanceHelper.itemdelegates = self
             self.buttonSwitched = !self.buttonSwitched
-//            if self.buttonSwitched{
+            //            if self.buttonSwitched{
             if !isConnected{
-               
-               
-                    
-                    Settings.saveProfile(profile: profileVM.profile)
-                    Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
-                    
-                    profileVM.mainButtonAction()
-                    print("called for data")
-               
                 
-           
+                
+                
+                Settings.saveProfile(profile: profileVM.profile)
+                Settings.setSelectedProfile(profileId: profileVM.profile.profileId)
+                
+                profileVM.mainButtonAction()
+                print("called for data")
+                
+                
+                
                 
             }else {
-              
-                    hideUndideDialog(isShow: false)
-              
-               
-              //ConnectionStatus.instanceHelper.itemdelegates = self
+                
+                hideUndideDialog(isShow: false)
+                
+                
+                //ConnectionStatus.instanceHelper.itemdelegates = self
                 
             }
         }
@@ -290,7 +461,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     @IBAction func rateApp(_ sender:UIButton){
         hideBottomSheet()
         VpnConnection.rateApp(showCustom: true, self: self)
-    
+        
     }
     
     @IBAction func aboutUs(_ sender:UIButton){
@@ -329,44 +500,46 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         } else {
             // Fallback on earlier versions
         }
-//        showFullAds(viewController: self, isForce: false)
+        //        showFullAds(viewController: self, isForce: false)
     }
     func setConnectionTimeVisibility(status:Bool){
-      //  connectionTime.isHidden = status
+        //  connectionTime.isHidden = status
     }
-   
+    
     
     func callCatApi(){
-       // KRProgressHUD.show()
+        // KRProgressHUD.show()
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
             CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
-
+                
                 if error == "No Internet Connection"{
-
+                    
                 }else{
                     if categoryList.count == 0{
-                       // KRProgressHUD.dismiss()
-                      
+                        // KRProgressHUD.dismiss()
+                        
                     }else{
-                     //   KRProgressHUD.dismiss()
+                        //   KRProgressHUD.dismiss()
                         self.countryData=categoryList
                         print("co\(self.countryData[0].vpnname)")
                         if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
-                        self.countrylabel.text = self.countryData[0].vpnname
-                        self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
-                        self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                            self.countrylabel.text = self.countryData[0].vpnname
+                            self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
+                            self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
                             
                         }
                     }
                 }
             })
         }else{
-           // fetchCategoryInDirectory(cell:cell)
-          //  KRProgressHUD.dismiss()
+            // fetchCategoryInDirectory(cell:cell)
+            //  KRProgressHUD.dismiss()
         }
-
+        
     }
-  
-   
     
+    override func viewDidDisappear(_ animated: Bool) {
+       // UserDefaults.standard.set(, forKey: <#T##String#>)
     }
+    
+}
