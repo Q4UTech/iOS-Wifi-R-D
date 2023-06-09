@@ -39,12 +39,19 @@ class DeviceDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         if data != nil {
-            deviceBestName.text = data.bestCategory
+            if data.bestCategory != nil{
+                deviceBestName.text = data.bestCategory
+            }else{
+                deviceBestMake.text = "Not Found"
+            }
                 switch(data.bestType){
                 case "ROUTER":
                     devideTypeImg.image = UIImage(named: "router")
                     break
                 case "LAPTOP":
+                    devideTypeImg.image = UIImage(named: "desktop")
+                    break
+                case "DESKTOP":
                     devideTypeImg.image = UIImage(named: "desktop")
                     break
                 case "MOBILE":
@@ -57,7 +64,7 @@ class DeviceDetailVC: UIViewController {
                     devideTypeImg.image = UIImage(named: "printer")
                     break
                 default :
-                    print("none")
+                    devideTypeImg.image = UIImage(named: "default_icon")
                 
             }
             

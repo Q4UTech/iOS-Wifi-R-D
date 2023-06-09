@@ -7,7 +7,13 @@
 
 import Foundation
 
-class SpeedTestData:Codable{
+class SpeedTestData:Codable, Equatable {
+    // properties and methods of SpeedTestData
+
+    static func ==(lhs: SpeedTestData, rhs: SpeedTestData) -> Bool {
+       
+        return lhs.time == rhs.time
+    }
     var time:String
     var ping:String
     var downloadSpeed:Double

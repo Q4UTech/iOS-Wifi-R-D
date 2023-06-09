@@ -59,7 +59,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             isConnected = true
             statuslabel.textColor = hexStringColor(hex: "#2EB92B")
             print("connected succesfully")
-            //  setStatus(value: true)
+            setStatus(value: true)
             topViewUiLabel.text = "Stop"
             topImg.image = UIImage(named: "lock")
 //            TimerManager.shared.startTimer()
@@ -81,6 +81,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
             statuslabel.text =  "Not Connected"
+            connectButton.backgroundColor = hexStringColor(hex: "#202936")
            // TimerManager.shared.stopTimer()
             stopBackgroundTiming()
             timerLabel.text = "00:00:00"
@@ -371,6 +372,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
     private func hideBottomSheet(){
         bottomSheet.isHidden = true
+        transView.isHidden = true
     }
     @IBAction func connectButtonActions(_ sender: UIButton) {
         

@@ -13,6 +13,7 @@ import CoreLocation
 import Foundation
 import HGRippleRadarView
 import Network
+import AVFoundation
 
 
 enum Network: String {
@@ -23,7 +24,7 @@ enum Network: String {
 }
 
 
-class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
+class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLLocationManagerDelegate{
     func showList(list: [OfflineData]) {
 
         let items = list.map{Item(uniqueKey: $0.ipName, value: $0) }
@@ -104,6 +105,8 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
        // MainListHelper.instanceHelper.wifiDelegate = self
         LanguageSelectionListener.instanceHelper.itemdelegates = self
         locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
         let mapViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToMapView))
@@ -118,7 +121,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
       
       
         optionBtn.isHidden = false
-       // askEnableLocationService()
+        askEnableLocationService()
      
         if mapViewLbl.text!.count >= 10{
             mapWidthConstraint.constant = 130
@@ -127,19 +130,13 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
             mapWidthConstraint.constant = 94
             listWidthConstraint.constant = 94
         }
+        
        
         checkWifi()
-//        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
-//            if isWiFiConnected(){
-//                topViewLabel.text = "Wi-Fi Manager".localiz()
-//                networkCall()
-//            }
-//        }
-        
-       
+    
         if #available(iOS 14.0, *) { NEHotspotNetwork.fetchCurrent { network in if network != nil { print("is secured ((network.isSecure))") } } }
         
-      print("getWiFiName \(printCurrentWifiInfo())")
+    
         
         NotificationCenter.default.addObserver(self, selector: #selector(appEnteredForeground), name: NSNotification.Name("AppEnteredForegroundNotification"), object: nil)
    
@@ -148,34 +145,25 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
    }
 
    @objc func appEnteredForeground() {
-       // Handle the app entering the foreground
-       // This method will be called when the app comes from the background to the foreground
+       
        print("App entered foreground")
        if ReachabilityUtil.isConnectedToNetwork(){
            noWifi.isHidden = true
+           topViewLabel.text = "Wi-Fi Manager".localiz()
+          networkCall()
        }else{
            print("Internet Connection not Available!")
+           topViewLabel.text = "No Wi-Fi Connection"
+           .localiz()
            noWifi.isHidden = false
        }
    }
+    
     deinit {
         appEnteredForeground()
     }
     
-    func printCurrentWifiInfo() {
-      if let interface = CNCopySupportedInterfaces() {
-        for i in 0..<CFArrayGetCount(interface) {
-          let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interface, i)
-          let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
-          if let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString), let interfaceData = unsafeInterfaceData as? [String : AnyObject] {
-            // connected wifi
-            print("BSSID: \(interfaceData["BSSID"]), SSID: \(interfaceData["SSID"]), SSIDDATA: \(interfaceData["SSIDDATA"])")
-          } else {
-            // not connected wifi
-          }
-        }
-      }
-    }
+    
     func getWiFiName() -> String? {
            var ssid: String?
            if let interfaces = CNCopySupportedInterfaces() as NSArray? {
@@ -191,50 +179,53 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
 
    
     func updateWiFi() {
-//        print("SSID: \(currentNetworkInfos?.first?.ssid ?? "")")
-//
-//        if let ssid = currentNetworkInfos?.first?.ssid {
-//            ssidLabel.text = "SSID: \(ssid)"
-//        }
-//
-//        if let bssid = currentNetworkInfos?.first?.bssid {
-//            bssidLabel.text = "BSSID: \(bssid)"
-//        }
+
         
     }
     
     func askEnableLocationService() {
         var showAlertSetting = false
         var showInitLocation = false
-        print("wifissd \(getWiFiSsid())")
+      
+        DispatchQueue.global(qos: .background).async {
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .denied:
-                showAlertSetting = true
-                print("HH: kCLAuthorizationStatusDenied")
+                DispatchQueue.main.async{
+                    showAlertSetting = true
+                    print("HH: kCLAuthorizationStatusDenied")
+                }
             case .restricted:
-                showAlertSetting = true
-                print("HH: kCLAuthorizationStatusRestricted")
-            case .authorizedAlways:
-                print("wifissd \(getWiFiSsid()) \(printCurrentWifiInfo())")
-                showInitLocation = true
-                print("HH: kCLAuthorizationStatusAuthorizedAlways")
-            case .authorizedWhenInUse:
-                print("wifissd \(getWiFiSsid()) \(printCurrentWifiInfo())")
-                topView.isHidden = true
-                coonectedView.isHidden = false
+                DispatchQueue.main.async{
+                    showAlertSetting = true
+                    print("HH: kCLAuthorizationStatusRestricted")
+                }
                
-                showInitLocation = true
-                print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
+            case .authorizedAlways:
+                DispatchQueue.main.async{
+                    showInitLocation = true
+                    print("HH: kCLAuthorizationStatusAuthorizedAlways")
+                }
+            case .authorizedWhenInUse:
+                DispatchQueue.main.async{ [self] in
+                    topView.isHidden = true
+                    coonectedView.isHidden = false
+                    
+                    showInitLocation = true
+                    print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
+                }
             case .notDetermined:
-                showInitLocation = true
-                print("HH: kCLAuthorizationStatusNotDetermined")
+                DispatchQueue.main.async{
+                    showInitLocation = true
+                    print("HH: kCLAuthorizationStatusNotDetermined")
+                }
             default:
                 break
             }
         } else {
             showAlertSetting = true
             print("HH: locationServicesDisabled")
+        }
         }
         
         if showAlertSetting {
@@ -309,7 +300,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
         if isWiFiConnected(){
             topViewLabel.text = "Wi-Fi Manager".localiz()
             showWifiView(status:true)
-             networkCall()
+            networkCall()
         }else{
             topViewLabel.text = "No Wi-Fi Connection"
             .localiz()
@@ -494,7 +485,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
     
     
     private func getConnectedDevicesList(key:String){
-        FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { result, error in
+        FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { [self] result, error in
             let header = "--- validateLicenseKey ---"
           //  var json = dataToJSON(data: result)
             
@@ -502,14 +493,15 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
             let formatted = FGKUtils.formatResult(result, orError: error)
             let content = "\(header)\n\(formatted)"
             print("---VERIFY LICENSE KEY---\n\(formatted)")
+            
             DispatchQueue.main.async { [self] in
-                print("content\(content)")
+               // print("content\(content)")
+               
                 scanDevice()
-                
             }
         }
         
-        
+       
        
     }
     func dataToJSON(data: Data) -> Any? {
@@ -613,7 +605,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
                 DispatchQueue.main.async {
                     self.printToUI(formatted as! String)
                     if completed == nil || completed as! String == "true" {
-                        print("scan done")
+                        print("scan done 00")
                     }
                 }
             }
@@ -627,8 +619,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
                 if formatted as! String == "License has expired"{
                     print("do action")
                     offline = true
-//                    wifiHelper = WifiHelper(limit:254)
-//                    wifiHelper?.startWifiScan()
+
                     let scanner = LANScanner(delegate: self, continuous: false)
                     scanner.startScan()
                 }else{
@@ -638,52 +629,58 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate{
                // DispatchQueue.main.async {
                 //    self.printToUI(formatted as! String )
                     if completed == nil || completed as! String == "true" {
-                        //fingData = formatted as! [ScannedWifiList]
+                      //  fingData = formatted as! [ScannedWifiList]
                         // self.activityIndicator.stopAnimating()
                         print("scan done11")
                         if result != nil{
+                            print("scan done22")
                             if let jsonData = result!.data(using: .utf8) {
                                 print("jsonData11 \(result)")
                                 do {
                                     let decoder = JSONDecoder()
                                     let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
                                     if let content = scanResponse.completed{
-                                        print("data888 \(content)")
-                                    }
-                                    if let isp = scanResponse.gatewayIpAddress {
-                                      
-                                        UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
-                                        
-                                    }
-                                    if let ispName = scanResponse.fingIsp {
-                                        DispatchQueue.main.async { [self] in
-                                            WifiName.text = ispName.ispName
+                                        print("content \(content)")
+                                        if let isp = scanResponse.gatewayIpAddress {
+                                            print("content1 \(content)")
+                                            UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
+                                            
+                                        }
+                                        if let ispName = scanResponse.fingIsp {
+                                            print("content2 \(content)")
+                                            DispatchQueue.main.async { [self] in
+                                                WifiName.text = ispName.ispName
+                                            }
+                                        }
+                                        if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
+                                            print("content3 \(content)")
+                                            //FingNodesHandler.shared.setFingNodes(fingNodes)
+                                            fingData = fingNodes
+                                            
+                                            DispatchQueue.main.async { [self] in
+                                                print("content3 \(content)")
+                                                let items = fingData.map{Item(uniqueKey: $0.bestName!, value: $0) }
+                                                radarView.add(items: items)
+                                                radarView.stopAnimation()
+                                                waitingLbl.isHidden = true
+                                            }
+                                          
+                                            DispatchQueue.main.async { [self] in
+                                                print("content4 \(content)")
+                                                isFetched = true
+                                                coonectedView.isHidden = false
+                                                waitingLbl.isHidden = true
+                                                topView.isHidden = true
+                                                connectedDeviceCount.text = "(\(fingNodes.count))"
+                                                wifiTableView.reloadData()
+                                            }
+                                        }else{
+                                            
                                         }
                                     }
                                     
-                                    if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
-                                       
-                                        // FingNodesHandler.shared.setFingNodes(fingNodes)
-                                        fingData = fingNodes
-                                        
-                                        DispatchQueue.main.async { [self] in
-                                            let items = fingData.map{Item(uniqueKey: $0.bestName!, value: $0) }
-                                            radarView.add(items: items)
-                                            radarView.stopAnimation()
-                                            waitingLbl.isHidden = true
-                                        }
-                                      
-                                        DispatchQueue.main.async { [self] in
-                                            isFetched = true
-                                            coonectedView.isHidden = false
-                                            waitingLbl.isHidden = true
-                                            topView.isHidden = true
-                                            connectedDeviceCount.text = "(\(fingNodes.count))"
-                                            wifiTableView.reloadData()
-                                        }
-                                    }else{
-                                        
-                                    }
+                                    
+                                    
                                     
                                     print("scan done11")
                                 }catch{
@@ -834,12 +831,15 @@ extension WifiVC: UITableViewDelegate,UITableViewDataSource {
                 cell.bestTypes.image = UIImage(named: "router")
                 break
             case "LAPTOP":
-                cell.bestTypes.image = UIImage(named: "router")
+                cell.bestTypes.image = UIImage(named: "desktop")
                 break
             case "MOBILE":
                 cell.bestTypes.image = UIImage(named: "iphone")
                 break
             case "COMPUTER":
+                cell.bestTypes.image = UIImage(named: "desktop")
+                break
+            case "DESKTOP":
                 cell.bestTypes.image = UIImage(named: "desktop")
                 break
             case "PRINTER":
@@ -937,7 +937,10 @@ extension WifiVC:RadarViewDelegate,RadarViewDataSource{
                 loadView?.animatedImage.image = UIImage(named: "router")
                 break
             case "LAPTOP":
-                loadView?.animatedImage.image = UIImage(named: "router")
+                loadView?.animatedImage.image = UIImage(named: "desktop")
+                break
+            case "DESKTOP":
+                loadView?.animatedImage.image = UIImage(named: "desktop")
                 break
             case "MOBILE":
                 loadView?.animatedImage.image = UIImage(named: "iphone")

@@ -523,13 +523,28 @@ extension UIViewController : MFMailComposeViewControllerDelegate {
     
     
     public func sendFeedback(){
+
         let toRecipients = [FEEDBACK_email]
         let subject = "Feedback"
         let body = "\(MyConstant.kAppName) <br>Device Brand: \(String().getDeviceModel())<br>DeviceName: \(String().getDeviceName()) <br>Device Version: \(UIDevice.current.systemVersion)"
-        let mail = configuredMailComposeViewController(recipients: toRecipients, subject: subject, body: body, isHtml: true, images: nil)
-        presentMailComposeViewController(mailComposeViewController: mail)
+                if MFMailComposeViewController.canSendMail() {
+                        let mail = MFMailComposeViewController()
+                        mail.mailComposeDelegate = self
+                         mail.setSubject("Feedback")
+                        mail.setToRecipients(toRecipients)
+                        mail.setMessageBody(body, isHTML: true)
+        
+                        present(mail, animated: true)
+                    } else {
+                        // show failure alert
+                    }
+//        let mail = configuredMailComposeViewController(recipients: toRecipients, subject: subject, body: body, isHtml: true, images: nil)
+//        presentMailComposeViewController(mailComposeViewController: mail)
     }
     
+    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     
     func presentMailComposeViewController(mailComposeViewController :
                                           MFMailComposeViewController) {

@@ -24,6 +24,8 @@ class SpeedTestDetailVC: UIViewController {
     @IBOutlet weak var deleteView:UIView!
     @IBOutlet weak var transView:UIView!
     @IBOutlet weak var deleteBtn:UIButton!
+    @IBOutlet weak var retestButton:UIButton!
+    @IBOutlet weak var retestMsg:UILabel!
     private var locationManager = CLLocationManager()
     var ping = String()
     var uploadSpeed = Double()
@@ -33,6 +35,11 @@ class SpeedTestDetailVC: UIViewController {
     var isFrom = String()
     var providername = String()
     var connectiontype = String()
+    var speedTestList  = [String:[SpeedTestData]]()
+    var speedTestData  = [SpeedTestData]()
+    var historyKey:String?
+    var historyValue:SpeedTestData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         askEnableLocationService()
@@ -44,6 +51,11 @@ class SpeedTestDetailVC: UIViewController {
             ipAddress.text = ipAddressData
             connectedType.text = connectiontype
             providerLabel.text = providername
+            retestButton.isHidden = true
+            retestMsg.isHidden = true
+            print("historyData \(historyKey) \(historyValue)")
+            print("complete data \(historyValue?.ipAddress) \(historyValue?.time) ")
+            
         }else{
             deleteBtn.isHidden = true
             pingLabel.text = ping
@@ -59,6 +71,7 @@ class SpeedTestDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         getBannerAd(self, adView, heightConstraint)
     }
     
@@ -133,6 +146,40 @@ class SpeedTestDetailVC: UIViewController {
     }
     @IBAction func deleteData(_ sender:UIButton){
         hideUnhideView(true, true)
+        if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) != nil{
+            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+                do {
+                         
+                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                 //   print("speedDataList777\(speedDataList)")
+                    for (_ ,data) in speedTestList{
+                        print("dataCount \(data.count)")
+                        for i in data{
+                            speedTestData.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
+                        }
+
+                    }
+                    if  speedTestList.keys.contains(historyKey!){
+                      
+                        if let index = speedTestData.firstIndex(where: { $0 == historyValue }) {
+                            // Remove the object from the array
+                            speedTestData.remove(at: index)
+                        }
+                        print("complete data1 \(speedTestData.count)")
+                        speedTestList[historyKey!] = speedTestData
+                        if let encode = try?  JSONEncoder().encode(speedTestList) {
+                            UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+                        }
+                        HistoryListener.instanceHelper.isDeleteComplete(complete: true)
+                        navigationController?.popViewController(animated: true)
+                    }
+                 
+                }catch{
+
+                }
+            }
+
+        }
     }
     @IBAction func cancel(_ sender:UIButton){
         hideUnhideView(true, true)

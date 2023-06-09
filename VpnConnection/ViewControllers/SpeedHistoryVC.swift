@@ -7,7 +7,33 @@
 
 import UIKit
 
-class SpeedHistoryVC: UIViewController {
+class SpeedHistoryVC: UIViewController ,HistoryProtocol{
+    func isDeleteComplete(complete: Bool) {
+        speedTestList.removeAll()
+        if complete{
+            fetchData()
+           
+        }
+    }
+    
+    
+    private func fetchData(){
+        speedDataList.removeAll()
+        if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+            do {
+                
+                speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                
+                speedDataList = speedTestList
+
+               
+            }catch{
+                
+            }
+            tableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var averagePing:UILabel!
     @IBOutlet weak var averageDownloadSpeed:UILabel!
@@ -15,6 +41,7 @@ class SpeedHistoryVC: UIViewController {
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
     @IBOutlet weak var deleteView:UIView!
+    var speedTestList  = [String:[SpeedTestData]]()
     
     var avgPing:Double = 0.0
     var avgDownloadSpeed:Double = 0.0
@@ -29,6 +56,7 @@ class SpeedHistoryVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        HistoryListener.instanceHelper.historyDelegate = self
         // Do any additional setup after loading the view.
        
 //        if speedDataList != nil {
@@ -38,14 +66,13 @@ class SpeedHistoryVC: UIViewController {
 //
 //        }
         
-        fetchFavouriteList()
+       fetchFavouriteList()
        
        
     }
     override func viewWillAppear(_ animated: Bool) {
         getBannerAd(self, adView, heightConstraint)
-       
-       
+      
 //        if avgPing != nil && avgDownloadSpeed != nil && avgDownloadSpeed != nil {
 //            averagePing.text = String(avgPing).maxLength(length: 4)
 //            averageDownloadSpeed.text = String(avgDownloadSpeed).maxLength(length: 5)
@@ -135,15 +162,7 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         avgDownloadSpeed += data!.downloadSpeed
         avgUploadSpeed  += data!.uploadSpeed
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
-//        let dates = Array(speedDataList.keys).sorted(by: >)
-//            let currentDate = dates[indexPath.section]
-//            if let models = speedDataList[currentDate] {
-//                let model = models[indexPath.row]
-//                cell.timeLabel.text = model.time
-//                cell.ping.text = model.ping
-//                cell.upload.text = String(model.uploadSpeed).maxLength(length: 4)
-//                cell.download.text = String(model.downloadSpeed).maxLength(length: 4)
-//            }
+
       
         cell.timeLabel.text = data?.time
         cell.ping.text = data?.ping
@@ -169,6 +188,8 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         vc.ipAddressData = data!.ipAddress
         vc.connectiontype = data!.connectionType
         vc.providername = data!.providerName
+        vc.historyKey =  speedDetailData[indexPath.section]
+        vc.historyValue = data
         navigationController?.pushViewController(vc, animated: true)
         showFullAds(viewController: self, isForce: false)
     }
@@ -195,25 +216,14 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
             self.speedDataList[speedDetailData[indexPath.section]]!.remove(at: indexPath.row)
             print("speedDataList \(data) \(speedDataList[speedDetailData[indexPath.section]]!) \(speedDataList.count)")
                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            if let encode = try?  JSONEncoder().encode(data) {
-//                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
-//            }
-//            let new = removeValue(value: (speedDataList[speedDetailData[indexPath.section]]?[indexPath.row])!, fromDict: speedDataList)
-//            let values = Array(speedDataList.values)
-//            let selectedValue = values[indexPath.row]
-//            speedDetailData[indexPath.section].remove(at: indexPath.row)
-          //  deleteView.isHidden = false
-//                if let key = speedDataList.first(where: { $0.value == selectedValue })?.key {
-//                    // Key is found, use it here
-//                    print("Selected key:", key)
-//                }
-//            if var storedPeople = speedDataList[indexPath.row] {
-//                if let index = storedPeople.firstIndex(where: { $0.pi }) {
-//                    storedPeople.remove(at: index)
-//                }
-//                myDictionary[keyToDeleteFrom] = storedPeople
-//            }
-               // UserDefaults.standard.removeObject(forKey:MyConstant.SPEED_LIST)
+            print("speedDataList11 \(speedDetailData[indexPath.section])")
+           
+            speedTestList[speedDetailData[indexPath.section]] = speedDataList[speedDetailData[indexPath.section]]!
+            if let encode = try?  JSONEncoder().encode(speedTestList) {
+                UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+            }
+            tableView.reloadData()
+
                }
        
         
@@ -221,15 +231,7 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
                return [deleteAction]
     }
     
-//    func removeValue(value: String, fromDict dict: [String: [String]]) -> [String: [String]] {
-//        var out = [String: [String]]()
-//        for entry in dict {
-//            out[entry.key] = entry.value.filter({
-//                $0 != value
-//            })
-//        }
-//        return out
-//    }
+
     
     func removeValue(value: SpeedTestData, fromDict dict: [String: [SpeedTestData]]) -> [String: [SpeedTestData]] {
         var out = [String: [SpeedTestData]]()

@@ -13,27 +13,27 @@ struct DeviceInfo{
     func getDeviceIcon(value: String) -> String {
         switch value {
         case DeviceName.Acer.rawValue:
-            return "acer"
+            return "acer_white"
         case DeviceName.Apple.rawValue:
-            return"apple"
+            return"apple_white"
         case DeviceName.Asus.rawValue:
-            return "asus"
+            return "asus_white"
         case DeviceName.AVITA.rawValue:
             return "avita"
         case DeviceName.BlackBerry.rawValue:
-            return "blackberry"
+            return "blackberry_white"
         case DeviceName.Dell.rawValue:
             return "dell"
         case DeviceName.Google.rawValue:
             return "google"
         case DeviceName.Honor.rawValue:
-            return "honor"
+            return "honor_white"
         case DeviceName.HTC.rawValue:
             return "htc"
         case DeviceName.Huawei.rawValue:
             return "huawei"
         case DeviceName.Infinix.rawValue:
-            return "infix"
+            return "infix_white"
         case DeviceName.Lenovo.rawValue:
             return "lenovo"
         case DeviceName.LG.rawValue:
@@ -73,13 +73,13 @@ struct DeviceInfo{
     
     func getOsIcon(value: String) -> String {
         if value.localizedCaseInsensitiveContains("Android") {
-            return "android"
+            return "android_white"
         } else if value.localizedCaseInsensitiveContains("Window") {
             return "windows"
         } else if value.localizedCaseInsensitiveContains("Chrome") {
             return "google"
         } else if value.localizedCaseInsensitiveContains("iOS") {
-            return "apple"
+            return "apple_white"
         } else {
             return "default_icon"
         }

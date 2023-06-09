@@ -36,8 +36,6 @@ class TabySegmentedControl: UISegmentedControl {
     
     func setupFonts(){
         let font = UIFont.systemFont(ofSize: 16.0)
-        
-        
         let normalTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: font

@@ -13,13 +13,11 @@ import LanguageManager_iOS
 import Network
 import CoreLocation
 
-
-
-class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallBackListenerProtocol ,SplashBannerListenerProtocol,OnBannerAdsIdLoadedProtocol,LanguageSelectionDelegate{
+class SplashVC: UIViewController,CLLocationManagerDelegate,OnCacheFullAddListenerProtocol,LaunchFullCallBackListenerProtocol ,SplashBannerListenerProtocol,OnBannerAdsIdLoadedProtocol,LanguageSelectionDelegate{
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constants.APPLE_LANGUAGE)
     }
-    var locationManager = CLLocationManager()
+    var locationManager:CLLocationManager?
     let SPLASH_SCREEN = "AN_SPLASH_SCREEN"
     func onBannerFailToLoad() {
         if !isSplash{
@@ -79,7 +77,9 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     var splashAnimationView:LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.shared.requestLocationAuthorization()
+       
+        
+        
        Bundle.swizzleLocalization()
         CallOnSplash.shared.v2CallOnSplash(for: self)
         SplashVC.fromSplash = true
@@ -97,8 +97,13 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
             checkApplaunch()
         }
        // startProgressAnimation()
+       
     }
-    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            print("granted")
+        }
+    }
    
     func checkLetStartButton(){
         
@@ -243,46 +248,14 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
         getBannerAds()
         
     }
-    func requestPermissionsToShowSsidAndBssid() {
-        let status = CLLocationManager.authorizationStatus()
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
-            print("Location permissions have been already granted!")
-            UserDefaults.standard.set(true, forKey: MyConstant.PERMISSION_GRANTED)
-           
-            return
-        }else {
-            
-            
-            let controller = UIAlertController(title: "Location permissions required", message: "\nStarting from iOS 13, in order to request Wi-Fi network SSID and BSSID apps must:\n\n• Request location permissions\n• Declare \"Access WiFi information in \"Signing & Capabilities\"", preferredStyle: .alert)
-            
-            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            if status == .notDetermined {
-                controller.addAction(UIAlertAction(title: "Request permissions", style: .default, handler: { _ in
-                    
-                    self.locationManager.requestWhenInUseAuthorization()
-                }))
-            }
-            else if status == .authorizedWhenInUse || status == .authorizedAlways{
-                print("granted")
-            }
-            else {
-                controller.addAction(UIAlertAction(title: "Go to iOS settings", style: .default, handler: { _ in
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
-                    }
-                }))
-            }
-            
-            present(controller, animated: true, completion: nil)
-        }
-    }
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
         getBannerAds()
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
        // getFirebaseTrackScreen(SPLASH_SCREEN)
     }
     
@@ -418,36 +391,4 @@ class SplashVC: UIViewController ,OnCacheFullAddListenerProtocol,LaunchFullCallB
     
 }
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
 
-    static let shared = LocationManager()
-    private var locationManager: CLLocationManager = CLLocationManager()
-    private var requestLocationAuthorizationCallback: ((CLAuthorizationStatus) -> Void)?
-
-    public func requestLocationAuthorization() {
-        self.locationManager.delegate = self
-        let currentStatus = CLLocationManager.authorizationStatus()
-
-        // Only ask authorization if it was never asked before
-        guard currentStatus == .notDetermined else { return }
-        
-        // Starting on iOS 13.4.0, to get .authorizedAlways permission, you need to
-        // first ask for WhenInUse permission, then ask for Always permission to
-        // get to a second system alert
-        if #available(iOS 13.4, *) {
-            self.requestLocationAuthorizationCallback = { status in
-                if status == .authorizedWhenInUse {
-                    self.locationManager.requestAlwaysAuthorization()
-                }
-            }
-            self.locationManager.requestWhenInUseAuthorization()
-        } else {
-            self.locationManager.requestAlwaysAuthorization()
-        }
-    }
-    // MARK: - CLLocationManagerDelegate
-    public func locationManager(_ manager: CLLocationManager,
-                                didChangeAuthorization status: CLAuthorizationStatus) {
-        self.requestLocationAuthorizationCallback?(status)
-    }
-}

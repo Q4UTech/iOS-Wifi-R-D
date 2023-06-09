@@ -401,7 +401,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="openHistory:" destination="5pP-OI-AEm" eventType="touchUpInside" id="XYU-rU-VTT"/>
-                                                            <action selector="openSpeedHistory:" destination="5pP-OI-AEm" eventType="touchUpInside" id="vIx-Hs-3Sd"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1008,7 +1007,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ug-Ff-wz4">
-                                <rect key="frame" x="75" y="314" width="280" height="400"/>
+                                <rect key="frame" x="75" y="324" width="280" height="380"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_wifi_img" translatesAutoresizingMaskIntoConstraints="NO" id="SgA-0r-Bw5">
                                         <rect key="frame" x="30" y="10" width="220" height="220"/>
@@ -1052,7 +1051,7 @@ to check connected devices</string>
                                 </subviews>
                                 <color key="backgroundColor" name="dashboard_bg_color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="EgO-Wy-SpT"/>
+                                    <constraint firstAttribute="height" constant="380" id="EgO-Wy-SpT"/>
                                     <constraint firstItem="ixs-is-TdQ" firstAttribute="top" secondItem="qSV-NM-5ft" secondAttribute="bottom" constant="16" id="KmO-Sg-Zff"/>
                                     <constraint firstItem="qSV-NM-5ft" firstAttribute="top" secondItem="moQ-28-G2P" secondAttribute="bottom" constant="8.3300000000000001" id="OXa-oe-Cun"/>
                                     <constraint firstItem="SgA-0r-Bw5" firstAttribute="top" secondItem="6ug-Ff-wz4" secondAttribute="top" constant="10" id="PUr-U0-8Hp"/>
@@ -1656,7 +1655,7 @@ to check connected devices</string>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huO-xZ-7rE">
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="849"/>
-                                <color key="backgroundColor" red="0.19215686274509802" green="0.20392156862745098" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70317673841059603" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6is-cg-6Ws">
                                 <rect key="frame" x="0.0" y="649" width="430" height="200"/>
@@ -1664,8 +1663,8 @@ to check connected devices</string>
                                     <constraint firstAttribute="height" constant="200" id="Rfr-FC-4AR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:45:29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-nR-cmC">
-                                <rect key="frame" x="140" y="421" width="150" height="40.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-nR-cmC">
+                                <rect key="frame" x="138.33333333333331" y="421" width="153.33333333333331" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1717,6 +1716,12 @@ to check connected devices</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ See More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wq-YZ-5TN">
+                                        <rect key="frame" x="66" y="21.666666666666629" width="74" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pl0-f2-tMR">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="60"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1729,6 +1734,7 @@ to check connected devices</string>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Q6M-H9-aAj" secondAttribute="trailing" constant="10" id="1Ee-nV-Xkd"/>
                                     <constraint firstItem="Pl0-f2-tMR" firstAttribute="leading" secondItem="Cjy-fW-Ku7" secondAttribute="leading" id="3yP-B5-gdc"/>
+                                    <constraint firstItem="7Wq-YZ-5TN" firstAttribute="centerY" secondItem="5W8-di-nZK" secondAttribute="centerY" id="5OI-84-96F"/>
                                     <constraint firstAttribute="height" constant="60" id="6tt-oM-H70"/>
                                     <constraint firstItem="5W8-di-nZK" firstAttribute="centerY" secondItem="bsV-JQ-0pC" secondAttribute="centerY" id="7As-s3-2y8"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="HOO-yT-8X5"/>
@@ -1737,6 +1743,7 @@ to check connected devices</string>
                                     <constraint firstAttribute="bottom" secondItem="Pl0-f2-tMR" secondAttribute="bottom" id="gpU-Bv-oRt"/>
                                     <constraint firstAttribute="trailing" secondItem="Pl0-f2-tMR" secondAttribute="trailing" id="ox4-1x-My4"/>
                                     <constraint firstItem="bsV-JQ-0pC" firstAttribute="leading" secondItem="Cjy-fW-Ku7" secondAttribute="leading" constant="8" id="poz-3I-f5L"/>
+                                    <constraint firstItem="7Wq-YZ-5TN" firstAttribute="leading" secondItem="5W8-di-nZK" secondAttribute="trailing" constant="10" id="qd6-aX-imm"/>
                                     <constraint firstItem="bsV-JQ-0pC" firstAttribute="centerY" secondItem="Cjy-fW-Ku7" secondAttribute="centerY" id="sMD-cu-u8d"/>
                                     <constraint firstItem="5W8-di-nZK" firstAttribute="leading" secondItem="bsV-JQ-0pC" secondAttribute="trailing" constant="15" id="x6T-J8-SvP"/>
                                 </constraints>
@@ -2497,8 +2504,8 @@ connection?</string>
                                             <constraint firstAttribute="width" constant="41" id="bJP-l1-HOw"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desktop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-kW-N7D">
-                                        <rect key="frame" x="90" y="31.666666666666686" width="77" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ee-kW-N7D">
+                                        <rect key="frame" x="90" y="31.666666666666686" width="95.333333333333314" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2510,7 +2517,7 @@ connection?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(online since 6h)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5X-0W-dTT">
-                                        <rect key="frame" x="180" y="35" width="107.66666666666669" height="17"/>
+                                        <rect key="frame" x="198.33333333333334" y="35" width="107.66666666666666" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2624,9 +2631,7 @@ connection?</string>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="18s-Uu-hWH">
                                         <rect key="frame" x="25" y="30.333333333333314" width="33" height="33"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="AQy-1z-Uru"/>
                                             <constraint firstAttribute="height" constant="33" id="WcU-0S-yrW"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="eFA-AD-Nh2"/>
                                             <constraint firstAttribute="width" constant="33" id="zpO-C4-zqQ"/>
                                         </constraints>
                                     </imageView>
@@ -2655,25 +2660,25 @@ connection?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-rd-vLd">
-                                        <rect key="frame" x="153.66666666666666" y="84" width="36.333333333333343" height="14.333333333333329"/>
+                                        <rect key="frame" x="223.66666666666666" y="84" width="36.333333333333343" height="14.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duR-om-ZNT">
-                                        <rect key="frame" x="153.66666666666666" y="106.33333333333331" width="53" height="17.666666666666671"/>
+                                        <rect key="frame" x="223.66666666666666" y="106.33333333333331" width="52.999999999999972" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC1-9B-WkU">
-                                        <rect key="frame" x="245" y="83.666666666666629" width="79" height="15"/>
+                                        <rect key="frame" x="315" y="83.666666666666629" width="79" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consumer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMH-0U-bI1">
-                                        <rect key="frame" x="244.99999999999997" y="106.66666666666663" width="66.666666666666657" height="17"/>
+                                        <rect key="frame" x="315" y="106.66666666666663" width="66.666666666666686" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2695,7 +2700,7 @@ connection?</string>
                                     <constraint firstItem="6JC-E2-Esh" firstAttribute="top" secondItem="eQp-Xu-Q58" secondAttribute="bottom" constant="8" id="Tpe-0Y-t1S"/>
                                     <constraint firstItem="UzD-1B-yxX" firstAttribute="top" secondItem="aZf-zm-dok" secondAttribute="bottom" constant="8" id="fzr-jn-Xm3"/>
                                     <constraint firstItem="jMH-0U-bI1" firstAttribute="leading" secondItem="qC1-9B-WkU" secondAttribute="leading" id="gi4-oP-cS5"/>
-                                    <constraint firstItem="m9f-rd-vLd" firstAttribute="leading" secondItem="eQp-Xu-Q58" secondAttribute="trailing" constant="30" id="ime-J2-g3m"/>
+                                    <constraint firstItem="m9f-rd-vLd" firstAttribute="leading" secondItem="eQp-Xu-Q58" secondAttribute="trailing" constant="100" id="ime-J2-g3m"/>
                                     <constraint firstItem="6JC-E2-Esh" firstAttribute="leading" secondItem="eQp-Xu-Q58" secondAttribute="leading" id="mDw-2A-lld"/>
                                     <constraint firstAttribute="height" constant="150" id="nz6-Pf-cRi"/>
                                     <constraint firstItem="eQp-Xu-Q58" firstAttribute="top" secondItem="UzD-1B-yxX" secondAttribute="bottom" constant="19" id="ojC-p6-1if"/>
@@ -3170,7 +3175,7 @@ connection?</string>
                                 <color key="backgroundColor" white="0.15505420919999999" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRz-nl-IsO">
-                                <rect key="frame" x="43" y="228.66666666666663" width="344" height="500"/>
+                                <rect key="frame" x="43" y="333.66666666666669" width="344" height="290.00000000000006"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-MF-7mb">
                                         <rect key="frame" x="89.666666666666657" y="10" width="165" height="122"/>
@@ -3180,19 +3185,19 @@ connection?</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQj-XH-CVQ">
-                                        <rect key="frame" x="140.33333333333334" y="151.00000000000003" width="63.666666666666657" height="26.333333333333343"/>
+                                        <rect key="frame" x="140.33333333333334" y="151" width="63.666666666666657" height="26.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.96192052979999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swZ-Ea-cs7">
-                                        <rect key="frame" x="62" y="196.33333333333334" width="220" height="18"/>
+                                        <rect key="frame" x="62" y="196.33333333333331" width="220" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-kr-PSH">
-                                        <rect key="frame" x="230" y="450" width="94" height="30"/>
+                                        <rect key="frame" x="230" y="239.99999999999994" width="94" height="30"/>
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="GcG-6U-g2D"/>
@@ -3211,7 +3216,7 @@ connection?</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT1-gq-IJQ">
-                                        <rect key="frame" x="125" y="450" width="94" height="30"/>
+                                        <rect key="frame" x="125" y="239.99999999999994" width="94" height="30"/>
                                         <color key="backgroundColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="94" id="9cm-CX-1dr"/>
@@ -3243,7 +3248,7 @@ connection?</string>
                                     <constraint firstItem="D2f-kr-PSH" firstAttribute="leading" secondItem="pT1-gq-IJQ" secondAttribute="trailing" constant="11" id="Z23-in-68c"/>
                                     <constraint firstItem="GQj-XH-CVQ" firstAttribute="centerX" secondItem="2Md-MF-7mb" secondAttribute="centerX" id="Z5H-vd-h4T"/>
                                     <constraint firstItem="GQj-XH-CVQ" firstAttribute="top" secondItem="2Md-MF-7mb" secondAttribute="bottom" constant="19" id="aaQ-DY-GvG"/>
-                                    <constraint firstAttribute="height" constant="500" id="uu1-2C-B99"/>
+                                    <constraint firstAttribute="height" constant="290" id="uu1-2C-B99"/>
                                     <constraint firstAttribute="trailing" secondItem="D2f-kr-PSH" secondAttribute="trailing" constant="20" id="v07-gg-JtF"/>
                                     <constraint firstItem="2Md-MF-7mb" firstAttribute="top" secondItem="iRz-nl-IsO" secondAttribute="top" constant="10" id="xgP-dF-3jX"/>
                                 </constraints>
@@ -3294,6 +3299,8 @@ connection?</string>
                         <outlet property="ipAddress" destination="fFY-jb-53r" id="EkF-yp-zcn"/>
                         <outlet property="pingLabel" destination="Mct-lm-jKn" id="QSJ-Jt-Ey4"/>
                         <outlet property="providerLabel" destination="Cec-Cw-WQt" id="SOX-81-2GY"/>
+                        <outlet property="retestButton" destination="Tkr-6M-whf" id="0xf-lM-S8f"/>
+                        <outlet property="retestMsg" destination="YsD-gw-Tq0" id="Dat-OB-xor"/>
                         <outlet property="transView" destination="fEO-t4-cgB" id="hud-HM-B6J"/>
                         <outlet property="uploadLabel" destination="ulK-XI-Qtl" id="1o1-1x-ut6"/>
                     </connections>
@@ -3730,7 +3737,7 @@ connection?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure want to delete this history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-Qb-l2G">
-                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="267" height="18"/>
+                                        <rect key="frame" x="38.666666666666686" y="196.33333333333334" width="266.99999999999994" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -5151,7 +5158,7 @@ Cancel subscription anytime from AppStore.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check who is using your WI-FI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-Dp-g4K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check who is using your Wi-Fi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-Dp-g4K">
                                 <rect key="frame" x="93.666666666666686" y="482.33333333333331" width="243" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" name="custom_gray"/>
@@ -5247,7 +5254,7 @@ Cancel subscription anytime from AppStore.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quantum4uLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pNF-Nr-64Z">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quantum4uLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pNF-Nr-64Z">
                                 <rect key="frame" x="150" y="858" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="9y2-Oy-1vM"/>
@@ -5380,7 +5387,7 @@ Cancel subscription anytime from AppStore.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P4-Ot-W8g">
-                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45"/>
+                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="INQ-hS-ebd"/>
                                             <constraint firstAttribute="height" constant="45" id="Wdg-cf-Rzg"/>

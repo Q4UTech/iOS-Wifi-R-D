@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationUsageDescription</key>
-	<string>Allow app to scan near by wifi</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Allow app to scan near by wifi</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow app to scan near by wifi</string>
+	<string>Allow app to scan wifi router to scan device</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow app to access location</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<string>NO</string>
 	<key>GADApplicationIdentifier</key>
