@@ -87,28 +87,15 @@ class CountryVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGe
      
         let countryData = categoryData[indexPath.row]
         print("countrydata \(countryData.file_location)")
-//        if countryData.purchsedType == "free" {
+
        
         CountrySelectionList.instanceHelper.checkConnectionState(countryFlag:categoryData[indexPath.row].vpn_flag, countrySelection:categoryData[indexPath.row].vpnname,  fileLocation: categoryData[indexPath.row].file_location)
             UserDefaults.standard.set(categoryData[indexPath.row].vpnname, forKey: "VPN_NAME")
+            UserDefaults.standard.set(categoryData[indexPath.row].vpn_flag, forKey: "VPN_FLAG")
             cell.isSelected = true
             UserDefaults.standard.set(categoryData[indexPath.row].file_location, forKey: "VPN_FILE")
             self.navigationController?.popViewController(animated: false)
-//        }else{
-//            print("hhh")
-//        }
-//        }else{
-////            let purchased = UserDefaults.standard.bool(forKey: IN_APP_PURCHASED)
-////            if purchased{
-//                CountrySelectionList.instanceHelper.checkConnectionState(countrySelection:categoryData[indexPath.row].vpnname, fileLocation: categoryData[indexPath.row].file_location)
-//                UserDefaults.standard.set(categoryData[indexPath.row].vpnname, forKey: "VPN_NAME")
-//                cell.isSelected = true
-//                UserDefaults.standard.set(categoryData[indexPath.row].file_location, forKey: "VPN_FILE")
-//                self.navigationController?.popViewController(animated: false)
-////            }else{
-////                showPurchaseAlert(fileLocation: countryData.file_location,cell:cell,tableView)
-////            }
-//        }
+
       
         
     }

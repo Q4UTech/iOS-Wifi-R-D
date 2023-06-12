@@ -89,7 +89,7 @@ class PasswordHintVC: UIViewController,SearchDelegate{
            
            KRProgressHUD.showOn(self).show()
            passwordList.removeAll()
-           print("URL_DATA\(URL)")
+         
                Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
                    print("respnse \(response)")
                    

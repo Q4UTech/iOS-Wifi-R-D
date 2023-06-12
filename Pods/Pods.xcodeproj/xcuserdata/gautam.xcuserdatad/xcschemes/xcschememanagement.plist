@@ -214,26 +214,33 @@
 			<key>orderHint</key>
 			<integer>33</integer>
 		</dict>
-		<key>SwiftAlgorithms.xcscheme</key>
+		<key>SpeedcheckerSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>34</integer>
 		</dict>
-		<key>Toast-Swift.xcscheme</key>
+		<key>SwiftAlgorithms.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>35</integer>
 		</dict>
-		<key>WMGaugeView.xcscheme</key>
+		<key>Toast-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>36</integer>
+		</dict>
+		<key>WMGaugeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>37</integer>
 		</dict>
 		<key>lottie-ios.xcscheme</key>
 		<dict>

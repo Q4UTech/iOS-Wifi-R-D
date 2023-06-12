@@ -2413,6 +2413,10 @@ THE SOFTWARE.
 
 
 
+## SpeedcheckerSDK
+
+https://github.com/speedchecker/speedchecker-sdk-ios#licence
+
 ## SwiftAlgorithms
 
                                  Apache License

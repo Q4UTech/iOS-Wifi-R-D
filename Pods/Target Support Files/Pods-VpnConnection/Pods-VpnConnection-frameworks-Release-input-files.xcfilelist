@@ -25,3 +25,8 @@ ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework
 ${BUILT_PRODUCTS_DIR}/OpenVPNAdapter/OpenVPNAdapter.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.framework/FBAudienceNetwork
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/DataCompression.framework/DataCompression
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/Socket.framework/Socket
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerReportSDK.framework/SpeedcheckerReportSDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerSDK.framework/SpeedcheckerSDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/XMLParsing.framework/XMLParsing

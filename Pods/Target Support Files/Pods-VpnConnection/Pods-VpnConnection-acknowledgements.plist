@@ -2588,6 +2588,16 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>https://github.com/speedchecker/speedchecker-sdk-ios#licence</string>
+			<key>License</key>
+			<string>Free or Commercial</string>
+			<key>Title</key>
+			<string>SpeedcheckerSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

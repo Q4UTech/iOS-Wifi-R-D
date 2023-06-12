@@ -12,6 +12,7 @@ protocol SpeedCheckProtocol{
     func showChartData(show:Bool,data:[Double])
     func uploadFinished(isFinsihed:Bool,data:[Double])
     func downloadFinsihedFinished(isFinsihed:Bool,data:[Double])
+    func showData(data:Int)
 }
 
 class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
@@ -37,6 +38,9 @@ class SpeedTestCompleteListener:NSObject,SpeedCheckProtocol{
     
     func downloadFinsihedFinished(isFinsihed: Bool,data:[Double]){
         speedCheckDelegate?.downloadFinsihedFinished(isFinsihed: isFinsihed,data:data)
+    }
+    func showData(data: Int) {
+        speedCheckDelegate?.showData(data: data)
     }
     
     

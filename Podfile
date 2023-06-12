@@ -22,6 +22,7 @@ target 'VpnConnection' do
   pod 'HGRippleRadarView'
   pod "KRProgressHUD"
   pod 'LanguageManager-iOS'
+  pod 'SpeedcheckerSDK'
   
   pod 'CryptoSwift', '~> 1.0'
   pod 'lottie-ios'

@@ -202,6 +202,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OpenVPNAdapter/OpenVPNAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/DataCompression.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/Socket.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerReportSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/XMLParsing.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
@@ -230,6 +235,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OpenVPNAdapter/OpenVPNAdapter.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/DataCompression.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/Socket.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerReportSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/SpeedcheckerSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SpeedcheckerSDK/XMLParsing.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

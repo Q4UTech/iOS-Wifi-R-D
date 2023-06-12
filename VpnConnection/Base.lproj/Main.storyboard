@@ -775,7 +775,7 @@
         <!--DashboardVC-->
         <scene sceneID="VLY-0s-8aY">
             <objects>
-                <tabBarController storyboardIdentifier="DashboardVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KvW-5H-vbt" customClass="DashboardVC" customModule="VpnConnection" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DashboardVC" automaticallyAdjustsScrollViewInsets="NO" id="KvW-5H-vbt" customClass="DashboardVC" customModule="VpnConnection" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="3EK-ut-7jd">
@@ -785,6 +785,11 @@
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" name="active_color"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="initailIndex">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="I5O-BB-h3D" kind="relationship" relationship="viewControllers" id="uct-HR-v3n"/>
                         <segue destination="6dt-d1-ALS" kind="relationship" relationship="viewControllers" id="Tu4-ip-f2n"/>
@@ -2495,7 +2500,7 @@ connection?</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRq-Tb-lLh">
-                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104"/>
+                                <rect key="frame" x="0.0" y="129.66666666666666" width="430" height="104.00000000000003"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oGc-8K-NRm">
                                         <rect key="frame" x="25" y="31.666666666666686" width="41" height="41"/>
@@ -5165,7 +5170,7 @@ Cancel subscription anytime from AppStore.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEt-L9-Sca">
-                                <rect key="frame" x="49.333333333333343" y="751" width="331.33333333333326" height="50"/>
+                                <rect key="frame" x="49.333333333333343" y="741" width="331.33333333333326" height="50"/>
                                 <color key="backgroundColor" name="custom_blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bbx-he-Ns1"/>
@@ -5184,7 +5189,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ng-ie-LIV">
-                                <rect key="frame" x="59.333333333333343" y="821" width="20" height="20"/>
+                                <rect key="frame" x="59.333333333333343" y="811" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="eAG-aB-OxI"/>
                                     <constraint firstAttribute="width" constant="20" id="uhm-bO-hd5"/>
@@ -5196,13 +5201,13 @@ Cancel subscription anytime from AppStore.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i agree" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-VK-7bI">
-                                <rect key="frame" x="89.333333333333329" y="823.33333333333337" width="38.999999999999986" height="15.333333333333371"/>
+                                <rect key="frame" x="89.333333333333329" y="813.33333333333337" width="38.999999999999986" height="15.333333333333371"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0o-eO-YTW">
-                                <rect key="frame" x="133.33333333333334" y="823" width="76" height="16"/>
+                                <rect key="frame" x="133.33333333333334" y="813" width="76" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="QiZ-7H-L0Q"/>
                                 </constraints>
@@ -5224,7 +5229,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O48-UT-aK7">
-                                <rect key="frame" x="228.33333333333337" y="823" width="90" height="16"/>
+                                <rect key="frame" x="228.33333333333337" y="813" width="90" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="0Uf-XB-lev"/>
                                 </constraints>
@@ -5245,7 +5250,7 @@ Cancel subscription anytime from AppStore.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wq-GL-Xbi">
-                                <rect key="frame" x="214.33333333333334" y="823.66666666666663" width="9" height="14.333333333333371"/>
+                                <rect key="frame" x="214.33333333333334" y="813.66666666666663" width="9" height="14.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="9" id="5lx-C1-ium"/>
                                     <constraint firstAttribute="height" constant="14.333333333333371" id="yze-sM-luo"/>
@@ -5255,7 +5260,7 @@ Cancel subscription anytime from AppStore.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quantum4uLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pNF-Nr-64Z">
-                                <rect key="frame" x="150" y="858" width="130" height="40"/>
+                                <rect key="frame" x="150" y="848" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="9y2-Oy-1vM"/>
                                     <constraint firstAttribute="height" constant="40" id="zx4-Yb-aIp"/>
@@ -5283,7 +5288,7 @@ Cancel subscription anytime from AppStore.</string>
                             <constraint firstAttribute="trailing" secondItem="viz-JI-5qg" secondAttribute="trailing" id="TPj-Vq-026"/>
                             <constraint firstItem="5Zo-BR-sbB" firstAttribute="top" secondItem="7wp-pO-nV8" secondAttribute="top" id="UVI-yK-FAB"/>
                             <constraint firstItem="5Zo-BR-sbB" firstAttribute="leading" secondItem="7wp-pO-nV8" secondAttribute="leading" id="Uwf-bH-zqu"/>
-                            <constraint firstItem="viz-JI-5qg" firstAttribute="top" secondItem="pNF-Nr-64Z" secondAttribute="bottom" id="V6H-GZ-RKB"/>
+                            <constraint firstItem="viz-JI-5qg" firstAttribute="top" secondItem="pNF-Nr-64Z" secondAttribute="bottom" constant="10" id="V6H-GZ-RKB"/>
                             <constraint firstItem="fOf-VK-7bI" firstAttribute="leading" secondItem="6Ng-ie-LIV" secondAttribute="trailing" constant="10" id="WD2-x6-f9g"/>
                             <constraint firstItem="VM4-VJ-cgP" firstAttribute="centerX" secondItem="pqG-Ox-cTt" secondAttribute="centerX" id="aim-FV-jJ9"/>
                             <constraint firstItem="viz-JI-5qg" firstAttribute="leading" secondItem="7wp-pO-nV8" secondAttribute="leading" id="avQ-vZ-608"/>

@@ -13,9 +13,57 @@ import Toast_Swift
 //import PlainPing
 import SystemConfiguration.CaptiveNetwork
 import CoreTelephony
+import SpeedcheckerSDK
+import CoreLocation
 
 
-class SpeedTestViewModel{
+class SpeedTestViewModel: InternetSpeedTestDelegate{
+    func internetTestError(error: SpeedcheckerSDK.SpeedTestError) {
+       print(error)
+    }
+    
+    func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult) {
+        print("latency \(result.latencyInMs)")
+        
+    }
+    
+    func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer]) {
+       print(servers)
+    }
+    
+    func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Int, jitter: Int) {
+        SpeedTestCompleteListener.instanceHelper.showData(data: latency)
+        pingData = "\(latency)"
+        UserDefaults.standard.set(pingData, forKey: "pingData")
+    }
+    
+    func internetTestDownloadStart() {
+       print("Start")
+    }
+    
+    func internetTestDownloadFinish() {
+        print("")
+    }
+    
+    func internetTestDownload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
+        print("")
+    }
+    
+    func internetTestUploadStart() {
+        print("")
+    }
+    
+    func internetTestUploadFinish() {
+        print("")
+    }
+    
+    func internetTestUpload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
+       print("")
+    }
+    
+    private var internetTest: InternetSpeedTest?
+       private var locationManager = CLLocationManager()
+    
     var speedTestList  = [String:[SpeedTestData]]()
     var speedDataList = [SpeedTestData]()
     var downLoadArray = [Double]()
@@ -262,6 +310,16 @@ class SpeedTestViewModel{
 //
 //        }
     
+    func setPingData(pingLabel:UILabel) {
+       
+        internetTest = InternetSpeedTest(delegate: self)
+        internetTest?.startTest() { (error) in
+            if error != .ok {
+                print(error)
+            }
+        }
+    }
+    
     private func getCurrentTime()->String{
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"  // Set the desired format
@@ -338,3 +396,4 @@ class SpeedTestViewModel{
         return ssid
     }
 }
+

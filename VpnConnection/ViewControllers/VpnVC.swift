@@ -77,11 +77,12 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         
         if connectionStatus == "disconnected"{
             isConnected = false
+            setStatus(value: false)
             topViewUiLabel.text = "Start"
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
             statuslabel.text =  "Not Connected"
-            connectButton.backgroundColor = hexStringColor(hex: "#202936")
+          
            // TimerManager.shared.stopTimer()
             stopBackgroundTiming()
             timerLabel.text = "00:00:00"
@@ -91,7 +92,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
     
     func setStatus(value: Bool) {
-        if value == true {
+        if value{
+            connectButton.backgroundColor = hexStringColor(hex: "#202936")
             connectButton.setTitle("Disconnect", for: .normal)
             statuslabel.text = "Connected"
         }
@@ -149,8 +151,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         transView.addGestureRecognizer(tapGesture)
         let monitor = NetworkSpeedMonitor()
         monitor.startMonitoring()
-        ConnectionState.instanceHelper.itemdelegates = self
-        ConnectionStatus.instanceHelper.itemdelegates = self
+       callDelegates()
         callCatApi()
         // Stop monitoring after a certain duration or when needed
         // monitor.stopMonitoring()
@@ -160,14 +161,16 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
 //        updateTimerLabel(time: elapsedTime)
         //            let elapsedTime = TimerManager.shared.getElapsedTime()
         //                updateTimerLabel(time: elapsedTime)
-        let notificationCenter = NotificationCenter.default
+      
         
         //UIApplicationDidEnterBackgroundNotification & UIApplicationWillEnterForegroundNotification shouldn't be quoted
 //        notificationCenter.addObserver(self, selector: #selector(didEnterBackground), name: NSNotification.Name("didEnterBackground"), object: nil)
-        notificationCenter.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name("AppWillBecomeActive"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name("AppWillBecomeActive"), object: nil)
         
         backgroundTimer()
     }
+    
+    
     
     func startStopAction()
     {
@@ -310,8 +313,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     @objc func didBecomeActive() {
         print("didBecomeActive")
 //        TimerManager.shared.startTimer()
-       
-      
+      // startStopAction()
+       // backgroundTimer()
        
     }
     
@@ -325,23 +328,16 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         timerLabel.text = formattedString
     }
     
-    //    func updateTimerLabel(time: TimeInterval) {
-    //        let formatter = DateComponentsFormatter()
-    //        formatter.allowedUnits = [.hour, .minute, .second]
-    //        formatter.zeroFormattingBehavior = .pad
-    //
-    //        let formattedString = formatter.string(from: time)
-    //        timerLabel.text = formattedString
-    //    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
-        ConnectionState.instanceHelper.itemdelegates = self
-        ConnectionStatus.instanceHelper.itemdelegates = self
-        CountrySelectionList.instanceHelper.itemdelegates = self
+       callDelegates()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
+      callDelegates()
         hideUnhideMenuView(showTrans: true, showMenu: true)
         getBannerAd(self, adView, heightConstraint)
         if UserDefaults.standard.string(forKey: "VPN_NAME") != nil {
@@ -349,8 +345,15 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             
         }
         if UserDefaults.standard.string(forKey: "VPN_FLAG") != nil {
-            self.flagImg.sd_setImage(with: URL.init(string: UserDefaults.standard.string(forKey: "VPN_FLAG")!))
+            print("flag_data \( String(describing: UserDefaults.standard.string(forKey: "VPN_FLAG")))")
+            flagImg.sd_setImage(with: URL.init(string: UserDefaults.standard.string(forKey: "VPN_FLAG")!))
         }
+    }
+    
+    private func callDelegates(){
+        ConnectionState.instanceHelper.itemdelegates = self
+        ConnectionStatus.instanceHelper.itemdelegates = self
+        CountrySelectionList.instanceHelper.itemdelegates = self
     }
     
     @IBAction func openMenu(_ sender:UIButton){

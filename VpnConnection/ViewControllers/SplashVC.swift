@@ -100,8 +100,8 @@ class SplashVC: UIViewController,CLLocationManagerDelegate,OnCacheFullAddListene
        
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            print("granted")
+        if status == .authorizedAlways || status == .authorizedWhenInUse{
+            UserDefaults.standard.set(true, forKey: MyConstant.PERMISSION_GRANTED)
         }
     }
    
@@ -255,7 +255,10 @@ class SplashVC: UIViewController,CLLocationManagerDelegate,OnCacheFullAddListene
         getBannerAds()
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
+        if !UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
+            locationManager?.requestAlwaysAuthorization()
+        }
+       
        // getFirebaseTrackScreen(SPLASH_SCREEN)
     }
     
@@ -336,7 +339,7 @@ class SplashVC: UIViewController,CLLocationManagerDelegate,OnCacheFullAddListene
     func goToNextVC(){
 
             if fullAdStatus {
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WifiVC") as? WifiVC
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             else{

@@ -149,6 +149,7 @@ PODS:
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
+  - SpeedcheckerSDK (1.5.66)
   - SwiftAlgorithms (1.0.0)
   - Toast-Swift (5.0.1)
   - WMGaugeView (0.0.3)
@@ -172,6 +173,7 @@ DEPENDENCIES:
   - MASegmentedControl
   - OpenVPNAdapter (from `https://github.com/deneraraujo/OpenVPNAdapter.git`)
   - SDWebImage (~> 4.0)
+  - SpeedcheckerSDK
   - Toast-Swift
   - WMGaugeView
 
@@ -206,6 +208,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - SpeedcheckerSDK
     - SwiftAlgorithms
     - Toast-Swift
     - WMGaugeView
@@ -250,10 +253,11 @@ SPEC CHECKSUMS:
   OpenVPNAdapter: 173fcc4c11a3a8a83ae8d250c079cdc5b9fb8ff1
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SpeedcheckerSDK: 9d05a04bfb19a4e4495227fc85a8129fd6b44d9f
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: 5d7764c8050517107d048b5e826df698001c9d5c
+PODFILE CHECKSUM: dfd77eb6ff1540335c339ebfeb9fa52f8ddad2ea
 
 COCOAPODS: 1.11.3

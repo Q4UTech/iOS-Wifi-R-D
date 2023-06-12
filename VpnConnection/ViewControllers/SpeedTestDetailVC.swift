@@ -58,7 +58,7 @@ class SpeedTestDetailVC: UIViewController {
             
         }else{
             deleteBtn.isHidden = true
-            pingLabel.text = ping
+            pingLabel.text = ping + ".00"
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
             ipAddress.text = ipAddressData

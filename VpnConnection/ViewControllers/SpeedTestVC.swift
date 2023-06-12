@@ -17,6 +17,13 @@ import CoreLocation
 
 @available(iOS 13.0, *)
 class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, SpeedCheckProtocol,LanguageSelectionDelegate,RetestProtocol, SimplePingDelegate{
+    func showData(data: Int) {
+        DispatchQueue.main.async { [self] in
+            ping.text = "\(Double(data))"
+        }
+      
+    }
+    
     var locationManager: CLLocationManager?
     var canStartPinging = false
     func isSpeedTestComplete(complete: Bool) {
@@ -165,8 +172,10 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         //            print("Unable to retrieve Wi-Fi RSSI.")
         //        }
  //   getWiFiName()
+        
+        
     }
-    
+  
     func getWiFiName() -> String? {
         var ssid: String?
 
@@ -365,7 +374,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
         speedMeterView!.value = 0
         getNetworkSpeed()
         getIP()
-    // speedTestVM.setPingData(pingLabel: ping)
+        speedTestVM.setPingData(pingLabel: ping)
 //        let pingInterval:TimeInterval = 3
 //        let timeoutInterval:TimeInterval = 4
 //        let configuration = PingConfiguration(pInterval:pingInterval, withTimeout:  timeoutInterval)
@@ -714,7 +723,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
      uploadChartView.setScaleEnabled(false)
        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
             let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-                   vc.ping =  "10.0"
+           vc.ping = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
             vc.uploadSpeed = uploadArray.last!
             vc.downloadSpeed = speedArray.last!
            

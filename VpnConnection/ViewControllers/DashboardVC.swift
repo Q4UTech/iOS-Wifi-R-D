@@ -8,26 +8,28 @@
 import UIKit
 import CoreLocation
 
-class DashboardVC: UITabBarController,UITabBarControllerDelegate,CLLocationManagerDelegate{
+class DashboardVC: UITabBarController,UITabBarControllerDelegate{
     var value = String()
     var type = String()
+    
+    @IBInspectable var initailIndex:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+       
         print("values3434 \(type) \(value)")
+        selectedIndex = initailIndex
         CallAppLaunch.shared.v2CallonAppLaunch(from: self,value:value,type: type)
         // Do any additional setup after loading the view.
     }
+    
+    
+  
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
        showFullAds(viewController: self, isForce: false)
         
     }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("status \(0)")
-    }
+    
     
     
 
