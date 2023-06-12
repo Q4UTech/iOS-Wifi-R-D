@@ -155,7 +155,7 @@ PODS:
   - WMGaugeView (0.0.3)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
+  - Alamofire
   - AppLovinSDK
   - Charts
   - CryptoSwift (~> 1.0)
@@ -258,6 +258,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
 
-PODFILE CHECKSUM: dfd77eb6ff1540335c339ebfeb9fa52f8ddad2ea
+PODFILE CHECKSUM: 079af9535bbf2763e0b93853bd76b463f9147ac4
 
 COCOAPODS: 1.11.3

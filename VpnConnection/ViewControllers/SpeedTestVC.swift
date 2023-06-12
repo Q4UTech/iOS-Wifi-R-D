@@ -121,7 +121,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
     var countHydra = 0
     var pingData:String?
     var timer:Timer?
-    var  months = ["1.0", "2.0", "3.0", "4.0", "5.0","6.0", "7.0", "8.0", "9.0", "10.0"]
+   // var  months = ["1.0", "2.0", "3.0", "4.0", "5.0","6.0", "7.0", "8.0", "9.0", "10.0"]
+    var  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
   //  var  months = [String]()
     var downCounter = 0
     var upCounter = 0
@@ -463,31 +464,107 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
             }
             
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
+//        let operation1 = BlockOperation { [self] in
+//            Thread.sleep(forTimeInterval: 4)
+//            hideunhideLabel(false, false)
+//            let array =  Array(self.speedArray.suffix(5))
+//            //        setChart(dataPoints: months, values: array)
+//            print("yourArray\(speedArray.count)")
+//            if array.count == 5 {
+//                setChart(dataPoints: self.months, values: array)
+//            }
+//        }
+//
+//        let operation2 = BlockOperation { [self] in
+//            speedChartView.isHidden = true
+//            uploadChartView.isHidden = false
+//
+////                        for _ in uploadArray{
+////                            upCounter += 1
+////                            months.append(String(upCounter))
+////                        }
+//            print("yourArray\(uploadArray.count)")
+//            let array =  Array(self.uploadArray.suffix(5))
+//            if array.count == 5 {
+//                self.setUploadChart(dataPoints: self.months, values: array)
+//            }
+//        }
+//
+//        operation2.addDependency(operation1)
+//
+//        let queue = OperationQueue()
+//        queue.addOperation(operation1)
+//        queue.addOperation(operation2)
+        
+        let operation = OperationQueue()
+        operation.maxConcurrentOperationCount = 1
+
+        operation.addOperation {
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
+                let array =  Array(self.speedArray.suffix(5))
+                           //        setChart(dataPoints: months, values: array)
+                           print("yourArray\(speedArray.count)")
+                           if array.count == 5 {
+                               setChart(dataPoints: self.months, values: array)
+                           }
            
-            let array =  Array(self.speedArray.suffix(10))
-            //        setChart(dataPoints: months, values: array)
-            print("yourArray\(speedArray.count)")
-            if array.count == 10 {
-                setChart(dataPoints: self.months, values: array)
-            }
-        }
+          }
+           
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
-            speedChartView.isHidden = true
-            uploadChartView.isHidden = false
-           
-//                        for _ in uploadArray{
-//                            upCounter += 1
-//                            months.append(String(upCounter))
-//                        }
-            print("yourArray\(uploadArray.count)")
-            let array =  Array(self.uploadArray.suffix(10))
-            if array.count == 10 {
-                self.setUploadChart(dataPoints: self.months, values: array)
-            }
-           
+              speedChartView.isHidden = true
+                          uploadChartView.isHidden = false
             
+                          print("yourArray\(uploadArray.count)")
+                          let array =  Array(self.uploadArray.suffix(5))
+                          if array.count == 5 {
+                              self.setUploadChart(dataPoints: self.months, values: array)
+                          }
+          }
+           
+//          DispatchQueue.main.asyncAfter(deadline: .now() + 9) { [self] in
+//
+//          }
+            
+           
         }
+       
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
+//
+//
+//
+//        }
+        
+       
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
+//
+//            let array =  Array(self.speedArray.suffix(5))
+//            //        setChart(dataPoints: months, values: array)
+//            print("yourArray\(speedArray.count)")
+//            if array.count == 5 {
+//                setChart(dataPoints: self.months, values: array)
+//            }
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
+//            speedChartView.isHidden = true
+//            uploadChartView.isHidden = false
+//
+////                        for _ in uploadArray{
+////                            upCounter += 1
+////                            months.append(String(upCounter))
+////                        }
+//            print("yourArray\(uploadArray.count)")
+//            let array =  Array(self.uploadArray.suffix(5))
+//            if array.count == 5 {
+//                self.setUploadChart(dataPoints: self.months, values: array)
+//            }
+//
+//
+//        }
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
 //            let uploadDataArray =  Array(self.uploadArray.suffix(5))
@@ -721,15 +798,9 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, Sp
      uploadChartView.legend.enabled = false
      uploadChartView.isUserInteractionEnabled = false
      uploadChartView.setScaleEnabled(false)
-       DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-            let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-           vc.ping = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
-            vc.uploadSpeed = uploadArray.last!
-            vc.downloadSpeed = speedArray.last!
-           
-                   navigationController?.pushViewController(vc, animated: true)
-            showFullAds(viewController: self, isForce: false)
-        }
+      // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+            
+       // }
        }
     
     @IBAction func openSpeedHistory(_ sender:UIButton){

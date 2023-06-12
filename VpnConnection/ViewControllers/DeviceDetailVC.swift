@@ -30,7 +30,7 @@ class DeviceDetailVC: UIViewController {
     @IBOutlet weak var parentLabel:UILabel!
     @IBOutlet weak var mainLabel:UILabel!
    
-  
+    var isFrom:String?
   let info = DeviceInfo()
     
     var data = FingNodes()
@@ -38,6 +38,12 @@ class DeviceDetailVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if isFrom ==  "offline"{
+            deviceBestMake.text = "Not Found"
+            devideTypeImg.image = UIImage(named: "default_icon")
+            checkOnlineDuration()
+        }
+        
         if data != nil {
             if data.bestCategory != nil{
                 deviceBestName.text = data.bestCategory
@@ -100,54 +106,59 @@ class DeviceDetailVC: UIViewController {
             }else{
                 mainLabel.isHidden = true
             }
-           if let firstSeenTimestamp = data.firstSeenTimestamp {
-             
-               
-               let timestamp = Date().timeIntervalSince1970
-               let date = Date(timeIntervalSince1970: timestamp)
-               let dateFormatter = DateFormatter()
-               dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
-               let formattedDate = dateFormatter.string(from: date)
-               print("firstSeenTimestamp\(firstSeenTimestamp) \(formattedDate) \(Date().timeIntervalSinceNow)")
-               let formatter = DateFormatter()
-               formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
-
-               let timestamp1String = firstSeenTimestamp
-               let timestamp2String = formattedDate
-
-               if let timestamp1 = formatter.date(from: timestamp1String),
-                  let timestamp2 = formatter.date(from: timestamp2String) {
-
-                   let difference = timestamp2.timeIntervalSince(timestamp1)
-                   print("Time difference: \(difference)")
-                   let minutes = Int(difference / 60)
-                   let hours = minutes / 60
-                   let remainingMinutes = minutes % 60
-
-                   var timeDifferenceString = ""
-                   if hours > 0 {
-                       timeDifferenceString = "\(hours) hour"
-                       if hours > 1 {
-                           timeDifferenceString += "s"
-                           print("Time difference11: \(timeDifferenceString)")
-                           onlineDurationLabel.text = timeDifferenceString
-                       }
-                   } else {
-                       timeDifferenceString = "\(remainingMinutes) minute"
-                       if remainingMinutes > 1 {
-                           timeDifferenceString += "s"
-                           print("Time difference22: \(timeDifferenceString)")
-                           onlineDurationLabel.text = timeDifferenceString
-                       }
-                   }
-
-                   print("Time difference33: \(timeDifferenceString)")
-               }
-
-           }
+           checkOnlineDuration()
         }
         
     }
+    
+    private func checkOnlineDuration(){
+        if let firstSeenTimestamp = data.firstSeenTimestamp {
+          
+            
+            let timestamp = Date().timeIntervalSince1970
+            let date = Date(timeIntervalSince1970: timestamp)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
+            let formattedDate = dateFormatter.string(from: date)
+            print("firstSeenTimestamp\(firstSeenTimestamp) \(formattedDate) \(Date().timeIntervalSinceNow)")
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
+
+            let timestamp1String = firstSeenTimestamp
+            let timestamp2String = formattedDate
+
+            if let timestamp1 = formatter.date(from: timestamp1String),
+               let timestamp2 = formatter.date(from: timestamp2String) {
+
+                let difference = timestamp2.timeIntervalSince(timestamp1)
+                print("Time difference: \(difference)")
+                let minutes = Int(difference / 60)
+                let hours = minutes / 60
+                let remainingMinutes = minutes % 60
+
+                var timeDifferenceString = ""
+                if hours > 0 {
+                    timeDifferenceString = "\(hours) hour"
+                    if hours > 1 {
+                        timeDifferenceString += "s"
+                        print("Time difference11: \(timeDifferenceString)")
+                        onlineDurationLabel.text = timeDifferenceString
+                    }
+                } else {
+                    timeDifferenceString = "\(remainingMinutes) minute"
+                    if remainingMinutes > 1 {
+                        timeDifferenceString += "s"
+                        print("Time difference22: \(timeDifferenceString)")
+                        onlineDurationLabel.text = timeDifferenceString
+                    }
+                }
+
+                print("Time difference33: \(timeDifferenceString)")
+            }
+
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         getBannerAd(self, adView, heightConstraint)

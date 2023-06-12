@@ -70,6 +70,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         if connectionStatus == "connecting"{
             isConnected = false
             topViewUiLabel.text = "Wait"
+            connectButton.setTitle("Connecting", for: .normal)
             statuslabel.text = "Connecting"
             statuslabel.textColor = .white
             topImg.image = UIImage(named: "waiting")
@@ -98,6 +99,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             statuslabel.text = "Connected"
         }
         else {
+            connectButton.backgroundColor = hexStringColor(hex: "#2EB92B")
             connectButton.setTitle("Connect", for: .normal)
             statuslabel.text =  "Not Connected"
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
@@ -152,7 +154,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         let monitor = NetworkSpeedMonitor()
         monitor.startMonitoring()
        callDelegates()
-        callCatApi()
+       // callCatApi()
         // Stop monitoring after a certain duration or when needed
         // monitor.stopMonitoring()
         TimerManager.shared.delegate = self
@@ -332,7 +334,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     override func viewDidAppear(_ animated: Bool) {
        callDelegates()
-        
+        callCatApi()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -513,33 +515,43 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     
     func callCatApi(){
+        
         // KRProgressHUD.show()
-        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-            CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
+//        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
+            DispatchQueue.global(qos: .background).async {
                 
-                if error == "No Internet Connection"{
+                
+                CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
                     
-                }else{
-                    if categoryList.count == 0{
-                        // KRProgressHUD.dismiss()
+                    if error == "No Internet Connection"{
                         
                     }else{
-                        //   KRProgressHUD.dismiss()
-                        self.countryData=categoryList
-                        print("co\(self.countryData[0].vpnname)")
-                        if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
-                            self.countrylabel.text = self.countryData[0].vpnname
-                            self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
-                            self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                        if categoryList.count == 0{
+                            // KRProgressHUD.dismiss()
+                            //
                             
+                        }else{
+                            //   KRProgressHUD.dismiss()
+                            self.countryData=categoryList
+                            print("co\(self.countryData[0].vpnname)")
+                            if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
+                                DispatchQueue.main.async {
+                                   
+                               
+                                self.countrylabel.text = self.countryData[0].vpnname
+                                self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
+                                self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                                }
+                            }
                         }
                     }
-                }
-            })
-        }else{
-            // fetchCategoryInDirectory(cell:cell)
-            //  KRProgressHUD.dismiss()
-        }
+                })
+                
+            }
+//        }else{
+//            // fetchCategoryInDirectory(cell:cell)
+//            //  KRProgressHUD.dismiss()
+//        }
         
     }
     

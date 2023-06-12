@@ -12,7 +12,7 @@ target 'VpnConnection' do
   use_frameworks!
 #  pod "PlainPing"
 # pod 'SwiftPing'
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire'
   pod 'IQKeyboardManager'
   pod 'Toast-Swift'
   pod 'WMGaugeView'

@@ -60,7 +60,7 @@ class PasswordHintVC: UIViewController,SearchDelegate{
     var filteredData = [PasswordDataDetail]()
     var totalCount = 0;
     
-    let URL = "https://quantum4you.com/engine/wifiauthservice/routerlist" + "/v5wifitrackernew"
+    let URL = "https://quantum4you.com/engine/wifiauthservice/routerlist/v5wifitrackernew"
     let passwordData = [PasswordDataDetail]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +68,11 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         // Do any additional setup after loading the view.
         passwordTaableView.dataSource = self
         passwordTaableView.delegate = self
-        callPasswordHintApi()
         
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        callPasswordHintApi()
         getBannerAd(self, adView, heightConstraint)
        
         
@@ -87,18 +87,27 @@ class PasswordHintVC: UIViewController,SearchDelegate{
      func callPasswordHintApi(){
        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
            
-           KRProgressHUD.showOn(self).show()
-           passwordList.removeAll()
-         
+          // KRProgressHUD.showOn(self).show()
+         //  passwordList.removeAll()
+           
+           
+         print("URL \(URL)")
+           
+//           Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseJSON(completionHandler:{ [self] response in
+//               print("respnse \(response)")
+//           })
+                                                                                             
+                                                                                             
                Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
                    print("respnse \(response)")
-                   
+
                    switch response.result {
-                       
+
                    case .success(let value):
                        print("respnse1 \(value)")
-                       
+
                        do {
+
                            let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
                            let status = jObject!["status"] as? String
                            let array = jObject!["routerlist"] as? NSArray
@@ -112,30 +121,30 @@ class PasswordHintVC: UIViewController,SearchDelegate{
                                passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
                                filteredData = passwordList
                                totalCount = filteredData.count
-                               KRProgressHUD.dismiss()
+
                            }
                            DispatchQueue.main.async { [self] in
-                               KRProgressHUD.dismiss()
+                            //   KRProgressHUD.dismiss()
                                passwordTaableView.reloadData()
                                if totalCount != nil{
                                    totalPassword.text = "Total Password : \(totalCount)"
                                }
                            }
-                           
-                           
+
+
                        }catch{
-                           
+
                        }
-                       
-                       
-                       
+
+
+
                        break
                    case .failure(_):
                        print("filure11\(response.error)")
-                       
+
                        break
-                       
-                       
+
+
                    }
                }
                

@@ -355,8 +355,10 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         }
         
         calculateOffsets()
-        
+       
         setNeedsDisplay()
+        
+        
     }
     
     internal override func calcMinMax()

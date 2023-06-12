@@ -19,18 +19,25 @@ class SpeedHistoryVC: UIViewController ,HistoryProtocol{
     
     private func fetchData(){
         speedDataList.removeAll()
-        if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
-            do {
-                
-                speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
-                
-                speedDataList = speedTestList
-
-               
-            }catch{
+        DispatchQueue.global(qos: .background).async { [self] in
+            
+            
+            if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+                do {
+                    
+                    speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                    
+                    speedDataList = speedTestList
+                    
+                    
+                }catch{
+                    
+                }
+                DispatchQueue.main.async {
+                    tableView.reloadData()
+                }
                 
             }
-            tableView.reloadData()
         }
     }
     
