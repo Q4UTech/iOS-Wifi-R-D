@@ -1,17 +1,16 @@
 //
-//  PingDetailVC.swift
-//  WiFiProvider
+//  SpeedTestDetailPageVC.swift
+//  VpnConnection
 //
-//  Created by gautam  on 11/05/23.
+//  Created by gautam  on 12/06/23.
 //
 
 import UIKit
-import Network
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
 import CoreTelephony
 
-class SpeedTestDetailVC: UIViewController {
+class SpeedTestDetailPageVC: UIViewController {
     @IBOutlet weak var adView:UIView!
     @IBOutlet weak var heightConstraint:NSLayoutConstraint!
     @IBOutlet weak var pingLabel:UILabel!
@@ -39,7 +38,6 @@ class SpeedTestDetailVC: UIViewController {
     var historyKey:String?
     var historyValue:SpeedTestData?
     
-   
     var speedDataList = [SpeedTestData]()
     var downLoadArray = [Double]()
     var uploadArray = [Double]()
@@ -53,7 +51,7 @@ class SpeedTestDetailVC: UIViewController {
       //  askEnableLocationService()
         if isFrom == "SpeedHistory"{
             deleteBtn.isHidden = false
-            pingLabel.text = ping
+            pingLabel.text = ping + ".00"
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
             ipAddress.text = ipAddressData
@@ -74,11 +72,57 @@ class SpeedTestDetailVC: UIViewController {
             ipAddress.text = getIFAddresses()
             
             providerLabel.text = getWiFiSsid()
-            
-            
-            
-       }
+            if #available(iOS 15, *)  {
+                                                  let today = Date.now
+                                                 let formatter1 = DateFormatter()
+                                                formatter1.dateFormat = "d MMMM"
+                                           print(formatter1.string(from: today))
         
+     
+                                              // Convert the date to the desired output format
+     
+           
+                                                currentTime = getCurrentTime()
+                                                 pingData = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
+          
+                                              print("speedList1 \(pingData)")
+                                                if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
+                                                   speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available" )]
+                                                      speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
+                                                     if let encode = try?  JSONEncoder().encode(speedTestList) {
+                                                          UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+                                                  }
+                                                      print("speedDataList7777\(speedDataList)")
+         
+                                                }else {
+                                                     speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()  ?? "No Data Available" ))
+                                                       print("speedDataList77\(speedDataList)")
+                                                 if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
+                                                        do {
+         
+                                                            speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
+                                                               print("speedDataList777\(speedDataList)")
+                                                           for (_ ,data) in speedTestList{
+                                                                  print("dataCount \(data.count)")
+                                                         for i in data{
+                                                                     speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
+                                                                 }
+            
+                                                            }
+                                                       speedTestList[formatter1.string(from: today)] = speedDataList
+                                                          if let encode = try?  JSONEncoder().encode(speedTestList) {
+                                                           UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
+                                                             }
+                                                               print("working99 \(speedDataList.count)")
+                                                          }catch{
+          
+                                                        }
+                                                     }
+                                                 }
+            
+                                              }
+       }
+        print("add: \(getIFAddresses())")
     }
     private func getCurrentTime()->String{
         let formatter = DateFormatter()

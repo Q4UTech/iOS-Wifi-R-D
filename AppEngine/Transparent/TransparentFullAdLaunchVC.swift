@@ -27,7 +27,7 @@ class TransparentFullAdLaunchVC: UIViewController,AppFullAdsCloseProtocol,FullAd
         LaunchFullCallBackListener.adsInstanceHelper.fulladsdelegates = self
         startTimer()
         let hasInAppPurchased = UserDefaults.standard.bool(forKey: IN_APP_PURCHASED)
-
+        print("hasInAppPurchased12 \(hasInAppPurchased)")
         if hasInAppPurchased {
             goTODashboard()
         }

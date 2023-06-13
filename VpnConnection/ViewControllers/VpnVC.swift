@@ -12,6 +12,10 @@ import Toast_Swift
 @available(iOS 13.0, *)
 class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelegate,VPNConnectedStatusDelegate,ConnectionStatusDelegate,CountryControllerProtocol
 ,TimerManagerDelegate,LanguageSelectionDelegate{
+    func exactStatus(status: String) {
+        view.makeToast(status)
+    }
+    
     func languageSelection(name: String, code: String) {
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
@@ -72,8 +76,10 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             topViewUiLabel.text = "Wait"
             connectButton.setTitle("Connecting", for: .normal)
             statuslabel.text = "Connecting"
+            connectButton.backgroundColor = hexStringColor(hex: "#202936")
             statuslabel.textColor = .white
             topImg.image = UIImage(named: "waiting")
+          
         }
         
         if connectionStatus == "disconnected"{
@@ -90,6 +96,12 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
         }
         
+    }
+    
+    func setMsg(show:Bool){
+        
+        timer?.invalidate()
+        view.makeToast("Server looks busy, please try with a different server.")
     }
     
     func setStatus(value: Bool) {
@@ -127,7 +139,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     var countryData = [DataModel]()
     var buttonSwitched : Bool = false
     var speedTestVM = SpeedTestViewModel()
-    
+    var timer:Timer?
     var isConnected:Bool = false
     // let profileVM = ProfileViewModel()
     
@@ -141,7 +153,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     let COUNTING_KEY = "countingKey"
     
     var scheduledTimer: Timer!
-    
+    var connectionCounter:Int = 0
     
     
     override func viewDidLoad() {
@@ -165,8 +177,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         //                updateTimerLabel(time: elapsedTime)
       
         
-        //UIApplicationDidEnterBackgroundNotification & UIApplicationWillEnterForegroundNotification shouldn't be quoted
-//        notificationCenter.addObserver(self, selector: #selector(didEnterBackground), name: NSNotification.Name("didEnterBackground"), object: nil)
+      
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name("AppWillBecomeActive"), object: nil)
         
         backgroundTimer()
@@ -318,6 +329,9 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
       // startStopAction()
        // backgroundTimer()
        
+    }
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
     
    

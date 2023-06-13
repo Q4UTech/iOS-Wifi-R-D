@@ -107,6 +107,18 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
 //        locationManager = CLLocationManager()
 //        locationManager?.delegate = self
 //        locationManager?.requestAlwaysAuthorization()
+        
+        if UserDefaults.standard.bool(forKey: MyConstant.PERMISSION_GRANTED){
+            topView.isHidden = true
+            coonectedView.isHidden = false
+            WifiName.isHidden = false
+            WifiName.text = getWiFiSsid()
+            print("getWifiname \(getWiFiSsid()) \(getWiFiName())")
+        }else{
+            locationManager = CLLocationManager()
+               locationManager?.delegate = self
+            locationManager?.requestAlwaysAuthorization()
+        }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
         let mapViewGesture = UITapGestureRecognizer(target: self, action: #selector(switchToMapView))
@@ -150,7 +162,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
        if ReachabilityUtil.isConnectedToNetwork(){
            noWifi.isHidden = true
            topViewLabel.text = "Wi-Fi Manager".localiz()
-         // networkCall()
+         networkCall()
        }else{
            print("Internet Connection not Available!")
            topViewLabel.text = "No Wi-Fi Connection"
@@ -159,9 +171,11 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
        }
    }
     
-    deinit {
-        appEnteredForeground()
-    }
+   
+        deinit{
+            NotificationCenter.default.removeObserver(self)
+        }
+    
     
     
     func getWiFiName() -> String? {
@@ -545,6 +559,10 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                 let controller = UIAlertController(title: "Permissions granted!", message: "You can now request network information to obtain Wi-Fi network SSID and BSSID!", preferredStyle: .alert)
                 controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(controller, animated: true, completion: nil)
+                topView.isHidden = true
+                coonectedView.isHidden = false
+                WifiName.isHidden = false
+                WifiName.text = getWiFiSsid()
                 print("getWifiname \(getWiFiSsid()) \(getWiFiName())")
             }
             self.locationManager!.delegate = nil
@@ -600,16 +618,16 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                                          UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
                                          
                                          
-                                         if let ispName = scanResponse.fingIsp {
-                                             
-                                             DispatchQueue.main.async { [self] in
-                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
-                                             }
-                                             
-                                         }
+//                                         if let ispName = scanResponse.fingIsp {
+//                                             
+//                                             DispatchQueue.main.async { [self] in
+//                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
+//                                             }
+//                                             
+//                                         }
                                          if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                              
-                                             //FingNodesHandler.shared.setFingNodes(fingNodes)
+                                            
                                              DispatchQueue.main.async { [self] in
                                                  
                                                  

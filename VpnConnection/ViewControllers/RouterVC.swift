@@ -50,12 +50,12 @@ class RouterVC: UIViewController, UITextFieldDelegate{
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
-        if hasPurchased(){
+//        if hasPurchased(){
             premiumView.isHidden = true
             
-        }else{
-            premiumView.isHidden = false
-        }
+//        }else{
+//            premiumView.isHidden = false
+//        }
        
         if isFrom{
            
@@ -66,7 +66,23 @@ class RouterVC: UIViewController, UITextFieldDelegate{
 
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        }
+
+        @objc func keyboardWillAppear() {
+            //Do something here
+        }
+
+        @objc func keyboardWillDisappear() {
+            
+            hideUnhideView(isSearch: true, isSearchBtn: false, isCloseBtn: true)
+        }
+    
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
+    
     func hideUnhide(isShow:Bool,value:Int){
         backBtn.isHidden = isShow
         btnWidth.constant = CGFloat(value)

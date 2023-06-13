@@ -39,6 +39,8 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     var fulladstype = String()
     var value = String()
     var type = String()
+    var isReload = false
+    var selectedIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         }
         initalSetups()
        // bannerAd()
-        KRProgressHUD.show()
+        KRProgressHUD.showOn(self).show()
         localizeStrings()
         if #available(iOS 13.0, *) {
             UIApplication.shared.statusBarStyle = .lightContent
@@ -134,13 +136,13 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
 //        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier:"OnBoardingScreenVC") as? OnBoardingScreenVC
 //                self.navigationController?.pushViewController(vc!, animated: true)
 //    }
-//    @IBAction func privacyButtonAction(_ sender: Any) {
-//        BaseClass.init().privacyPolicy()
-//    }
-//
-//    @IBAction func termOfUseButtonAction(_ sender: Any) {
-//        BaseClass.init().termsCondition()
-//    }
+    @IBAction func privacyButtonAction(_ sender: Any) {
+        BaseClass.init().privacyPolicy()
+    }
+
+    @IBAction func termOfUseButtonAction(_ sender: Any) {
+        BaseClass.init().termsCondition()
+    }
     
     
     @IBAction func backButtonAction(_ sender: Any) {
@@ -304,21 +306,26 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseCell", for: indexPath) as! PurchaseCell
      //   cell.dividerLabel.isHidden = true
         
+        cell.detailView.layer.borderWidth = 1
+        cell.detailView.layer.borderColor = hexStringColor(hex: "#BBB8B5").cgColor
+        cell.detailView.clipsToBounds = true
+        cell.detailView.layer.cornerRadius = 12.0
         
         let product = products[indexPath.row]
-//        if product.productIdentifier.description == RazeFaceProducts.removeAdsID {
-//            cell.selectedPlanImg!.image = UIImage(named: "Removeads")
-//
-//
-//        } else if product.productIdentifier.description == RazeFaceProducts.yearlyProductID {
-//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
-//        } else if product.productIdentifier.description == RazeFaceProducts.quarterlyProductID {
-//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
-//
-//        }
-//        else  {
-//            cell.selectedPlanImg!.image = UIImage(named: "selected_icon")
-//        }
+        
+        if product.productIdentifier.description == RazeFaceProducts.removeAdsID {
+            cell.selectedPlanImg!.image = UIImage(named: "Removeads")
+
+
+        } else if product.productIdentifier.description == RazeFaceProducts.yearlyProductID {
+            
+        } else if product.productIdentifier.description == RazeFaceProducts.monthlyProductID {
+           
+
+        }
+        else  {
+           
+        }
         
         
         cell.detailView.clipsToBounds = true
@@ -420,10 +427,13 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
             }
         }
         
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isReload = true
+        
         
         let product = products[(indexPath as NSIndexPath).row]
         

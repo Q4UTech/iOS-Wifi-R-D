@@ -68,11 +68,11 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         // Do any additional setup after loading the view.
         passwordTaableView.dataSource = self
         passwordTaableView.delegate = self
-        
+        callPasswordHintApi()
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        callPasswordHintApi()
+       
         getBannerAd(self, adView, heightConstraint)
        
         
@@ -87,17 +87,9 @@ class PasswordHintVC: UIViewController,SearchDelegate{
      func callPasswordHintApi(){
        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
            
-          // KRProgressHUD.showOn(self).show()
+          KRProgressHUD.showOn(self).show()
          //  passwordList.removeAll()
-           
-           
          print("URL \(URL)")
-           
-//           Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseJSON(completionHandler:{ [self] response in
-//               print("respnse \(response)")
-//           })
-                                                                                             
-                                                                                             
                Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
                    print("respnse \(response)")
 
@@ -124,7 +116,7 @@ class PasswordHintVC: UIViewController,SearchDelegate{
 
                            }
                            DispatchQueue.main.async { [self] in
-                            //   KRProgressHUD.dismiss()
+                               KRProgressHUD.dismiss()
                                passwordTaableView.reloadData()
                                if totalCount != nil{
                                    totalPassword.text = "Total Password : \(totalCount)"
@@ -133,14 +125,15 @@ class PasswordHintVC: UIViewController,SearchDelegate{
 
 
                        }catch{
-
+                           KRProgressHUD.dismiss()
                        }
 
 
 
                        break
                    case .failure(_):
-                       print("filure11\(response.error)")
+                       KRProgressHUD.dismiss()
+                       print("failure11\(response.error)")
 
                        break
 
@@ -173,6 +166,11 @@ extension PasswordHintVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 116
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "WifiAdminVC") as! WifiAdminVC
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

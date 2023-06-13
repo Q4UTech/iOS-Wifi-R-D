@@ -26,7 +26,7 @@ public class InAppBillingManager : NSObject {
         receiptValidation(fromStart: fromStart)
     }
     
-    // Need to change the secret key it is generate by App store connect to get the response "SECRET_KEY"
+    // Need to change the  it is generate by App store connect to get the response "SECRET_KEY"
     
     public func receiptValidation(fromStart:Bool) {
         DispatchQueue.global(qos: .background).async {

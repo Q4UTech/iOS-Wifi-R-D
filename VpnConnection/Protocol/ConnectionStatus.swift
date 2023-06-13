@@ -10,7 +10,7 @@ protocol ConnectionStatusDelegate: AnyObject {
     /// SwiftyAd did open
     
     func connectionStatus(connectionStatus: String)
-    
+    func exactStatus(status:String)
 }
 
 
@@ -26,6 +26,9 @@ class ConnectionStatus : NSObject {
     
     func checkConnectionStatus(connectionStatus:String){
         itemdelegates?.connectionStatus(connectionStatus: connectionStatus)
+    }
+    func exactStatus(status:String){
+        itemdelegates?.exactStatus(status:status)
     }
 
 }

@@ -87,174 +87,159 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A01E56C5-255E-43B9-9FA5-F5F036D09E1B"
+            uuid = "1BC57AB5-3F44-4B31-B729-1484EA7EF1A3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppEngine/Supporting Files/ExtensionFIle.swift"
+            filePath = "VpnConnection/ViewControllers/VpnVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
-            landmarkName = "getBannerAd(_:_:_:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "exactStatus(status:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23D241FF-F636-4A1C-8890-857BFC6AC995"
+            uuid = "069A5296-20D4-459F-A2FB-BA14BD291CBE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/Transparent/TransparentFullAdLaunchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4CD9B53E-E615-4409-92A2-C1A20B0650ED"
+            uuid = "53831D54-41DF-4A85-B6C2-108CAAC411CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/Transparent/TransparentFullAdLaunchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ABD77CC1-4877-4A11-BC46-3FE24F15D33E"
+            uuid = "81C5B59B-0F3E-4BB5-836A-232496F1C685"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "recieptParsing(latest_receipt:fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CEADFE47-2821-4F5B-9F1F-9761DCD59A5B"
+            uuid = "34A1C882-0B25-4D29-8313-AA9F20EFE394"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "recieptParsing(latest_receipt:fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F61FBC2A-941F-4710-8779-BAB1BBE784D7"
+            uuid = "719BCD7F-31BF-49C1-8C90-882C0F58878D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "recieptParsing(latest_receipt:fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF0DEC95-25A2-4815-A778-AFED66C057BF"
+            uuid = "0380BC12-41CF-40C3-9197-634B4EADAB63"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "receiptValidation(fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "70FDB582-D2A9-4DD8-A9C8-8A718AB52EB9"
+            uuid = "188AC74D-C7FA-4D01-B4E0-64C9EE44222A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "receiptValidation(fromStart:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "70FDB582-D2A9-4DD8-A9C8-8A718AB52EB9 - c099b6fb9b045b6d"
+                  uuid = "188AC74D-C7FA-4D01-B4E0-64C9EE44222A - 5ee233a572393297"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "VpnConnection.PasswordHintVC.callPasswordHintApi() -&gt; ()"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in VpnConnection.InAppBillingManager.receiptValidation(fromStart: Swift.Bool) -&gt; ()"
                   moduleName = "VpnConnection"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gautam/Documents/VpnConnection/VpnConnection/ViewControllers/PasswordHintVC.swift"
+                  urlString = "file:///Users/gautam/Documents/VpnConnection/AppEngine/InApp%20Purchase/InAppBillingManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "596">
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "2352">
                </Location>
                <Location
-                  uuid = "70FDB582-D2A9-4DD8-A9C8-8A718AB52EB9 - c099b6fb9b045b6d"
+                  uuid = "188AC74D-C7FA-4D01-B4E0-64C9EE44222A - 5ee233a572393297"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "VpnConnection.PasswordHintVC.callPasswordHintApi() -&gt; ()"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in VpnConnection.InAppBillingManager.receiptValidation(fromStart: Swift.Bool) -&gt; ()"
                   moduleName = "VpnConnection"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gautam/Documents/VpnConnection/VpnConnection/ViewControllers/PasswordHintVC.swift"
+                  urlString = "file:///Users/gautam/Documents/VpnConnection/AppEngine/InApp%20Purchase/InAppBillingManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "760">
-               </Location>
-               <Location
-                  uuid = "70FDB582-D2A9-4DD8-A9C8-8A718AB52EB9 - 21e5fc3d9eac807f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in VpnConnection.PasswordHintVC.callPasswordHintApi() -&gt; ()"
-                  moduleName = "VpnConnection"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gautam/Documents/VpnConnection/VpnConnection/ViewControllers/PasswordHintVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "512">
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "2616">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -262,48 +247,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1AD7EAC3-3F02-47EE-A4C7-9A7FD1542E15"
+            uuid = "67E75F29-A542-47E3-9F96-0AF8B602D3A9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "callPasswordHintApi()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "receiptValidation(fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5E4A099B-4E6B-4A58-BEFA-91C6075CDC68"
+            uuid = "9B1C3AF4-B3D0-4014-8A42-16F003A247CE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/PasswordHintVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "receiptValidation(fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9328B7D1-1B17-4BE8-AFCF-73C5A0BE208F"
+            uuid = "EC693CD1-B283-4D6B-AD36-041437845F72"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VpnConnection/ViewControllers/SpeedTestVC.swift"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "563"
-            endingLineNumber = "563"
-            landmarkName = "checkDownloadSpeed()"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "receiptValidation(fromStart:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6241D2A2-DFD6-4C75-81CC-B94C9DDD8298"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "receiptValidation(fromStart:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6EF9E634-39DE-41DE-B01C-3D9273EEA61D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppEngine/InApp Purchase/InAppBillingManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "receiptValidation(fromStart:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

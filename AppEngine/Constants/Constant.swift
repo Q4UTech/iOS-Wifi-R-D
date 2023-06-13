@@ -37,7 +37,7 @@ import Foundation
 
 
 // INAPP PURCHASE
-let SECRET_KEY = "dc21421a4fd14704a3d3e8bce88306bd"
+let SECRET_KEY = "3be4b75210544d5db5c4822a6389ec58"
 let kSandboxRecieptURL = "https://sandbox.itunes.apple.com/verifyReceipt"
 let kLiveRecieptURL = "https://buy.itunes.apple.com/verifyReceipt"
 

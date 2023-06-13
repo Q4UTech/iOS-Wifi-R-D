@@ -95,7 +95,7 @@ class SpeedHistoryVC: UIViewController ,HistoryProtocol{
                 speedTestList = try JSONDecoder().decode([String:[SpeedTestData]].self, from: savedData)
                 print("speedList \(speedTestList)")
                 speedDataList = speedTestList
-                for (key,data) in speedTestList{
+                for (key,_) in speedTestList{
                    
                     speedDetailData.append(key)
                     avgData = speedDataList[key]!
@@ -169,8 +169,6 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         avgDownloadSpeed += data!.downloadSpeed
         avgUploadSpeed  += data!.uploadSpeed
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeedHistoryCell", for: indexPath) as! SpeedHistoryCell
-
-      
         cell.timeLabel.text = data?.time
         cell.ping.text = data?.ping
         cell.upload.text = String(data!.uploadSpeed).maxLength(length: 4)
@@ -187,7 +185,7 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailPageVC") as! SpeedTestDetailPageVC
         vc.isFrom = "SpeedHistory"
         vc.ping = data!.ping
         vc.uploadSpeed = data!.uploadSpeed

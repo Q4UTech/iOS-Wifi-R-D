@@ -62,8 +62,6 @@
 		C706473A2A27640700ED425B /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472A2A27640700ED425B /* PermissionVC.swift */; };
 		C706473B2A27640700ED425B /* WifiAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472B2A27640700ED425B /* WifiAdminVC.swift */; };
 		C706473C2A27640700ED425B /* CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472C2A27640700ED425B /* CountryVC.swift */; };
-		C706473D2A27640700ED425B /* ConnectedWifiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472D2A27640700ED425B /* ConnectedWifiDetail.swift */; };
-		C706473E2A27640700ED425B /* ConnectedWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472E2A27640700ED425B /* ConnectedWifiVC.swift */; };
 		C706473F2A27640700ED425B /* SpeedTestDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C706472F2A27640700ED425B /* SpeedTestDetailVC.swift */; };
 		C70647402A27640700ED425B /* SpeedHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70647302A27640700ED425B /* SpeedHistoryVC.swift */; };
 		C70647412A27640700ED425B /* SpeedTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70647312A27640700ED425B /* SpeedTestVC.swift */; };
@@ -225,6 +223,7 @@
 		C7B3A7E22A289152008336DC /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DE2A289152008336DC /* LanguageVC.swift */; };
 		C7B3A7E32A289152008336DC /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DF2A289152008336DC /* LanguageCell.swift */; };
 		C7B3A7F62A2899CA008336DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7B3A7F82A2899CA008336DC /* Localizable.strings */; };
+		C7D6DDE52A376F0400242DBA /* SpeedTestDetailPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DDE42A376F0400242DBA /* SpeedTestDetailPageVC.swift */; };
 		EBF96BC7EEF7EB080CCDFF02 /* Pods_TunnelProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F38EC993F1E43BD90B05099 /* Pods_TunnelProvider.framework */; };
 /* End PBXBuildFile section */
 
@@ -333,8 +332,6 @@
 		C706472A2A27640700ED425B /* PermissionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
 		C706472B2A27640700ED425B /* WifiAdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiAdminVC.swift; sourceTree = "<group>"; };
 		C706472C2A27640700ED425B /* CountryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryVC.swift; sourceTree = "<group>"; };
-		C706472D2A27640700ED425B /* ConnectedWifiDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedWifiDetail.swift; sourceTree = "<group>"; };
-		C706472E2A27640700ED425B /* ConnectedWifiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedWifiVC.swift; sourceTree = "<group>"; };
 		C706472F2A27640700ED425B /* SpeedTestDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestDetailVC.swift; sourceTree = "<group>"; };
 		C70647302A27640700ED425B /* SpeedHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedHistoryVC.swift; sourceTree = "<group>"; };
 		C70647312A27640700ED425B /* SpeedTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestVC.swift; sourceTree = "<group>"; };
@@ -521,6 +518,7 @@
 		C7B3A7FD2A2899D7008336DC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7B3A7FE2A2899D9008336DC /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C7B3A7FF2A2899D9008336DC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7D6DDE42A376F0400242DBA /* SpeedTestDetailPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestDetailPageVC.swift; sourceTree = "<group>"; };
 		E7A86C89BCBDF8C84B5080A4 /* Pods-TunnelProvider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.release.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.release.xcconfig"; sourceTree = "<group>"; };
 		F72B91379B675B187A565D27 /* Pods-VpnConnection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VpnConnection.debug.xcconfig"; path = "Target Support Files/Pods-VpnConnection/Pods-VpnConnection.debug.xcconfig"; sourceTree = "<group>"; };
 		FE15535CA18E84E6D0835E3A /* Pods-TunnelProvider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TunnelProvider.debug.xcconfig"; path = "Target Support Files/Pods-TunnelProvider/Pods-TunnelProvider.debug.xcconfig"; sourceTree = "<group>"; };
@@ -712,8 +710,6 @@
 			isa = PBXGroup;
 			children = (
 				C70647452A27644A00ED425B /* SplashVC.swift */,
-				C706472D2A27640700ED425B /* ConnectedWifiDetail.swift */,
-				C706472E2A27640700ED425B /* ConnectedWifiVC.swift */,
 				C706472C2A27640700ED425B /* CountryVC.swift */,
 				C70647322A27640700ED425B /* DashboardVC.swift */,
 				C70647342A27640700ED425B /* DeviceDetailVC.swift */,
@@ -728,6 +724,7 @@
 				C70647262A27640600ED425B /* VpnVC.swift */,
 				C706472B2A27640700ED425B /* WifiAdminVC.swift */,
 				C70647272A27640600ED425B /* WifiVC.swift */,
+				C7D6DDE42A376F0400242DBA /* SpeedTestDetailPageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1436,7 +1433,6 @@
 				C70CE2222A274B34002E4DD1 /* MoreAppView.swift in Sources */,
 				C70CE22A2A274B34002E4DD1 /* RateAppViewController.swift in Sources */,
 				C70CE2382A274B34002E4DD1 /* PurchaseReceiptResponse.swift in Sources */,
-				C706473D2A27640700ED425B /* ConnectedWifiDetail.swift in Sources */,
 				C70CE2482A274B34002E4DD1 /* AssetsFile.swift in Sources */,
 				BD7F1C8D2A27083400BEB451 /* Settings.swift in Sources */,
 				C70CE2642A274B34002E4DD1 /* GCMRequest.swift in Sources */,
@@ -1494,7 +1490,6 @@
 				C70CE2592A274B34002E4DD1 /* InAppBillingListeners.swift in Sources */,
 				C70CE2602A274B34002E4DD1 /* AdMobMediation.swift in Sources */,
 				C70CE2792A274D09002E4DD1 /* WifiKey.swift in Sources */,
-				C706473E2A27640700ED425B /* ConnectedWifiVC.swift in Sources */,
 				C70CE2342A274B34002E4DD1 /* EngineDelegate.swift in Sources */,
 				C70CE22B2A274B34002E4DD1 /* FeedbackVC.swift in Sources */,
 				C75C02702A2E447E004C3EED /* PingResponse.swift in Sources */,
@@ -1537,6 +1532,7 @@
 				C70CE2152A274B34002E4DD1 /* RazeFaceProducts.swift in Sources */,
 				C750B35E2A2DE0910038C1F8 /* MainListHelper.swift in Sources */,
 				C70CE2512A274B34002E4DD1 /* OnCacheFullAddListener.swift in Sources */,
+				C7D6DDE52A376F0400242DBA /* SpeedTestDetailPageVC.swift in Sources */,
 				C70CE24C2A274B34002E4DD1 /* FullAdsCloseListener.swift in Sources */,
 				BD7F1D452A273DB500BEB451 /* VPNConnectedStatus.swift in Sources */,
 				C7B3A7E32A289152008336DC /* LanguageCell.swift in Sources */,

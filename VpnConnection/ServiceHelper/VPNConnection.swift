@@ -239,24 +239,28 @@ public class Connection: NSObject, ObservableObject {
         if profile.configFile == nil {
             Log.append("configFile is nil.", .debug, .mainApp)
             message = Message(Util.localize("invalid-configuration-file"), .error)
+            ConnectionStatus.instanceHelper.exactStatus(status: "Server looks busy, please try with a different server.")
             return
         }
         
         if profile.privKeyPassRequired && profile.privateKeyPassword.isEmpty {
             Log.append("privateKeyPassword is empty", .debug, .mainApp)
             message = Message(Util.localize("private-key-password-empty"), .error)
+            ConnectionStatus.instanceHelper.exactStatus(status: "Server looks busy, please try with a different server.")
             return
         }
         
         if !profile.anonymousAuth && profile.username.isEmpty {
             Log.append("username is empty", .debug, .mainApp)
             message = Message(Util.localize("username-empty"), .error)
+            ConnectionStatus.instanceHelper.exactStatus(status: "Server looks busy, please try with a different server.")
             return
         }
         
         if !profile.anonymousAuth && profile.password.isEmpty {
             Log.append("password is empty.", .debug, .mainApp)
             message = Message(Util.localize("password-empty"), .error)
+            ConnectionStatus.instanceHelper.exactStatus(status: "Server looks busy, please try with a different server.")
             return
         }
         
