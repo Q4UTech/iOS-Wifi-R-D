@@ -17,7 +17,7 @@ import GoogleMobileAds
 import FBAudienceNetwork
 import AVKit
 import AVFoundation
-
+import FingKit
 
 open class EngineDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate, MessagingDelegate,AVPictureInPictureControllerDelegate {
     public var window: UIWindow?
@@ -80,7 +80,7 @@ open class EngineDelegate: UIResponder, UIApplicationDelegate,UNUserNotification
             }
         }
         
-            
+        FingScanner.sharedInstance().willResume()
     }
     
     public func applicationDidEnterBackground(_ application: UIApplication) {
@@ -96,6 +96,8 @@ open class EngineDelegate: UIResponder, UIApplicationDelegate,UNUserNotification
                 EngineOpenAds.openAdsInstance.createInitOpenAds(from: currentController1,adsid: OPEN_ADS_ID,isFromCache: false)
             }
         }
+        FingScanner.sharedInstance().willSuspend()
+        
     }
     
     

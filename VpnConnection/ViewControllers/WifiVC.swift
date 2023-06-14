@@ -95,6 +95,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
     private  var offline:Bool = false
     private  var isFetched:Bool = false
     var initial_count = 0
+    var task : UIBackgroundTaskIdentifier?
     
     
     
@@ -162,6 +163,10 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
        if ReachabilityUtil.isConnectedToNetwork(){
            noWifi.isHidden = true
            topViewLabel.text = "Wi-Fi Manager".localiz()
+           topView.isHidden = true
+           coonectedView.isHidden = false
+           WifiName.isHidden = false
+           WifiName.text = getWiFiSsid()
          networkCall()
        }else{
            print("Internet Connection not Available!")
@@ -486,19 +491,56 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
     
     
     private func getConnectedDevicesList(key:String){
+        
         FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { [self] result, error in
 
             if result != nil{
+//                task = UIApplication.shared.beginBackgroundTask(withName: "MyTask") { [self] in
+                    scanDevice()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [self] in
+                    callApi()
+                }
                
-                scanDevice()
+
+//                }
+               
+
             }
               
 
         }
        
+       
+       
+       
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+       // UIApplication.shared.endBackgroundTask(task!)
+    }
+    func callApi(){
         
-       
-       
+        DispatchQueue.global(qos: .background).async {
+        
+        
+                        CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
+        
+                            if error == "No Internet Connection"{
+        
+                            }else{
+                                if categoryList.count == 0{
+                                    // KRProgressHUD.dismiss()
+                                    //
+        
+                                }else{
+                                    //   KRProgressHUD.dismiss()
+                                    
+                                    print("cot\(categoryList.count)")
+                                    
+                                }
+                            }
+                        })
+        
+                    }
     }
     func dataToJSON(data: Data) -> Any? {
        do {
@@ -574,7 +616,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
     
     
      func scanDevice(){
-     //   DispatchQueue.global(qos: .background).async { [self] in
+        DispatchQueue.global(qos: .unspecified).async { [self] in
         
             let scanner = FingScanner.sharedInstance()
             let options = FingScanOptions.systemDefault()
@@ -582,6 +624,8 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
            
                 // printToUI("--- networkScan ---")
         
+        
+             
              
              
              scanner.networkScan(options) { [self] result, error in
@@ -618,16 +662,15 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                                          UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
                                          
                                          
-//                                         if let ispName = scanResponse.fingIsp {
-//                                             
-//                                             DispatchQueue.main.async { [self] in
-//                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
-//                                             }
-//                                             
-//                                         }
+                                         //                                         if let ispName = scanResponse.fingIsp {
+                                         //                                             
+                                         //                                             DispatchQueue.main.async { [self] in
+                                         //                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
+                                         //                                             }
+                                         //                                             
+                                         //                                         }
                                          if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                              
-                                            
                                              DispatchQueue.main.async { [self] in
                                                  
                                                  
@@ -658,6 +701,7 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                                      
                                      
                                      print("scan done88")
+                                    
                                  }catch{
                                      print("error_msg\(error)")
                                  }
@@ -673,8 +717,9 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                  //    self.printToUI(formatted as! String )
                  
              }
+        
          
-        //}
+        }
     }
     
     

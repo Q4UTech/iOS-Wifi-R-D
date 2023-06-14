@@ -86,60 +86,131 @@ class PasswordHintVC: UIViewController,SearchDelegate{
     
      func callPasswordHintApi(){
        if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-           
-          KRProgressHUD.showOn(self).show()
+           KRProgressHUD.showOn(self).show()
+         
          //  passwordList.removeAll()
          print("URL \(URL)")
-               Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
-                   print("respnse \(response)")
-
-                   switch response.result {
-
-                   case .success(let value):
-                       print("respnse1 \(value)")
-
-                       do {
-
-                           let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
-                           let status = jObject!["status"] as? String
-                           let array = jObject!["routerlist"] as? NSArray
-                           // print("status \(String(describing: status)) \(jObject)")
-                           for i in array! {
-                               let data:Dictionary? = i as? Dictionary<String, Any>
-                               let brand = data!["brand"] as? String
-                               let type = data!["type"] as? String
-                               let username = data!["username"] as? String
-                               let password = data!["passwrod"] as? String
-                               passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
-                               filteredData = passwordList
-                               totalCount = filteredData.count
-
-                           }
-                           DispatchQueue.main.async { [self] in
-                               KRProgressHUD.dismiss()
-                               passwordTaableView.reloadData()
-                               if totalCount != nil{
-                                   totalPassword.text = "Total Password : \(totalCount)"
-                               }
-                           }
-
-
-                       }catch{
-                           KRProgressHUD.dismiss()
-                       }
-
-
-
-                       break
-                   case .failure(_):
-                       KRProgressHUD.dismiss()
-                       print("failure11\(response.error)")
-
-                       break
-
-
-                   }
+           guard let url = Foundation.URL(string: URL) else {
+                   print("Invalid URL")
+                   return
                }
+           let session = URLSession.shared
+
+               var request = URLRequest(url: url)
+               request.httpMethod = "GET"
+           let task = session.dataTask(with: request) { [self] (data, response, error) in
+               // Handle the response and error
+               if let error = error {
+                   print("Error: \(error.localizedDescription)")
+                   return
+               }
+               
+               guard let httpResponse = response as? HTTPURLResponse else {
+                   print("Invalid response")
+                   return
+               }
+               
+               if httpResponse.statusCode == 200 {
+                  
+                   // Successful response
+                   if let data = data {
+                       print("data_val \(data.count) ")
+                       // Parse and handle the data
+                       // You can use JSONSerialization or other methods to parse the data
+                       // Example: let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                       // ...
+                       let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                       let status = json!["status"] as? String
+                       let array = json!["routerlist"] as? NSArray
+                       // print("status \(String(describing: status)) \(jObject)")
+                       for i in array! {
+                           let data:Dictionary? = i as? Dictionary<String, Any>
+                           let brand = data!["brand"] as? String
+                           let type = data!["type"] as? String
+                           let username = data!["username"] as? String
+                           let password = data!["passwrod"] as? String
+                           passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
+                           filteredData = passwordList
+                           totalCount = filteredData.count
+                           
+                       }
+                       DispatchQueue.main.async { [self] in
+                           KRProgressHUD.dismiss()
+                           passwordTaableView.reloadData()
+                           if totalCount != nil{
+                               totalPassword.text = "Total Password : \(totalCount)"
+                           }
+                           //                           }
+                       }
+                       
+                   }
+               } else {
+                   // Handle unsuccessful response
+                   print("HTTP response status code: \(httpResponse.statusCode)")
+               }
+            
+           }
+           task.resume()
+
+//           let urlPath: String = URL
+//           var url: NSURL = NSURL(string: urlPath)!
+//           var request1: NSURLRequest = NSURLRequest(url: url as URL)
+//           let queue:OperationQueue = OperationQueue()
+//           NSURLConnection.sendAsynchronousRequest(request1 as URLRequest, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+//               var err: NSError
+//               var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+//               print("Asynchronous\(jsonResult)")
+//           })
+//               Alamofire.request(URL, method: .get ,encoding: JSONEncoding.default).responseData { [self] response in
+//                   print("respnse \(response)")
+//
+//                   switch response.result {
+//
+//                   case .success(let value):
+//                       print("respnse1 \(value)")
+//
+//                       do {
+//
+//                           let jObject : Dictionary? = try JSONSerialization.jsonObject(with: value) as? Dictionary<String, Any>
+//                           let status = jObject!["status"] as? String
+//                           let array = jObject!["routerlist"] as? NSArray
+//                           // print("status \(String(describing: status)) \(jObject)")
+//                           for i in array! {
+//                               let data:Dictionary? = i as? Dictionary<String, Any>
+//                               let brand = data!["brand"] as? String
+//                               let type = data!["type"] as? String
+//                               let username = data!["username"] as? String
+//                               let password = data!["passwrod"] as? String
+//                               passwordList.append(PasswordDataDetail(brand: brand!, type: type!, username: username ?? "no data", passwrod: password ?? "no data"))
+//                               filteredData = passwordList
+//                               totalCount = filteredData.count
+//
+//                           }
+//                           DispatchQueue.main.async { [self] in
+//                               KRProgressHUD.dismiss()
+//                               passwordTaableView.reloadData()
+//                               if totalCount != nil{
+//                                   totalPassword.text = "Total Password : \(totalCount)"
+//                               }
+//                           }
+//
+//
+//                       }catch{
+//                           KRProgressHUD.dismiss()
+//                       }
+//
+//
+//
+//                       break
+//                   case .failure(_):
+//                       KRProgressHUD.dismiss()
+//                       print("failure11\(response.error)")
+//
+//                       break
+//
+//
+//                   }
+//               }
                
 //           }
                

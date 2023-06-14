@@ -50,7 +50,7 @@ class RouterVC: UIViewController, UITextFieldDelegate{
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
-//        if hasPurchased(){
+//       if hasPurchased(){
             premiumView.isHidden = true
             
 //        }else{

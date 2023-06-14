@@ -54,8 +54,8 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
                 backButton.isHidden = false
             }
             else {
-               // continueButton.isHidden = false
-              //  backButton.isHidden = true
+                continueButton.isHidden = false
+                backButton.isHidden = true
             }
         }
         initalSetups()
@@ -132,10 +132,13 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         }
     }
     
-//    @IBAction func continueButtonAction(_ sender: Any) {
-//        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier:"OnBoardingScreenVC") as? OnBoardingScreenVC
-//                self.navigationController?.pushViewController(vc!, animated: true)
-//    }
+    @IBAction func continueButtonAction(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Engine", bundle: Bundle.main).instantiateViewController(withIdentifier:"TransparentFullAdLaunchVC") as? TransparentFullAdLaunchVC
+        vc!.type = type
+        vc!.value = value
+        vc!.fulladstype = Launch_FullAds
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     @IBAction func privacyButtonAction(_ sender: Any) {
         BaseClass.init().privacyPolicy()
     }
@@ -146,14 +149,9 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     
     
     @IBAction func backButtonAction(_ sender: Any) {
-        if fromfaceCam {
-            var viewControllers = navigationController?.viewControllers
-            viewControllers?.removeLast(2) //here 2 views to pop index numbers of views
-            navigationController?.setViewControllers(viewControllers!, animated: true)
-        }
-        else {
+
             self.navigationController?.popViewController(animated: true)
-        }
+       
     }
     
     func reload(){
@@ -307,7 +305,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
      //   cell.dividerLabel.isHidden = true
         
         cell.detailView.layer.borderWidth = 1
-        cell.detailView.layer.borderColor = hexStringColor(hex: "#BBB8B5").cgColor
+        cell.detailView.layer.borderColor = hexStringColor(hex: "#1F639D").cgColor
         cell.detailView.clipsToBounds = true
         cell.detailView.layer.cornerRadius = 12.0
         
@@ -374,14 +372,14 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
             //            continueButton.setTitle("Continue", for: .normal)
             cell.detailView.backgroundColor = hexStringColor(hex: "0D2A44")
             cell.titleLabel.textColor = UIColor.white
-            cell.memberLabel.textColor = UIColor.white
+//            cell.memberLabel.textColor = UIColor.white
             cell.priceLabel.textColor = hexStringColor(hex: "359FFF")
             cell.isUserInteractionEnabled = true
-            cell.dividerLabel.isHidden = false
-            self.purchaseViewTitleLabel.textColor = hexStringColor(hex: "FF4E59")
-            
-            self.purchaseViewImageView.image = UIImage(named: "redCrownIcon")
-            self.purchaseViewTitleLabel.text! = "Wow ! You are a premium user"
+           // cell.dividerLabel.isHidden = false
+//            self.purchaseViewTitleLabel.textColor = hexStringColor(hex: "FF4E59")
+//
+//            self.purchaseViewImageView.image = UIImage(named: "redCrownIcon")
+//            self.purchaseViewTitleLabel.text! = "Wow ! You are a premium user"
             
             
             
@@ -400,8 +398,8 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
                 
             }
             
-            adsView.isHidden = true
-            adsViewHeightConstraint.constant = 0
+//            adsView.isHidden = true
+//            adsViewHeightConstraint.constant = 0
             //                        continueButton.setTitle("Continue", for: .normal)
             let myNormalAttributedTitle = NSAttributedString(string: "Continue",
                                                              attributes: [NSAttributedString.Key.underlineStyle : 1])
@@ -417,6 +415,10 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
               //  cell.memberLabel.textColor = UIColor.black
                 cell.priceLabel.textColor = UIColor.white
                 cell.subtitleLabel.textColor = UIColor.white
+                cell.detailView.layer.borderWidth = 1
+                cell.detailView.layer.borderColor = hexStringColor(hex: "#FFFFFF").cgColor
+                cell.detailView.clipsToBounds = true
+                cell.detailView.layer.cornerRadius = 12.0
             }else{
                 cell.isUserInteractionEnabled = false
                 cell.detailView.backgroundColor = hexStringColor(hex: "191C20")
@@ -424,6 +426,10 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
               //  cell.memberLabel.textColor = UIColor.black
                 cell.priceLabel.textColor = UIColor.white
                 cell.subtitleLabel.textColor = UIColor.white
+                cell.detailView.layer.borderWidth = 1
+                cell.detailView.layer.borderColor = hexStringColor(hex: "#FFFFFF").cgColor
+                cell.detailView.clipsToBounds = true
+                cell.detailView.layer.cornerRadius = 12.0
             }
         }
         

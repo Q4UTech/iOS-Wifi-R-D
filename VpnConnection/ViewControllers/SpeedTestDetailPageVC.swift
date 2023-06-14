@@ -46,9 +46,28 @@ class SpeedTestDetailPageVC: UIViewController {
     var pingData = String()
     var currentTime:String? = ""
     
+    var connectionType = String()
+    var ipDetail = String()
+    var wifiName = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       //  askEnableLocationService()
+        
+       // print("add: \(getIFAddresses())")
+    }
+    private func getCurrentTime()->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"  // Set the desired format
+        
+        let currentTime = Date()
+        let currentTimeString = formatter.string(from: currentTime)
+        
+        print("currentTimeString \(currentTimeString)")
+        return currentTimeString
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if isFrom == "SpeedHistory"{
             deleteBtn.isHidden = false
             pingLabel.text = ping + ".00"
@@ -67,11 +86,12 @@ class SpeedTestDetailPageVC: UIViewController {
             pingLabel.text = ping + ".00"
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
-            ipAddress.text = ipAddressData
-            connectedType.text = getConnectionType()
-            ipAddress.text = getIFAddresses()
-            
-            providerLabel.text = getWiFiSsid()
+            ipAddress.text = ipDetail
+            connectedType.text = connectionType
+            ipAddress.text = wifiName
+
+           
+            providerLabel.text = wifiName
             if #available(iOS 15, *)  {
                                                   let today = Date.now
                                                  let formatter1 = DateFormatter()
@@ -86,17 +106,20 @@ class SpeedTestDetailPageVC: UIViewController {
                                                  pingData = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
           
                                               print("speedList1 \(pingData)")
+              //  DispatchQueue.global(qos: .background).async { [self] in
+                    
+              
                                                 if UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) == nil{
-                                                   speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available" )]
-                                                      speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
+                                                   speedTestList[formatter1.string(from: today)] = [SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: connectionType,ipAddress: ipDetail,providerName: wifiName ?? "No Data Available" )]
+                                                      speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: connectionType,ipAddress: ipDetail,providerName: wifiName ?? "No Data Available"))
                                                      if let encode = try?  JSONEncoder().encode(speedTestList) {
                                                           UserDefaults.standard.set(encode, forKey:MyConstant.SPEED_LIST)
                                                   }
                                                       print("speedDataList7777\(speedDataList)")
          
                                                 }else {
-                                                     speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid()  ?? "No Data Available" ))
-                                                       print("speedDataList77\(speedDataList)")
+                                                     speedDataList.append(SpeedTestData(time: currentTime!, ping: pingData, downloadSpeed: downloadSpeed, uploadSpeed: uploadSpeed,connectionType: connectionType,ipAddress: ipDetail,providerName: wifiName  ?? "No Data Available" ))
+                                                       print("speedDataList88\(speedDataList)")
                                                  if let savedData = UserDefaults.standard.data(forKey: MyConstant.SPEED_LIST) {
                                                         do {
          
@@ -105,7 +128,7 @@ class SpeedTestDetailPageVC: UIViewController {
                                                            for (_ ,data) in speedTestList{
                                                                   print("dataCount \(data.count)")
                                                          for i in data{
-                                                                     speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: getConnectionType(),ipAddress: getIFAddresses(),providerName: getWiFiSsid() ?? "No Data Available"))
+                                                                     speedDataList.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: connectionType,ipAddress: ipDetail,providerName: wifiName ?? "No Data Available"))
                                                                  }
             
                                                             }
@@ -120,23 +143,9 @@ class SpeedTestDetailPageVC: UIViewController {
                                                      }
                                                  }
             
-                                              }
+                                             // }
+            }
        }
-        print("add: \(getIFAddresses())")
-    }
-    private func getCurrentTime()->String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"  // Set the desired format
-        
-        let currentTime = Date()
-        let currentTimeString = formatter.string(from: currentTime)
-        
-        print("currentTimeString \(currentTimeString)")
-        return currentTimeString
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
         getBannerAd(self, adView, heightConstraint)
     }
     
@@ -156,17 +165,17 @@ class SpeedTestDetailPageVC: UIViewController {
             switch CLLocationManager.authorizationStatus() {
             case .denied:
                 showAlertSetting = true
-                print("ssid_Val \(getWiFiSsid())")
+                
                 print("HH: kCLAuthorizationStatusDenied")
             case .restricted:
                 showAlertSetting = true
                 print("HH: kCLAuthorizationStatusRestricted")
             case .authorizedAlways:
-                print("ssid_Val \(getWiFiSsid())")
+               
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedAlways")
             case .authorizedWhenInUse:
-                print("ssid_Val \(getWiFiSsid())")
+               
                 showInitLocation = true
                 print("HH: kCLAuthorizationStatusAuthorizedWhenInUse")
             case .notDetermined:
@@ -220,7 +229,7 @@ class SpeedTestDetailPageVC: UIViewController {
                     for (_ ,data) in speedTestList{
                         print("dataCount \(data.count)")
                         for i in data{
-                            speedTestData.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: i.connectionType,ipAddress: i.ipAddress,providerName: getWiFiSsid() ?? "No Data Available"))
+                            speedTestData.append( SpeedTestData(time: i.time, ping:i.ping, downloadSpeed: i.downloadSpeed, uploadSpeed: i.uploadSpeed,connectionType: i.connectionType,ipAddress: i.ipAddress,providerName: wifiName ?? "No Data Available"))
                         }
 
                     }
@@ -262,69 +271,5 @@ class SpeedTestDetailPageVC: UIViewController {
         transView.isHidden = forTrans
     }
     
-    func getConnectionType() -> String {
-            guard let reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "www.google.com") else {
-                return "NO INTERNET"
-            }
-
-            var flags = SCNetworkReachabilityFlags()
-            SCNetworkReachabilityGetFlags(reachability, &flags)
-
-            let isReachable = flags.contains(.reachable)
-            let isWWAN = flags.contains(.isWWAN)
-
-            if isReachable {
-                if isWWAN {
-                    let networkInfo = CTTelephonyNetworkInfo()
-                    let carrierType = networkInfo.serviceCurrentRadioAccessTechnology
-
-                    guard let carrierTypeName = carrierType?.first?.value else {
-                        return "UNKNOWN"
-                    }
-
-                    switch carrierTypeName {
-                    case CTRadioAccessTechnologyGPRS, CTRadioAccessTechnologyEdge, CTRadioAccessTechnologyCDMA1x:
-                        return "2G"
-                    case CTRadioAccessTechnologyLTE:
-                        return "4G"
-                    default:
-                        return "3G"
-                    }
-                } else {
-                    return "WIFI"
-                }
-            } else {
-                return "NO INTERNET"
-            }
-        }
    
-    func getIFAddresses()->String {
-        let url = URL(string: "https://api.ipify.org")
-        var myIp=""
-        do {
-            if let url = url {
-                let ipAddress = try String(contentsOf: url)
-                myIp = ipAddress
-                print("My public IP address is: " + ipAddress)
-            }
-        } catch let error {
-            print(error)
-        }
-        return myIp
-    }
-  
-    func getWiFiSsid() -> String? {
-        var ssid: String?
-        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
-            for interface in interfaces {
-                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
-                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                   
-                    break
-                }
-            }
-        }
-        print("ssid \(String(describing: ssid))")
-        return ssid
-    }
 }

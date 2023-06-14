@@ -45,6 +45,25 @@ class AppDelegate: EngineDelegate {
     }
 
 
+//    override func applicationDidEnterBackground(_ application: UIApplication) {
+//        var bgTask: UIBackgroundTaskIdentifier = .invalid
+//        
+//        bgTask = application.beginBackgroundTask(withName: "MyTask") {
+//            // Clean up any unfinished task business by marking where you
+//            // stopped or ending the task outright.
+//            application.endBackgroundTask(bgTask)
+//            bgTask = .invalid
+//        }
+//        
+//        // Start the long-running task and return immediately.
+//        DispatchQueue.global(qos: .default).async {
+//            // Do the work associated with the task, preferably in chunks.
+//            
+//            application.endBackgroundTask(bgTask)
+//            bgTask = .invalid
+//        }
+//    }
+
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,

@@ -14,4 +14,14 @@ class DataModel: Codable {
     var vpn_flag = String()
     var file_location = String()
     var purchsedType = String()
+    
+    init(vpnname: String , vpncode: String , username: String , password: String , vpn_flag: String , file_location: String , purchsedType: String ) {
+        self.vpnname = vpnname
+        self.vpncode = vpncode
+        self.username = username
+        self.password = password
+        self.vpn_flag = vpn_flag
+        self.file_location = file_location
+        self.purchsedType = purchsedType
+    }
 }

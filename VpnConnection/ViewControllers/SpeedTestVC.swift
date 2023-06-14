@@ -14,29 +14,78 @@ import SystemConfiguration.CaptiveNetwork
 import CoreTelephony
 import CoreLocation
 import Toast_Swift
+import SpeedcheckerSDK
 //import SwiftPing
 
 @available(iOS 13.0, *)
-class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, LanguageSelectionDelegate,RetestProtocol, SimplePingDelegate,SpeedCheckProtocol{
-    func isSpeedCheckComplete(complete: Bool, ping: String, upload: Double, download: Double) {
+class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, LanguageSelectionDelegate,RetestProtocol, SimplePingDelegate, InternetSpeedTestDelegate{
+    func internetTestError(error: SpeedcheckerSDK.SpeedTestError) {
         print("")
     }
     
-    func uploadFinished(isFinsihed: Bool, data: [Double]) {
+    func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult) {
         print("")
     }
     
-    func downloadFinsihedFinished(isFinsihed: Bool, data: [Double]) {
-      print("")
+    func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer]) {
+        print("")
     }
     
-    func showData(data: Int) {
+    func internetTestUpload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
+        print("")
+    }
+    
+   
+    
+    func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Int, jitter: Int) {
         DispatchQueue.main.async { [self] in
-            ping.text = "\(Double(data))"+"0"
+            ping.text = "\(Double(latency))"+"0"
+            var pingData = "\(latency)"
+            UserDefaults.standard.set(pingData, forKey:"pingData")
         }
-      
     }
     
+    func internetTestDownloadStart() {
+        print("")
+    }
+    
+    func internetTestDownloadFinish() {
+        print("")
+    }
+    
+    func internetTestDownload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
+        print("")
+    }
+    
+    func internetTestUploadStart() {
+        print("")
+    }
+    
+    func internetTestUploadFinish() {
+        print("")
+    }
+    
+//    func internetTestUpload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
+//        print("")
+//    }
+//
+//    func isSpeedCheckComplete(complete: Bool, ping: String, upload: Double, download: Double) {
+//        print("")
+//    }
+//
+//    func uploadFinished(isFinsihed: Bool, data: [Double]) {
+//        print("")
+//    }
+//
+//    func downloadFinsihedFinished(isFinsihed: Bool, data: [Double]) {
+//      print("")
+//    }
+//
+//    func showData(data: Int) {
+//
+//
+//    }
+//
     var locationManager: CLLocationManager?
     var canStartPinging = false
     func isSpeedTestComplete(complete: Bool) {
@@ -134,6 +183,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
     var countHydra = 0
     var pingData:String?
     var timer:Timer?
+    private var internetTest: InternetSpeedTest?
+     //  private var locationManager = CLLocationManager()
    // var  months = ["1.0", "2.0", "3.0", "4.0", "5.0","6.0", "7.0", "8.0", "9.0", "10.0"]
     var  months = ["1.0", "2.0", "3.0", "4.0", "5.0"]
   //  var  months = [String]()
@@ -141,9 +192,20 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
     var upCounter = 0
     var isDownload:Bool = false
     private var pingSpeed: PingSpeed?
+    
+    var connectionTypeDetail = String()
+    var ipAddressDetail = String()
+    var wifiNameDetail = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
+        internetTest = InternetSpeedTest(delegate: self)
+                internetTest?.startTest() { (error) in
+                    if error != .ok {
+                        print(error)
+                    }
+                }
+    //    SpeedTestCompleteListener.instanceHelper.speedCheckDelegate = self
         LanguageSelectionListener.instanceHelper.itemdelegates = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideView))
         transView.addGestureRecognizer(tapGesture)
@@ -186,8 +248,74 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
         //            print("Unable to retrieve Wi-Fi RSSI.")
         //        }
  //   getWiFiName()
+       
         
-        
+    }
+    func getConnectionType() -> String {
+            guard let reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "www.google.com") else {
+                return "NO INTERNET"
+            }
+
+            var flags = SCNetworkReachabilityFlags()
+            SCNetworkReachabilityGetFlags(reachability, &flags)
+
+            let isReachable = flags.contains(.reachable)
+            let isWWAN = flags.contains(.isWWAN)
+
+            if isReachable {
+                if isWWAN {
+                    let networkInfo = CTTelephonyNetworkInfo()
+                    let carrierType = networkInfo.serviceCurrentRadioAccessTechnology
+
+                    guard let carrierTypeName = carrierType?.first?.value else {
+                        return "UNKNOWN"
+                    }
+
+                    switch carrierTypeName {
+                    case CTRadioAccessTechnologyGPRS, CTRadioAccessTechnologyEdge, CTRadioAccessTechnologyCDMA1x:
+                        return "2G"
+                    case CTRadioAccessTechnologyLTE:
+                        return "4G"
+                    default:
+                        return "3G"
+                    }
+                } else {
+                    return "WIFI"
+                }
+            } else {
+                return "NO INTERNET"
+            }
+        }
+   
+    func getIFAddresses()->String {
+       
+        let url = URL(string: "https://api.ipify.org")
+        var myIp=""
+        do {
+            if let url = url {
+                let ipAddress = try String(contentsOf: url)
+                myIp = ipAddress
+                print("My public IP address is11: " + ipAddress)
+            }
+        } catch let error {
+            print(error)
+        }
+        return myIp
+    }
+  
+    func getWiFiSsid() -> String? {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                   
+                    break
+                }
+            }
+        }
+        print("ssid \(String(describing: ssid))")
+        return ssid
     }
   
     func getWiFiName() -> String? {
@@ -379,7 +507,9 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
      }
     
     @IBAction func beginTestAction(_ sender: Any) {
-        
+        connectionTypeDetail = getConnectionType()
+       // ipAddressDetail = getIFAddresses()
+        wifiNameDetail = getWiFiName()!
         uploadArray.removeAll()
         speedArray.removeAll()
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
@@ -390,7 +520,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             speedMeterView!.value = 0
             getNetworkSpeed()
             getIP()
-            speedTestVM.setPingData(pingLabel: ping)
+           // speedTestVM.setPingData(pingLabel: ping)
         }else{
             view.makeToast("Looks like you are not connected to the Internet. Please connect & try again.")
         }
@@ -499,7 +629,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
            
           }
            
-        DispatchQueue.main.asyncAfter(deadline: .now() + 9) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) { [self] in
               speedChartView.isHidden = true
                           uploadChartView.isHidden = false
             
@@ -517,7 +647,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             
            
         }
-        operation.cancelAllOperations()
+      
        
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
@@ -788,13 +918,17 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
      uploadChartView.legend.enabled = false
      uploadChartView.isUserInteractionEnabled = false
      uploadChartView.setScaleEnabled(false)
-       DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [self] in
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailPageVC") as! SpeedTestDetailPageVC
         vc.ping = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
+            print("speeddetail \(uploadArray.last!)\(speedArray.last!)")
         vc.uploadSpeed = uploadArray.last!
         vc.downloadSpeed = speedArray.last!
+            vc.wifiName = wifiNameDetail
+            vc.connectionType = connectionTypeDetail
+            vc.ipDetail = ipAddressDetail
         navigationController?.pushViewController(vc, animated: true)
-        showFullAds(viewController: self, isForce: true)
+        //showFullAds(viewController: self, isForce: true)
        }
        
        }

@@ -417,7 +417,7 @@ class SplashVC: UIViewController,CLLocationManagerDelegate,OnCacheFullAddListene
                         if !hasPurchased(){
                             if ETC_3 == "1" {
                                 if !UserDefaults.standard.bool(forKey: FIRST_TIME_ONPURCHASE){
-                                    let vc = UIStoryboard.init(name: "Engine", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as? PurchaseVC
+                                    let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PurchaseVC") as? PurchaseVC
                                     vc?.fromMoreTool = false
                                     vc!.fulladstatus = fullAdStatus
                                     vc!.fulladstype = Launch_FullAds

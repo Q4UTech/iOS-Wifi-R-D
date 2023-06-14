@@ -7,29 +7,53 @@
 
 import UIKit
 import WebKit
+import KRProgressHUD
 
-class WifiAdminVC: UIViewController, WKUIDelegate {
+class WifiAdminVC: UIViewController,WKNavigationDelegate, UIScrollViewDelegate{
     var wkWebview: WKWebView!
     @IBOutlet weak var customWebView:UIView!
     @IBOutlet weak var premiumView:UIView!
-    
+    @IBOutlet weak var loadingLabel:UILabel!
+    @IBOutlet weak var loadingView:UIView!
+    var counter = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //       if hasPurchased(){
-            hideUnhidePremiumView(hide: true)
-            wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
-            wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.customWebView.addSubview(wkWebview)
-            var router_url = "http://"+UserDefaults.standard.string(forKey: MyConstant.ROUTER_IP)!
-            let url = URL(string: router_url)
+       
+        KRProgressHUD.show()
+        hideUnhidePremiumView(hide: true)
+        wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
+       wkWebview.navigationDelegate = self
+        wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.customWebView.addSubview(wkWebview)
+        let router_url = "http://"+UserDefaults.standard.string(forKey: MyConstant.ROUTER_IP)!
+        let url = URL(string: router_url)
+       
+    wkWebview.load(URLRequest(url: url!,cachePolicy: .returnCacheDataElseLoad))
+        
+    loadingView.isHidden = true
+//        loadingView.isHidden = false
            
-        wkWebview.load(URLRequest(url: url!,cachePolicy: .returnCacheDataElseLoad))
+       
 //        }else{
 //            hideUnhidePremiumView(hide:false)
 //        }
 
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        counter += 1
+        if counter == 2{
+            KRProgressHUD.dismiss()
+            wkWebview.scrollView.delegate = self;
+            wkWebview.scrollView.maximumZoomScale = 140
+        }
+    }
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        wkWebview.scrollView.maximumZoomScale = 140
     }
     
     @IBAction func openRouterSetting(_ sender:UIButton){
