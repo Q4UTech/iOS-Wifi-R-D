@@ -135,8 +135,8 @@ public class InAppBillingManager : NSObject {
     }
     
     public func recieptParsing(latest_receipt:String,fromStart:Bool){
-        DispatchQueue.global(qos: .background).async { [self] in
-            DispatchQueue.main.async {
+       // DispatchQueue.global(qos: .background).async { [self] in
+        DispatchQueue.main.async { [self] in
                 
                 let purchaseResponse = recieptArray.last
                 let currentTime = getCurrentTime()
@@ -188,7 +188,7 @@ public class InAppBillingManager : NSObject {
                     }
                 }
             }
-        }
+      //  }
     }
     
 }

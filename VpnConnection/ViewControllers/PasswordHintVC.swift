@@ -68,15 +68,58 @@ class PasswordHintVC: UIViewController,SearchDelegate{
         // Do any additional setup after loading the view.
         passwordTaableView.dataSource = self
         passwordTaableView.delegate = self
-        callPasswordHintApi()
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        if UserDefaults.standard.data(forKey: MyConstant.PASSWORD_LIST) == nil{
+            callPasswordHintApi()
+            
+        }else{
+            
+            fetchFromLocal()
+        }
         getBannerAd(self, adView, heightConstraint)
        
         
     }
+    
+    private func fetchFromLocal(){
+        passwordList.removeAll()
+       
+            
+          
+            if let savedData = UserDefaults.standard.data(forKey: MyConstant.PASSWORD_LIST) {
+                do {
+                   
+                    // Create an instance of JSONDecoder
+                    let decoder = JSONDecoder()
+                    
+                    // Decode the data back into an array of persons
+                    let savedPersons = try decoder.decode([PasswordDataDetail].self, from: savedData)
+                    for i in savedPersons{
+                        passwordList.append(PasswordDataDetail(brand: i.brand, type: i.type, username: i.username, passwrod: i.passwrod))
+                    }
+                    filteredData = passwordList
+                  
+                    DispatchQueue.main.async { [self] in
+                        KRProgressHUD.dismiss()
+                        print("fifilteredData \(filteredData.count)")
+                       
+                        if totalCount != nil{
+                            totalPassword.text = "Total Password : \(filteredData.count)"
+                        }
+                        passwordTaableView.reloadData()
+                        //                           }
+                    }
+                    print("savedPersons\(savedPersons.count)")
+                } catch {
+                    print("Error decoding persons array: \(error)")
+                }
+            }
+       
+    }
+    
     
    
     
@@ -136,6 +179,7 @@ class PasswordHintVC: UIViewController,SearchDelegate{
                        }
                        DispatchQueue.main.async { [self] in
                            KRProgressHUD.dismiss()
+                           savePasswordListToLocal(passwordList: filteredData)
                            passwordTaableView.reloadData()
                            if totalCount != nil{
                                totalPassword.text = "Total Password : \(totalCount)"
@@ -220,18 +264,38 @@ class PasswordHintVC: UIViewController,SearchDelegate{
     }
     
 }
+
+func savePasswordListToLocal(passwordList:[PasswordDataDetail]){
+    do {
+        // Create an instance of JSONEncoder
+        let encoder = JSONEncoder()
+        
+        // Encode the array of persons into data
+        let data = try encoder.encode(passwordList)
+        
+        // Save the encoded data using UserDefaults
+        UserDefaults.standard.set(data, forKey: MyConstant.PASSWORD_LIST)
+    } catch {
+        print("Error encoding persons array: \(error)")
+    }
+}
+
 extension PasswordHintVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = filteredData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PasswordHintCell", for: indexPath) as! PasswordHintCell
-        cell.brand.text = data.brand
-        cell.type.text = data.type
-        cell.username.text = data.username
-        cell.password.text = data.passwrod
+        print("filteredData1 \(filteredData.count)")
+        if filteredData != nil {
+            let data = filteredData[indexPath.row]
+            
+            cell.brand.text = data.brand
+            cell.type.text = data.type
+            cell.username.text = data.username
+            cell.password.text = data.passwrod
+        }
         return cell
         
     }

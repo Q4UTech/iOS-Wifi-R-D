@@ -41,7 +41,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     var type = String()
     var isReload = false
     var selectedIndex:Int?
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         if fromfaceCam {
@@ -83,7 +83,12 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
         SplashVC.fromSplash = true
         RazeFaceProducts.store.restorePurchases(fromStart: true)
         InAppBillingListeners.adsInstanceHelper.delegates = self
-        reload()
+            
+        let obj = PremiumPurchaseThread();
+        obj.setPurchaseVC(self);
+        obj.start();
+      
+       // reload()
     }
     
     func setPremiumUI(status:Bool){
@@ -156,18 +161,23 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     
     func reload(){
         
+       callPremium()
+    }
+    
+    
+    func callPremium(){
         if ServiceHelper.sharedInstanceHelper.isConnectedToNetwork(){
             
             premiumViewModel.premiumList(completion: {
                 productList,status   in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     if status {
                         
                         print("productListCount\(productList) \(BILLING_DETAILS.count)")
                         
                         
                         guard var productList = productList else {
-                            self.goTobackPage()
+                            goTobackPage()
                             return
                         }
                         
@@ -239,7 +249,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
             //            goTobackPage()
             showAlert()
             KRProgressHUD.dismiss()
-            
+
         }
     }
     
@@ -590,13 +600,13 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
     }
     
     func setPurchaseText(status:Bool,_ productId:String,_ expiryDate:String,checkstatus:Bool){
-        DispatchQueue.global(qos: .background).async {
+    //   DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async { [self] in
                 if status{
                     alreadyPurchased = true
                     if !checkstatus{
-                        adsView.isHidden = true
-                        adsViewHeightConstraint.constant = 0
+                     
+                       // adsViewHeightConstraint.constant = 0
                         //                        continueButton.setTitle("Continue", for: .normal)
                         let myNormalAttributedTitle = NSAttributedString(string: "Continue",
                                                                          attributes: [NSAttributedString.Key.underlineStyle : 1])
@@ -610,7 +620,7 @@ class PurchaseVC: UIViewController,UITableViewDelegate,UITableViewDataSource,InA
                     
                 }
             }
-        }
+        //}
     }
     
     func inAppPurchaseSuccess(productID: String, expiryDate: String, latest_receipt: String, fromStart: Bool) {

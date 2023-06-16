@@ -204,6 +204,8 @@
 		C718C42B2A2774D6004A37C6 /* FingKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C718C40B2A27731B004A37C6 /* FingKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72B4BB22A33004600BA5313 /* HistoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B4BB12A33004600BA5313 /* HistoryListener.swift */; };
 		C73154292A31B88C0034B92B /* ReachablityUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73154282A31B88C0034B92B /* ReachablityUtil.swift */; };
+		C7439E6B2A3C1CD500DFD15F /* SpeedTestThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7439E6A2A3C1CD500DFD15F /* SpeedTestThread.swift */; };
+		C7439E6E2A3C27F600DFD15F /* PremiumPurchaseThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7439E6D2A3C27F600DFD15F /* PremiumPurchaseThread.swift */; };
 		C750B3212A2DACB40038C1F8 /* RetestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3202A2DACB40038C1F8 /* RetestListener.swift */; };
 		C750B3522A2DDF9A0038C1F8 /* LANDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3442A2DDF9A0038C1F8 /* LANDevice.swift */; };
 		C750B3532A2DDF9A0038C1F8 /* LANHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B3462A2DDF9A0038C1F8 /* LANHost.swift */; };
@@ -476,6 +478,8 @@
 		C718C40D2A27731B004A37C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C72B4BB12A33004600BA5313 /* HistoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListener.swift; sourceTree = "<group>"; };
 		C73154282A31B88C0034B92B /* ReachablityUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachablityUtil.swift; sourceTree = "<group>"; };
+		C7439E6A2A3C1CD500DFD15F /* SpeedTestThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestThread.swift; sourceTree = "<group>"; };
+		C7439E6D2A3C27F600DFD15F /* PremiumPurchaseThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPurchaseThread.swift; sourceTree = "<group>"; };
 		C750B3202A2DACB40038C1F8 /* RetestListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetestListener.swift; sourceTree = "<group>"; };
 		C750B3442A2DDF9A0038C1F8 /* LANDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LANDevice.swift; sourceTree = "<group>"; };
 		C750B3452A2DDF9A0038C1F8 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
@@ -671,6 +675,8 @@
 		BD7F1D1E2A272E5600BEB451 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				C7439E6A2A3C1CD500DFD15F /* SpeedTestThread.swift */,
+				C7439E6D2A3C27F600DFD15F /* PremiumPurchaseThread.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -1424,6 +1430,7 @@
 				BD7F1D2D2A27346F00BEB451 /* DataModel.swift in Sources */,
 				C7B3A7E12A289152008336DC /* LanguageTimer.swift in Sources */,
 				C70CE2122A274B34002E4DD1 /* ProductCell.swift in Sources */,
+				C7439E6B2A3C1CD500DFD15F /* SpeedTestThread.swift in Sources */,
 				C70CE2302A274B34002E4DD1 /* Slave.swift in Sources */,
 				C70CE2C72A274E35002E4DD1 /* GifImageClass.swift in Sources */,
 				C70CE2C52A274E35002E4DD1 /* NetworkSpeedMonitor.swift in Sources */,
@@ -1449,6 +1456,7 @@
 				C70CE27B2A274D09002E4DD1 /* FingNodes.swift in Sources */,
 				C70CE2782A274D09002E4DD1 /* SpeedData.swift in Sources */,
 				C70CE2652A274B34002E4DD1 /* EngineClient.swift in Sources */,
+				C7439E6E2A3C27F600DFD15F /* PremiumPurchaseThread.swift in Sources */,
 				C750B3582A2DDF9A0038C1F8 /* LANScanner.swift in Sources */,
 				C70647372A27640700ED425B /* WifiVC.swift in Sources */,
 				C70CE2622A274B34002E4DD1 /* AppLovinExtension.swift in Sources */,

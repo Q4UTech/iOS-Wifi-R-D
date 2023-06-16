@@ -597,7 +597,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         }
         
         override func main() {
-            vc?.callVPNListFromServer()
+            vc?.callVPNListFromServerUsingURLSession()
         }
     }
     

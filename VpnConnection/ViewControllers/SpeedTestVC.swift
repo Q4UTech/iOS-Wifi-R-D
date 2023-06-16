@@ -104,26 +104,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
         UserDefaults.standard.set(code, forKey: MyConstant.constant.APPLE_LANGUAGE)
         LanguageTimer.shared.startTimer(target: self)
     }
-//    func uploadFinished(isFinsihed: Bool,data:[Double]) {
-////        let array =  Array(self.data.suffix(10))
-////        setChart(dataPoints: months, values: array)
-//    }
-//
-//    func downloadFinsihedFinished(isFinsihed: Bool,data:[Double]) {
-////        let array =  Array(self.data.suffix(10))
-//       // setChart(dataPoints: months, values: array)
-//    }
-//
-//    func isSpeedCheckComplete(complete: Bool, ping: String, upload: Double, download: Double) {
-//        print("ping11\(ping)")
-//
-////        let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailVC") as! SpeedTestDetailVC
-////        vc.ping = ping
-////        vc.uploadSpeed = upload
-////        vc.downloadSpeed = download
-////        navigationController?.pushViewController(vc, animated: true)
-//    }
-//
+
 
     
     func showChartData(show: Bool,data:[Double]) {
@@ -529,22 +510,17 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             parentView.isHidden = false
             topView.isHidden = false
             speedMeterView!.value = 0
-            getNetworkSpeed()
+         
+            let obj = SpeedTestThread();
+            obj.setSpeedTestVC(self);
+            obj.start();
+//    getNetworkSpeed()
 //            getIP()
            // speedTestVM.setPingData(pingLabel: ping)
         }else{
             view.makeToast("Looks like you are not connected to the Internet. Please connect & try again.")
         }
-//        let pingInterval:TimeInterval = 3
-//        let timeoutInterval:TimeInterval = 4
-//        let configuration = PingConfiguration(pInterval:pingInterval, withTimeout:  timeoutInterval)
-//
-//        print(configuration)
-//
-//        SwiftPing.ping(host: "google.com", configuration: configuration, queue: DispatchQueue.main) { (ping, error) in
-//        print("ping data \(ping)")
-//        print("\(error)")
-//        }
+
        
     }
     
@@ -625,85 +601,31 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
         })
 
         
-        let operation = OperationQueue()
-        operation.maxConcurrentOperationCount = 1
-
-        operation.addOperation {
-
+     
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [self] in
                 let array =  Array(self.speedArray.suffix(5))
-                           //        setChart(dataPoints: months, values: array)
-                           print("yourArray\(speedArray.count)")
-                           if array.count == 5 {
-                               setChart(dataPoints: self.months, values: array)
-                           }
-           
-          }
-           
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7) { [self] in
-              speedChartView.isHidden = true
-                          uploadChartView.isHidden = false
+                //        setChart(dataPoints: months, values: array)
+                print("yourArray\(speedArray.count)")
+                if array.count == 5 {
+                    setChart(dataPoints: self.months, values: array)
+                }
+                
+            }
             
-                          print("yourArray\(uploadArray.count)")
-                          let array =  Array(self.uploadArray.suffix(5))
-                          if array.count == 5 {
-                              self.setUploadChart(dataPoints: self.months, values: array)
-                          }
-          }
-            
-           
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 8) { [self] in
-//
-//          }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 7) { [self] in
+                speedChartView.isHidden = true
+                uploadChartView.isHidden = false
+                
+                print("yourArray\(uploadArray.count)")
+                let array =  Array(self.uploadArray.suffix(5))
+                if array.count == 5 {
+                    self.setUploadChart(dataPoints: self.months, values: array)
+                }
+            }
             
            
-        }
-      
-       
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
-//
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
-//
-//
-//
-//        }
-        
-       
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [self] in
-//
-//            let array =  Array(self.speedArray.suffix(5))
-//            //        setChart(dataPoints: months, values: array)
-//            print("yourArray\(speedArray.count)")
-//            if array.count == 5 {
-//                setChart(dataPoints: self.months, values: array)
-//            }
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [self] in
-//            speedChartView.isHidden = true
-//            uploadChartView.isHidden = false
-//
-////                        for _ in uploadArray{
-////                            upCounter += 1
-////                            months.append(String(upCounter))
-////                        }
-//            print("yourArray\(uploadArray.count)")
-//            let array =  Array(self.uploadArray.suffix(5))
-//            if array.count == 5 {
-//                self.setUploadChart(dataPoints: self.months, values: array)
-//            }
-//
-//
-//        }
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
-//            let uploadDataArray =  Array(self.uploadArray.suffix(5))
-//            print("yourArray\(uploadDataArray)")
-//            if uploadArray != nil{
-//                self.setUploadChart(dataPoints: self.months, values: uploadDataArray)
-//            }
-//        }
+
     }
     
     @objc func showGraph(baseArray:[String],data:[Double]){
@@ -924,7 +846,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
      uploadChartView.setScaleEnabled(false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [self] in
         let vc = storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailPageVC") as! SpeedTestDetailPageVC
-        vc.ping = UserDefaults.standard.string(forKey: "pingData") ?? "0.00"
+        vc.ping = UserDefaults.standard.string(forKey: "pingData") ?? "15"
             print("speeddetail \(uploadArray.last!)\(speedArray.last!)")
         vc.uploadSpeed = uploadArray.last!
         vc.downloadSpeed = speedArray.last!

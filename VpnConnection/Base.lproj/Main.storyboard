@@ -4815,7 +4815,7 @@ Cancel subscription anytime from AppStore.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P4-Ot-W8g">
-                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45"/>
+                                        <rect key="frame" x="20" y="2.6666666666666643" width="45" height="45.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="INQ-hS-ebd"/>
                                             <constraint firstAttribute="height" constant="45" id="Wdg-cf-Rzg"/>

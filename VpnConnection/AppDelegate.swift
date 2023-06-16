@@ -28,6 +28,7 @@ class AppDelegate: EngineDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(appWillBecomeActive),
                                                name: UIApplication.willEnterForegroundNotification, object: nil)
        
+        WifiVC.getConnectedDevicesList1(key: "IWFkamFzLWprYXNkaGphcy1kaC1kZXZyZWNvZy10cmlhbBJhZGphcyBqa2FzZGhqYXMgZGgZVHJpYWwgZnJvbSByZWNvZy5maW5nLmNvbQAAAYiKxBnZmhEtdg==")
         
         return true
     }

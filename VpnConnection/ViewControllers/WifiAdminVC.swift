@@ -20,26 +20,25 @@ class WifiAdminVC: UIViewController,WKNavigationDelegate, UIScrollViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//       if hasPurchased(){
-       
-        KRProgressHUD.show()
-        hideUnhidePremiumView(hide: true)
-        wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
-       wkWebview.navigationDelegate = self
-        wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.customWebView.addSubview(wkWebview)
-        let router_url = "http://"+UserDefaults.standard.string(forKey: MyConstant.ROUTER_IP)!
-        let url = URL(string: router_url)
-       
-    wkWebview.load(URLRequest(url: url!,cachePolicy: .returnCacheDataElseLoad))
-        
-    loadingView.isHidden = true
-//        loadingView.isHidden = false
-           
-       
-//        }else{
-//            hideUnhidePremiumView(hide:false)
-//        }
+        if hasPurchased(){
+            
+            KRProgressHUD.show()
+            hideUnhidePremiumView(hide: true)
+            wkWebview = WKWebView(frame: customWebView.bounds, configuration: WKWebViewConfiguration())
+            wkWebview.navigationDelegate = self
+            wkWebview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.customWebView.addSubview(wkWebview)
+            let router_url = "http://"+UserDefaults.standard.string(forKey: MyConstant.ROUTER_IP)!
+            let url = URL(string: router_url)
+            
+            wkWebview.load(URLRequest(url: url!,cachePolicy: .returnCacheDataElseLoad))
+            
+            loadingView.isHidden = true
+            
+            
+        }else{
+            hideUnhidePremiumView(hide:false)
+        }
 
     }
     

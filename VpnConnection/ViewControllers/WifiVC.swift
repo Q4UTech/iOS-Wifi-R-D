@@ -113,7 +113,12 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
             topView.isHidden = true
             coonectedView.isHidden = false
             WifiName.isHidden = false
-            WifiName.text = getWiFiSsid()
+            if getWiFiSsid() == nil{
+                WifiName.text = "Not Found"
+            }else{
+                WifiName.text = getWiFiSsid()
+            }
+            
             print("getWifiname \(getWiFiSsid()) \(getWiFiName())")
         }else{
             locationManager = CLLocationManager()
@@ -343,11 +348,13 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
         let encodedString = hexadecimal.encrypt(text:jsonString1)
         var parametr = [String:String]()
         parametr = ["data":encodedString!]
+        
+//        getConnectedDevicesList(key:"")
         NetworkHelper.sharedInstanceHelper.createPostRequest(method: .post, showHud: true, params: parametr, apiName: "/wifiauthservice/authkey") { [self] (result, error) in
             do{
                 if result != nil{
-                    
-                    
+
+
                     let decryptString = decryptvalue.decrypt(hexString:result! as! String)
                     let dict1 = dictnry.convertToDictionary(text: decryptString!)
                     let code = dict1!["key"] as! String
@@ -355,16 +362,16 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
                     if locationPermissionGranted{
                         getConnectedDevicesList(key:code)
                     }
-                    
+
                 }
                 else{
-                    
+
                 }
-                
+
             }catch{
                 // doAuthKeyRequest()
             }
-            
+
         }
         
         //}
@@ -497,22 +504,31 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
         }
         
         override func main() {
-            vc?.scanDevice()
+            vc?.scanDevice1()
+//            vc?.scanDevice()
+
         }
     }
     
     private func getConnectedDevicesList(key:String){
-        print("keyname \(key)")
+        print(" FingSDK:  getConnectedDevicesList key : \(key)")
+      
+//        let fingObj = FingScannerThread()
+//        fingObj.setWifiVC(self)
+//        fingObj.start()
+        
         FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { [self] result, error in
-            
+            print(" FingSDK:  getConnectedDevicesList result : \(result)")
             if result != nil{
-                //                task = UIApplication.shared.beginBackgroundTask(withName: "MyTask") { [self] in
                 
-               let fingObj = FingScannerThread()
-                fingObj.setWifiVC(self)
-                fingObj.start()
-                //                scanDevice()
-                
+                DispatchQueue.main.async {
+                    //                task = UIApplication.shared.beginBackgroundTask(withName: "MyTask") { [self] in
+                    
+                    let fingObj = FingScannerThread()
+                    fingObj.setWifiVC(self)
+                    fingObj.start()
+                    //                scanDevice()
+                }
                 
                 //                DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [self] in
                 //                    callApi()
@@ -526,6 +542,35 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
             
             
         }
+        
+    }
+    public static func getConnectedDevicesList1(key:String){
+        print("keyname1 \(key)")
+//        FingScanner.sharedInstance().validateLicenseKey(key, withToken: nil) { [self] result, error in
+//            print(" FingSDK:  getConnectedDevicesList result : \(result)")
+//            if result != nil{
+//
+//
+//                //                task = UIApplication.shared.beginBackgroundTask(withName: "MyTask") { [self] in
+//
+////                let fingObj = FingScannerThread()
+////                fingObj.setWifiVC(self)
+////                fingObj.start()
+//                //                scanDevice()
+//
+//
+//                //                DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [self] in
+//                //                    callApi()
+//                //                }
+//
+//
+//                //                }
+//
+//
+//            }
+//
+//
+//        }
         
         
         
@@ -630,149 +675,151 @@ class WifiVC: UIViewController ,LanguageSelectionDelegate,LANScannerDelegate,CLL
     
     
     
-    
-    
-    func scanDevice(){
-        //        DispatchQueue.global(qos: .background).async { [self] in
+    func scanDevice1(){
         
         let scanner = FingScanner.sharedInstance()
         let options = FingScanOptions.systemDefault()
     
-        // Set this to true to simulate an externally-provided ARP table
-        
-        // printToUI("--- networkScan ---")
+//        options?.maxNetworkSize=100
         
         
-        //        options?.maxNetworkSize=1
         
-       
+        scanner.networkInfo(){  [self] result, error in
+            print("---NETWORK SCAN22---00 \(result)")
+            DispatchQueue.main.async {
+                DispatchQueue.global(qos: .background).async {
+                    
+                    print("---NETWORK SCAN22---11 \(result)")
+                    scanDevice()
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    func scanDevice(){
+      
+        
+        let scanner = FingScanner.sharedInstance()
+        let options = FingScanOptions.systemDefault()
+    
+//        options?.maxNetworkSize=100
+        
+        
         
         scanner.networkScan(options) { [self] result, error in
-            let completed = FGKUtils.extractFromJSON(result, forKey: "progress")
-            let formatted = FGKUtils.formatResult(result, orError: error)
-            print("---NETWORK SCAN22---\n\(formatted)")
+            DispatchQueue.main.async {
             
-            if result != nil{
-                if let jsonData = result!.data(using: .utf8) {
-                    print("jsonData11 \(result)")
-                    do {
-                        
-                        
-                        let decoder = JSONDecoder()
-                        
-                        let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
-                        
-                        
-                        print("fingCount0 \(scanResponse.nodes) \(scanResponse.nodes?.count)")
-                        
-                        
-                        if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
-                            print("fingCount \(fingNodes.count)")
-                        }
-                    } catch{
-                            
-                        }
-                    }}
-            
-            if formatted as! String == "License has expired"{
-                print("do action")
-                offline = true
-                
-                let scanner = LANScanner(delegate: self, continuous: false)
-                scanner.startScan()
-            }else{
-                offline = false
-                if completed == nil || completed as! Int == 100 {
-                    scanner.networkScanStop()
-                    scanner.networkScan(options)
-                    print("called again")
-                   
-//                   Thread.current.cancel()
-                //    Thread.exit()
-//                    DispatchQueue.global().suspend()
+            DispatchQueue.global(qos: .background).async {
+                let completed = FGKUtils.extractFromJSON(result, forKey: "progress")
+                let formatted = FGKUtils.formatResult(result, orError: error)
+                print("---NETWORK SCAN22---\n\(formatted)")
                 
                 
-                    if result != nil{
-                        if let jsonData = result!.data(using: .utf8) {
-                            print("jsonData11 \(result)")
-                            do {
-                                
-                                
-                                let decoder = JSONDecoder()
-                                
-                                let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
-                                
-                                
-                                // print("content \(content)")
-                                
-                                
-                                if let isp = scanResponse.gatewayIpAddress {
+                
+                if formatted as! String == "License has expired"{
+                    print("do action")
+                    offline = true
+                    
+                    let scanner = LANScanner(delegate: self, continuous: false)
+                    scanner.startScan()
+                }else{
+                    offline = false
+                    if completed == nil || completed as! Int == 100 {
+                        scanner.networkScanStop()
+                        FingScanner.sharedInstance().willSuspend()
+                        
+                        //                        scanner.networkScan(options)
+                        print("called again")
+                        
+                        //                   Thread.current.cancel()
+                        //    Thread.exit()
+                        //                    DispatchQueue.global().suspend()
+                        
+                        
+                        if result != nil{
+                            if let jsonData = result!.data(using: .utf8) {
+                                print("jsonData11 \(result)")
+                                do {
                                     
-                                    UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
+                                    
+                                    let decoder = JSONDecoder()
+                                    
+                                    let scanResponse = try decoder.decode(FingScanResponse.self, from: jsonData)
                                     
                                     
-                                    //                                         if let ispName = scanResponse.fingIsp {
-                                    //
-                                    //                                             DispatchQueue.main.async { [self] in
-                                    //                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
-                                    //                                             }
-                                    //
-                                    //                                         }
-                                    if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
+                                    // print("content \(content)")
+                                    
+                                    
+                                    if let isp = scanResponse.gatewayIpAddress {
                                         
-                                        DispatchQueue.main.async { [self] in
+                                        UserDefaults.standard.set(isp, forKey: MyConstant.ROUTER_IP)
+                                        
+                                        
+                                        //                                         if let ispName = scanResponse.fingIsp {
+                                        //
+                                        //                                             DispatchQueue.main.async { [self] in
+                                        //                                                 WifiName.text = ispName.ispName?.shorted(to: 30)
+                                        //                                             }
+                                        //
+                                        //                                         }
+                                        if let fingNodes = scanResponse.nodes, !fingNodes.isEmpty {
                                             
-                                            
-                                            fingData = fingNodes
-                                            if initial_count==0{
-                                                initial_count = 1
-                                                let items = fingData.map{Item(uniqueKey: $0.firstSeenTimestamp!, value: $0) }
-                                                radarView.add(items: items)
-                                                print("scan done22 \(items.count)")
-                                                radarView.stopAnimation()
+                                            DispatchQueue.main.async { [self] in
+                                                
+                                                
+                                                fingData = fingNodes
+                                                if initial_count==0{
+                                                    initial_count = 1
+                                                    let items = fingData.map{Item(uniqueKey: $0.firstSeenTimestamp!, value: $0) }
+                                                    radarView.add(items: items)
+                                                    print("scan done22 \(items.count)")
+                                                    radarView.stopAnimation()
+                                                    waitingLbl.isHidden = true
+                                                    
+                                                }
+                                                
+                                                
+                                                isFetched = true
+                                                coonectedView.isHidden = false
                                                 waitingLbl.isHidden = true
+                                                topView.isHidden = true
+                                                connectedDeviceCount.text = "(\(fingNodes.count))"
+                                                wifiTableView.reloadData()
+                                                
                                                 
                                             }
                                             
-                                            
-                                            isFetched = true
-                                            coonectedView.isHidden = false
-                                            waitingLbl.isHidden = true
-                                            topView.isHidden = true
-                                            connectedDeviceCount.text = "(\(fingNodes.count))"
-                                            wifiTableView.reloadData()
-                                            
-                                            
                                         }
+                                        
                                         
                                     }
                                     
                                     
+                                    print("scan done88")
+                                    
+                                }catch{
+                                    print("error_msg\(error)")
                                 }
                                 
-                                
-                                print("scan done88")
-                                
-                            }catch{
-                                print("error_msg\(error)")
                             }
-                            
                         }
+                        
+                        //                         }
+                    }else{
+                        //                    Thread.current.cancel()
+                        //                    Thread.exit()
                     }
-                    
-                    // }
-                }else{
-//                    Thread.current.cancel()
-//                    Thread.exit()
+                    //                                    }
                 }
-                //                }
-                
                 // DispatchQueue.main.async {
                 //    self.printToUI(formatted as! String )
                 
             }
             
-            
+        }
         }
     }
     

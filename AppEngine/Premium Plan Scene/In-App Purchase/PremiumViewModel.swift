@@ -12,8 +12,9 @@ class PremiumViewModel{
    // var products: [SKProduct] = []
 
     func premiumList(completion:@escaping (_ productList:[SKProduct]?,_ status : Bool ) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
+      
+        // DispatchQueue.global(qos: .userInitiated).async {
+          //  DispatchQueue.main.async {
              print("checkProducts")
      
             RazeFaceProducts.store.requestProducts{ success, products in
@@ -31,8 +32,8 @@ class PremiumViewModel{
                     completion(nil,false)
                 }
             }
-        }
-     }
+      //  }
+   //  }
     }
   
     

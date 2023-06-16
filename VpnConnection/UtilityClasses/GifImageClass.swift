@@ -16,16 +16,16 @@ import Foundation
 import Foundation
 import UIKit
 extension UIImageView {
-    func setGIFImage(name: String, repeatCount: Int = 0 ,durationinSec:TimeInterval) {
-        DispatchQueue.global().async {
-            if let gif = UIImage.makeGIFFromCollection(name: name, repeatCount: repeatCount,durationinSec:durationinSec) {
-                DispatchQueue.main.async {
-                    self.setImage(withGIF: gif)
-                    self.startAnimating()
-                }
-            }
-        }
-    }
+//    func setGIFImage(name: String, repeatCount: Int = 0 ,durationinSec:TimeInterval) {
+//        DispatchQueue.global().async {
+//            if let gif = UIImage.makeGIFFromCollection(name: name, repeatCount: repeatCount,durationinSec:durationinSec) {
+//                DispatchQueue.main.async {
+//                    self.setImage(withGIF: gif)
+//                    self.startAnimating()
+//                }
+//            }
+//        }
+//    }
 
     private func setImage(withGIF gif: GIF) {
         animationImages = gif.images

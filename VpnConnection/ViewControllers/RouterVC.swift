@@ -50,21 +50,7 @@ class RouterVC: UIViewController, UITextFieldDelegate{
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
-//       if hasPurchased(){
-            premiumView.isHidden = true
-            
-//        }else{
-//            premiumView.isHidden = false
-//        }
-       
-        if isFrom{
-           
-            hideUnhide(isShow: false,value: 40)
-        }else{
-           
-            hideUnhide(isShow: true,value: 0)
 
-        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -89,6 +75,21 @@ class RouterVC: UIViewController, UITextFieldDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+             //  if hasPurchased(){
+                    premiumView.isHidden = true
+                    
+//                }else{
+//                    premiumView.isHidden = false
+//                }
+               
+                if isFrom{
+                   
+                    hideUnhide(isShow: false,value: 40)
+                }else{
+                   
+                    hideUnhide(isShow: true,value: 0)
+
+                }
         SearchController.instanceHelper.searchData(searchDarta: "")
         hideUnhideView(isSearch: true, isSearchBtn: false, isCloseBtn: true)
     }

@@ -10,6 +10,7 @@ import Foundation
 class MyConstant {
     static let SPEED_LIST = "SPEED_LIST"
     static let PERMISSION_GRANTED = "PERMISSION_GRANTED"
+    static let PASSWORD_LIST = "PASSWORD_LIST"
     struct data {
 //        let USER_TYPE = "USER_TYPE"
 //        let USER_DATA = "USER_DATA"

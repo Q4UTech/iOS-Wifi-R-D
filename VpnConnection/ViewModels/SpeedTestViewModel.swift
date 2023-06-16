@@ -18,48 +18,7 @@ import CoreLocation
 
 
 class SpeedTestViewModel{
-//    func internetTestError(error: SpeedcheckerSDK.SpeedTestError) {
-//       print(error)
-//    }
-//
-//    func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult) {
-//        print("latency \(result.latencyInMs)")
-//
-//    }
-//
-//    func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer]) {
-//       print(servers)
-//    }
-//
-//    func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Int, jitter: Int) {
-//        SpeedTestCompleteListener.instanceHelper.showData(data: latency)
-//        pingData = "\(latency)"
-//        UserDefaults.standard.set(pingData, forKey: "pingData")
-//    }
-//
-//    func internetTestDownloadStart() {
-//       print("Start")
-//    }
-//
-//    func internetTestDownloadFinish() {
-//        print("")
-//    }
-//
-//    func internetTestDownload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
-//        print("")
-//    }
-//
-//    func internetTestUploadStart() {
-//        print("")
-//    }
-//
-//    func internetTestUploadFinish() {
-//        print("")
-//    }
-//
-//    func internetTestUpload(progress: Double, speed: SpeedcheckerSDK.SpeedTestSpeed) {
-//       print("")
-//    }
+
     
     private var internetTest: InternetSpeedTest?
        private var locationManager = CLLocationManager()
@@ -73,7 +32,7 @@ class SpeedTestViewModel{
     var pingData = String()
     var currentTime:String? = ""
     func downloadSpeedTest(target: UIViewController, completion:@escaping (_ speed: Double,_ uploadSpeed:Double,_ status:Bool) -> Void) {
-        DispatchQueue.global(qos: .background).async {
+     // DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async { [self] in
                 
 //                uploadArray.removeAll()
@@ -101,18 +60,18 @@ class SpeedTestViewModel{
             }
            
         }
-        }
+      // }
     }
 
     
     func uploadSpeedTest(completion:@escaping (_ speed: Double,_ status:Bool) -> Void){
-        DispatchQueue.global(qos: .background).async {
+      //  DispatchQueue.global(qos: .background).async {
             UploadNetworkSpeedTest.shared.testUploadSpeedWithTimout(timeout: 5.0) {  (speed, status,error) in
                 completion(speed!,status)
                 
             }
            
-        }
+      // }
        
     }
     
