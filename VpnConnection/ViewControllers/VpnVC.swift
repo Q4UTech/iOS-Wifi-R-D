@@ -23,7 +23,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     }
     
     func timerUpdated(time: TimeInterval) {
-       // updateTimerLabel(time: time)
+        // updateTimerLabel(time: time)
     }
     
     func connectedTimer(connectedTimer: String) {
@@ -67,7 +67,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             setStatus(value: true)
             topViewUiLabel.text = "Stop"
             topImg.image = UIImage(named: "lock")
-//            TimerManager.shared.startTimer()
+            //            TimerManager.shared.startTimer()
             startStopAction()
             //delegate.setStatus(value: true)
             
@@ -80,7 +80,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             connectButton.backgroundColor = hexStringColor(hex: "#202936")
             statuslabel.textColor = .white
             topImg.image = UIImage(named: "waiting")
-          
+            
         }
         
         if connectionStatus == "disconnected"{
@@ -90,8 +90,8 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             connectButton.setTitle("Connect", for: .normal)
             topImg.image = UIImage(named: "power_btn")
             statuslabel.text =  "Not Connected"
-          
-           // TimerManager.shared.stopTimer()
+            
+            // TimerManager.shared.stopTimer()
             stopBackgroundTiming()
             timerLabel.text = "00:00:00"
             statuslabel.textColor = hexStringColor(hex: "#EC2727")
@@ -166,43 +166,43 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
         transView.addGestureRecognizer(tapGesture)
         let monitor = NetworkSpeedMonitor()
         monitor.startMonitoring()
-       callDelegates()
+        callDelegates()
         callCatApi()
         // Stop monitoring after a certain duration or when needed
         // monitor.stopMonitoring()
         TimerManager.shared.delegate = self
         
-//        let elapsedTime = TimerManager.shared.getElapsedTime()
-//        updateTimerLabel(time: elapsedTime)
+        //        let elapsedTime = TimerManager.shared.getElapsedTime()
+        //        updateTimerLabel(time: elapsedTime)
         //            let elapsedTime = TimerManager.shared.getElapsedTime()
         //                updateTimerLabel(time: elapsedTime)
-      
         
-      
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name("AppWillBecomeActive"), object: nil)
         
         backgroundTimer()
     }
     func getScreenWidthResolution()->CGFloat{
-          let screenSize: CGRect = UIScreen.main.bounds
-           return screenSize.width
-       }
+        let screenSize: CGRect = UIScreen.main.bounds
+        return screenSize.width
+    }
     
     func getOSInfo()->String {
-           let os = ProcessInfo().operatingSystemVersion
-           return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
-       }
+        let os = ProcessInfo().operatingSystemVersion
+        return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
+    }
     
     func getAppVersionInfo()->String {
-           let dictionary = Bundle.main.infoDictionary!
-           let version = dictionary["CFBundleShortVersionString"] as! String
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
         _ = dictionary["CFBundleVersion"] as! String
-           return version
-       }
+        return version
+    }
     
     func  getCountryNameInfo()->String{
-         let locale = Locale.current
-         return String(locale.regionCode!)
+        let locale = Locale.current
+        return String(locale.regionCode!)
     }
     
     func getDeviceName()->String{
@@ -268,7 +268,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     {
         scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
         setTimerCounting(true)
-       
+        
     }
     
     @objc func refreshValue()
@@ -318,7 +318,7 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
             scheduledTimer.invalidate()
         }
         setTimerCounting(false)
-       
+        
     }
     
     private func stopBackgroundTiming(){
@@ -351,16 +351,16 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     @objc func didBecomeActive() {
         print("didBecomeActive")
-//        TimerManager.shared.startTimer()
-      // startStopAction()
-       // backgroundTimer()
-       
+        //        TimerManager.shared.startTimer()
+        // startStopAction()
+        // backgroundTimer()
+        
     }
     deinit{
         NotificationCenter.default.removeObserver(self)
     }
     
-   
+    
     func updateTimerLabel(time: TimeInterval) {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
@@ -373,14 +373,14 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     
     override func viewDidAppear(_ animated: Bool) {
-       callDelegates()
-       
+        callDelegates()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
-      callDelegates()
-//        callCatApi()
+        
+        callDelegates()
+        //        callCatApi()
         hideUnhideMenuView(showTrans: true, showMenu: true)
         getBannerAd(self, adView, heightConstraint)
         if UserDefaults.standard.string(forKey: "VPN_NAME") != nil {
@@ -556,148 +556,170 @@ class VpnVC: UIViewController,ConnectionStateDelegate,CountrySelectionListDelega
     
     
     func callCatApi(){
-        if Thread.current.isCancelled {
-            // do cleanup here
-            Thread.exit()
-        }
-       
+        //        if Thread.current.isCancelled {
+        //            // do cleanup here
+        //            Thread.exit()
+        //        }
+        //
         
-        KRProgressHUD.showOn(self).show()
+        
+        // KRProgressHUD.showOn(self).show()
         if NetworkHelper.sharedInstanceHelper.isConnectedToNetwork(){
-            DispatchQueue.global(qos: .background).async { [self] in
-                
-                
-                guard let url = URL(string: "https://quantum4you.com/engine/vpnserviceapi/response") else {
-                    print("Invalid URL")
-                    return
-                }
-                
-                let session = URLSession.shared
-                
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                
-                // Set the request body with parameters
-                let params = ["app_id":APP_ID,
-                              "country": getCountryNameInfo(),
-                              "screen": getScreenWidthResolution(),
-                              "launchcount": "1",
-                              "version": getAppVersionInfo(),
-                              "osversion": getOSInfo(),
-                              "dversion": "iphone",
-                              "os": "2"] as [String : Any]
-                
-                do {
-                    
-                    //                    let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-                    //                    request.httpBody = jsonData
-                    let task = session.dataTask(with: request) { [self] (data, response, error) in
-                        if let error = error {
-                            print("Error: \(error.localizedDescription)")
-                            return
-                        }
-                        print("response_data\(response)")
-                        guard let httpResponse = response as? HTTPURLResponse else {
-                            print("Invalid response")
-                            return
-                        }
-                        
-                        if httpResponse.statusCode == 200 {
-                            if let data = data {
-                                do {
-                                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                        
-                                        let array = json["countries"] as? NSArray
-                                        print("arr_data \(array?.count)\(array)")
-                                        // print("status \(String(describing: status)) \(jObject)")
-                                        for i in array! {
-                                            let data:Dictionary? = i as? Dictionary<String, Any>
-                                            let vpnname = data!["vpnname"] as? String
-                                            let vpncode = data!["vpncode"] as? String
-                                            let username = data!["username"] as? String
-                                            let password = data!["password"] as? String
-                                            let vpn_flag = data!["vpn_flag"] as? String
-                                            let file_location = data!["file_location"] as? String
-                                            let purchsedType = data!["purchsedType"] as? String
-                                            countryData.append(DataModel(vpnname: vpnname!,vpncode: vpncode!, username: username!, password: password!, vpn_flag: vpn_flag!, file_location: file_location!, purchsedType: purchsedType!))
-                                            
-                                        }
-                                        DispatchQueue.main.async { [self] in
-                                            KRProgressHUD.dismiss()
-                                            
-                                            
-                                            print("co\(self.countryData[0].vpnname)")
-                                            if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
-                                                
-                                                
-                                                
-                                                self.countrylabel.text = self.countryData[0].vpnname
-                                                self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
-                                                self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
-                                                
-                                            }
-                                        }}
-                                } catch {
-                                    print("Error parsing JSON: \(error.localizedDescription)")
-                                }
-                            }
-                        } else {
-                            print("HTTP response status code: \(httpResponse.statusCode)")
-                        }
-                    }
-                    task.resume()
-                } catch {
-                    print("Error creating JSON data: \(error.localizedDescription)")
-                    return
-                }
-            }
-                
-                
-               
-           
-
-           
-           
-
-//            DispatchQueue.global(qos: .background).async {
-//
-//
-//                CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
-//
-//                    if error == "No Internet Connection"{
-//
-//                    }else{
-//                        if categoryList.count == 0{
-//                            // KRProgressHUD.dismiss()
-//                            //
-//
-//                        }else{
-//                            //   KRProgressHUD.dismiss()
-//                            self.countryData=categoryList
-//                            print("co\(self.countryData[0].vpnname)")
-//                            if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
-//                                DispatchQueue.main.async {
-//
-//
-//                                self.countrylabel.text = self.countryData[0].vpnname
-//                                self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
-//                                self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
-//                                }
-//                            }
-//                        }
-//                    }
-//                })
-//
-//            }
+            
+            
+            
+            
+            print("call 11")
+            
+            //            DispatchQueue.global(qos: .background).async {
+            //                print("call 22")
+            //            DispatchQueue(label: "com.knowstack.queue1").async {
+            
+            let obj = VPNScannerThread();
+            obj.setWifiVC(self);
+            obj.start();
+            //            callVPNListFromServer()
+            print("call 66")
+            //           }
         }else{
             // fetchCategoryInDirectory(cell:cell)
-             KRProgressHUD.dismiss()
+            KRProgressHUD.dismiss()
         }
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-       // UserDefaults.standard.set(, forKey: <#T##String#>)
+    
+    class VPNScannerThread:Thread{
+        var vc:VpnVC?=nil
+        
+        func setWifiVC(_ vc:VpnVC){
+            self.vc=vc;
+        }
+        
+        override func main() {
+            vc?.callVPNListFromServer()
+        }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        // UserDefaults.standard.set(, forKey: <#T##String#>)
+    }
+    
+    private func callVPNListFromServerUsingURLSession(){
+        guard let url = URL(string: "https://quantum4you.com/engine/vpnserviceapi/response") else {
+            print("Invalid URL")
+            return
+        }
+        
+        let session = URLSession.shared
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Set the request body with parameters
+        let params = ["app_id":APP_ID,
+                      "country": getCountryNameInfo(),
+                      "screen": getScreenWidthResolution(),
+                      "launchcount": "1",
+                      "version": getAppVersionInfo(),
+                      "osversion": getOSInfo(),
+                      "dversion": "iphone",
+                      "os": "2"] as [String : Any]
+        
+        do {
+            
+            //                    let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            //                    request.httpBody = jsonData
+            let task = session.dataTask(with: request) { [self] (data, response, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                print("response_data\(response)")
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    print("Invalid response")
+                    return
+                }
+                
+                if httpResponse.statusCode == 200 {
+                    if let data = data {
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                
+                                let array = json["countries"] as? NSArray
+                                print("arr_data \(array?.count)\(array)")
+                                // print("status \(String(describing: status)) \(jObject)")
+                                for i in array! {
+                                    let data:Dictionary? = i as? Dictionary<String, Any>
+                                    let vpnname = data!["vpnname"] as? String
+                                    let vpncode = data!["vpncode"] as? String
+                                    let username = data!["username"] as? String
+                                    let password = data!["password"] as? String
+                                    let vpn_flag = data!["vpn_flag"] as? String
+                                    let file_location = data!["file_location"] as? String
+                                    let purchsedType = data!["purchsedType"] as? String
+                                    countryData.append(DataModel(vpnname: vpnname!,vpncode: vpncode!, username: username!, password: password!, vpn_flag: vpn_flag!, file_location: file_location!, purchsedType: purchsedType!))
+                                    
+                                }
+                                DispatchQueue.main.async { [self] in
+                                    KRProgressHUD.dismiss()
+                                    
+                                    
+                                    print("co\(self.countryData[0].vpnname)")
+                                    if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
+                                        
+                                        
+                                        
+                                        self.countrylabel.text = self.countryData[0].vpnname
+                                        self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
+                                        self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                                        
+                                    }
+                                }}
+                        } catch {
+                            print("Error parsing JSON: \(error.localizedDescription)")
+                        }
+                    }
+                } else {
+                    print("HTTP response status code: \(httpResponse.statusCode)")
+                }
+            }
+            task.resume()
+        } catch {
+            print("Error creating JSON data: \(error.localizedDescription)")
+            return
+        }
+        
+    }
+    private func callVPNListFromServer(){
+        CountryDataVM.shared.getExcercise(completion: {categoryList,error  in
+            print("call 33")
+            if error == "No Internet Connection"{
+                print("call 44")
+            }else{
+                print("call 55")
+                if categoryList.count == 0{
+                    // KRProgressHUD.dismiss()
+                    //
+                    
+                }else{
+                    //   KRProgressHUD.dismiss()
+                    self.countryData=categoryList
+                    print("co\(self.countryData[0].vpnname)")
+                    if UserDefaults.standard.string(forKey: "VPN_NAME") == nil {
+                        DispatchQueue.main.async {
+                            
+                            
+                            self.countrylabel.text = self.countryData[0].vpnname
+                            self.flagImg.sd_setImage(with: URL.init(string: self.countryData[0].vpn_flag))
+                            self.profileVM.connection.setCustomConfigFile(url: self.countryData[0].file_location)
+                        }
+                    }
+                }
+            }
+        })
+    }
+    
+    
     
 }

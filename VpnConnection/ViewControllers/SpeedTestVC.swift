@@ -132,12 +132,9 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             upCounter += 1
             months.append(String(upCounter))
         }
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:#selector(showSpeedGraph),userInfo: true,repeats:true)
+
         showSpeedGraph()
-//        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [self] timer in
-//           showGraph(baseArray:months,data:data)
-//
-//        }
+
     }
     
  
@@ -192,6 +189,8 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
     var upCounter = 0
     var isDownload:Bool = false
     private var pingSpeed: PingSpeed?
+    
+    private var films: Film?
     
     var connectionTypeDetail = String()
     var ipAddressDetail = String()
@@ -249,7 +248,10 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
         //        }
  //   getWiFiName()
        
-        
+        NetworkManager().fetchFilms { [weak self] (films) in
+            self?.films = films
+            
+        }
     }
     func getConnectionType() -> String {
             guard let reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "www.google.com") else {
@@ -287,6 +289,15 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             }
         }
    
+    func getIP()->String{
+        var ip = ""
+        if films?.city != nil {
+            print("ip \(String(films!.query))")
+         ip = "\(String(films!.query))"
+           
+        }
+        return ip
+    }
     func getIFAddresses()->String {
        
         let url = URL(string: "https://api.ipify.org")
@@ -508,7 +519,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
     
     @IBAction func beginTestAction(_ sender: Any) {
         connectionTypeDetail = getConnectionType()
-       // ipAddressDetail = getIFAddresses()
+        ipAddressDetail = getIP()
         wifiNameDetail = getWiFiName()!
         uploadArray.removeAll()
         speedArray.removeAll()
@@ -519,7 +530,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
             topView.isHidden = false
             speedMeterView!.value = 0
             getNetworkSpeed()
-            getIP()
+//            getIP()
            // speedTestVM.setPingData(pingLabel: ping)
         }else{
             view.makeToast("Looks like you are not connected to the Internet. Please connect & try again.")
@@ -774,14 +785,7 @@ class SpeedTestVC: UIViewController, UIDocumentInteractionControllerDelegate, La
     }
 
     
-    func getIP(){
-        if pingSpeed?.city != nil {
-//            ping.text = String(pingSpeed!.query)
-//            pingData = String(pingSpeed!.query)
-            
-            //ipadressLocation.text =  "Location :" + " " + films!.city
-        }
-    }
+    
     func fetchFilms(completionHandler: @escaping (PingSpeed) -> Void) {
         let url = URL(string: "http://ip-api.com/json")!
         

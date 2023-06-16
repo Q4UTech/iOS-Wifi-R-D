@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 func  doCategoryApiRequest(completion:@escaping ( _ categoryListResponse: [DataModel],_ error:String?) -> Void){
-    DispatchQueue.global(qos: .background).async {
+//    DispatchQueue.global(qos: .background).async {
       
             NetworkManagers.sharedInstanceHelper.getCategory(networkListner:{
                 (response:CountryList?,error:String?)  in
@@ -23,6 +23,6 @@ func  doCategoryApiRequest(completion:@escaping ( _ categoryListResponse: [DataM
                 }
             })
        
-    }
+//    }
 }
 

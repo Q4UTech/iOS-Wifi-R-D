@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FingKit
 
 class SpeedHistoryVC: UIViewController ,HistoryProtocol{
     func isDeleteComplete(complete: Bool) {
@@ -74,6 +75,8 @@ class SpeedHistoryVC: UIViewController ,HistoryProtocol{
 //        }
         
        fetchFavouriteList()
+        
+   
        
        
     }
@@ -187,7 +190,7 @@ extension SpeedHistoryVC: UITableViewDataSource,UITableViewDelegate{
         let data = speedDataList[speedDetailData[indexPath.section]]?[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeedTestDetailPageVC") as! SpeedTestDetailPageVC
         vc.isFrom = "SpeedHistory"
-        vc.ping = data!.ping
+        vc.ping = data?.ping ?? "0.00"
         vc.uploadSpeed = data!.uploadSpeed
         vc.downloadSpeed = data!.downloadSpeed
         vc.ipAddressData = data!.ipAddress

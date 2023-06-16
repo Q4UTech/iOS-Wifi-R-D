@@ -86,9 +86,11 @@ class SpeedTestDetailPageVC: UIViewController {
             pingLabel.text = ping + ".00"
             uploadLabel.text = String(uploadSpeed).maxLength(length: 4)
             downloadLabel.text = String(downloadSpeed).maxLength(length: 4)
+            print("ipDetail \(ipDetail)")
             ipAddress.text = ipDetail
             connectedType.text = connectionType
-            ipAddress.text = wifiName
+            providerLabel.text = wifiName
+          //  ipAddress.text = ipAddressData
 
            
             providerLabel.text = wifiName

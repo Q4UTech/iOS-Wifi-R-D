@@ -219,6 +219,8 @@
 		C750B3602A2DE0910038C1F8 /* WifiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750B35D2A2DE0910038C1F8 /* WifiHelper.swift */; };
 		C75C02682A2E2249004C3EED /* OfflineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C02672A2E2249004C3EED /* OfflineData.swift */; };
 		C75C02702A2E447E004C3EED /* PingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C026F2A2E447E004C3EED /* PingResponse.swift */; };
+		C79D00EA2A3AC0D4005FE926 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D00E92A3AC0D4005FE926 /* Film.swift */; };
+		C79D00ED2A3AC106005FE926 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D00EC2A3AC106005FE926 /* NetworkManager.swift */; };
 		C7B3A7E12A289152008336DC /* LanguageTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DD2A289152008336DC /* LanguageTimer.swift */; };
 		C7B3A7E22A289152008336DC /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DE2A289152008336DC /* LanguageVC.swift */; };
 		C7B3A7E32A289152008336DC /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3A7DF2A289152008336DC /* LanguageCell.swift */; };
@@ -493,6 +495,8 @@
 		C750B35D2A2DE0910038C1F8 /* WifiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiHelper.swift; sourceTree = "<group>"; };
 		C75C02672A2E2249004C3EED /* OfflineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineData.swift; sourceTree = "<group>"; };
 		C75C026F2A2E447E004C3EED /* PingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingResponse.swift; sourceTree = "<group>"; };
+		C79D00E92A3AC0D4005FE926 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		C79D00EC2A3AC106005FE926 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C7B3A7DD2A289152008336DC /* LanguageTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTimer.swift; sourceTree = "<group>"; };
 		C7B3A7DE2A289152008336DC /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		C7B3A7DF2A289152008336DC /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
@@ -679,6 +683,7 @@
 				BD7F1D252A27340F00BEB451 /* Profile.swift */,
 				BD7F1D222A27340F00BEB451 /* ProfileViewModel.swift */,
 				BD7F1D242A27340F00BEB451 /* VPNViewModel.swift */,
+				C79D00EC2A3AC106005FE926 /* NetworkManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1044,6 +1049,7 @@
 				C70CE26F2A274D09002E4DD1 /* WifiKey.swift */,
 				C75C02672A2E2249004C3EED /* OfflineData.swift */,
 				C75C026F2A2E447E004C3EED /* PingResponse.swift */,
+				C79D00E92A3AC0D4005FE926 /* Film.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1464,6 +1470,7 @@
 				C70CE27F2A274D09002E4DD1 /* PasswordData.swift in Sources */,
 				C70CE2182A274B34002E4DD1 /* INAPPJSON.swift in Sources */,
 				C70CE21E2A274B34002E4DD1 /* InhouseNativeView.swift in Sources */,
+				C79D00ED2A3AC106005FE926 /* NetworkManager.swift in Sources */,
 				C70CE2402A274B34002E4DD1 /* DataHubResponse.swift in Sources */,
 				C706473B2A27640700ED425B /* WifiAdminVC.swift in Sources */,
 				C72B4BB22A33004600BA5313 /* HistoryListener.swift in Sources */,
@@ -1481,6 +1488,7 @@
 				C70CE2682A274B34002E4DD1 /* MapperUtils.swift in Sources */,
 				C750B3522A2DDF9A0038C1F8 /* LANDevice.swift in Sources */,
 				BD7F1D482A273DB500BEB451 /* ConnectedTimer.swift in Sources */,
+				C79D00EA2A3AC0D4005FE926 /* Film.swift in Sources */,
 				C70CE25D2A274B34002E4DD1 /* InHouseAds.swift in Sources */,
 				BD7F1D472A273DB500BEB451 /* PurchaseInfo.swift in Sources */,
 				BD7F1C8B2A27083400BEB451 /* Config.swift in Sources */,

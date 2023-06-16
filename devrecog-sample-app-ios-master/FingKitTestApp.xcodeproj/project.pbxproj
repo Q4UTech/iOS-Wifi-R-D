@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6459487C1E3258FF00AA7B67 /* FGKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6459487B1E3258FF00AA7B67 /* FGKUtils.m */; };
-		6489EFF91E2FBAFC00C78ED4 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EFF81E2FBAFC00C78ED4 /* LicenseViewController.m */; };
 		A92C32DD1DA031F800C9F84E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92C32DC1DA031F800C9F84E /* MessageUI.framework */; };
-		A935C54D1D67402200A9364F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A935C54C1D67402200A9364F /* main.m */; };
-		A935C5501D67402200A9364F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A935C54F1D67402200A9364F /* AppDelegate.m */; };
-		A935C5531D67402200A9364F /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A935C5521D67402200A9364F /* NetworkViewController.m */; };
-		A935C5581D67402200A9364F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A935C5571D67402200A9364F /* Assets.xcassets */; };
 		A97FCAE41D67467C00C608A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97FCAE31D67467C00C608A0 /* CFNetwork.framework */; };
 		A97FCAE61D67468300C608A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97FCAE51D67468300C608A0 /* Foundation.framework */; };
 		A97FCAE81D67468700C608A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97FCAE71D67468700C608A0 /* UIKit.framework */; };
@@ -41,19 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6426D2612322674500701D1A /* FingKitTestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FingKitTestApp.entitlements; sourceTree = "<group>"; };
-		6459487A1E32588300AA7B67 /* FGKUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGKUtils.h; sourceTree = "<group>"; };
-		6459487B1E3258FF00AA7B67 /* FGKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGKUtils.m; sourceTree = "<group>"; };
-		6489EFF71E2FB8AF00C78ED4 /* LicenseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
-		6489EFF81E2FBAFC00C78ED4 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		A92C32DC1DA031F800C9F84E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A935C5481D67402200A9364F /* FingKitTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingKitTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A935C54C1D67402200A9364F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A935C54E1D67402200A9364F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A935C54F1D67402200A9364F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A935C5511D67402200A9364F /* NetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
-		A935C5521D67402200A9364F /* NetworkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
-		A935C5571D67402200A9364F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97FCAE31D67467C00C608A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A97FCAE51D67468300C608A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A97FCAE71D67468700C608A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,7 +72,6 @@
 		A935C53F1D67402200A9364F = {
 			isa = PBXGroup;
 			children = (
-				A935C54A1D67402200A9364F /* FingKitTestApp */,
 				A97FCB041D6772D800C608A0 /* Frameworks */,
 				A935C5491D67402200A9364F /* Products */,
 			);
@@ -101,24 +83,6 @@
 				A935C5481D67402200A9364F /* FingKitTestApp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A935C54A1D67402200A9364F /* FingKitTestApp */ = {
-			isa = PBXGroup;
-			children = (
-				6426D2612322674500701D1A /* FingKitTestApp.entitlements */,
-				A935C54E1D67402200A9364F /* AppDelegate.h */,
-				A935C54F1D67402200A9364F /* AppDelegate.m */,
-				A935C5571D67402200A9364F /* Assets.xcassets */,
-				6459487A1E32588300AA7B67 /* FGKUtils.h */,
-				6459487B1E3258FF00AA7B67 /* FGKUtils.m */,
-				6489EFF71E2FB8AF00C78ED4 /* LicenseViewController.h */,
-				6489EFF81E2FBAFC00C78ED4 /* LicenseViewController.m */,
-				A935C54C1D67402200A9364F /* main.m */,
-				A935C5511D67402200A9364F /* NetworkViewController.h */,
-				A935C5521D67402200A9364F /* NetworkViewController.m */,
-			);
-			path = FingKitTestApp;
 			sourceTree = "<group>";
 		};
 		A97FCB041D6772D800C608A0 /* Frameworks */ = {
@@ -199,7 +163,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A935C5581D67402200A9364F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,11 +173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6489EFF91E2FBAFC00C78ED4 /* LicenseViewController.m in Sources */,
-				A935C5531D67402200A9364F /* NetworkViewController.m in Sources */,
-				A935C5501D67402200A9364F /* AppDelegate.m in Sources */,
-				6459487C1E3258FF00AA7B67 /* FGKUtils.m in Sources */,
-				A935C54D1D67402200A9364F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

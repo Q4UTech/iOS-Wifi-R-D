@@ -52,43 +52,43 @@ public final class NetworkManagers {
             _ response: T?,
             _ error: String?) -> Void) where T: Decodable {
                 
-//                if isConnectedToNetwork() {
-                    let url = FITNESS_BASE_URL + apiName
+                //                if isConnectedToNetwork() {
+                let url = FITNESS_BASE_URL + apiName
                 
-                    print("CheckURL\(url)  \(params)")
+                print("CheckURL\(url)  \(params)")
                 
-                    Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { response in
-                      
-                        switch response.result {
-                           
-                        case .success(let value):
-                            do{
-                                let tObject: T? = try JSONDecoder().decode(T.self,from: value)
-                               
-
-                                if(tObject != nil)  {
-                                    print("tObject\(tObject)")
-                                    commonNetworkListner(tObject, nil)
-                                }else{
-                                    commonNetworkListner(nil, "T Object is null")
-                                }
-                                
-                                
-                              
-                                
-                            }catch let error{
-                                print("errorrrr\(error.localizedDescription)")
+                Alamofire.request(url, method: .post, parameters : params, encoding: JSONEncoding.default).responseData { response in
+                    
+                    switch response.result {
+                        
+                    case .success(let value):
+                        do{
+                            let tObject: T? = try JSONDecoder().decode(T.self,from: value)
+                            
+                            
+                            if(tObject != nil)  {
+                                print("tObject\(tObject)")
+                                commonNetworkListner(tObject, nil)
+                            }else{
+                                commonNetworkListner(nil, "T Object is null")
                             }
                             
-                            break
-                        case .failure(_):
-                            print("filure\(response.error)")
-                            commonNetworkListner(nil, response.error?.localizedDescription)
-                            break
                             
                             
+                            
+                        }catch let error{
+                            print("errorrrr\(error.localizedDescription)")
                         }
+                        
+                        break
+                    case .failure(_):
+                        print("filure\(response.error)")
+                        commonNetworkListner(nil, response.error?.localizedDescription)
+                        break
+                        
+                        
                     }
+                }
                 
             }
     
@@ -167,20 +167,20 @@ public final class NetworkManagers {
         return (isReachable && !needsConnection)
     }
     func getOSInfo()->String {
-           let os = ProcessInfo().operatingSystemVersion
-           return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
-       }
+        let os = ProcessInfo().operatingSystemVersion
+        return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
+    }
     
     func getAppVersionInfo()->String {
-           let dictionary = Bundle.main.infoDictionary!
-           let version = dictionary["CFBundleShortVersionString"] as! String
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
         _ = dictionary["CFBundleVersion"] as! String
-           return version
-       }
+        return version
+    }
     
     func  getCountryNameInfo()->String{
-         let locale = Locale.current
-         return String(locale.regionCode!)
+        let locale = Locale.current
+        return String(locale.regionCode!)
     }
     
     func getDeviceName()->String{
@@ -188,38 +188,38 @@ public final class NetworkManagers {
         return devicename
     }
     
-//    func getDeviceModel()->String{
-//        //let model = UIDevice.current.model
-//        let model  = UIDevice.current.userDevicemodelName
-//         
-//        return model
-//    }
+    //    func getDeviceModel()->String{
+    //        //let model = UIDevice.current.model
+    //        let model  = UIDevice.current.userDevicemodelName
+    //
+    //        return model
+    //    }
     
     func getSystemVersion()->String{
         let systemVersion = UIDevice.current.systemVersion
-          return systemVersion
+        return systemVersion
     }
     
     
-  
-
-  func json(from object:Any) -> String? {
-      guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
-          return nil
-      }
-      return String(data: data, encoding: String.Encoding.utf8)
-  }
+    
+    
+    func json(from object:Any) -> String? {
+        guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
+            return nil
+        }
+        return String(data: data, encoding: String.Encoding.utf8)
+    }
     
     func getScreenHeightResolution()->CGFloat{
-       let screenSize: CGRect = UIScreen.main.bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         return screenSize.height
     }
     
     func getScreenWidthResolution()->CGFloat{
-          let screenSize: CGRect = UIScreen.main.bounds
-           return screenSize.width
-       }
+        let screenSize: CGRect = UIScreen.main.bounds
+        return screenSize.width
+    }
     
 }
-    
+
 
